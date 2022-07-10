@@ -1,0 +1,171 @@
+
+:root {
+    --aspect-ratio: 1.3;
+}
+
+
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url(font/AtkinsonHyperlegible-Regular.ttf) format("truetype");
+}
+
+body {
+    margin: 0;
+}
+
+html	{
+    /*min-height:	100%;*/
+    /*font-family:	verdana;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: "Atkinson Hyperlegible", sans-serif;
+}
+
+h1 {
+    padding: 10px;
+}
+
+a {
+    text-decoration: underline;
+    color: darkblue;
+}
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    background-color: rgb(255, 150, 150);
+    padding: 10px 0;
+}
+
+nav a {
+    padding: 10px;
+}
+nav a.selected {
+    background-color: rgb(255,  50,  50);
+    text-decoration: none;
+    color: white;
+}
+
+/*html {*/
+    /*color: black;*/
+/*}*/
+
+.events {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.event {
+    display: flex;
+    flex-direction: row;
+    margin: 5vw;
+    /*align-items: stretch;*/
+    /*width: 90vw;*/
+    /*border: 1px solid black;*/
+}
+
+.eventimage {
+
+    /*display: inline-block;*/
+    width: 40vw;
+    height: calc(var(--aspect-ratio) * 40vw);
+    background: black;
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*vertical-align: top;*/
+}
+.eventdata {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: calc(var(--aspect-ratio) * 40vw);
+    /*display: inline-block;*/
+    background: blue;
+    /*font-size: 4vw;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+}
+.eventdatum {
+    display: flex;
+
+    /*height: calc(var(--aspect-ratio) * 10vw);*/
+    /*vertical-align: middle;*/
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventdatum:nth-child(1) {
+    font-size: 4vw;
+}
+.eventdatum:nth-child(2) {
+    font-size: 5vw;
+}
+.eventdatum:nth-child(3) {
+    font-size: 3vw;
+}
+.eventdatum:nth-child(4) {
+    font-size: 3vw;
+}
+.eventdatum:nth-child(5) {
+    font-size: 5vw;
+}
+
+.bold {
+    font-weight: bold;
+}
+.button {
+    border-radius: 2vw;
+    padding: 2vw;
+    cursor: pointer;
+    color: black;
+    border: 0.6vw solid black;
+    text-decoration: none;
+}
+.button:hover {
+
+    text-decoration: underline;
+    color: white;
+    border-color: white;
+}
+
+.studio .fade1 { background: rgb( 50,  50, 255); }
+.studio .fade2 { background: rgb(100, 100, 255); }
+.studio .fade3 { background: rgb(150, 150, 255); }
+.studio .fade4 { background: rgb(200, 200, 255); }
+.studio .fade5 { background: rgb(230, 230, 255); }
+
+.main .fade1 { background: rgb(255,  50,  50); }
+.main .fade2 { background: rgb(255, 100, 100); }
+.main .fade3 { background: rgb(255, 150, 150); }
+.main .fade4 { background: rgb(255, 200, 200); }
+.main .fade5 { background: rgb(255, 230, 230); }
+
+.online .fade1 { background: rgb( 50, 255,  50); }
+.online .fade2 { background: rgb(100, 255, 100); }
+.online .fade3 { background: rgb(150, 255, 150); }
+.online .fade4 { background: rgb(200, 255, 200); }
+.online .fade5 { background: rgb(230, 255, 230); }
+
+.unknown .fade1 { background: rgb( 50,  50,  50); }
+.unknown .fade2 { background: rgb(100, 100, 100); }
+.unknown .fade3 { background: rgb(150, 150, 150); }
+.unknown .fade4 { background: rgb(200, 200, 200); }
+.unknown .fade5 { background: rgb(230, 230, 230); }
+
+.popupContainer {
+    position: relative;
+}
+#popup {
+    position: fixed;
+    display: none;
+    top: 10vh;
+    bottom: 10vh;
+    right: 10vw;
+    left: 10vw;
+    background: aqua;
+}

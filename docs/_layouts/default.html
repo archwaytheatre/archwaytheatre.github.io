@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>The Archway Theatre</h1>
+<nav>
+    <a class="{% if page.name == 'index.md' %}selected{% endif %}" href="/index">What's On?</a>
+    <a class="{% if page.name == 'getinvolved.md' %}selected{% endif %}" href="/getinvolved">Get Involved!</a>
+    <a class="{% if page.name == 'everythingelse.md' %}selected{% endif %}" href="/everythingelse">Everything Else...</a>
+</nav>
+
+<section>
+    {{ content }}
+</section>
+<footer>
+    &copy; to me
+</footer>
+</body>
+</html>
