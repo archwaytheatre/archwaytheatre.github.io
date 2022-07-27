@@ -1,6 +1,36 @@
 
 :root {
-    --aspect-ratio: 1.3;
+    --aspect-ratio: 1.4145161;
+    --arch-grey: #6d6d6d;
+    --arch-pink-1: rgb(174,3,82);
+    --arch-pink-2: rgb(212,115,156);
+    --arch-blue-1: rgb(0,115,138);
+    --arch-blue-2: rgb(70,190,214);
+    --arch-pear-1: rgb(109,125,20);
+    --arch-pear-2: rgb(205,222,110);
+    --arch-grey-1: rgb(125,125,125);
+    --arch-grey-2: rgb(230,230,230);
+
+    --arch-main-1: rgb(174,3,82);
+    --arch-main-2: rgb(183,31,100);
+    --arch-main-3: rgb(193,59,119);
+    --arch-main-4: rgb(202,87,137);
+    --arch-main-5: rgb(212,115,156);
+    --arch-studio-1: rgb(0,115,138);
+    --arch-studio-2: rgb(17,133,157);
+    --arch-studio-3: rgb(35,152,176);
+    --arch-studio-4: rgb(52,171,195);
+    --arch-studio-5: rgb(70,190,214);
+    --arch-online-1: rgb(109,125,20);
+    --arch-online-2: rgb(133,149,42);
+    --arch-online-3: rgb(157,173,65);
+    --arch-online-4: rgb(181,197,87);
+    --arch-online-5: rgb(205,222,110);
+    --arch-unknown-1: rgb(125,125,125);
+    --arch-unknown-2: rgb(151,151,151);
+    --arch-unknown-3: rgb(177,177,177);
+    --arch-unknown-4: rgb(203,203,203);
+    --arch-unknown-5: rgb(230,230,230);
 }
 
 
@@ -20,6 +50,8 @@ html	{
     /*font-family:	verdana;*/
     /*font-family: 'Open Sans', sans-serif;*/
     font-family: "Atkinson Hyperlegible", sans-serif;
+    background-color: black;
+    color: var(--arch-grey-2);
 }
 
 h1 {
@@ -27,26 +59,51 @@ h1 {
 }
 
 a {
+    /*text-shadow: 5px 5px 5px black;*/
     text-decoration: underline;
-    color: darkblue;
+    color: var(--arch-grey-2);
+    /*color: var(--arch-unknown-3);*/
+    /*text-decoration: none;*/
 }
 a:hover {
+    text-shadow: 0 0 0.9vw white;
     text-decoration: none;
     color: white;
 }
 
+.prenav {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.prenav div {
+    color: black;
+    display: inline-block;
+}
+
 nav {
-    background-color: rgb(255, 150, 150);
+    font-size: larger;
+    position: sticky;
+    top: 0px;
+    background-color: var(--arch-pink-1);
     padding: 10px 0;
+    box-shadow: 0 10px 10px black;
+    /*border-bottom: 1px solid black;*/
 }
 
 nav a {
     padding: 10px;
 }
 nav a.selected {
-    background-color: rgb(255,  50,  50);
+    background-color: var(--arch-studio-1);
     text-decoration: none;
     color: white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid var(--arch-studio-1);
 }
 
 /*html {*/
@@ -62,7 +119,7 @@ nav a.selected {
 .event {
     display: flex;
     flex-direction: row;
-    margin: 5vw;
+    margin: 8.5vw;
     /*align-items: stretch;*/
     /*width: 90vw;*/
     /*border: 1px solid black;*/
@@ -78,6 +135,10 @@ nav a.selected {
     /*padding: 0;*/
     /*vertical-align: top;*/
 }
+.eventimage img {
+    width: 100%;
+}
+
 .eventdata {
     display: flex;
     flex-direction: column;
@@ -97,10 +158,11 @@ nav a.selected {
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    padding: 0.5vw;
 }
 
 .eventdatum:nth-child(1) {
-    font-size: 4vw;
+    font-size: 3vw;
 }
 .eventdatum:nth-child(2) {
     font-size: 5vw;
@@ -119,43 +181,46 @@ nav a.selected {
     font-weight: bold;
 }
 .button {
-    border-radius: 2vw;
+    /*border-radius: 2vw;*/
     padding: 2vw;
     cursor: pointer;
-    color: black;
-    border: 0.6vw solid black;
-    text-decoration: none;
+    /*color: black;*/
+    /*border: 1px solid black; !* 0.6vw  *!*/
+    /*text-decoration: underline;*/
+    box-shadow: 0px 5px 15px black;
 }
 .button:hover {
 
-    text-decoration: underline;
+    /*text-decoration: none;*/
     color: white;
+/*var(--arch-unknown-3);*/
     border-color: white;
+    box-shadow: 0px 5px 25px white;
 }
 
-.studio .fade1 { background: rgb( 50,  50, 255); }
-.studio .fade2 { background: rgb(100, 100, 255); }
-.studio .fade3 { background: rgb(150, 150, 255); }
-.studio .fade4 { background: rgb(200, 200, 255); }
-.studio .fade5 { background: rgb(230, 230, 255); }
+.studio .fade1 { background: var(--arch-studio-1); }
+.studio .fade2 { background: var(--arch-studio-2); }
+.studio .fade3 { background: var(--arch-studio-3); }
+.studio .fade4 { background: var(--arch-studio-4); }
+.studio .fade5 { background: var(--arch-studio-5); }
 
-.main .fade1 { background: rgb(255,  50,  50); }
-.main .fade2 { background: rgb(255, 100, 100); }
-.main .fade3 { background: rgb(255, 150, 150); }
-.main .fade4 { background: rgb(255, 200, 200); }
-.main .fade5 { background: rgb(255, 230, 230); }
+.main .fade1 { background: var(--arch-main-1); }
+.main .fade2 { background: var(--arch-main-2); }
+.main .fade3 { background: var(--arch-main-3); }
+.main .fade4 { background: var(--arch-main-4); }
+.main .fade5 { background: var(--arch-main-5); }
 
-.online .fade1 { background: rgb( 50, 255,  50); }
-.online .fade2 { background: rgb(100, 255, 100); }
-.online .fade3 { background: rgb(150, 255, 150); }
-.online .fade4 { background: rgb(200, 255, 200); }
-.online .fade5 { background: rgb(230, 255, 230); }
+.online .fade1 { background: var(--arch-online-1); }
+.online .fade2 { background: var(--arch-online-2); }
+.online .fade3 { background: var(--arch-online-3); }
+.online .fade4 { background: var(--arch-online-4); }
+.online .fade5 { background: var(--arch-online-5); }
 
-.unknown .fade1 { background: rgb( 50,  50,  50); }
-.unknown .fade2 { background: rgb(100, 100, 100); }
-.unknown .fade3 { background: rgb(150, 150, 150); }
-.unknown .fade4 { background: rgb(200, 200, 200); }
-.unknown .fade5 { background: rgb(230, 230, 230); }
+.unknown .fade1 { background: var(--arch-unknown-1); }
+.unknown .fade2 { background: var(--arch-unknown-2); }
+.unknown .fade3 { background: var(--arch-unknown-3); }
+.unknown .fade4 { background: var(--arch-unknown-4); }
+.unknown .fade5 { background: var(--arch-unknown-5); }
 
 .popupContainer {
     position: relative;
@@ -167,5 +232,8 @@ nav a.selected {
     bottom: 10vh;
     right: 10vw;
     left: 10vw;
-    background: aqua;
+    border: 1px solid black;
+    padding: 1vw;
+    background: white;
+    color: black;
 }

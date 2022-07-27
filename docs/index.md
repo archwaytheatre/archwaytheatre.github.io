@@ -54,9 +54,9 @@ Popup
         {{ event.dates }}
       </div>
       <div class="eventdatum fade5 bold">
-        <div class="button fade1">
+        <a href="https://www.ticketsource.co.uk/archwaytheatre/" class="button fade1">
           Buy Tickets
-        </div> 
+        </a> 
       </div>
 <!-- 
 -->
