@@ -21,11 +21,11 @@
     --arch-studio-3: rgb(35,152,176);
     --arch-studio-4: rgb(52,171,195);
     --arch-studio-5: rgb(70,190,214);
-    --arch-online-1: rgb(109,125,20);
-    --arch-online-2: rgb(133,149,42);
-    --arch-online-3: rgb(157,173,65);
-    --arch-online-4: rgb(181,197,87);
-    --arch-online-5: rgb(205,222,110);
+    --arch-digital-1: rgb(109,125,20);
+    --arch-digital-2: rgb(133,149,42);
+    --arch-digital-3: rgb(157,173,65);
+    --arch-digital-4: rgb(181,197,87);
+    --arch-digital-5: rgb(205,222,110);
     --arch-unknown-1: rgb(125,125,125);
     --arch-unknown-2: rgb(151,151,151);
     --arch-unknown-3: rgb(177,177,177);
@@ -50,6 +50,7 @@ html	{
     /*font-family:	verdana;*/
     /*font-family: 'Open Sans', sans-serif;*/
     font-family: "Atkinson Hyperlegible", sans-serif;
+    font-size: x-large;
     background-color: black;
     color: var(--arch-grey-2);
 }
@@ -85,17 +86,17 @@ a:hover {
 }
 
 nav {
-    font-size: larger;
+    font-size: xx-large;
     position: sticky;
     top: 0px;
     background-color: var(--arch-pink-1);
-    padding: 10px 0;
+    padding: 15px 0;
     box-shadow: 0 10px 10px black;
     /*border-bottom: 1px solid black;*/
 }
 
 nav a {
-    padding: 10px;
+    padding: 15px;
 }
 nav a.selected {
     background-color: var(--arch-studio-1);
@@ -119,7 +120,7 @@ nav a.selected {
 .event {
     display: flex;
     flex-direction: row;
-    margin: 8.5vw;
+    margin: 8.5vw 8.5vw 4vw;
     /*align-items: stretch;*/
     /*width: 90vw;*/
     /*border: 1px solid black;*/
@@ -210,11 +211,11 @@ nav a.selected {
 .main .fade4 { background: var(--arch-main-4); }
 .main .fade5 { background: var(--arch-main-5); }
 
-.online .fade1 { background: var(--arch-online-1); }
-.online .fade2 { background: var(--arch-online-2); }
-.online .fade3 { background: var(--arch-online-3); }
-.online .fade4 { background: var(--arch-online-4); }
-.online .fade5 { background: var(--arch-online-5); }
+.digital .fade1 { background: var(--arch-digital-1); }
+.digital .fade2 { background: var(--arch-digital-2); }
+.digital .fade3 { background: var(--arch-digital-3); }
+.digital .fade4 { background: var(--arch-digital-4); }
+.digital .fade5 { background: var(--arch-digital-5); }
 
 .unknown .fade1 { background: var(--arch-unknown-1); }
 .unknown .fade2 { background: var(--arch-unknown-2); }

@@ -32,8 +32,8 @@ Popup
   <div class="event main">
     {% elsif event.location == "The Studio" %}
   <div class="event studio">
-    {% elsif event.location == "Online" %}
-  <div class="event online">
+    {% elsif event.location == "Digital" %}
+  <div class="event digital">
     {% else %}
   <div class="event unknown">
     {% endif %}
@@ -54,7 +54,12 @@ Popup
         {{ event.dates }}
       </div>
       <div class="eventdatum fade5 bold">
+
+      {% if event.location == "Digital" %}
+        <a href="https://www.ticketsource.co.uk/archwaytheatredigital/" class="button fade1">
+      {% else %}
         <a href="https://www.ticketsource.co.uk/archwaytheatre/" class="button fade1">
+      {% endif %}
           Buy Tickets
         </a> 
       </div>

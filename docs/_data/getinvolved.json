@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Lysistrata",
+    "type": "Audition",
+    "when": "Monday, August 8th, 7:45pm",
+    "where": "In the Studio",
+    "performances": "24 - 26 Nov in the Studio",
+    "contact": "Bryony Lock, email@example.com",
+    "about": "It's really good, you should come and audition!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/06_Oliver.jpg?resize=620%2C877"
+  },
+  {
+    "type": "Permanent",
+    "about": "Come and help in our bar!",
+    "contact": "someone...?"
+  },
+  {
+    "type": "Permanent",
+    "about": "Come and help in our build our sets!",
+    "contact": "someone...?"
+  },
+]
