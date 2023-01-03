@@ -29,7 +29,6 @@
   (loop [[[match tag slash content] & matches] (re-seq #"(<(/?)[^<>]+>)([^<>]*)" html-string)
          indent ""
          output ""]
-    (println match)
     (if match
       (let [[i1 i2] (cond
                       (= tag "<!DOCTYPE html>") [indent indent]
