@@ -15,5 +15,7 @@ jobs:
         run: clojure -X:build
       - name: Push Generated Website
         run: |
+          git config --global user.email "no-reply@no-reply.example.com"
+          git config --global user.name "GitHub Actions"
           git commit -am "Automatic Site Generation"
           git push
