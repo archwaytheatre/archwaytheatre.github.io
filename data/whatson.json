@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Oliver!",
+    "location": "Main House",
+    "dates": "14th July - 30th July",
+    "trailer": "video-url",
+    "about": "it's really good, you should see it!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/06_Oliver.jpg?resize=620%2C877"
+  },
+  {
+    "name": "Lend me a Tenor",
+    "location": "Main House",
+    "dates": "1st August - 20th August",
+    "about": "it's really good, you should see it!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/07_tenors.jpg?resize=724%2C1024"
+  },
+  {
+    "name": "A fistful of Tenors",
+    "location": "The Studio",
+    "dates": "1st August - 20th August",
+    "about": "it's really good, you should see it!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/05_Thalia.jpg?resize=724%2C1024"
+  },
+  {
+    "name": "For a few Tenors more",
+    "location": "Digital",
+    "dates": "1st August - 20th August",
+    "about": "it's really good, you should see it!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/08_pressure.jpg?resize=724%2C1024"
+  },
+  {
+    "name": "The Play with the ridiculously long name to test the limits of the layout. No, seriously, it's just silly now.",
+    "location": "Unknown",
+    "dates": "1st August - 20th August",
+    "about": "it's really good, you should see it!",
+    "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2021/12/08_pressure.jpg?resize=724%2C1024"
+  }
+]
