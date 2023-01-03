@@ -21,24 +21,48 @@
             [index :selected?]
             true))
 
+(def void-tag?
+  #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
+    "keygen" "link" "meta" "param" "source" "track" "wbr"})
+
+(defn prettify [html-string]
+  (loop [[[match tag slash content] & matches] (re-seq #"(<(/?)[^<>]+>)([^<>]*)" html-string)
+         indent ""
+         output ""]
+    (println match)
+    (if match
+      (let [[i1 i2] (cond
+                      (= tag "<!DOCTYPE html>") [indent indent]
+                      (void-tag? (re-find #"[^\s>]*" (subs tag 1))) [indent indent]
+                      (= slash "/") [(subs indent 2) (subs indent 2)]
+                      :else [indent (str indent "  ")])
+            new-output (str output i1 tag "\n"
+                            (when-not (string/blank? content)
+                              (str i2 content "\n")))]
+        (recur matches
+               i2
+               new-output))
+      output)))
+
 (defn page [page-name title menu-items & content]
   (spit
     (io/file "docs" (str page-name ".html"))
-    (hiccup.page/html5
-      [:head
-       [:meta {:charset "utf-8"}]
-       [:title title]
-       [:link {:rel "stylesheet" :href "./css/style.css"}]
-       [:script {:src "./js/popup.js"}]]
-      [:body
-       [:div.prenav
-        [:div
-         [:img {:src "archway_header.png"}]]
-        [:div "A thriving theatre in the heart of Horley."]]
-       (menu menu-items)
-       [:div.popupContainer
-        [:div#popup {:onclick "javascript:hidePopup();"}
-         [:div#popupText "Popup"]]]
-       [:section (hiccup.core/html content)]
-       [:footer "&copy; to me"]])))
+    (prettify
+      (hiccup.page/html5
+        [:head
+         [:meta {:charset "utf-8"}]
+         [:title title]
+         [:link {:rel "stylesheet" :href "./css/style.css"}]
+         [:script {:src "./js/popup.js"}]]
+        [:body
+         [:div.prenav
+          [:div
+           [:img {:src "archway_header.png"}]]
+          [:div "A thriving theatre in the heart of Horley."]]
+         (menu menu-items)
+         [:div.popupContainer
+          [:div#popup {:onclick "javascript:hidePopup();"}
+           [:div#popupText "Popup"]]]
+         [:section (hiccup.core/html content)]
+         [:footer "&copy; to me"]]))))
 
