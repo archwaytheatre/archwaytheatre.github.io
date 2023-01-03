@@ -23,7 +23,7 @@
 
 (defn page [page-name title menu-items & content]
   (spit
-    (io/file "output" (str page-name ".html"))
+    (io/file "docs" (str page-name ".html"))
     (hiccup.page/html5
       [:head
        [:meta {:charset "utf-8"}]

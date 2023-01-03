@@ -39,7 +39,7 @@
 
 @font-face {
     font-family: "Atkinson Hyperlegible";
-    src: url(../fonts/AtkinsonHyperlegible-Regular.ttf) format("truetype");
+    src: url(../../docs/fonts/AtkinsonHyperlegible-Regular.ttf) format("truetype");
     /*src: url(../fonts/AtkinsonHyperlegible-Bold.ttf) format("truetype");*/
 }
 
