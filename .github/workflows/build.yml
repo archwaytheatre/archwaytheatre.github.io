@@ -12,7 +12,7 @@ jobs:
         with:
           cli: 1.10.1.693
       - name: Build Website
-        run: clj -X:build
+        run: clojure -X:build
       - name: Push Generated Website
         run: |
           git commit -am "Automatic Site Generation"
