@@ -90,13 +90,13 @@ a:hover {
 }
 
 nav {
+    display: flex;
+    flex-wrap: wrap;
     font-size: xx-large;
     position: sticky;
     top: 0px;
     background-color: var(--arch-pink-1);
-    padding: 15px 0;
     box-shadow: 0 10px 10px black;
-    /*border-bottom: 1px solid black;*/
 }
 
 nav a {
@@ -108,7 +108,7 @@ nav a.selected {
     color: white;
     border-left: 1px solid white;
     border-right: 1px solid white;
-    border-bottom: 1px solid var(--arch-studio-1);
+    /*border-bottom: 1px solid var(--arch-studio-1);*/
 }
 
 /*html {*/
