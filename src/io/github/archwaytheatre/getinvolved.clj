@@ -9,7 +9,8 @@
 
 (core/page "getinvolved" "The Archway Theatre" (core/menu-items 1)
   [:div.events
-   (for [{:keys [location name type when where performances contact about imageurl]} (json/parse-string (slurp "data/getinvolved.json") keyword)]
+   (for [{:keys [location name type when where performances contact about imageurl]}
+         (json/parse-string (slurp "data/getinvolved.json") keyword)]
      [:div {:class (core/classes "event" (location->class location "unknown"))}
       [:div.eventimage
        [:img {:src imageurl}]]

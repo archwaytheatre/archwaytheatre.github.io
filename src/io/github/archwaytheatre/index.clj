@@ -9,7 +9,8 @@
 
 (core/page "index" "The Archway Theatre" (core/menu-items 0)
   [:div.events
-   (for [{:keys [name location dates trailer about imageurl]} (json/parse-string (slurp "data/whatson.json") keyword)]
+   (for [{:keys [name location dates trailer about imageurl]}
+         (json/parse-string (slurp "data/whatson.json") keyword)]
      [:div {:class (core/classes "event" (location->class location "unknown"))}
       [:div.eventimage
        [:img {:src imageurl}]]
