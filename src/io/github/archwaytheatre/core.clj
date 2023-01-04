@@ -21,7 +21,16 @@
             [index :selected?]
             true))
 
-(def void-tag?
+(def creative-commons-by-sa-2.0
+  ["CC BY-SA 2.0" "https://creativecommons.org/licenses/by-sa/2.0/"])
+
+(defn image [src width rights-holder [license-label license-link]]
+  [:div.attributed.image {:style (str "max-width: " width ";")}
+   [:img {:src src}]
+   [:div.attribution
+    [:span rights-holder [:a {:href license-link} license-label]]]])
+
+(def void?
   #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
     "keygen" "link" "meta" "param" "source" "track" "wbr"})
 
