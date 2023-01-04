@@ -60,26 +60,28 @@
       output)))
 
 (defn page [page-name title menu-items & content]
-  (spit
-    (io/file "docs" (str page-name ".html"))
-    (prettify
-      (hiccup.page/html5
-        [:head
-         [:meta {:charset "utf-8"}]
-         [:title title]
-         [:link {:rel "stylesheet" :href "./css/style.css"}]
-         [:link {:rel "icon" :type "image/png" :href "favicon.png"}]
-         [:script {:src "./js/popup.js"}]]
-        [:body
-         [:div.prenav
-          [:div
-           [:img {:src "archway_header.png"}]]
-          [:div "A thriving theatre in the heart of Horley."]]
-         (menu menu-items)
-         [:div.popupContainer
-          [:div#popup {:onclick "javascript:hidePopup();"}
-           [:div#popupText "Popup"]]]
-         [:section (hiccup.core/html content)]
-         [:br]
-         [:footer "&copy; 2022-2023 The Archway Theatre"]]))))
+  (let [filename (str page-name ".html")]
+    (spit
+      (io/file "docs" filename)
+      (prettify
+        (hiccup.page/html5
+          [:head
+           [:meta {:charset "utf-8"}]
+           [:title title]
+           [:link {:rel "stylesheet" :href "./css/style.css"}]
+           [:link {:rel "icon" :type "image/png" :href "favicon.png"}]
+           [:script {:src "./js/popup.js"}]]
+          [:body
+           [:div.prenav
+            [:div
+             [:img {:src "archway_header.png"}]]
+            [:div "A thriving theatre in the heart of Horley."]]
+           (menu menu-items)
+           [:div.popupContainer
+            [:div#popup {:onclick "javascript:hidePopup();"}
+             [:div#popupText "Popup"]]]
+           [:section (hiccup.core/html content)]
+           [:br]
+           [:footer "&copy; 2022-2023 The Archway Theatre"]])))
+    (println "Wrote" filename)))
 
