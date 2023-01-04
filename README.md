@@ -9,7 +9,7 @@ Currently available at:
 ### Essential
 
 #### Plumbing
-* Domain name record
+* Domain name record (once site reaches minimum quality bar)
 
 #### Process
 * ~~Mechanism for updating content~~
