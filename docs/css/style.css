@@ -226,3 +226,28 @@ nav a.selected {
     background: white;
     color: black;
 }
+
+.container {
+    padding: 5vh 10vw;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: black;
+    color: var(--arch-grey);
+    box-shadow: 0 -10px 10px black;
+}
+
+.attributed {
+    display: flex;
+    flex-direction: column;
+}
+.attribution, .attribution a {
+    text-align: center;
+    color: black;
+    background-color: #444;
+}
