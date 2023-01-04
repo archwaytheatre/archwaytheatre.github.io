@@ -25,19 +25,25 @@
   #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
     "keygen" "link" "meta" "param" "source" "track" "wbr"})
 
+(def do-not-touch? #{"pre"})
+
 (defn prettify [html-string]
-  (loop [[[match tag slash content] & matches] (re-seq #"(<(/?)[^<>]+>)([^<>]*)" html-string)
+  (loop [[[match slash tag attrs content] & matches] (re-seq #"<(/?)([^<>\s]+)([^>]*)>([^<>]*)" html-string)
          indent ""
          output ""]
     (if match
       (let [[i1 i2] (cond
-                      (= tag "<!DOCTYPE html>") [indent indent]
-                      (void-tag? (re-find #"[^\s>]*" (subs tag 1))) [indent indent]
+                      (= tag "!DOCTYPE") [indent indent]
+                      (void? tag) [indent indent]
                       (= slash "/") [(subs indent 2) (subs indent 2)]
                       :else [indent (str indent "  ")])
-            new-output (str output i1 tag "\n"
-                            (when-not (string/blank? content)
-                              (str i2 content "\n")))]
+            new-output (if (do-not-touch? tag)
+                         (if (string/blank? slash)
+                           (str output i1 match)
+                           (str output "<" slash tag attrs ">\n" i2 content "\n"))
+                         (str output i1 "<" slash tag attrs ">\n"
+                              (when-not (string/blank? content)
+                                (str i2 content "\n"))))]
         (recur matches
                i2
                new-output))
