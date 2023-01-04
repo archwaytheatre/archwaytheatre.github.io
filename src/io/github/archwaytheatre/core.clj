@@ -2,7 +2,8 @@
   (:require [clojure.java.io :as io]
             [hiccup.page :as hiccup.page]
             [hiccup.core :as hiccup.core]
-            [clojure.string :as string]))
+            [clojure.string :as string])
+  (:import [java.time Year]))
 
 (defn classes [& stuffs]
   (->> stuffs
@@ -82,6 +83,6 @@
              [:div#popupText "Popup"]]]
            [:section (hiccup.core/html content)]
            [:br]
-           [:footer "&copy; 2022-2023 The Archway Theatre"]])))
+           [:footer.dark (str "&copy; 2022-" (str (Year/now)) " The Archway Theatre")]])))
     (println "Wrote" filename)))
 
