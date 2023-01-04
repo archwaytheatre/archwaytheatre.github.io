@@ -79,5 +79,6 @@
           [:div#popup {:onclick "javascript:hidePopup();"}
            [:div#popupText "Popup"]]]
          [:section (hiccup.core/html content)]
-         [:footer "&copy; to me"]]))))
+         [:br]
+         [:footer "&copy; 2022-2023 The Archway Theatre"]]))))
 
