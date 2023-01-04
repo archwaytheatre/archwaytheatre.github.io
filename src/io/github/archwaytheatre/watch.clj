@@ -5,6 +5,7 @@
 
 (defn watch [& _opts]
   (println "watching...")
+  (build/build)
   (dirwatch/watch-dir
     (fn [& args]
       (println args)
