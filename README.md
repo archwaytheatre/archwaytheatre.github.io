@@ -18,8 +18,8 @@ Currently available at:
 #### Content
 * ~~What's on page (with links to buy tickets)~~
 * Get Involved page
-* Find us page
-* Contact page
+* ~~Find us page~~
+* ~~Contact page~~
 * Membership link
 
 ### Wish List
