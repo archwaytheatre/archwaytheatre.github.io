@@ -3,6 +3,13 @@
     --aspect-ratio: 1.4145161;
     --my-vw: min(1000px, 100vw);
 
+    --pink: #ac0150;
+    --pink-shadow: #6a0020;
+
+    --bg: #ffaed8;
+    --fg-light: rgb(50,50,50);
+    --fg-dark: rgb(220,220,220);
+
     --arch-grey: #6d6d6d;
     --arch-pink-1: rgb(174,3,82);
     --arch-pink-2: rgb(212,115,156);
@@ -55,8 +62,12 @@ html	{
     /*font-family: 'Open Sans', sans-serif;*/
     font-family: "Atkinson Hyperlegible", sans-serif;
     font-size: x-large;
-    background-color: black;
-    color: var(--arch-grey-2);
+    background-color: var(--bg);
+    color: var(--fg-light);
+}
+
+.dark {
+    color: var(--fg-dark);
 }
 
 h1 {
@@ -64,11 +75,11 @@ h1 {
 }
 
 a {
-    /*text-shadow: 5px 5px 5px black;*/
     text-decoration: underline;
-    color: var(--arch-grey-2);
-    /*color: var(--arch-unknown-3);*/
-    /*text-decoration: none;*/
+    color: var(--fg-light);
+}
+.dark a {
+    color: var(--fg-dark);
 }
 a:hover {
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
@@ -95,8 +106,8 @@ nav {
     font-size: xx-large;
     position: sticky;
     top: 0px;
-    background-color: var(--arch-pink-1);
-    box-shadow: 0 10px 10px black;
+    background-color: var(--pink);
+    box-shadow: 0 10px 10px var(--pink-shadow);
 }
 
 nav a {
@@ -237,9 +248,9 @@ footer {
     left: 0;
     right: 0;
     text-align: center;
-    background-color: black;
-    color: var(--arch-grey);
-    box-shadow: 0 -10px 10px black;
+    color: var(--fg-dark);
+    z-index: -10;
+    background-color: var(--pink);
 }
 
 .attributed {

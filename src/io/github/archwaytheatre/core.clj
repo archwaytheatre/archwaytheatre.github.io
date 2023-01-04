@@ -11,7 +11,7 @@
        (string/join " ")))
 
 (defn menu [menu-items]
-  [:nav
+  [:nav.dark
    (for [{:keys [label selected? href]} menu-items]
      [:a {:class (if selected? "selected" "") :href href} label])])
 
