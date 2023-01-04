@@ -3,43 +3,50 @@
     --aspect-ratio: 1.4145161;
     --my-vw: min(1000px, 100vw);
 
-    --pink: #ac0150;
-    --pink-shadow: #6a0020;
-
     --bg: #ffaed8;
     --fg-light: rgb(50,50,50);
     --fg-dark: rgb(220,220,220);
 
-    --arch-grey: #6d6d6d;
-    --arch-pink-1: rgb(174,3,82);
-    --arch-pink-2: rgb(212,115,156);
-    --arch-blue-1: rgb(0,115,138);
-    --arch-blue-2: rgb(70,190,214);
-    --arch-pear-1: rgb(109,125,20);
-    --arch-pear-2: rgb(205,222,110);
-    --arch-grey-1: rgb(125,125,125);
-    --arch-grey-2: rgb(230,230,230);
+    --pink-a: #ac0150;
+    --pink-b: #d4739c;
+    --blue-a: #00738a;
+    --blue-b: #46bed6;
+    --pear-a: #6d7d14;
+    --pear-b: #cdde6e;
+    --grey-a: #7d7d7d;
+    --grey-b: #e6e6e6;
 
-    --arch-main-1: rgb(174,3,82);
-    --arch-main-2: rgb(183,31,100);
-    --arch-main-3: rgb(193,59,119);
-    --arch-main-4: rgb(202,87,137);
-    --arch-main-5: rgb(212,115,156);
-    --arch-studio-1: rgb(0,115,138);
-    --arch-studio-2: rgb(17,133,157);
-    --arch-studio-3: rgb(35,152,176);
-    --arch-studio-4: rgb(52,171,195);
-    --arch-studio-5: rgb(70,190,214);
-    --arch-digital-1: rgb(109,125,20);
-    --arch-digital-2: rgb(133,149,42);
-    --arch-digital-3: rgb(157,173,65);
-    --arch-digital-4: rgb(181,197,87);
-    --arch-digital-5: rgb(205,222,110);
-    --arch-unknown-1: rgb(125,125,125);
-    --arch-unknown-2: rgb(151,151,151);
-    --arch-unknown-3: rgb(177,177,177);
-    --arch-unknown-4: rgb(203,203,203);
-    --arch-unknown-5: rgb(230,230,230);
+    --pink-shadow: #63012e;
+    --pink-1: #ac0150;
+    --pink-2: #b61e63;
+    --pink-3: #c03a76;
+    --pink-4: #ca5789;
+    --pink-5: #d4739c;
+    --pink-light: #eab9ce;
+
+    --blue-shadow: #00424f;
+    --blue-1: #00738a;
+    --blue-2: #12869d;
+    --blue-3: #2399b0;
+    --blue-4: #35abc3;
+    --blue-5: #46bed6;
+    --blue-light: #a3dfeb;
+
+    --pear-shadow: #3f480c;
+    --pear-1: #6d7d14;
+    --pear-2: #85952b;
+    --pear-3: #9dae41;
+    --pear-4: #b5c658;
+    --pear-5: #cdde6e;
+    --pear-light: #e6efb7;
+
+    --grey-shadow: #484848;
+    --grey-1: #7d7d7d;
+    --grey-2: #979797;
+    --grey-3: #b2b2b2;
+    --grey-4: #cccccc;
+    --grey-5: #e6e6e6;
+    --grey-light: #f3f3f3;
 }
 
 
@@ -106,7 +113,7 @@ nav {
     font-size: xx-large;
     position: sticky;
     top: 0px;
-    background-color: var(--pink);
+    background-color: var(--pink-1);
     box-shadow: 0 10px 10px var(--pink-shadow);
 }
 
@@ -114,12 +121,11 @@ nav a {
     padding: 15px;
 }
 nav a.selected {
-    background-color: var(--arch-studio-1);
+    background-color: var(--blue-1);
     text-decoration: none;
     color: white;
     border-left: 1px solid white;
     border-right: 1px solid white;
-    /*border-bottom: 1px solid var(--arch-studio-1);*/
 }
 
 /*html {*/
@@ -154,7 +160,7 @@ nav a.selected {
     flex-direction: column;
     width: calc(0.40 * var(--my-vw));
     height: calc(var(--aspect-ratio) * 0.40 * var(--my-vw));
-    background: blue;
+    border-radius: 0 0 calc(0.31 * var(--my-vw)) 0;
 }
 .eventdatum {
     display: flex;
@@ -169,6 +175,9 @@ nav a.selected {
 }
 .eventdatum:nth-child(2) {
     font-size: calc(0.05 * var(--my-vw));
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.15);
 }
 .eventdatum:nth-child(3) {
     font-size: calc(0.03 * var(--my-vw));
@@ -184,43 +193,32 @@ nav a.selected {
     font-weight: bold;
 }
 .button {
-    /*border-radius: 2vw;*/
     padding: calc(0.03 * var(--my-vw));
     cursor: pointer;
-    box-shadow: 0px 5px 15px black;
+    box-shadow: 0px 5px 15px var(--pink-1);
 }
 .button:hover {
-
-    /*text-decoration: none;*/
     color: white;
-/*var(--arch-unknown-3);*/
     border-color: white;
     box-shadow: 0px 5px 25px white;
 }
 
-.studio .fade1 { background: var(--arch-studio-1); }
-.studio .fade2 { background: var(--arch-studio-2); }
-.studio .fade3 { background: var(--arch-studio-3); }
-.studio .fade4 { background: var(--arch-studio-4); }
-.studio .fade5 { background: var(--arch-studio-5); }
-
-.main .fade1 { background: var(--arch-main-1); }
-.main .fade2 { background: var(--arch-main-2); }
-.main .fade3 { background: var(--arch-main-3); }
-.main .fade4 { background: var(--arch-main-4); }
-.main .fade5 { background: var(--arch-main-5); }
-
-.digital .fade1 { background: var(--arch-digital-1); }
-.digital .fade2 { background: var(--arch-digital-2); }
-.digital .fade3 { background: var(--arch-digital-3); }
-.digital .fade4 { background: var(--arch-digital-4); }
-.digital .fade5 { background: var(--arch-digital-5); }
-
-.unknown .fade1 { background: var(--arch-unknown-1); }
-.unknown .fade2 { background: var(--arch-unknown-2); }
-.unknown .fade3 { background: var(--arch-unknown-3); }
-.unknown .fade4 { background: var(--arch-unknown-4); }
-.unknown .fade5 { background: var(--arch-unknown-5); }
+.main .eventdata { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-1) 100%); }
+.main .button { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%); }
+.main .button { box-shadow: 0px 5px 15px var(--pink-shadow); }
+.main .button:hover { box-shadow: 0px 5px 25px white; }
+.studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
+.studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
+.studio .button { box-shadow: 0px 5px 15px var(--blue-1); }
+.studio .button:hover { box-shadow: 0px 5px 25px white; }
+.digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
+.digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
+.digital .button { box-shadow: 0px 5px 15px var(--pear-1); }
+.digital .button:hover { box-shadow: 0px 5px 25px white; }
+.unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
+.unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
+.unknown .button { box-shadow: 0px 5px 15px var(--grey-1); }
+.unknown .button:hover { box-shadow: 0px 5px 25px white; }
 
 .popupContainer {
     position: relative;
@@ -239,7 +237,9 @@ nav a.selected {
 }
 
 .container {
-    padding: 5vh 10vw;
+    padding: 2vh 5vw;
+    margin: 2vh 5vw;
+    background-color: var(--bg);
 }
 
 footer {
@@ -248,9 +248,8 @@ footer {
     left: 0;
     right: 0;
     text-align: center;
-    color: var(--fg-dark);
     z-index: -10;
-    background-color: var(--pink);
+    background-image: linear-gradient(90deg, var(--bg) 10%, var(--pink-5) 50%, var(--bg) 90%);
 }
 
 .attributed {
