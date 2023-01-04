@@ -1,5 +1,5 @@
 {:deps {hiccup/hiccup {:mvn/version "1.0.5"}
         cheshire/cheshire {:mvn/version "5.11.0"}}
- :aliases {:watch {:deps {juxt/dirwatch {:mvn/version "0.2.5"}}
+ :aliases {:watch {:extra-deps {juxt/dirwatch {:mvn/version "0.2.5"}}
                    :exec-fn io.github.archwaytheatre.watch/watch}
            :build {:exec-fn io.github.archwaytheatre.build/build}}}
