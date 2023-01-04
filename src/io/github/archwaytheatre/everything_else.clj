@@ -2,7 +2,7 @@
   (:require [io.github.archwaytheatre.core :as core]))
 
 
-(core/page "everythingelse" "The Archway Theatre" (core/menu-items 2)
+(core/page "everythingelse" "The Archway Theatre" (core/menu-items 3)
   [:div
    [:br]
    [:div "Contact"]

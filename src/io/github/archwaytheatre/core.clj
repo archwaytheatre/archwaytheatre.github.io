@@ -17,6 +17,7 @@
 (defn menu-items [index]
   (assoc-in [{:href "./index.html" :label "What's On?"}
              {:href "./getinvolved.html" :label "Get Involved!"}
+             {:href "./findus.html" :label "Find Us"}
              {:href "./everythingelse.html" :label "Everything Else"}]
             [index :selected?]
             true))
