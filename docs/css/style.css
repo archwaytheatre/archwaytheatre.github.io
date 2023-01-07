@@ -17,8 +17,8 @@
     --blue-b: #46bed6;
     --pear-a: #6d7d14;
     --pear-b: #cdde6e;
-    --grey-a: #7d7d7d;
-    --grey-b: #e6e6e6;
+    --grey-a: #585858;
+    --grey-b: #929292;
 
     --pink-shadow: var(--shadow); /*#63012e;*/
     --pink-1: #ac0150;
@@ -45,12 +45,12 @@
     --pear-light: #e6efb7;
 
     --grey-shadow: var(--shadow); /*#484848;*/
-    --grey-1: #7d7d7d;
-    --grey-2: #979797;
-    --grey-3: #b2b2b2;
-    --grey-4: #cccccc;
-    --grey-5: #e6e6e6;
-    --grey-light: #f3f3f3;
+    --grey-1: #585858;
+    --grey-2: #676767;
+    --grey-3: #757575;
+    --grey-4: #848484;
+    --grey-5: #929292;
+    --grey-light: #c9c9c9;
 }
 
 
@@ -68,9 +68,6 @@ body {
 }
 
 html	{
-    /*min-height:	100%;*/
-    /*font-family:	verdana;*/
-    /*font-family: 'Open Sans', sans-serif;*/
     font-family: "Atkinson Hyperlegible", sans-serif;
     font-size: x-large;
     background-color: var(--bg);
@@ -89,6 +86,7 @@ a {
     text-decoration: underline;
     color: var(--fg-light);
 }
+
 .dark a {
     color: var(--fg-dark);
 }
@@ -218,19 +216,19 @@ nav a.selected {
 .main .eventdata { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-1) 100%); }
 .main .button { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%); }
 .main .button { box-shadow: 0px 5px 15px var(--pink-shadow); }
-.main .popup { border: 1px solid var(--pink-shadow); background: var(--pink-1);}
+.main .popup { background: var(--pink-2);}
 .studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
 .studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
 .studio .button { box-shadow: 0px 5px 15px var(--blue-shadow); }
-.studio .popup { border: 1px solid var(--blue-shadow); background: var(--blue-1);}
+.studio .popup { background: var(--blue-2);}
 .digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
 .digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
 .digital .button { box-shadow: 0px 5px 15px var(--pear-shadow); }
-.digital .popup { border: 1px solid var(--pear-shadow); background: var(--pear-1);}
+.digital .popup { background: var(--pear-2);}
 .unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
 .unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
 .unknown .button { box-shadow: 0px 5px 15px var(--grey-shadow); }
-.unknown .popup { border: 1px solid var(--grey-shadow); background: var(--grey-1);}
+.unknown .popup { background: var(--grey-2);}
 
 .main .button:hover,
 .studio .button:hover,
@@ -274,8 +272,6 @@ nav a.selected {
 }
 .popup pre {
     margin: 10px;
-    font-family: "Atkinson Hyperlegible", sans-serif;
-    white-space: pre-wrap;
 }
 
 pre {
