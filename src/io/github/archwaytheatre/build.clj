@@ -1,12 +1,21 @@
-(ns io.github.archwaytheatre.build)
+(ns io.github.archwaytheatre.build
+  (:require [clojure.java.io :as io]
+            [clojure.string :as string]))
+
+
+(defn discover-namespaces []
+  (sequence
+    (comp (filter #(-> % .getName (string/ends-with? ".clj")))
+          (map (fn [file]
+                 (->> file slurp string/split-lines first
+                      (re-find #"io.github.archwaytheatre.site.[\S]+")
+                      symbol))))
+    (file-seq (io/file "./src/io/github/archwaytheatre/site"))))
+
 
 (defn build [& _opts]
   (println "Building...")
   (time
     (do
-      (require 'io.github.archwaytheatre.index
-               'io.github.archwaytheatre.getinvolved
-               'io.github.archwaytheatre.find-us
-               'io.github.archwaytheatre.everything-else
-               :reload-all)
+      (apply require (conj (vec (discover-namespaces)) :reload-all))
       (println "Built."))))
