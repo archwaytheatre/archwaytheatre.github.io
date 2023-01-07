@@ -9,6 +9,7 @@
     /*--fg-light: rgb(50,50,50);*/
     --fg-light: rgb(220,220,220);
     --fg-dark: rgb(220,220,220);
+    --shadow: rgba(0, 0, 0, 0.5);
 
     --pink-a: #ac0150;
     --pink-b: #d4739c;
@@ -19,7 +20,7 @@
     --grey-a: #7d7d7d;
     --grey-b: #e6e6e6;
 
-    --pink-shadow: #63012e;
+    --pink-shadow: var(--shadow); /*#63012e;*/
     --pink-1: #ac0150;
     --pink-2: #b61e63;
     --pink-3: #c03a76;
@@ -27,7 +28,7 @@
     --pink-5: #d4739c;
     --pink-light: #eab9ce;
 
-    --blue-shadow: #00424f;
+    --blue-shadow: var(--shadow); /*#00424f;*/
     --blue-1: #00738a;
     --blue-2: #12869d;
     --blue-3: #2399b0;
@@ -35,7 +36,7 @@
     --blue-5: #46bed6;
     --blue-light: #a3dfeb;
 
-    --pear-shadow: #3f480c;
+    --pear-shadow: var(--shadow); /*#3f480c;*/
     --pear-1: #6d7d14;
     --pear-2: #85952b;
     --pear-3: #9dae41;
@@ -43,7 +44,7 @@
     --pear-5: #cdde6e;
     --pear-light: #e6efb7;
 
-    --grey-shadow: #484848;
+    --grey-shadow: var(--shadow); /*#484848;*/
     --grey-1: #7d7d7d;
     --grey-2: #979797;
     --grey-3: #b2b2b2;
@@ -118,7 +119,7 @@ nav {
     top: 0px;
     z-index: 10;
     background-color: var(--pink-1);
-    box-shadow: 0 5px 15px var(--pink-shadow);
+    box-shadow: 0 5px 15px var(--shadow);
 }
 
 nav a {
@@ -221,15 +222,15 @@ nav a.selected {
 .main .popup { border: 1px solid var(--pink-shadow); background: var(--pink-1);}
 .studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
 .studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
-.studio .button { box-shadow: 0px 5px 15px var(--blue-1); }
+.studio .button { box-shadow: 0px 5px 15px var(--blue-shadow); }
 .studio .popup { border: 1px solid var(--blue-shadow); background: var(--blue-1);}
 .digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
 .digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
-.digital .button { box-shadow: 0px 5px 15px var(--pear-1); }
+.digital .button { box-shadow: 0px 5px 15px var(--pear-shadow); }
 .digital .popup { border: 1px solid var(--pear-shadow); background: var(--pear-1);}
 .unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
 .unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
-.unknown .button { box-shadow: 0px 5px 15px var(--grey-1); }
+.unknown .button { box-shadow: 0px 5px 15px var(--grey-shadow); }
 .unknown .popup { border: 1px solid var(--grey-shadow); background: var(--grey-1);}
 
 .main .button:hover,
@@ -291,7 +292,7 @@ footer {
     right: 0;
     text-align: center;
     z-index: -10;
-    background-image: linear-gradient(90deg, var(--bg) 10%, var(--pink-5) 50%, var(--bg) 90%);
+    background-image: linear-gradient(90deg, var(--bg) 10%, var(--pink-1) 50%, var(--bg) 90%);
 }
 
 .attributed {
