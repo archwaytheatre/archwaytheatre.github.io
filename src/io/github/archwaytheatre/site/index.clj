@@ -7,6 +7,10 @@
                       "The Studio" "studio"
                       "Digital"    "digital"})
 
+(defn font-size [text]
+  (core/style
+    {:font-size (str "calc(" (/ 0.2 (Math/sqrt (count text))) " * var(--my-vw))")}))
+
 (core/page "index" "The Archway Theatre"
   [:div.events.dark
    (for [[idx {:keys [name location dates trailer about imageurl]}]
@@ -20,7 +24,7 @@
           [:img {:src imageurl}]]]
         [:div.eventdata
          [:div.eventdatum location]
-         [:div.eventdatum.bold name]
+         [:div.eventdatum.bold (font-size name) name]
          [:div.eventdatum dates]
          [:div.eventdatum [:a {:href (str "javascript:showPopup(\"popup-" idx "\");")} "About"]]
          [:div.eventdatum.bold

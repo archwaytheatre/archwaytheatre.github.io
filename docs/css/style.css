@@ -180,7 +180,6 @@ nav a.selected {
     font-size: calc(0.03 * var(--my-vw));
 }
 .eventdatum:nth-child(2) {
-    font-size: calc(0.05 * var(--my-vw));
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.15);

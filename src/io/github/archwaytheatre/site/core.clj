@@ -10,6 +10,11 @@
        (remove nil?)
        (string/join " ")))
 
+(defn style [m]
+  {:style (string/join ";" (map (fn [[k v]]
+                                  (str (name k) ":" v))
+                                m))})
+
 (def creative-commons-by-sa-2.0
   ["CC BY-SA 2.0" "https://creativecommons.org/licenses/by-sa/2.0/"])
 
