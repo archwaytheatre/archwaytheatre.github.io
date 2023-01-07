@@ -278,6 +278,48 @@ nav a.selected {
     white-space: pre-wrap;
 }
 
+pre {
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    white-space: pre-wrap;
+}
+
+
+.table {
+    display: table;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding: 10px;
+}
+
+.row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+a.row {
+    text-decoration: none;
+    color: var(--fg-light);
+}
+a.row:hover {
+    text-decoration: none;
+    text-shadow: none;
+    color: var(--fg-light);
+}
+
+a.row .glow {
+    text-decoration: underline;
+}
+a.row:hover .glow {
+    text-decoration: none;
+    text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
+    color: white;
+}
+
 .container {
     padding: 2vh 5vw;
     margin: 2vh 5vw;

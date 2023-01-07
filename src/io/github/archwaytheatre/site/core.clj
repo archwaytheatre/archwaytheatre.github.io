@@ -57,12 +57,14 @@
    ["Get Involved!" "getinvolved.html"]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
-   ["Everything Else" "everythingelse.html"]])
+   ["☰" "everythingelse.html"]])
 
 (defn menu [current-page-filename]
   [:nav.dark
    (for [[label href] menu-list]
-     [:a {:class (if (= current-page-filename href) "selected" "") :href href} label])])
+     [:a {:class (if (= current-page-filename href) "selected" "")
+          :href  href}
+      label])])
 
 (defn page [page-name title & content]
   (let [filename (str page-name ".html")]
