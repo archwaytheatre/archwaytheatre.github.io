@@ -1,8 +1,8 @@
-(ns io.github.archwaytheatre.find-us
-  (:require [io.github.archwaytheatre.core :as core]))
+(ns io.github.archwaytheatre.site.find-us
+  (:require [io.github.archwaytheatre.site.core :as core]))
 
 
-(core/page "findus" "The Archway Theatre" (core/menu-items 2)
+(core/page "findus" "The Archway Theatre"
   [:div.container
 
    [:b "Our main entrance:"]

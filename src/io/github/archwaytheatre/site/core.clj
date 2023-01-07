@@ -1,4 +1,4 @@
-(ns io.github.archwaytheatre.core
+(ns io.github.archwaytheatre.site.core
   (:require [clojure.java.io :as io]
             [hiccup.page :as hiccup.page]
             [hiccup.core :as hiccup.core]
@@ -9,19 +9,6 @@
   (->> stuffs
        (remove nil?)
        (string/join " ")))
-
-(defn menu [menu-items]
-  [:nav.dark
-   (for [{:keys [label selected? href]} menu-items]
-     [:a {:class (if selected? "selected" "") :href href} label])])
-
-(defn menu-items [index]
-  (assoc-in [{:href "./index.html" :label "What's On?"}
-             {:href "./getinvolved.html" :label "Get Involved!"}
-             {:href "./findus.html" :label "Find Us"}
-             {:href "./everythingelse.html" :label "Everything Else"}]
-            [index :selected?]
-            true))
 
 (def creative-commons-by-sa-2.0
   ["CC BY-SA 2.0" "https://creativecommons.org/licenses/by-sa/2.0/"])
@@ -60,7 +47,18 @@
                new-output))
       output)))
 
-(defn page [page-name title menu-items & content]
+(def menu-list
+  [["What's On?" "index.html"]
+   ["Get Involved!" "getinvolved.html"]
+   ["Find Us" "findus.html"]
+   ["Everything Else" "everythingelse.html"]])
+
+(defn menu [current-page-filename]
+  [:nav.dark
+   (for [[label href] menu-list]
+     [:a {:class (if (= current-page-filename href) "selected" "") :href href} label])])
+
+(defn page [page-name title & content]
   (let [filename (str page-name ".html")]
     (spit
       (io/file "docs" filename)
@@ -77,9 +75,9 @@
             [:div
              [:img {:src "archway_header.png"}]]
             [:div "A thriving theatre in the heart of Horley."]]
-           (menu menu-items)
-           [:div.popupContainer
-            [:div#popup {:onclick "javascript:hidePopup();"}
+           (menu filename)
+           #_[:div.popupContainer
+            [:div#popup {:onclick "javascript:hidePopups();"}
              [:div#popupText "Popup"]]]
            [:section (hiccup.core/html content)]
            [:br]

@@ -1,11 +1,11 @@
-(ns io.github.archwaytheatre.everything-else
-  (:require [io.github.archwaytheatre.core :as core]))
+(ns io.github.archwaytheatre.site.everything-else
+  (:require [io.github.archwaytheatre.site.core :as core]))
 
 
-(core/page "everythingelse" "The Archway Theatre" (core/menu-items 3)
+(core/page "everythingelse" "The Archway Theatre"
   [:div
    [:br]
-   [:div "Contact"]
+   [:div [:a {:href "contact.html"} "Contact"]]
    [:div "How to find us"]
    [:div "Membership"]
    [:div "History"]

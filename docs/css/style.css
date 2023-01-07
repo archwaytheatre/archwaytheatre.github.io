@@ -3,8 +3,11 @@
     --aspect-ratio: 1.4145161;
     --my-vw: min(1000px, 100vw);
 
-    --bg: #ffaed8;
-    --fg-light: rgb(50,50,50);
+    /*--bg: #ffaed8;*/
+    /*--bg: #f5e8da;*/
+    --bg: #3e527a;
+    /*--fg-light: rgb(50,50,50);*/
+    --fg-light: rgb(220,220,220);
     --fg-dark: rgb(220,220,220);
 
     --pink-a: #ac0150;
@@ -113,8 +116,9 @@ nav {
     font-size: xx-large;
     position: sticky;
     top: 0px;
+    z-index: 10;
     background-color: var(--pink-1);
-    box-shadow: 0 10px 10px var(--pink-shadow);
+    box-shadow: 0 5px 15px var(--pink-shadow);
 }
 
 nav a {
@@ -139,6 +143,7 @@ nav a.selected {
 }
 
 .event {
+    position: relative;
     display: flex;
     flex-direction: row;
     margin: calc(0.09 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw))) calc(0.04 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw)));
@@ -197,43 +202,80 @@ nav a.selected {
     cursor: pointer;
     box-shadow: 0px 5px 15px var(--pink-1);
 }
+.button.compact {
+    padding: calc(0.01 * var(--my-vw));
+}
 .button:hover {
     color: white;
     border-color: white;
     box-shadow: 0px 5px 25px white;
 }
+.button.compact:hover {
+    box-shadow: 0px 5px 50px 50px white;
+}
+
 
 .main .eventdata { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-1) 100%); }
 .main .button { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%); }
 .main .button { box-shadow: 0px 5px 15px var(--pink-shadow); }
-.main .button:hover { box-shadow: 0px 5px 25px white; }
+.main .popup { border: 1px solid var(--pink-shadow); background: var(--pink-1);}
 .studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
 .studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
 .studio .button { box-shadow: 0px 5px 15px var(--blue-1); }
-.studio .button:hover { box-shadow: 0px 5px 25px white; }
+.studio .popup { border: 1px solid var(--blue-shadow); background: var(--blue-1);}
 .digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
 .digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
 .digital .button { box-shadow: 0px 5px 15px var(--pear-1); }
-.digital .button:hover { box-shadow: 0px 5px 25px white; }
+.digital .popup { border: 1px solid var(--pear-shadow); background: var(--pear-1);}
 .unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
 .unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
 .unknown .button { box-shadow: 0px 5px 15px var(--grey-1); }
-.unknown .button:hover { box-shadow: 0px 5px 25px white; }
+.unknown .popup { border: 1px solid var(--grey-shadow); background: var(--grey-1);}
+
+.main .button:hover,
+.studio .button:hover,
+.digital .button:hover,
+.unknown .button:hover {
+    box-shadow: 0px 5px 25px white;
+}
+
+.main .button.compact:hover,
+.studio .button.compact:hover,
+.digital .button.compact:hover,
+.unknown .button.compact:hover {
+    box-shadow: 0px 5px 25px 5px white;
+}
 
 .popupContainer {
     position: relative;
 }
-#popup {
-    position: fixed;
+.popup {
+    position: absolute;
     display: none;
-    top: 10vh;
-    bottom: 10vh;
-    right: 10vw;
-    left: 10vw;
-    border: 1px solid black;
-    padding: 1vw;
-    background: white;
-    color: black;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 10px;
+    margin: 0px;
+    color: var(--fg-dark);
+}
+
+.popup .controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.popup a {
+    display: inline-block;
+}
+.popup pre {
+    margin: 10px;
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    white-space: pre-wrap;
 }
 
 .container {
