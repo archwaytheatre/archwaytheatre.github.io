@@ -51,6 +51,7 @@
   [["What's On?" "index.html"]
    ["Get Involved!" "getinvolved.html"]
    ["Find Us" "findus.html"]
+   ["Contact" "contact.html"]
    ["Everything Else" "everythingelse.html"]])
 
 (defn menu [current-page-filename]

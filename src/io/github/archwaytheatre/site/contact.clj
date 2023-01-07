@@ -5,7 +5,26 @@
 (core/page "contact" "The Archway Theatre"
   [:div
 
-   [:div "you can get in touch with us by post, email, phone or using the contact form below"]
+   [:div.container
+    [:div "You can get in touch with us by post, email, phone or using the contact form below"]
+    [:br]
+    [:div [:b "Box Office Online:"] [:a {:href "https://www.ticketsource.co.uk/archwaytheatre/"} "ticketsource.co.uk"]]
+    [:div [:b "Box Office Phone:"]
+     [:a {:href "tel:0333-666-3366"} "0333 666 3366"]
+     "(handled by TicketSource)"]
+    [:div {:style "margin-left: 40px"}
+     [:div "Open: Mon-Fri 9:00-19:00, Sat 9:00-17:00"]
+     [:div "£1.75 phone booking fee. Call charges may also apply."]]
+    [:br]
+    [:div [:b "General enquiries:"]
+     [:a {:href "tel:01293-784-398"} "(01293) 784 398"]]
+    [:br]
+    [:div [:b "Address:"]]
+    [:div "Archway Theatre Company Limited"]
+    [:div "The Drive"]
+    [:div "Horley"]
+    [:div "Surrey"]
+    [:div "RH6 7NQ"]]
 
    [:iframe#JotFormIFrame-230046557100040
     {:title "Contact Us"

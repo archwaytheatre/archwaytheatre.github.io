@@ -12,17 +12,7 @@
    [:br]
    [:div "Unless otherwise advertised, evening performances start at 19:45, matinees start at 14:00."]
    [:br]
-   [:div [:b "Box Office Online:"] [:a {:href "https://www.ticketsource.co.uk/archwaytheatre/"} "ticketsource.co.uk"]]
-   [:div [:b "Box Office Phone:"]
-    [:a {:href "tel:0333-666-3366"} "0333 666 3366"]
-    "(handled by TicketSource)"]
-   [:div {:style "margin-left: 40px"}
-    [:div "Open: Mon-Fri 9:00-19:00, Sat 9:00-17:00"]
-    [:div "£1.75 phone booking fee. Call charges may also apply."]]
-   [:br]
-   [:div [:b "General enquiries:"]
-    [:a {:href "tel:01293-784-398"} "(01293) 784 398"]]
-   [:br]
+
    [:div [:b "Address:"]]
    [:div "Archway Theatre Company Limited"]
    [:div "The Drive"]
