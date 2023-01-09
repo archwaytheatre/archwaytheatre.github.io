@@ -1,6 +1,6 @@
 (ns io.github.archwaytheatre.site.index
-  (:require [io.github.archwaytheatre.site.core :as core]
-            [cheshire.core :as json]))
+  (:require [cheshire.core :as json]
+            [io.github.archwaytheatre.site.core :as core]))
 
 
 (def location->class {"Main House" "main"
@@ -29,10 +29,19 @@
          [:div.eventdatum [:a {:href (str "javascript:showPopup(\"popup-" idx "\");")} "About"]]
          [:div.eventdatum.bold
           [:a.button {:href link-href}
-           "Buy Tickets"]]
-         [:div.popup {:id      (str "popup-" idx)
-                      :onclick "javascript:hidePopups();"}
-          [:pre about]
-          [:div.controls
-           [:a {:href (str "javascript:hidePopups();")} [:pre "Back"]]
-           [:a.button.compact {:href link-href} "Buy Tickets"]]]]]))])
+           "Buy Tickets"]]]
+        [:div.popup {:id (str "popup-" idx)
+                     }
+         [:div.alignright.x
+          [:a.short
+           {:href "javascript:hidePopups();"}
+           "✕"]]
+         [:pre.about about]
+         [:div.controls
+          [:a
+           {:href "javascript:hidePopups();"}
+           [:pre "Back"]]
+          [:a.button.compact
+           {:href    link-href
+            :onclick "event.stopPropagation();"}
+           "Buy Tickets"]]]]))])

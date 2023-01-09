@@ -62,7 +62,8 @@
 (defn menu [current-page-filename]
   [:nav.dark
    (for [[label href] menu-list]
-     [:a {:class (if (= current-page-filename href) "selected" "")
+     [:a {:class (classes (when (= current-page-filename href) "selected")
+                          (when (= 1 (count label)) "short"))
           :href  href}
       label])])
 

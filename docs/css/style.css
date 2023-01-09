@@ -86,6 +86,15 @@ a {
     text-decoration: underline;
     color: var(--fg-light);
 }
+a.short {
+    text-decoration: none;
+}
+
+.topright {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
 
 .dark a {
     color: var(--fg-dark);
@@ -251,27 +260,38 @@ nav a.selected {
     position: absolute;
     display: none;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     top: 0;
     right: 0;
     left: 0;
-    bottom: 0;
-    padding: 10px;
+    z-index: 5;
+    /*bottom: 0;*/
+    min-height: calc(var(--aspect-ratio) * 0.40 * var(--my-vw));
+    /*padding: 10px;*/
     margin: 0px;
     color: var(--fg-dark);
+}
+
+.alignright {
+    text-align:right;
+}
+.x {
+    margin-top: 3px;
+    margin-right: 5px;
 }
 
 .popup .controls {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
-.popup a {
-    display: inline-block;
-}
 .popup pre {
     margin: 10px;
+}
+.popup pre.about {
+    margin-top: -10px;
 }
 
 pre {
