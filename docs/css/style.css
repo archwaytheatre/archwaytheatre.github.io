@@ -207,7 +207,7 @@ nav a.selected {
 .button {
     padding: calc(0.03 * var(--my-vw));
     cursor: pointer;
-    box-shadow: 0px 5px 15px var(--pink-1);
+    box-shadow: 0 5px 15px var(--pink-1);
 }
 .button.compact {
     padding: calc(0.01 * var(--my-vw));
@@ -215,42 +215,39 @@ nav a.selected {
 .button:hover {
     color: white;
     border-color: white;
-    box-shadow: 0px 5px 25px white;
-}
-.button.compact:hover {
-    box-shadow: 0px 5px 50px 50px white;
+    box-shadow: 0 5px 25px white;
 }
 
 
 .main .eventdata { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-1) 100%); }
 .main .button { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%); }
-.main .button { box-shadow: 0px 5px 15px var(--pink-shadow); }
+.main .button { box-shadow: 0 5px 15px var(--pink-shadow); }
 .main .popup { background: var(--pink-2);}
 .studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
 .studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
-.studio .button { box-shadow: 0px 5px 15px var(--blue-shadow); }
+.studio .button { box-shadow: 0 5px 15px var(--blue-shadow); }
 .studio .popup { background: var(--blue-2);}
 .digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
 .digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
-.digital .button { box-shadow: 0px 5px 15px var(--pear-shadow); }
+.digital .button { box-shadow: 0 5px 15px var(--pear-shadow); }
 .digital .popup { background: var(--pear-2);}
 .unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
 .unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
-.unknown .button { box-shadow: 0px 5px 15px var(--grey-shadow); }
+.unknown .button { box-shadow: 0 5px 15px var(--grey-shadow); }
 .unknown .popup { background: var(--grey-2);}
 
 .main .button:hover,
 .studio .button:hover,
 .digital .button:hover,
 .unknown .button:hover {
-    box-shadow: 0px 5px 25px white;
+    box-shadow: 0 5px 25px white;
 }
 
 .main .button.compact:hover,
 .studio .button.compact:hover,
 .digital .button.compact:hover,
 .unknown .button.compact:hover {
-    box-shadow: 0px 5px 25px 5px white;
+    box-shadow: 0 5px 25px 5px white;
 }
 
 .popupContainer {
@@ -268,7 +265,7 @@ nav a.selected {
     /*bottom: 0;*/
     min-height: calc(var(--aspect-ratio) * 0.40 * var(--my-vw));
     /*padding: 10px;*/
-    margin: 0px;
+    margin: 0;
     color: var(--fg-dark);
 }
 
