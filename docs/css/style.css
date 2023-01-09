@@ -361,3 +361,19 @@ footer {
     color: black;
     background-color: #444;
 }
+
+input.search {
+    font-size: larger;
+    width: 100%;
+}
+
+a.search {
+    background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%);
+    box-shadow: 0 5px 15px var(--pink-shadow);
+}
+a.search:hover {
+    box-shadow: 0 5px 25px 5px white;
+}
+.center {
+    text-align: center;
+}

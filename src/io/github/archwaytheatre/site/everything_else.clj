@@ -18,22 +18,36 @@
              [:div.cell.noglow {:role "gridcell"} description]]))))
 
 (core/page "everythingelse" "The Archway Theatre"
+  [:script {:src "./js/search.js"}]
   [:div.container
-   [:br]
-   [:h1 "Pages:"]
+   [:div
+    [:h1 "Pages:"]
+    (link-table
+      [["index.html" "What's&nbsp;On?" "A list of shows on now or coming soon to the Archway Theatre."]
+       ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
+       ["findus.html" "Find&nbsp;Us" "How to find our theatre if you're planning a visit."]
+       ["contact.html" "Contact" "How to reach us."]
+       ["https://www.ticketsource.co.uk/archwaytheatre/" "Box Office" "Buy tickets for any of our productions."]
+       ; TODO: membership could / should be it's own page, rather than going directly to membermojo
+       ["https://membermojo.co.uk/archwaytheatre" "Membership"
+        (str "Join as a member to get discounted tickets or to get involved."
+             " You can also manage your existing membership here.")]
+       ["https://littletheatreguild.org/" "Little Theatre Guild"
+        "Find out more about the Little Theatre Guild that we're part of."]])]
 
-   (link-table
-     [["index.html" "What's&nbsp;On?" "A list of shows on now or coming soon to the Archway Theatre."]
-      ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
-      ["findus.html" "Find&nbsp;Us" "How to find our theatre if you're planning a visit."]
-      ["contact.html" "Contact" "How to reach us."]
-      ["https://www.ticketsource.co.uk/archwaytheatre/" "Box Office" "Buy tickets for any of our productions."]
-      ; TODO: membership could / should be it's own page, rather than going directly to membermojo
-      ["https://membermojo.co.uk/archwaytheatre" "Membership"
-       (str "Join as a member to get discounted tickets or to get involved."
-            " You can also manage your existing membership here.")]
-      ["https://littletheatreguild.org/" "Little Theatre Guild"
-       "Find out more about the Little Theatre Guild that we're part of."]])
+   [:div
+    [:h1 "Search"]
+    [:div
+     [:input.search
+      {:id       "searchterms"
+       :type     "text"
+       :onchange "updateLink(this, 'searchbutton');"}]]
+    [:br]
+    [:div.center
+     [:a.button.compact.search
+      {:id   "searchbutton"
+       :href "#"}
+      "Search"]]]
 
    [:h1 "Still to do:"]
    [:ul
