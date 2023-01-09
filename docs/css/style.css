@@ -92,7 +92,7 @@ a.short {
 
 .topright {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 10px;
 }
 
@@ -123,7 +123,7 @@ nav {
     flex-wrap: wrap;
     font-size: xx-large;
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 10;
     background-color: var(--pink-1);
     box-shadow: 0 5px 15px var(--shadow);
