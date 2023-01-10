@@ -374,3 +374,7 @@ a.search:hover {
 .center {
     text-align: center;
 }
+
+li {
+    margin: 20px 0;
+}
