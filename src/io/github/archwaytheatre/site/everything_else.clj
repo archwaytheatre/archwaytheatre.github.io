@@ -18,10 +18,11 @@
              [:div.cell.noglow {:role "gridcell"} description]]))))
 
 (core/page "everythingelse" "The Archway Theatre"
+
   [:script {:src "./js/search.js"}]
+  [:br]
   [:div.container
    [:div
-    [:h1 "Pages:"]
     (link-table
       [["index.html" "What's&nbsp;On?" "A list of shows on now or coming soon to the Archway Theatre."]
        ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
@@ -36,26 +37,18 @@
        ["https://littletheatreguild.org/" "Little Theatre Guild"
         "Find out more about the Little Theatre Guild that we're part of."]])]
 
+   [:br][:br]
+
    [:div
-    [:h1 "Search"]
     [:div
      [:input.search
       {:id       "searchterms"
        :type     "text"
+       :placeholder "Enter your search terms here..."
        :onchange "updateLink(this, 'searchbutton');"}]]
     [:br]
     [:div.center
      [:a.button.compact.search
       {:id   "searchbutton"
        :href "#"}
-      "Search"]]]
-
-   [:h1 "Still to do:"]
-   [:ul
-    [:li "History"]
-    [:li "Past Productions"]
-    [:li "Youth Workshops"]
-    [:li "Hire a space"]
-    [:li "Management / Backstage ?"]
-    [:li "Legal?"]
-    [:li "Put social media links somewhere?"]]])
+      "Search"]]]])
