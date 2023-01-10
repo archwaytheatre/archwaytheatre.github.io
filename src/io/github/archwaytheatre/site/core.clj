@@ -28,7 +28,7 @@
   #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
     "keygen" "link" "meta" "param" "source" "track" "wbr"})
 
-(def do-not-touch? #{"pre"})
+(def do-not-touch? #{"pre" "a"})
 
 (defn prettify [html-string]
   (loop [[[match slash tag attrs content] & matches] (re-seq #"<(/?)([^<>\s]+)([^>]*)>([^<>]*)" html-string)
