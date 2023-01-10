@@ -27,6 +27,7 @@
        ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
        ["findus.html" "Find&nbsp;Us" "How to find our theatre if you're planning a visit."]
        ["contact.html" "Contact" "How to reach us."]
+       ["legal.html" "Legal & Site Info" "Legal and site information."]
        ["https://www.ticketsource.co.uk/archwaytheatre/" "Box Office" "Buy tickets for any of our productions."]
        ; TODO: membership could / should be it's own page, rather than going directly to membermojo
        ["https://membermojo.co.uk/archwaytheatre" "Membership"

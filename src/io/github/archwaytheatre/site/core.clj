@@ -97,6 +97,6 @@
              [:div#popupText "Popup"]]]
            [:section (hiccup.core/html content)]
            [:br]
-           [:footer (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre")]])))
+           [:footer (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]])))
     (println "Wrote" filename)))
 
