@@ -32,73 +32,90 @@
       <a class="" href="contact.html">
         Contact
       </a>
-      <a class="selected" href="everythingelse.html">
+      <a class="selected short" href="everythingelse.html">
         ☰
       </a>
     </nav>
     <section>
+      <script src="./js/search.js">
+      </script>
       <div class="container">
-        <br>
-        <h1>
-          Pages:
-        </h1>
-        <div class="table" role="grid">
-          <a class="row" href="https://www.ticketsource.co.uk/archwaytheatre/" role="row" target="_blank">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Box&nbsp;Office
-            </div>
-            <div class="cell noglow" role="gridcell">
-              Buy tickets for any of our productions.
-            </div>
-          </a>
-          <a class="row" href="contact.html" role="row" target="_self">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Contact
-            </div>
-            <div class="cell noglow" role="gridcell">
-              How to reach us.
-            </div>
-          </a>
-          <a class="row" href="findus.html" role="row" target="_self">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Find&nbsp;Us
-            </div>
-            <div class="cell noglow" role="gridcell">
-              How to find our theatre if you're planning a visit.
-            </div>
-          </a>
-          <a class="row" href="getinvolved.html" role="row" target="_self">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Get&nbsp;Involved!
-            </div>
-            <div class="cell noglow" role="gridcell">
-              Notices about upcoming opportunities at your local theatre.
-            </div>
-          </a>
-          <a class="row" href="https://littletheatreguild.org/" role="row" target="_blank">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Little&nbsp;Theatre&nbsp;Guild
-            </div>
-            <div class="cell noglow" role="gridcell">
-              Find out more about the Little Theatre Guild that we're part of.
-            </div>
-          </a>
-          <a class="row" href="https://membermojo.co.uk/archwaytheatre" role="row" target="_blank">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              Membership
-            </div>
-            <div class="cell noglow" role="gridcell">
-              Join as a member to get discounted tickets or to get involved. You can also manage your existing membership here.
-            </div>
-          </a>
-          <a class="row" href="index.html" role="row" target="_self">
-            <div class="cell glow" role="gridcell" style="font-size:larger;">
-              What's&nbsp;On?
-            </div>
-            <div class="cell noglow" role="gridcell">
-              A list of shows on now or coming soon to the Archway Theatre.
-            </div>
-          </a>
+        <div>
+          <h1>
+            Pages:
+          </h1>
+          <div class="table" role="grid">
+            <a class="row" href="https://www.ticketsource.co.uk/archwaytheatre/" role="row" target="_blank">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Box&nbsp;Office
+              </div>
+              <div class="cell noglow" role="gridcell">
+                Buy tickets for any of our productions.
+              </div>
+            </a>
+            <a class="row" href="contact.html" role="row" target="_self">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Contact
+              </div>
+              <div class="cell noglow" role="gridcell">
+                How to reach us.
+              </div>
+            </a>
+            <a class="row" href="findus.html" role="row" target="_self">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Find&nbsp;Us
+              </div>
+              <div class="cell noglow" role="gridcell">
+                How to find our theatre if you're planning a visit.
+              </div>
+            </a>
+            <a class="row" href="getinvolved.html" role="row" target="_self">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Get&nbsp;Involved!
+              </div>
+              <div class="cell noglow" role="gridcell">
+                Notices about upcoming opportunities at your local theatre.
+              </div>
+            </a>
+            <a class="row" href="https://littletheatreguild.org/" role="row" target="_blank">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Little&nbsp;Theatre&nbsp;Guild
+              </div>
+              <div class="cell noglow" role="gridcell">
+                Find out more about the Little Theatre Guild that we're part of.
+              </div>
+            </a>
+            <a class="row" href="https://membermojo.co.uk/archwaytheatre" role="row" target="_blank">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                Membership
+              </div>
+              <div class="cell noglow" role="gridcell">
+                Join as a member to get discounted tickets or to get involved. You can also manage your existing membership here.
+              </div>
+            </a>
+            <a class="row" href="index.html" role="row" target="_self">
+              <div class="cell glow" role="gridcell" style="font-size:larger;">
+                What's&nbsp;On?
+              </div>
+              <div class="cell noglow" role="gridcell">
+                A list of shows on now or coming soon to the Archway Theatre.
+              </div>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h1>
+            Search
+          </h1>
+          <div>
+            <input class="search" id="searchterms" onchange="updateLink(this, &apos;searchbutton&apos;);" type="text">
+          </div>
+          <br>
+          <div class="center">
+            <a class="button compact search" href="#" id="searchbutton">
+              Search
+            </a>
+          </div>
         </div>
         <h1>
           Still to do:
@@ -130,7 +147,7 @@
     </section>
     <br>
     <footer>
-      &copy; 2022-2023 The Archway Theatre
+      &copy; 1987-2023 The Archway Theatre
     </footer>
   </body>
 </html>
