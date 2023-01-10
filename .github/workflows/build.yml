@@ -18,5 +18,5 @@ jobs:
           git config --global user.email "no-reply@no-reply.example.com"
           git config --global user.name "GitHub Actions"
           git add docs/*.html
-          git commit -m "Automatic Site Generation"
+          git diff --cached --quiet || git commit -m "Automatic Site Generation"
           git push
