@@ -67,10 +67,17 @@
           :href  href}
       label])])
 
+(def parent-dir
+  (let [local-dir (io/file "local")
+        deploy-dir (io/file "docs")]
+    (if (.exists local-dir)
+      local-dir
+      deploy-dir)))
+
 (defn page [page-name title & content]
   (let [filename (str page-name ".html")]
     (spit
-      (io/file "docs" filename)
+      (io/file parent-dir filename)
       (prettify
         (hiccup.page/html5
           [:head

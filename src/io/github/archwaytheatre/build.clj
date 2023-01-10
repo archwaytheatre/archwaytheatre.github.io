@@ -12,10 +12,13 @@
                       symbol))))
     (file-seq (io/file "./src/io/github/archwaytheatre/site"))))
 
+(defn require-namespaces []
+  (apply require (conj (vec (discover-namespaces)) :reload-all)))
+
 
 (defn build [& _opts]
   (println "Building...")
   (time
     (do
-      (apply require (conj (vec (discover-namespaces)) :reload-all))
+      (require-namespaces)
       (println "Built."))))
