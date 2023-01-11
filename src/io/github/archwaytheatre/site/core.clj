@@ -24,6 +24,17 @@
    [:div.attribution
     [:span rights-holder [:a {:href license-link} license-label]]]])
 
+(defn you-tube [video-id]
+  [:iframe.trailer
+   {
+    :width  "100%" ;"560"
+    :height "100%" ;"315"
+    :src    (str "https://www.youtube-nocookie.com/embed/" video-id) ; eg. "aJhZx0_hytA"
+    :title "YouTube video player"
+    :frameborder "0"
+    :allow "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    :allowfullscreen "true"}])
+
 (def void?
   #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
     "keygen" "link" "meta" "param" "source" "track" "wbr"})
@@ -95,7 +106,8 @@
            #_[:div.popupContainer
             [:div#popup {:onclick "javascript:hidePopups();"}
              [:div#popupText "Popup"]]]
-           [:section (hiccup.core/html content)]
+           [:section.container
+            (hiccup.core/html content)]
            [:br]
            [:footer (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]])))
     (println "Wrote" filename)))

@@ -3,7 +3,7 @@
 
 
 (core/page "findus" "The Archway Theatre"
-  [:div.container
+  [:div.content
 
    [:b "Our main entrance:"]
    (core/image "main-entrance.jpg"

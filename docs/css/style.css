@@ -2,6 +2,8 @@
 :root {
     --aspect-ratio: 1.4145161;
     --my-vw: min(1000px, 100vw);
+    --content-vw: calc(0.80 * var(--my-vw));
+    --youtube-ar: calc(720 / 1280);
 
     /*--bg: #ffaed8;*/
     /*--bg: #f5e8da;*/
@@ -144,17 +146,34 @@ nav a.selected {
     /*color: black;*/
 /*}*/
 
+.container {
+    width: var(--content-vw);
+    margin-left: calc(50vw - (0.5 * var(--content-vw)));
+    /*border: 1px solid lightblue;*/
+}
+
+.content {
+    padding: 4vh 0;
+    margin: 4vh 0;
+}
+
+
 .events {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
+div.trailer {
+    height: calc(var(--content-vw) * var(--youtube-ar));
+}
+
 .event {
     position: relative;
     display: flex;
     flex-direction: row;
-    margin: calc(0.09 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw))) calc(0.04 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw)));
+    margin-bottom: 10vh;
+    /*margin: calc(0.09 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw))) calc(0.04 * var(--my-vw)) calc(50vw - (0.40 * var(--my-vw)));*/
     /* top, right, bottom, left */
 }
 
@@ -331,12 +350,6 @@ a.row:hover .glow {
     text-decoration: none;
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
     color: white;
-}
-
-.container {
-    padding: 2vh 5vw;
-    margin: 2vh 5vw;
-    background-color: var(--bg);
 }
 
 footer {

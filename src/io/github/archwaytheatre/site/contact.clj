@@ -15,8 +15,7 @@
 
 (core/page "contact" "The Archway Theatre"
   [:div
-
-   [:div.container
+   [:div.content
     [:div "You can get in touch with us by post, email, phone or using the contact form below."]
     [:br]
     (table [["Box Office Online" [:a {:href "https://www.ticketsource.co.uk/archwaytheatre/"} "ticketsource.co.uk"]]

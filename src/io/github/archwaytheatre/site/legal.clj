@@ -4,7 +4,7 @@
   (:import [java.time Year]))
 
 (core/page "legal" "Legal & Site Info"
-  [:div.container
+  [:div.content
    [:h1 "Legal &amp; Site Info"]
    [:div
     [:ul
