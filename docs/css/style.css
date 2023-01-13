@@ -220,13 +220,36 @@ div.trailer {
     font-size: calc(0.05 * var(--my-vw));
 }
 
+.timelabel {
+    position: absolute;
+    width: calc(0.40 * var(--my-vw));
+    height: 50%;
+    overflow: hidden;
+}
+.onnow {
+    font-size: calc(0.03 * var(--my-vw));
+    border: 1px solid white;
+    background-color: black;
+    transform: translate(38%,70%) rotate(45deg);
+}
+
 .bold {
     font-weight: bold;
 }
+.soldout {
+    padding: calc(0.03 * var(--my-vw));
+    cursor: not-allowed;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+    background-color: rgba(255,255,255,0.25);
+}
+.soldout.compact {
+    padding: calc(0.01 * var(--my-vw));
+}
+
 .button {
     padding: calc(0.03 * var(--my-vw));
     cursor: pointer;
-    box-shadow: 0 5px 15px var(--pink-1);
+    box-shadow: 0 5px 15px var(--pink-shadow);
 }
 .button.compact {
     padding: calc(0.01 * var(--my-vw));
@@ -239,21 +262,21 @@ div.trailer {
 
 
 .main .eventdata { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-1) 100%); }
+.main .popup { background: var(--pink-2);}
 .main .button { background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%); }
 .main .button { box-shadow: 0 5px 15px var(--pink-shadow); }
-.main .popup { background: var(--pink-2);}
 .studio .eventdata { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-1) 100%); }
+.studio .popup { background: var(--blue-2);}
 .studio .button { background-image: linear-gradient(0deg, var(--blue-5) 0%, var(--blue-2) 100%); }
 .studio .button { box-shadow: 0 5px 15px var(--blue-shadow); }
-.studio .popup { background: var(--blue-2);}
 .digital .eventdata { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-1) 100%); }
+.digital .popup { background: var(--pear-2);}
 .digital .button { background-image: linear-gradient(0deg, var(--pear-5) 0%, var(--pear-2) 100%); }
 .digital .button { box-shadow: 0 5px 15px var(--pear-shadow); }
-.digital .popup { background: var(--pear-2);}
 .unknown .eventdata { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-1) 100%); }
+.unknown .popup { background: var(--grey-2);}
 .unknown .button { background-image: linear-gradient(0deg, var(--grey-5) 0%, var(--grey-2) 100%); }
 .unknown .button { box-shadow: 0 5px 15px var(--grey-shadow); }
-.unknown .popup { background: var(--grey-2);}
 
 .main .button:hover,
 .studio .button:hover,
