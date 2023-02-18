@@ -70,39 +70,46 @@
    ["Contact" "contact.html"]
    ["☰" "everythingelse.html"]])
 
-(defn menu [current-page-filename]
+(defn menu [relative-path current-page-filename]
   [:nav.dark
    (for [[label href] menu-list]
      [:a {:class (classes (when (= current-page-filename href) "selected")
                           (when (= 1 (count label)) "short"))
-          :href  href}
+          :href  (str relative-path href)}
       label])])
 
+(def local-dir (io/file "local"))
+(def deploy-dir (io/file "docs"))
+(def local? (.exists local-dir))
 (def parent-dir
-  (let [local-dir (io/file "local")
-        deploy-dir (io/file "docs")]
-    (if (.exists local-dir)
-      local-dir
-      deploy-dir)))
+  (if local?
+    local-dir
+    deploy-dir))
 
 (defn page [page-name title & content]
-  (let [filename (str page-name ".html")]
+  (let [filename (str page-name ".html")
+        target-file (io/file parent-dir filename)
+        nesting (+ (count (re-seq #"/" page-name))
+                   (if local? 0 0))
+        relative-path (string/join (repeat nesting "../"))]
+    (io/make-parents target-file)
     (spit
-      (io/file parent-dir filename)
+      target-file
       (prettify
         (hiccup.page/html5
           [:head
            [:meta {:charset "utf-8"}]
            [:title title]
-           [:link {:rel "stylesheet" :href "./css/style.css"}]
-           [:link {:rel "icon" :type "image/png" :href "favicon.png"}]
-           [:script {:src "./js/popup.js"}]]
+           [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
+           [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
+           [:script {:src (str relative-path "js/popup.js")}]]
           [:body
            [:div.prenav
             [:div
-             [:img {:src "archway_header.png"}]]
+             [:a {:href "https://www.archwaytheatre.com/"}
+              [:img {:src (str relative-path "archway_header.png")}]]]
             [:div "A thriving theatre in the heart of Horley."]]
-           (menu filename)
+           (menu relative-path filename)
            #_[:div.popupContainer
             [:div#popup {:onclick "javascript:hidePopups();"}
              [:div#popupText "Popup"]]]

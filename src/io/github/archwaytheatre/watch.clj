@@ -2,7 +2,9 @@
   (:require [clojure.java.io :as io]
             [clojure.string :as string]
             [io.github.archwaytheatre.build :as build]
-            [juxt.dirwatch :as dirwatch]))
+            [juxt.dirwatch :as dirwatch])
+  (:import [java.awt Desktop]
+           [java.net URI]))
 
 (defn local-deploy []
   (let [local-dir (io/file "local")
@@ -18,23 +20,26 @@
             (io/make-parents target-file)
             (io/copy source-file target-file)))))))
 
+(defn open []
+  (.browse (Desktop/getDesktop)
+           (URI. "http://localhost:63342/archwaytheatre.github.io/local/index.html")))
+
+(defn on-change [f & files]
+  (apply
+    dirwatch/watch-dir
+    (fn [{:keys [file]}]
+      (when-not (string/ends-with? (str file) "~")
+        (f)))
+    (map io/file files)))
+
 (defn watch [& _opts]
   (println "watching...")
   (build/build)
   (local-deploy)
+  (open)
 
-  (dirwatch/watch-dir
-    (fn [{:keys [file] :as event}]
-      (println event)
-      (when-not (string/ends-with? (str file) "~")
-        (build/build)))
-    (io/file "src"))
+  (on-change #(build/build) "src" "data")
+  (on-change #(local-deploy) "docs")
 
-  (dirwatch/watch-dir
-    (fn [{:keys [file] :as event}]
-      (println event)
-      (when-not (string/ends-with? (str file) "~")
-        (local-deploy)))
-    (io/file "docs"))
   (Thread/sleep (* 7 24 60 60 1000))
   (println "Got bored and gave up watching. Sorry."))
