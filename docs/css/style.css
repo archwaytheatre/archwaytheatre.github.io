@@ -417,3 +417,13 @@ a.search:hover {
 li {
     margin: 20px 0;
 }
+
+.delayedEmail {
+    animation-delay: 0.5s;
+    animation: fadein 3s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

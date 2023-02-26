@@ -14,24 +14,46 @@
              [:div.cell.noglow {:role "gridcell"} description]]))))
 
 (core/page "contact" "The Archway Theatre"
+  [:script {:src "./js/delayed.js"}]
   [:div
    [:div.content
-    [:div "You can get in touch with us by post, email, phone or using the contact form below."]
+    [:div "You can get in touch with us by post, email or phone."]
     [:br]
-    (table [["Box Office Online" [:a {:href "https://www.ticketsource.co.uk/archwaytheatre/"} "ticketsource.co.uk"]]
-            ["Box Office Phone" [:div
-                                 [:div [:a {:href "tel:0333-666-3366"} "0333 666 3366"] "(handled by TicketSource)"]
-                                 [:div "Open: Mon-Fri 9:00-19:00, Sat 9:00-17:00"]
-                                 [:div "£1.75 phone booking fee. Call charges may also apply."]]]
-            ["General enquiries" [:a {:href "tel:01293-784-398"} "(01293) 784 398"]]
-            ["Address" [:pre (string/join "\n"
-                               ["Archway Theatre Company Limited"
-                                "The Drive"
-                                "Horley"
-                                "Surrey"
-                                "RH6 7NQ"])]]])]
+    (table
+      [["Box Office Online" [:a {:href "https://www.ticketsource.co.uk/archwaytheatre/"} "ticketsource.co.uk"]]
+       ["Box Office Phone" [:div
+                            [:div [:a {:href "tel:0333-666-3366"} "0333 666 3366"] "(handled by TicketSource)"]
+                            [:div "Open: Mon-Fri 9:00-19:00, Sat 9:00-17:00"]
+                            [:div "£1.75 phone booking fee. Call charges may also apply."]]]
+       ["Box Office Email" [:a.delayedEmail "Box Office"]]
 
-   [:iframe#JotFormIFrame-230046557100040
+       ["General enquiries" [:a {:href "tel:01293-784-398"} "(01293) 784 398"]]
+       ["Address" [:pre (string/join "\n"
+                          ["Archway Theatre Company Limited"
+                           "The Drive"
+                           "Horley"
+                           "Surrey"
+                           "RH6 7NQ"])]]])
+    [:hr]
+    [:br]
+    [:div "You can also get in touch with specific departments via these email addresses:"]
+    [:br]
+    (table
+      [["Space Hire" [:a.delayedEmail "Space Hire"]]
+       ["Box Office" [:a.delayedEmail "Box Office"]]
+       ["General Enquiries" [:a.delayedEmail "General Enquiries"]]
+       ["House Management" [:a.delayedEmail "House Management"]]
+       ["Little Theatre Guild\nRepresentative" [:a.delayedEmail "Little Theatre Guild Representative"]]
+       ["Membership" [:a.delayedEmail "Membership"]]
+       ["Repertory Committee" [:a.delayedEmail "Repertory Committee"]]
+       ["Safeguarding" [:a.delayedEmail "Safeguarding"]]
+       ["Costume Hire & Wardrobe" [:a.delayedEmail "Costume Hire & Wardrobe"]]
+       ["Young Adults Workshops" [:a.delayedEmail "Young Adults Workshops"]]
+       ["Youth Workshops" [:a.delayedEmail "Youth Workshops"]]])]
+
+   [:script {:type "text/javascript"} "addEmails()"]
+
+#_#_   [:iframe#JotFormIFrame-230046557100040
     {:title "Contact Us"
      :onload "window.parent.scrollTo(0,0)"
      :allowtransparency "true"

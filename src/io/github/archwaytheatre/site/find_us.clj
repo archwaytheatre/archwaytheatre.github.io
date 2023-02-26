@@ -21,6 +21,20 @@
    [:div "RH6 7NQ"]
    [:br]
 
+   #_#_#_
+           [:iframe {:width "425"
+                     :height "350"
+                     :frameborder "0"
+                     :scrolling "no"
+                     :marginheight "0"
+                     :marginwidth "0"
+                     :src "https://www.openstreetmap.org/export/embed.html?bbox=-0.16377300024032593%2C51.16787079632578%2C-0.16043901443481448%2C51.170075654621726&amp;layer=mapnik"
+                     :style "border: 1px solid black"}]
+           [:br]
+           [:small
+            [:a {:href "https://www.openstreetmap.org/#map=19/51.16897/-0.16211"}
+             "View Larger Map"]]
+
    [:div.mapouter ; https://google-map-generator.com/
     [:div.gmap_canvas
      [:iframe#gmap_canvas {:width "600"
