@@ -414,6 +414,10 @@ a.search:hover {
     text-align: center;
 }
 
+.fullwidth {
+    width: 100%;
+}
+
 li {
     margin: 20px 0;
 }

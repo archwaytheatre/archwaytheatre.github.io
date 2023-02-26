@@ -13,6 +13,15 @@
               (string/replace title " " "&nbsp;")]
              [:div.cell.noglow {:role "gridcell"} description]]))))
 
+(defn alternating-cells [rows]
+  (into [:div.table.fullwidth {:role "grid"}]
+        (for [row rows]
+          (let [row row]
+            [:div.row {:role "row"}
+             [:div.cell {:role  "gridcell"
+                         :style "font-size:larger;"}
+              [:br] row [:br]]]))))
+
 (core/page "contact" "The Archway Theatre"
   [:script {:src "./js/delayed.js"}]
   [:div
@@ -38,18 +47,18 @@
     [:br]
     [:div "You can also get in touch with specific departments via these email addresses:"]
     [:br]
-    (table
-      [["Space Hire" [:a.delayedEmail "Space Hire"]]
-       ["Box Office" [:a.delayedEmail "Box Office"]]
-       ["General Enquiries" [:a.delayedEmail "General Enquiries"]]
-       ["House Management" [:a.delayedEmail "House Management"]]
-       ["Little Theatre Guild\nRepresentative" [:a.delayedEmail "Little Theatre Guild Representative"]]
-       ["Membership" [:a.delayedEmail "Membership"]]
-       ["Repertory Committee" [:a.delayedEmail "Repertory Committee"]]
-       ["Safeguarding" [:a.delayedEmail "Safeguarding"]]
-       ["Costume Hire & Wardrobe" [:a.delayedEmail "Costume Hire & Wardrobe"]]
-       ["Young Adults Workshops" [:a.delayedEmail "Young Adults Workshops"]]
-       ["Youth Workshops" [:a.delayedEmail "Youth Workshops"]]])]
+    (alternating-cells
+      [[:div.center [:div "General Enquiries"] [:a.delayedEmail "General Enquiries"]]
+       [:div.center [:div "Box Office"] [:a.delayedEmail "Box Office"]]
+       [:div.center [:div "Space Hire"] [:a.delayedEmail "Space Hire"]]
+       [:div.center [:div "Costume Hire & Wardrobe"] [:a.delayedEmail "Costume Hire & Wardrobe"]]
+       [:div.center [:div "House Management"] [:a.delayedEmail "House Management"]]
+       [:div.center [:div "Membership"] [:a.delayedEmail "Membership"]]
+       [:div.center [:div "Little Theatre Guild\nRepresentative"] [:a.delayedEmail "Little Theatre Guild Representative"]]
+       [:div.center [:div "Repertory Committee"] [:a.delayedEmail "Repertory Committee"]]
+       [:div.center [:div "Safeguarding"] [:a.delayedEmail "Safeguarding"]]
+       [:div.center [:div "Young Adults Workshops"] [:a.delayedEmail "Young Adults Workshops"]]
+       [:div.center [:div "Youth Workshops"] [:a.delayedEmail "Youth Workshops"]]])]
 
    [:script {:type "text/javascript"} "addEmails()"]
 
