@@ -50,4 +50,8 @@
      [:a.button.compact.search
       {:id   "searchbutton"
        :href "#"}
-      "Search"]]]])
+      "Search"]]
+
+    [:br][:br]
+
+    ]])

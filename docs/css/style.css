@@ -155,9 +155,9 @@ nav a.selected {
 
 .content {
     background-color: var(--bg);
-    margin: 4vh 0 4vh;
-    padding: 4vh 0 2vh;
-    box-shadow: 0px 5px 20px 10px var(--bg);
+    margin: 2vh 0 1vh;
+    padding: 2vh 0 1vh;
+    /*box-shadow: 0px 5px 20px 10px var(--bg);*/
 }
 
 
@@ -379,13 +379,34 @@ a.row:hover .glow {
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
     text-align: center;
     z-index: -10;
-    background-image: linear-gradient(90deg, var(--bg) 10%, var(--pink-1) 50%, var(--bg) 90%);
+    background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
+    padding: 10px;
+}
+
+a.logo {
+    text-decoration: none;
+    /*cursor: pointer;*/
+}
+div.logoholder {
+    display: inline-block;
+}
+div.logo {
+    display: inline-block;
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    width: 3em;
+    height: 2em;
+    overflow: hidden;
+    /*background-color: var(--bg);*/
+}
+img.logo {
+    height: 2em;
 }
 
 .attributed {

@@ -70,6 +70,19 @@
    ["Contact" "contact.html"]
    ["☰" "everythingelse.html"]])
 
+(defn social-media-logos [labelled?]
+  (let [icon (fn [title url image]
+               [:a.logo {:title title :href url}
+                [:div.logoholder
+                 [:div.logo
+                  [:img.logo {:src image}]]
+                 (when labelled? [:div title])]])]
+    [:div
+     (icon "Instagram" "http://instagram.com/archwaytheatre/" "/images/logos/Instagram.svg")
+     (icon "Twitter" "http://twitter.com/ArchwayHorley" "/images/logos/Twitter.png")
+     (icon "Facebook" "https://www.facebook.com/ArchwayTheatre/" "/images/logos/Facebook.png")
+     (icon "YouTube" "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" "/images/logos/YouTube.png")]))
+
 (defn menu [relative-path current-page-filename]
   [:nav.dark
    (for [[label href] menu-list]
@@ -115,7 +128,7 @@
              [:div#popupText "Popup"]]]
            [:section.container
             (hiccup.core/html content)]
-           [:br]
-           [:footer (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]])))
+           ;[:br]
+           [:footer (social-media-logos false) (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]])))
     (println "Wrote" filename)))
 

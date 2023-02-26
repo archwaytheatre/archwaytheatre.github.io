@@ -26,6 +26,12 @@
   [:script {:src "./js/delayed.js"}]
   [:div
    [:div.content
+    [:div.center (core/social-media-logos true)]
+    [:br]
+    [:br]
+    [:hr]
+    [:br]
+    [:br]
     [:div "You can get in touch with us by post, email or phone."]
     [:br]
     (table
@@ -43,7 +49,9 @@
                            "Horley"
                            "Surrey"
                            "RH6 7NQ"])]]])
+    [:br]
     [:hr]
+    [:br]
     [:br]
     [:div "You can also get in touch with specific departments via these email addresses:"]
     [:br]
