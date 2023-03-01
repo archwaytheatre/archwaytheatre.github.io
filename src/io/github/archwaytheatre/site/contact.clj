@@ -26,7 +26,7 @@
   [:script {:src "./js/delayed.js"}]
   [:div
    [:div.content
-    [:div.center (core/social-media-logos true)]
+    [:div.center core/social-media-logos]
     [:br]
     [:br]
     [:hr]

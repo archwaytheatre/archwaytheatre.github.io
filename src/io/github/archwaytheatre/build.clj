@@ -5,7 +5,8 @@
 
 (defn discover-namespaces []
   (sequence
-    (comp (filter #(-> % .getName (string/ends-with? ".clj")))
+    (comp (remove #(-> % .getPath (string/includes? "content")))
+          (filter #(-> % .getName (string/ends-with? ".clj")))
           (map (fn [file]
                  (->> file slurp string/split-lines first
                       (re-find #"io.github.archwaytheatre.site.[\S]+")

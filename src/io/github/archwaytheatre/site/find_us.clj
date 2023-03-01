@@ -53,6 +53,6 @@
    [:br]
    [:div [:b "Directions:"]]
    [:ul
-    [:li "From the M23 exit at junction 9 (Gatwick), follow signs for Gatwick/Redhill (A23). Head down the A23 to the Longbridge roundabout and turn right (Redhill A23). Take the second turn on the right (Massetts Road) and then the fifth on the right (Russels Crescent) Just before the traffic lights, turn right (The Drive). The Archway Theatre is on your left (station car park) and you can park in the NCP car park. (You will also see brown council signposts to the Archway Theatre)"]
-    [:li "From the B2036 turn off at mini roundabout and follow the signs for Horley Station. Go past the Station and take the fisrt left at the traffic light (Russels Crescent) and then immediately left (The Drive). The Archway Theatre is on your left and you can park in the NCP car park. (You will also see brown council signposts to the Archway Theatre.)"]]
+    [:li.spaced "From the M23 exit at junction 9 (Gatwick), follow signs for Gatwick/Redhill (A23). Head down the A23 to the Longbridge roundabout and turn right (Redhill A23). Take the second turn on the right (Massetts Road) and then the fifth on the right (Russels Crescent) Just before the traffic lights, turn right (The Drive). The Archway Theatre is on your left (station car park) and you can park in the NCP car park. (You will also see brown council signposts to the Archway Theatre)"]
+    [:li.spaced "From the B2036 turn off at mini roundabout and follow the signs for Horley Station. Go past the Station and take the fisrt left at the traffic light (Russels Crescent) and then immediately left (The Drive). The Archway Theatre is on your left and you can park in the NCP car park. (You will also see brown council signposts to the Archway Theatre.)"]]
    ])

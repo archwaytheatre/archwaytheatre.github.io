@@ -70,18 +70,27 @@
    ["Contact" "contact.html"]
    ["☰" "everythingelse.html"]])
 
-(defn social-media-logos [labelled?]
-  (let [icon (fn [title url image]
-               [:a.logo {:title title :href url}
-                [:div.logoholder
-                 [:div.logo
-                  [:img.logo {:src image}]]
-                 (when labelled? [:div title])]])]
-    [:div
-     (icon "Instagram" "http://instagram.com/archwaytheatre/" "/images/logos/Instagram.svg")
-     (icon "Twitter" "http://twitter.com/ArchwayHorley" "/images/logos/Twitter.png")
-     (icon "Facebook" "https://www.facebook.com/ArchwayTheatre/" "/images/logos/Facebook.png")
-     (icon "YouTube" "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" "/images/logos/YouTube.png")]))
+(defn social-media-logo
+  ([title image url]
+   (social-media-logo title image url nil))
+  ([title image url label]
+   [:a.logo {:title (or label title) :href url}
+    [:div.logoholder
+     [:div.logo
+      [:img.logo {:src image}]]]
+    (when label [:div label])]))
+
+(def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
+(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
+(def logo-fb (partial social-media-logo "Facebook" "/images/logos/Facebook.png"))
+(def logo-yt (partial social-media-logo "YouTube" "/images/logos/YouTube.png"))
+
+(def social-media-logos
+  [:div
+   (logo-ig "http://instagram.com/archwaytheatre/")
+   (logo-tw "http://twitter.com/ArchwayHorley")
+   (logo-fb "https://www.facebook.com/ArchwayTheatre/")
+   (logo-yt "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
 
 (defn menu [relative-path current-page-filename]
   [:nav.dark
@@ -129,6 +138,7 @@
            [:section.container
             (hiccup.core/html content)]
            ;[:br]
-           [:footer (social-media-logos false) (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]])))
+           [:footer social-media-logos
+            [:a {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
     (println "Wrote" filename)))
 

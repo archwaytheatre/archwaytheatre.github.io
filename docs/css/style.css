@@ -81,7 +81,12 @@ html	{
 }
 
 h1 {
-    padding: 10px;
+    padding: 10px 0;
+    margin: 0;
+}
+h3 {
+    padding: 10px 0;
+    margin: 0;
 }
 
 a {
@@ -439,7 +444,10 @@ a.search:hover {
     width: 100%;
 }
 
-li {
+ul {
+    margin: 0 0 20px;
+}
+li.spaced {
     margin: 20px 0;
 }
 
@@ -452,3 +460,45 @@ li {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.volunteer {
+    background-image: linear-gradient(0deg, var(--pink-4) 0%, var(--pink-1) 100%);
+    padding: 10px;
+    margin-bottom: 2em;
+}
+
+.audition {
+    background-image: linear-gradient(0deg, var(--blue-4) 0%, var(--blue-1) 100%);
+    padding: 10px;
+    margin-bottom: 2em;
+}
+
+.other {
+    background-image: linear-gradient(0deg, var(--pear-3) 0%, var(--pear-1) 100%);
+    padding: 10px;
+    margin-bottom: 2em;
+}
+
+.hp1 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.vp1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.calltoaction {
+    margin: 10px -10px -10px;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    background-color: var(--shadow);
+}
+.calltoaction a.delayedEmail {
+    font-weight: normal;
+    font-size: smaller;
+}
+.audition .calltoaction {background-color: var(--blue-1);}
+.volunteer .calltoaction {background-color: var(--pink-1);}
+.other .calltoaction {background-color: var(--pear-1);}
