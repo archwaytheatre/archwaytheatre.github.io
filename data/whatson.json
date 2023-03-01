@@ -5,7 +5,14 @@
     "start": "2023-03-28",
     "end": "2023-04-08",
     "imageurl": "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2023/01/03BunchofamateursA4-scaled.jpg"
-  }
+  },
+  {
+    "name": "MacBeth",
+    "location": "Main House",
+    "start": "2023-05-02",
+    "end": "2023-05-13",
+    "imageurl":"https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2023/01/04macbethA4-scaled.jpg"
+  },
   {
     "name": "Colder Than Here",
     "location": "Main House",
