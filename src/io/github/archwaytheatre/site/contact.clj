@@ -23,7 +23,6 @@
               [:br] row [:br]]]))))
 
 (core/page "contact" "The Archway Theatre"
-  [:script {:src "./js/delayed.js"}]
   [:div
    [:div.content
     [:div.center core/social-media-logos]
@@ -68,6 +67,6 @@
        [:div.center [:div "Young Adults Workshops"] [:a.delayedEmail "Young Adults Workshops"]]
        [:div.center [:div "Youth Workshops"] [:a.delayedEmail "Youth Workshops"]]])]
 
-   [:script {:type "text/javascript"} "addEmails()"]
+   [:script {:src "./js/delayed.js"}]
 
    ])

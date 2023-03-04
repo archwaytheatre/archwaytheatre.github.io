@@ -27,10 +27,11 @@
        ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
        ["findus.html" "Find&nbsp;Us" "How to find our theatre if you're planning a visit."]
        ["contact.html" "Contact" "How to reach us."]
+       ["spaces.html" "Hire a Space" "We have rooms available to hire for your event."]
        ["legal.html" "Legal & Site Info" "Legal and site information."]
        ["https://www.ticketsource.co.uk/archwaytheatre/" "Box Office" "Buy tickets for any of our productions."]
        ; TODO: membership could / should be it's own page, rather than going directly to membermojo
-       ["https://membermojo.co.uk/archwaytheatre" "Membership"
+       ["join.html" "Membership"
         (str "Join as a member to get discounted tickets or to get involved."
              " You can also manage your existing membership here.")]
        ["https://littletheatreguild.org/" "Little Theatre Guild"

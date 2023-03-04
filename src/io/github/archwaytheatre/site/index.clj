@@ -31,7 +31,7 @@
   [:div.content
    [:div.events.dark {:onload "composeLabels()"}
     (sorted
-      (for [[idx {:keys [name location soldout trailer about imageurl start end]}]
+      (for [[idx {:keys [name location soldout trailer about imageurl image-no-stretch start end]}]
             (map-indexed vector (json/parse-string (slurp "data/whatson.json") keyword))]
         (let [link-href (if (= location "Digital")
                           "https://www.ticketsource.co.uk/archwaytheatredigital/"
@@ -49,7 +49,8 @@
              [:div {:class (core/classes "event" (location->class location "unknown"))}
               [:div.eventimage
                [:a {:href link-href}
-                [:img {:src imageurl}]]]
+                [:img {:class (core/classes (when image-no-stretch "unstretched"))
+                       :src imageurl}]]]
               [:div.eventdata
                [:div.eventdatum location]
                [:div.eventdatum.bold (font-size name) name]
@@ -78,4 +79,13 @@
                    {:href    link-href
                     :onclick "event.stopPropagation();"}
                    "Buy Tickets"])]]]]))))]
+
+   [:div.center
+    [:div.larger "That's all for now! Check back soon for more..."]
+    [:br]
+    [:div.larger "...or " [:a {:href "join.html"} "become a member"] " to receive our newsletter."]]
+   [:br]
+   [:br]
+   [:br]
+
    [:script {:src "./js/datetime.js"}]])

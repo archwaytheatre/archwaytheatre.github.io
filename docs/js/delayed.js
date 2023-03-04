@@ -25,3 +25,5 @@ function addEmails() {
         setTimeout(addEmail, 257, emailElements.item(i));
     }
 }
+
+addEmails();

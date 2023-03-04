@@ -74,7 +74,7 @@
   ([title image url]
    (social-media-logo title image url nil))
   ([title image url label]
-   [:a.logo {:title (or label title) :href url}
+   [:a.logo {:title (or label title) :href url :target "_blank"}
     [:div.logoholder
      [:div.logo
       [:img.logo {:src image}]]]
