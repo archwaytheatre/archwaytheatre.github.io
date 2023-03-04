@@ -36,31 +36,72 @@
     <section class="container">
       <script src="./js/involvement.js">
       </script>
-      <script src="./js/delayed.js">
-      </script>
       <div class="content">
         <div class="center">
-          <a class="hp1" href="javascript:toggle(&apos;volunteer&apos;)">Show / Hide Volunteering</a>
-          
-          <a class="hp1" href="javascript:toggle(&apos;audition&apos;)">Show / Hide Auditions</a>
-          
-          <a class="hp1" href="javascript:toggle(&apos;other&apos;)">Show / Hide Events</a>
-          
+          <span class="main hp1">
+            <a class="button compact shown" data-kind="volunteer" href="javascript:void(0);" onclick="toggle(this)">Hide Volunteering</a>
+            
+          </span>
+          <span class="studio hp1">
+            <a class="button compact shown" data-kind="audition" href="javascript:void(0);" onclick="toggle(this)">Hide Auditions</a>
+            
+          </span>
+          <span class="digital hp1">
+            <a class="button compact shown" data-kind="other" href="javascript:void(0);" onclick="toggle(this)">Hide Events</a>
+            
+          </span>
         </div>
         <br>
         <br>
-        <div class="getinvolved volunteer" data-sort="0">
-          The Archway Theatre is a volunteer run organisation. We rely on the generosity of our members to keep the theatre running.
+        <div class="getinvolved volunteer">
+          The Archway Theatre is a volunteer run organisation. We rely on the generosity of our members to keep the theatre running. If you'd like to get involved then 
+          <a href="join.html">click here to become a member</a>
+          .
         </div>
-        <div class="getinvolved volunteer" data-sort="0">
-          Staff the box office at a current or future production.
+        <div class="getinvolved volunteer">
+          Run the bar at a current or future production.
           <div class="calltoaction">
             Email: 
             <a class="delayedEmail">House Management</a>
             
           </div>
         </div>
-        <div class="getinvolved audition" data-sort="0">
+        <div class="getinvolved other">
+          <h1>
+            Dingbats Improv Classes
+          </h1>
+          <p>
+            Learn how to improvise in a friendly and supportive environment.
+          </p>
+          <p>
+            Our classes are where we have the most fun. You don’t have to be an actor or a comedian to attend – just a genuine human being who can listen and laugh.
+          </p>
+          <p>
+            Regardless of the level, all the classes consist of silly ice-breaker warm ups, exercises to learn new skills and lots of time to play scenes and practise what we’ve learnt.
+          </p>
+          <p>
+            Improv is the perfect skill to develop if you are an actor looking to enhance your skill set, a writer looking for inspiration or anyone looking to unwind after work and gain a better understanding of creative collaboration.
+          </p>
+          <p>
+            We run improv courses and drop-in workshops which each focus on different types of improvisation and are suitable for different levels of experience. Some take place online, but most are either at The Hawth Theatre in Crawley or here at The Archway Theatre in Horley.
+          </p>
+          <p>
+            Dingbats is also available for hire to run a workshop for your team, whether that be a team within a business or an improv group looking for an experienced coach.
+          </p>
+          <div class="calltoaction">
+            <a href="https://www.dingbatsimprov.com/improv-classes" target="_blank">Browse classes</a>
+            
+          </div>
+        </div>
+        <div class="getinvolved volunteer">
+          Perform Front of House duties for a current or future production.
+          <div class="calltoaction">
+            Email: 
+            <a class="delayedEmail">House Management</a>
+            
+          </div>
+        </div>
+        <div class="getinvolved audition">
           <h1>
             Audition: Sheila’s Island by Tim Firth
           </h1>
@@ -109,7 +150,7 @@
             
           </div>
         </div>
-        <div class="getinvolved volunteer" data-sort="0">
+        <div class="getinvolved volunteer">
           Help paint the set for a future production.
           <div class="calltoaction">
             Email: 
@@ -121,22 +162,20 @@
           <h1>
             Singing for the Soul
           </h1>
-          <div>
+          <p>
             Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room.
-          </div>
-          <br>
-          <div>
+          </p>
+          <p>
             13th March, 27th March, 24th April, 8th May, 22nd May, 5th June
-          </div>
-          <br>
-          <div>
+          </p>
+          <p>
             £4 per session (£5 for non members)
-          </div>
+          </p>
           <div class="calltoaction">
             Just turn up or
           </div>
           <div class="calltoaction">
-            <a class="logo" href="https://www.facebook.com/groups/621824429716899" title="Join the Facebook Group">              <div class="logoholder">
+            <a class="logo" href="https://www.facebook.com/groups/621824429716899" target="_blank" title="Join the Facebook Group">              <div class="logoholder">
                 <div class="logo">
                   <img class="logo" src="/images/logos/Facebook.png">
                 </div>
@@ -148,11 +187,11 @@
             
           </div>
         </div>
-        <div class="getinvolved volunteer" data-sort="0">
-          Help build the set for a future production.
+        <div class="getinvolved volunteer">
+          Staff the box office at a current or future production.
           <div class="calltoaction">
             Email: 
-            <a class="delayedEmail">General Enquiries</a>
+            <a class="delayedEmail">House Management</a>
             
           </div>
         </div>
@@ -241,51 +280,42 @@
             
           </div>
         </div>
-        <div class="getinvolved volunteer" data-sort="0">
-          Perform Front of House duties for a current or future production.
+        <div class="getinvolved volunteer">
+          Help build the set for a future production.
           <div class="calltoaction">
             Email: 
-            <a class="delayedEmail">House Management</a>
-            
-          </div>
-        </div>
-        <div class="getinvolved volunteer" data-sort="0">
-          Run the bar at a current or future production.
-          <div class="calltoaction">
-            Email: 
-            <a class="delayedEmail">House Management</a>
+            <a class="delayedEmail">General Enquiries</a>
             
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-        addEmails()
+      <script src="./js/delayed.js">
       </script>
     </section>
     <footer>
       <div>
-        <a class="logo" href="http://instagram.com/archwaytheatre/" title="Instagram">          <div class="logoholder">
+        <a class="logo" href="http://instagram.com/archwaytheatre/" target="_blank" title="Instagram">          <div class="logoholder">
             <div class="logo">
               <img class="logo" src="/images/logos/Instagram.svg">
             </div>
           </div>
 </a>
         
-        <a class="logo" href="http://twitter.com/ArchwayHorley" title="Twitter">          <div class="logoholder">
+        <a class="logo" href="http://twitter.com/ArchwayHorley" target="_blank" title="Twitter">          <div class="logoholder">
             <div class="logo">
               <img class="logo" src="/images/logos/Twitter.png">
             </div>
           </div>
 </a>
         
-        <a class="logo" href="https://www.facebook.com/ArchwayTheatre/" title="Facebook">          <div class="logoholder">
+        <a class="logo" href="https://www.facebook.com/ArchwayTheatre/" target="_blank" title="Facebook">          <div class="logoholder">
             <div class="logo">
               <img class="logo" src="/images/logos/Facebook.png">
             </div>
           </div>
 </a>
         
-        <a class="logo" href="https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" title="YouTube">          <div class="logoholder">
+        <a class="logo" href="https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" target="_blank" title="YouTube">          <div class="logoholder">
             <div class="logo">
               <img class="logo" src="/images/logos/YouTube.png">
             </div>
