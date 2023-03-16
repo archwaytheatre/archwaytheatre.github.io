@@ -57,6 +57,9 @@
                 [:img {:class (core/classes (when image-no-stretch "unstretched"))
                        :src imageurl}]]]
               [:div.eventdata
+               [:div.timelabel
+                {:data-start (to-start-millis start-date)
+                 :data-end   (to-end-millis end-date)}]
                [:div.eventdatum location]
                [:div.eventdatum.bold (font-size name) name]
                [:div.eventdatum (date-range start-date end-date)]
@@ -64,10 +67,7 @@
                [:div.eventdatum.bold
                 (if soldout
                   [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
-                  [:a.button {:href link-href} "Buy Tickets"])]
-               [:div.timelabel
-                {:data-start (to-start-millis start-date)
-                 :data-end (to-end-millis end-date)}]]
+                  [:a.button {:href link-href} "Buy Tickets"])]]
               [:div.popup {:id (str "popup-" idx)}
                [:div.alignright.x
                 [:a.short
