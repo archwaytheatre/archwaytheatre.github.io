@@ -21,6 +21,11 @@
 
 (def date-format (DateTimeFormatter/ofPattern "d MMM"))
 
+(defn date-range [start-date end-date]
+  (if (= start-date end-date)
+    (.format start-date date-format)
+    (str (.format start-date date-format) " - " (.format end-date date-format))))
+
 (defn to-start-millis [start]
   (* (.toEpochSecond (.atOffset (.atStartOfDay start) ZoneOffset/UTC)) 1000))
 
@@ -54,7 +59,7 @@
               [:div.eventdata
                [:div.eventdatum location]
                [:div.eventdatum.bold (font-size name) name]
-               [:div.eventdatum (str (.format start-date date-format) " - " (.format end-date date-format))]
+               [:div.eventdatum (date-range start-date end-date)]
                [:div.eventdatum [:a {:href (str "javascript:showPopup(\"popup-" idx "\");")} "About"]]
                [:div.eventdatum.bold
                 (if soldout
