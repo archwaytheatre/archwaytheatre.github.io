@@ -576,16 +576,36 @@ li.spaced {
 .larger {
     font-size: larger;
 }
+
+.joinlevel.bronze {--main: var(--bronze-1);--highlight: var(--bronze-2);--lowlight: var(--bronze-3);}
+.joinlevel.silver {--main: var(--silver-1);--highlight: var(--silver-2);--lowlight: var(--silver-3);}
+.joinlevel.gold {--main: var(--gold-1);--highlight: var(--gold-2);--lowlight: var(--gold-3);}
+.joinlevel.junior {--main: var(--junior-1);--highlight: var(--junior-2);--lowlight: var(--junior-3);}
+.joinlevel.young {--main: var(--young-1);--highlight: var(--young-2);--lowlight: var(--young-3);}
+
 .joinlevel {
     font-weight: bold;
     vertical-align: middle;
     text-shadow: 0 0 6px black;
+    position: relative;
+    background-image: linear-gradient(160deg, var(--main) 0%, var(--highlight) 20%, var(--main) 40%, var(--lowlight) 100%);
 }
-.bronze {background-image: linear-gradient(160deg, var(--bronze-1) 0%, var(--bronze-2) 20%, var(--bronze-1) 40%, var(--bronze-3) 100%);}
-.silver {background-image: linear-gradient(160deg, var(--silver-1) 0%, var(--silver-2) 20%, var(--silver-1) 40%, var(--silver-3) 100%);}
-.gold {background-image: linear-gradient(160deg, var(--gold-1) 0%, var(--gold-2) 20%, var(--gold-1) 40%, var(--gold-3) 100%);}
-.junior {background-image: linear-gradient(160deg, var(--junior-1) 0%, var(--junior-2) 20%, var(--junior-1) 40%, var(--junior-3) 100%);}
-.young {background-image: linear-gradient(160deg, var(--young-1) 0%, var(--young-2) 20%, var(--young-1) 40%, var(--young-3) 100%);}
+
+.joinlevel div {
+    position: relative;
+}
+
+.joinlevel::before {
+    content: ' ';
+    opacity: 0.6;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--main);
+}
 
 a.button.shown {
     background-image: initial;
