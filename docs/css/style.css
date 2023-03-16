@@ -11,7 +11,8 @@
     /*--bg: #ffaed8;*/
     /*--bg: #f5e8da;*/
     /*--bg: #3e527a;*/
-    --bg: #2f3e5d;
+    /*--bg: #2f3e5d;*/
+    --bg: #003642;
     /*--fg-light: rgb(50,50,50);*/
     --fg-light: rgb(220,220,220);
     --fg-dark: rgb(220,220,220);
@@ -70,9 +71,12 @@
     --junior-1: #b577ff;
     --junior-2: #e1c8ff;
     --junior-3: #915ece;
-    --young-1: #20d30e;
-    --young-2: #90d589;
-    --young-3: #18a80a;
+    /*--young-1: #20d30e;*/
+    /*--young-2: #90d589;*/
+    /*--young-3: #18a80a;*/
+    --young-1: #2d9a22;
+    --young-2: #8eb489;
+    --young-3: #096000;
 }
 
 
