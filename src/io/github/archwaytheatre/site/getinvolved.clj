@@ -12,10 +12,13 @@
 
 (defn re-sort [& things]
   (let [volunteering (shuffle (filter #(-> % first name (string/includes? "volunteer")) things))
+        other (shuffle (filter #(-> % first name (string/includes? "other")) things))
+        audition (filter #(-> % first name (string/includes? "audition")) things)
         everything-else (interleave-all
-                          (shuffle (filter #(-> % first name (string/includes? "other")) things))
-                          (filter #(-> % first name (string/includes? "audition")) things))]
-    (interleave-all volunteering everything-else)))
+                          other
+                          audition)]
+    (concat audition other volunteering)
+    #_(interleave-all volunteering everything-else)))
 
 (core/page "getinvolved" "The Archway Theatre"
   [:script {:src "./js/involvement.js"}]
