@@ -1,10 +1,12 @@
 
 :root {
     --aspect-ratio: 1.4145161;
+    --golden-ratio: 1.61803398875;
     --my-vw: min(1000px, 100vw);
     --content-width-pc: 0.90;
     --content-halfwidth-pc: calc(var(--content-width-pc) / 2);
     --content-width: calc(var(--content-width-pc) * var(--my-vw));
+    --golden-content-height: calc(var(--content-width) / var(--golden-ratio));
     --content-halfwidth: calc(var(--content-halfwidth-pc) * var(--my-vw));
     --youtube-ar: calc(720 / 1280);
 
@@ -601,4 +603,65 @@ li.spaced {
 a.button.shown {
     background-image: initial;
     background-color: rgba(255,255,255,0.25);
+}
+
+div.carousel {
+    position: relative;
+    width: var(--content-width);
+    height: calc(var(--golden-content-height) + 1.5em);
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.1);
+}
+
+div.carouselimg {
+    position: absolute;
+    width: var(--content-width);
+    height: var(--golden-content-height);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.carouselBacking {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--blue-1);
+    width: 100%;
+    line-height: 1.5em;
+}
+
+div.carouselimg div {
+    line-height: 1.5em;
+    top: 100%;
+    position: absolute;
+    background-image: linear-gradient(90deg, transparent 0%, var(--blue-1) 50%, transparent 100%);
+    text-align: center;
+    width: 100%;
+}
+
+@keyframes slide-in {
+    from {left: 100%;}
+    to {left: 0;}
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.carouselnew {
+    z-index: 2;
+    position: relative;
+    animation: fade-in 3s;
+}
+
+@keyframes fade-away {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.carouselnew.carouselold {
+    z-index: 1;
+    opacity: 0;
+    animation: fade-away 3s;
 }

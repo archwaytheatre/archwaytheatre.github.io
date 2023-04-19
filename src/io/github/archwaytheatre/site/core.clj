@@ -68,6 +68,7 @@
    ["Get Involved!" "getinvolved.html"]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
+   ["About" "about.html"]
    ["☰" "everythingelse.html"]])
 
 (defn social-media-logo
