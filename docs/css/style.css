@@ -428,7 +428,7 @@ footer {
     /*left: 0;*/
     /*right: 0;*/
     text-align: center;
-    z-index: -10;
+    /*z-index: -10;*/
     background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
     padding: 10px;
 }
