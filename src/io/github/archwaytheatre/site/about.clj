@@ -11,11 +11,6 @@
    ; TODO: link to membership page
    ; TODO: link to past productions
 
-   [:div#carousel1.carousel]
-   [:script {:type "text/javascript"} "startCarousel('carousel1',recentImages);"]
-
-   [:br]
-
    [:div
     [:div
      "The Archway Theatre is a thriving “little theatre” located under the railway arches in Horley, near Gatwick."
@@ -30,4 +25,12 @@
      " We try all aspects of theatre, from musicals through drama to pantomime."
      " We are open to the public, but also as a club our members can buy tickets at a reduced rate, "
      "take advantage of the youth workshop facilities, and visit the members’ bar."
-     " Those wishing to go on stage or backstage are members of the company, who put on all the shows."]]])
+     " Those wishing to go on stage or backstage are members of the company, who put on all the shows."]]
+
+   [:br]
+
+   [:div#carousel1.carousel.labelled]
+   [:script {:type "text/javascript"} "startCarousel('carousel1',recentImages,true);"]
+
+
+   ])

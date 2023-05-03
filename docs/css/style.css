@@ -609,9 +609,13 @@ a.button.shown {
 div.carousel {
     position: relative;
     width: var(--content-width);
-    height: calc(var(--golden-content-height) + 1.5em);
+    height: var(--golden-content-height);
     overflow: hidden;
     background-color: rgba(0,0,0,0.1);
+}
+
+div.carousel.labelled {
+    height: calc(var(--golden-content-height) + 1.5em);
 }
 
 div.carouselimg {
@@ -665,4 +669,45 @@ div.carouselimg div {
     z-index: 1;
     opacity: 0;
     animation: fade-away 3s;
+}
+
+div.year {
+    font-size: 390px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: -0.25em;
+}
+
+div.production {
+    font-size: 100px;
+    font-weight: bolder;
+    color: rgba(255,255,255,0.5);
+    /*text-align:justify;*/
+    /*width: 100%;*/
+}
+
+div.year-index {
+    position: relative;
+    /*font-size: 390px;*/
+    min-height: 12em;
+    margin-left: 6em;
+    margin-bottom: 3em;
+}
+div.productions {
+    /*padding-left: 3em;*/
+    /*font-size: x-large;*/
+}
+div.year-index div.year-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 130px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.25);
+    transform-origin: top left;
+    transform: rotate(-90deg) translate(-100%,-100%);
+}
+
+span.disabled {
+    color: rgba(255,255,255,0.25);
 }

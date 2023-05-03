@@ -17,13 +17,15 @@ function imagesForPlay(title) {
     }
 }
 
-function startCarousel(elementId, predicate) {
+function startCarousel(elementId, predicate, labelled) {
 
     let carousel = document.getElementById(elementId);
-    let labelBacking = document.createElement('div');
-    labelBacking.classList.add('carouselBacking');
-    labelBacking.appendChild(document.createTextNode(' '));
-    carousel.appendChild(labelBacking);
+    if (labelled) {
+        let labelBacking = document.createElement('div');
+        labelBacking.classList.add('carouselBacking');
+        labelBacking.appendChild(document.createTextNode(' '));
+        carousel.appendChild(labelBacking);
+    }
 
     let imageData = carouselData.filter(predicate).map(item => item.slice(1));
     fisherYatesShuffle(imageData);
@@ -39,12 +41,14 @@ function startCarousel(elementId, predicate) {
         var img = new Image ();
         img.onload = function () {
             let newElement = document.createElement('div');
-            let title = document.createElement('div');
-            title.appendChild(document.createTextNode(imageDatum[1] + ' (' + imageDatum[0] + ')'));
+            if (labelled) {
+                let title = document.createElement('div');
+                title.appendChild(document.createTextNode(imageDatum[1] + ' (' + imageDatum[0] + ')'));
+                newElement.appendChild(title);
+            }
             newElement.classList.add("carouselimg");
             newElement.classList.add("carouselnew");
             newElement.style.backgroundImage="url("+ src +")";
-            newElement.appendChild(title);
             carousel.appendChild(newElement);
 
             oldImageElement.remove();
