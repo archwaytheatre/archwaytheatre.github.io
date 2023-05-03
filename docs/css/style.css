@@ -2,7 +2,7 @@
 :root {
     --aspect-ratio: 1.4145161;
     --golden-ratio: 1.61803398875;
-    --my-vw: min(1000px, 100vw);
+    --my-vw: min(750px, 100vw);
     --content-width-pc: 0.90;
     --content-halfwidth-pc: calc(var(--content-width-pc) / 2);
     --content-width: calc(var(--content-width-pc) * var(--my-vw));
@@ -97,7 +97,7 @@ body {
 
 html	{
     font-family: "Atkinson Hyperlegible", sans-serif;
-    font-size: x-large;
+    font-size: large;
     background-color: var(--bg);
     color: var(--fg-light);
 }
@@ -164,7 +164,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    font-size: xx-large;
+    font-size: x-large;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -308,7 +308,7 @@ div.trailer {
     box-shadow: 0 5px 15px var(--pink-shadow);
 }
 .button.compact {
-    padding: calc(0.01 * var(--my-vw));
+    padding: calc(0.012 * var(--my-vw)) calc(0.01 * var(--my-vw)) calc(0.01 * var(--my-vw));
 }
 .button:hover {
     color: white;
@@ -390,6 +390,7 @@ pre {
 
 .table {
     display: table;
+    width: 100%;
 }
 
 .row {
