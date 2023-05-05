@@ -2,7 +2,7 @@
 :root {
     --aspect-ratio: 1.4145161;
     --golden-ratio: 1.61803398875;
-    --my-vw: min(70vh, 100vw);
+    --my-vw: min(85vh, 100vw);
     --content-width-pc: 0.9;
     --content-halfwidth-pc: calc(var(--content-width-pc) / 2);
     --content-width: calc(var(--content-width-pc) * var(--my-vw));
