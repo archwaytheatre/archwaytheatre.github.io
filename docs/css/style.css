@@ -178,10 +178,16 @@ nav div {
 nav div a {
     padding: 15px;
 }
-nav div.selected {
+
+div.menuItem {}
+div.menuItem.selected {
     background-color: var(--blue-1);
+}
+div.menuItem.selected > a {
     text-decoration: none;
     color: white;
+}
+div.menuItem.topMenu.selected {
     border-left: 1px solid white;
     border-right: 1px solid white;
 }
@@ -190,21 +196,12 @@ nav div.selected {
     position: relative;
 }
 .dropDownButton {
-    /*background-color: transparent;*/
-    /*color: white;*/
-    /*padding: 16px;*/
-    /*font-size: 16px;*/
-    /*border: none;*/
     cursor: pointer;
 }
 .dropDownContainer.show .dropDownButton {
-    text-decoration: none;
-    cursor: initial;
+    /*cursor: initial;*/
 }
 .dropDownContainer.show .dropDownButton:hover {
-    /*// todo...*/
-    text-shadow: none;
-    color: var(--fg-dark);
 }
 .dropDownMenu {
     display: none;

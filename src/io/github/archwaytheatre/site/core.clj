@@ -100,22 +100,26 @@
   [:nav.dark
    (for [[label href dropdown] menu-list]
      (if dropdown
-       (let [{:keys [id submenu]} dropdown]
+       (let [{:keys [id submenu]} dropdown
+             hrefs (set (map second submenu))]
          [:div.dropDownContainer {:id id
                                   ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                  :class (classes "menuItem" "topMenu"
+                                                  (when (hrefs current-page-filename) "selected"))
                                   }
-          [:a.dropDownButton {:role        "button"
-                              :href        "#0"
-                              :onclick     (str "dropDownTap('" id "');")
+          [:a.dropDownButton {:role    "button"
+                              :href    "#0"
+                              :onclick (str "dropDownTap('" id "');")
                               ;:onmouseover (str "dropDownHover('" id "');")
+
                               }
            label]
           [:div.dropDownMenu
            (for [[label href] submenu]
-             [:div {:class (classes "menuitem" (when (= current-page-filename href) "selected"))}
+             [:div {:class (classes "menuItem" (when (= current-page-filename href) "selected"))}
               [:a {:href href} label]])]])
-       [:div {:class (classes "menuitem" (when (= current-page-filename href) "selected"))}
-        [:a (merge {:class (classes (when (= 1 (count label)) "short"))
+       [:div {:class (classes "menuItem" "topMenu" (when (= current-page-filename href) "selected"))}
+        [:a (merge {:class (classes "menuButton" (when (= 1 (count label)) "short"))
                     :href (str relative-path href)})
          label]]))])
 
