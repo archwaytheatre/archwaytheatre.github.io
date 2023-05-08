@@ -9,6 +9,8 @@
     <link href="favicon.png" rel="icon" type="image/png">
     <script src="js/popup.js">
     </script>
+    <script src="js/menudrop.js">
+    </script>
   </head>
   <body>
     <div class="prenav">
@@ -22,18 +24,44 @@
       </div>
     </div>
     <nav class="dark">
-      <a class="" href="index.html">What's On?</a>
-      
-      <a class="" href="getinvolved.html">Get Involved!</a>
-      
-      <a class="" href="findus.html">Find Us</a>
-      
-      <a class="" href="contact.html">Contact</a>
-      
-      <a class="" href="about.html">About</a>
-      
-      <a class="short" href="everythingelse.html">☰</a>
-      
+      <div class="menuitem">
+        <a class="" href="index.html">What's On?</a>
+        
+      </div>
+      <div class="dropDownContainer" id="get-involved">
+        <a class="dropDownButton" href="#0" onclick="dropDownTap(&apos;get-involved&apos;);" role="button">Get Involved!</a>
+        
+        <div class="dropDownMenu">
+          <div class="menuitem">
+            <a href="getinvolved.html">Volunteer</a>
+            
+          </div>
+          <div class="menuitem">
+            <a href="auditions.html">Audition</a>
+            
+          </div>
+          <div class="menuitem">
+            <a href="events.html">Events</a>
+            
+          </div>
+        </div>
+      </div>
+      <div class="menuitem">
+        <a class="" href="findus.html">Find Us</a>
+        
+      </div>
+      <div class="menuitem">
+        <a class="" href="contact.html">Contact</a>
+        
+      </div>
+      <div class="menuitem">
+        <a class="" href="about.html">About</a>
+        
+      </div>
+      <div class="menuitem">
+        <a class="short" href="everythingelse.html">☰</a>
+        
+      </div>
     </nav>
     <section class="container">
       <div class="content">
