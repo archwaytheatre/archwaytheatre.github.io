@@ -172,15 +172,56 @@ nav {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
-nav a {
+nav div {
+    display: flex;
+}
+nav div a {
     padding: 15px;
 }
-nav a.selected {
+nav div.selected {
     background-color: var(--blue-1);
     text-decoration: none;
     color: white;
     border-left: 1px solid white;
     border-right: 1px solid white;
+}
+
+.dropDownContainer {
+    position: relative;
+}
+.dropDownButton {
+    /*background-color: transparent;*/
+    /*color: white;*/
+    /*padding: 16px;*/
+    /*font-size: 16px;*/
+    /*border: none;*/
+    cursor: pointer;
+}
+.dropDownContainer.show .dropDownButton {
+    text-decoration: none;
+    cursor: initial;
+}
+.dropDownContainer.show .dropDownButton:hover {
+    /*// todo...*/
+    text-shadow: none;
+    color: var(--fg-dark);
+}
+.dropDownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    /*text-align: center;*/
+    background-color: var(--pink-1);
+    /*border: 1px solid greenyellow;*/
+    z-index: 1;
+}
+.dropDownMenu div a {
+    width: 100%;
+    text-align: center;
+}
+.dropDownContainer.show .dropDownMenu {
+    display:block;
 }
 
 /*html {*/

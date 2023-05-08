@@ -65,7 +65,10 @@
 
 (def menu-list
   [["What's On?" "index.html"]
-   ["Get Involved!" "getinvolved.html"]
+   ["Get Involved!" nil {:id      "get-involved"
+                         :submenu [["Volunteer" "getinvolved.html"]
+                                   ["Audition" "auditions.html"]
+                                   ["Events" "events.html"]]}]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
    ["About" "about.html"]
@@ -95,11 +98,26 @@
 
 (defn menu [relative-path current-page-filename]
   [:nav.dark
-   (for [[label href] menu-list]
-     [:a {:class (classes (when (= current-page-filename href) "selected")
-                          (when (= 1 (count label)) "short"))
-          :href  (str relative-path href)}
-      label])])
+   (for [[label href dropdown] menu-list]
+     (if dropdown
+       (let [{:keys [id submenu]} dropdown]
+         [:div.dropDownContainer {:id id
+                                  ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                  }
+          [:a.dropDownButton {:role        "button"
+                              :href        "#0"
+                              :onclick     (str "dropDownTap('" id "');")
+                              ;:onmouseover (str "dropDownHover('" id "');")
+                              }
+           label]
+          [:div.dropDownMenu
+           (for [[label href] submenu]
+             [:div {:class (classes "menuitem" (when (= current-page-filename href) "selected"))}
+              [:a {:href href} label]])]])
+       [:div {:class (classes "menuitem" (when (= current-page-filename href) "selected"))}
+        [:a (merge {:class (classes (when (= 1 (count label)) "short"))
+                    :href (str relative-path href)})
+         label]]))])
 
 (def local-dir (io/file "local"))
 (def deploy-dir (io/file "docs"))
@@ -125,7 +143,8 @@
            [:title title]
            [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
            [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
-           [:script {:src (str relative-path "js/popup.js")}]]
+           [:script {:src (str relative-path "js/popup.js")}]
+           [:script {:src (str relative-path "js/menudrop.js")}]]
           [:body
            [:div.prenav
             [:div
