@@ -21,13 +21,12 @@
     #_(interleave-all volunteering everything-else)))
 
 (core/page "getinvolved" "The Archway Theatre"
-  [:script {:src "./js/involvement.js"}]
 
   [:div.content
 
    [:h2 "Get Involved"]
 
-   "Every production we put on requires many people, both on stage and off, to volunteer their time and their skills to ensure that it runs smoothly. Here is a run-down of the different ways you could contribute to the success of our little theatre:"
+   [:p "Every production we put on requires many people, both on stage and off, to volunteer their time and their skills to ensure that it runs smoothly. Here is a run-down of the different ways you could contribute to the success of our little theatre:"]
 
    [:h3 "Acting"]
    [:p "Directors hold auditions a few weeks prior to the start of rehearsals for each show. You don’t have to have any prior experience or track record with us – each audition is a meritocracy. Some people like to go for the big, meaty, principal roles, but there are also many opportunities for smaller parts and even silent walk-on parts for those who prefer them."]
@@ -52,5 +51,4 @@
     "&nbsp;"
     [:span [:a {:href ""} "Contact us"]]]]
 
-  [:script {:src "./js/delayed.js"}]
   )
