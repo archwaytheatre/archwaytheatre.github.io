@@ -4,7 +4,24 @@
             [io.github.archwaytheatre.build :as build]
             [juxt.dirwatch :as dirwatch])
   (:import [java.awt Desktop]
-           [java.net URI]))
+           [java.net URI]
+           [java.util Timer TimerTask]))
+
+
+(defn debounce
+  ([f] (debounce f 1000))
+  ([f timeout]
+   (let [timer (Timer.)
+         task (atom nil)]
+     (fn [& args]
+       (some-> @task .cancel)
+       (let [new-task (proxy [TimerTask] []
+                        (run []
+                          (apply f args)
+                          (reset! task nil)
+                          (.purge timer)))]
+         (reset! task new-task)
+         (.schedule timer new-task (long timeout)))))))
 
 (defn local-deploy []
   (let [local-dir (io/file "local")
@@ -25,12 +42,13 @@
            (URI. "http://localhost:63342/archwaytheatre.github.io/local/index.html")))
 
 (defn on-change [f & files]
-  (apply
-    dirwatch/watch-dir
-    (fn [{:keys [file]}]
-      (when-not (string/ends-with? (str file) "~")
-        (f)))
-    (map io/file files)))
+  (let [g (debounce f 100)]
+    (apply
+      dirwatch/watch-dir
+      (fn [{:keys [file]}]
+        (when-not (string/ends-with? (str file) "~")
+          (g)))
+      (map io/file files))))
 
 (defn watch [& _opts]
   (println "watching...")
