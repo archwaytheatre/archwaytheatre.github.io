@@ -23,7 +23,7 @@
               [:br] row [:br]]]))))
 
 (core/page "contact" "The Archway Theatre"
-  [:div
+  [:section.container
    [:div.content
     [:div.center core/social-media-logos]
     [:br]

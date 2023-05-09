@@ -159,8 +159,8 @@
            #_[:div.popupContainer
             [:div#popup {:onclick "javascript:hidePopups();"}
              [:div#popupText "Popup"]]]
-           [:section.container
-            (hiccup.core/html content)]
+           ;[:section.container]
+           (hiccup.core/html content)
            ;[:br]
            [:footer social-media-logos
             [:a {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
