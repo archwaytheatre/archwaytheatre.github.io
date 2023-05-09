@@ -199,7 +199,8 @@ div.menuItem.topMenu.selected {
     cursor: pointer;
 }
 .dropDownContainer.show .dropDownButton {
-    /*cursor: initial;*/
+    cursor: initial;
+    text-decoration: none;
 }
 .dropDownContainer.show .dropDownButton:hover {
 }
