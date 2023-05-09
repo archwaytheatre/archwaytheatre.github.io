@@ -104,14 +104,14 @@
              hrefs (set (map second submenu))]
          [:div.dropDownContainer {:id id
                                   ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                  :onmouseleave  (str "dropDownUnhover('" id "');")
                                   :class (classes "menuItem" "topMenu"
                                                   (when (hrefs current-page-filename) "selected"))
                                   }
           [:a.dropDownButton {:role    "button"
                               :href    "#0"
-                              :onclick (str "dropDownTap('" id "');")
-                              ;:onmouseover (str "dropDownHover('" id "');")
-
+                              ;:onclick (str "dropDownTap('" id "');")
+                              :onmouseover (str "dropDownHover('" id "');")
                               }
            label]
           [:div.dropDownMenu
