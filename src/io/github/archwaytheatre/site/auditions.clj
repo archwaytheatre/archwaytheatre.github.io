@@ -21,7 +21,6 @@
     #_(interleave-all volunteering everything-else)))
 
 (core/page "auditions" "The Archway Theatre"
-  [:script {:src "./js/involvement.js"}]
 
   [:div.content
 
