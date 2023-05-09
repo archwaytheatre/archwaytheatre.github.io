@@ -346,8 +346,9 @@ div.trailer {
     cursor: pointer;
     box-shadow: 0 5px 15px var(--pink-shadow);
 }
-.button.compact {
-    padding: calc(0.012 * var(--my-vw)) calc(0.01 * var(--my-vw)) calc(0.01 * var(--my-vw));
+
+.button.staticButton, .staticButton {
+    padding: 1em;
 }
 .button:hover {
     color: white;

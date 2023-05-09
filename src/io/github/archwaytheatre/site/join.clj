@@ -47,8 +47,8 @@
 
    [:br]
    [:br]
-   [:div.center.main.vp2 [:a.button.larger {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                                            :target "_blank"} "I want to join!"]]
+   [:div.center.main.vp2 [:a.button.staticButton.larger {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
+                                                         :target "_blank"} "I want to join!"]]
    [:br]
    [:div.center [:a.larger {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Member login"]]
    [:br]
@@ -70,8 +70,8 @@
 
    [:br]
    [:br]
-   [:div.center.main.vp2 [:a.button.larger {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                                            :target "_blank"} "I want to join!"]]
+   [:div.center.main.vp2 [:a.button.staticButton.larger {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
+                                                         :target "_blank"} "I want to join!"]]
    [:br]
    [:div.center [:a.larger {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Member login"]]
    [:br]

@@ -48,7 +48,7 @@
        :onchange "updateLink(this, 'searchbutton');"}]]
     [:br]
     [:div.center
-     [:a.button.compact.search
+     [:a.button.staticButton.search
       {:id   "searchbutton"
        :href "#"}
       "Search"]]

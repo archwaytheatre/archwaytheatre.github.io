@@ -75,12 +75,12 @@
                  "✕"]]
                [:pre.about about]
                [:div.controls
-                [:a
+                [:a.staticButton
                  {:href "javascript:hidePopups();"}
-                 [:pre "Back"]]
+                 [:div "Back"]]
                 (if soldout
                   [:div.soldout.compact {:title "There are no tickets left."} "Sold Out!"]
-                  [:a.button.compact
+                  [:a.button.staticButton
                    {:href    link-href
                     :onclick "event.stopPropagation();"}
                    "Buy Tickets"])]]]]))))]
