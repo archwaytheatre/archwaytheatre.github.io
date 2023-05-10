@@ -28,6 +28,11 @@ function startCarousel(elementId, predicate, labelled) {
     }
 
     let imageData = carouselData.filter(predicate).map(item => item.slice(1));
+    if (imageData.length === 0) {
+        carousel.remove();
+        return;
+    }
+
     fisherYatesShuffle(imageData);
 
     let imageIdx = 0;

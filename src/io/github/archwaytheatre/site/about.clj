@@ -33,4 +33,7 @@
     [:div#carousel1.carousel.labelled]
     [:script {:type "text/javascript"} "startCarousel('carousel1',recentImages,true);"]
 
+    [:br]
+    [:div [:a {:href "past-index.html"} "Click here"] " to see our past productions."]
+
     ]])
