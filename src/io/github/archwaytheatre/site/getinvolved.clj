@@ -7,9 +7,12 @@
   [:section.container
    [:div.content
 
-    [:h1 "Get Involved"]
+    ; todo a picture of some people getting involved?
 
+    [:h1 "Get Involved"]
     [:p "Every production we put on requires many people, both on stage and off, to volunteer their time and their skills to ensure that it runs smoothly. Here is a run-down of the different ways you could contribute to the success of our little theatre:"]
+
+    [:br]
 
     [:h2 "Acting"]
     [:p "Directors hold auditions a few weeks prior to the start of rehearsals for each show. You don’t have to have any prior experience or track record with us – each audition is a meritocracy. Some people like to go for the big, meaty, principal roles, but there are also many opportunities for smaller parts and even silent walk-on parts for those who prefer them."]
@@ -27,6 +30,8 @@
 
     [:h2 "Front of House, Box Office, Bar and Coffee"]
     [:p "On each production night our aim is to give our audience the most enjoyable and comfortable experience possible and a team of volunteers is always on hand to ensure that people can buy tickets and programmes, find their seats and enjoy the ambience of our recently re-designed bar before and after the show and in the interval."]
+
+    [:br]
 
     [:div.center.larger
      [:span [:a {:href ""} "Become a member"]]
