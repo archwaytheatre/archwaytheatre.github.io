@@ -1,10 +1,11 @@
 (ns io.github.archwaytheatre.site.past.index
   (:require [cheshire.core :as json]
+            [clojure.string :as str]
             [io.github.archwaytheatre.site.core :as core])
-  (:import [java.time LocalDate Year YearMonth]))
+  (:import [java.time LocalDate Month Year YearMonth]))
 
 
-(defn production-page [year name page-name prev-page-name next-page-name about]
+(defn production-page [year month location name page-name prev-page-name next-page-name about]
   (core/page page-name name
     [:script {:src "./js/carousel.data.js"}]
     [:script {:src "./js/carousel.js"}]
@@ -22,8 +23,10 @@
        [:div.content
         links
         [:div.year year]
+        (when month
+          [:div.month (str "☙ " (str/capitalize (Month/of month)) " ❧")])
         [:div.production name]
-        [:div [:pre.about about]]
+        [:div.center [:pre.about about]]
         [:div#carousel1.carousel]
         [:script {:type "text/javascript"} (str "startCarousel('carousel1',imagesForPlay('" name "'));")]
         [:br]
@@ -41,24 +44,21 @@
     10 (LocalDate/parse date-str)))
 
 (defn index-all-years []
-  (let [year->productions (->> (for [[year productions] (json/parse-string (slurp "data/productions.json") keyword)
-                                     {:keys [name] :as production} (reverse (sort-by :start productions))]
-                                 (assoc production :year year :page-name (core/linkify name)))
+  (let [year->productions (->> (for [[year productions] (json/parse-string (slurp "data/plays.json") keyword)
+                                     {:keys [name month] :as production} (reverse (sort-by :start productions))
+                                     :when (not (.isAfter (YearMonth/of (int year) (int (or month 1))) (YearMonth/now)))]
+                                 (assoc production :year year :page-name (core/linkify name year)))
                                (daisy-chain #(assoc %2 :prev (:page-name %3)
                                                        :next (:page-name %1)))
                                (group-by :year))]
-    (for [[year productions] year->productions]
+    (for [[year productions] (sort-by key > year->productions)]
       [:div.year-index
        [:div.year-background year]
        ;[:div.productions]
-       (for [{:keys [name prev page-name next location trailer about start end]} productions]
-         (let [start-date (some-> start parse-partial-date)
-               end-date (some-> end parse-partial-date)]
-           (production-page year name page-name prev next about)
-
-           [:div [:a {:href (str page-name ".html")} name]
-
-            ]))])))
+       (for [{:keys [name prev page-name next location trailer about month]} (sort-by :month productions)]
+         (do
+           (production-page year month location name page-name prev next about)
+           [:div [:a {:href (str page-name ".html")} name]]))])))
 
 (core/page "past-index" "The Archway Theatre - Past Productions"
   ;[:script {:src "./js/carousel.data.js"}]
