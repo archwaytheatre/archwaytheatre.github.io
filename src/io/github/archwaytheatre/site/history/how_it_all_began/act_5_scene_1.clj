@@ -9,17 +9,8 @@
       [:h1 "Act 5 Scene 1"]
       [:div
        [:p "In 1979, Horley Central Players Ltd. signed an agreement with British Rail for a 12 year lease on the premises."]
-       #_[:a
-          {:href
-           "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/constitutional_cub_1905.jpg"}
-          [:img
-           {:class            "alignright size-full wp-image-135",
-            :src
-            "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/constitutional_cub_1905.jpg?resize=293%2C202",
-            :alt              "constitutional_cub_1905",
-            :width            "293",
-            :height           "202",
-            :data-recalc-dims "1"}]]
+       [:img.floatleft {:alt "Constitutional Club, 1905"
+                        :src "../../images/buildings.jpeg"}]
        [:p "The rent was £1,450 per annum, subject to an increase every 3 years. Barts Players by this time were firmly established as a fellow Company also performing at the Archway Theatre, each Company performing 5 productions a year “underneath the Arches”."]
        [:p "However, Barts Players had no direct responsibility for the lease, rent and maintenance of the premises. Barts Players paid a fee to Horley Central Players for the use of the Theatre for a production. They did, however, have their own Arch for rehearsals and meetings for which they paid a rent to Horley Central Players Ltd."]
        [:p "This Arch was known as “Barts Arch” and still is to this day for some of us oldies. This is still the Arch used for Company rehearsals."]

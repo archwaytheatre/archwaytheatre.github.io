@@ -9,11 +9,8 @@
       [:h1 "Act 4"]
       [:div
        [:p "As mentioned in Act III, Barts Players performed their first play on the Archway stage in 1957. "
-        [:img
-         {:class "alignright size-medium wp-image-132"
-          :style "float: right; margin: 10px; padding-left: 20px"
-          :src   "../../images/young-eliz-prog.png"
-          :alt   "young_eliz_prog"}]]
+        [:img.floatright {:src "../../images/young-eliz-prog.png"
+                          :alt "young_eliz_prog"}]]
        [:p "From then on the Archway became their home for staging plays. Their scenery, costumes and props, however, had still to be stored elsewhere including the Church Rooms in Albert Road and Horley Row, and the Bunkell’s house in Russell Crescent. The annual pantomime was still staged at the Constitutional Hall."]
        [:p "When this hall was demolished following Babes In The Wood in 1960 (no connection – demolition had been planned before the panto started!) Barts then moved their annual panto to the Empire Hall."]
        [:p "For the 1965 panto however, David White felt that the Archway stage was a possibility. He was always one for a challenge and thus it was that in January 1965, Barts Players performed Sleeping Beauty with numerous scene changes and a large cast on the Archway stage. From then on an annual panto or play for children has been the regular January spot on the Archway calendar."]

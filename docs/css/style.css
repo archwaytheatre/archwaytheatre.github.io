@@ -757,3 +757,16 @@ div.year-index div.year-background {
 span.disabled {
     color: rgba(255,255,255,0.25);
 }
+
+.floatleft {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.floatright {
+    float: right;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

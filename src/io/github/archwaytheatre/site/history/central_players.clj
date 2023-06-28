@@ -9,9 +9,8 @@
       [:h1 "Life Before The Archway"]
       [:div
        [:p
-        [:img {:src   "../images/hcp-logo.png"
-               :style "float: left; margin-right: 20px;"
-               :alt   "hcp_logo"}]
+        [:img.floatleft {:src "../images/hcp-logo.png"
+                         :alt "hcp_logo"}]
         "The late Reg Wescott, a teacher at Horley Central School, started a drama class at the evening institute in September 1939. This was attended by some of the pupils and former pupils so that when in the spring of 1940 the class decided to put on a play in the school hall, they did so under the name of “Central Players”."]
        [:p
         "The play was “Laburnum Grove” by J.B.Priestley. During the wartime, the railway arches had been turned into"
@@ -28,9 +27,8 @@
         " Centre, but in 1956 our lease was from the railway company (who is still the landlord). The auditorium and"
         " stage occupied what was originally a games arch; it continues to accommodate our audience today."]
        [:p
-        [:img {:alt   "barts_logo"
-               :style "float: right; margin-left: 20px;"
-               :src   "../images/barts-logo.png"}]
+        [:img.floatright {:alt "barts_logo"
+                         :src "../images/barts-logo.png"}]
         "The late Walter Treagus was interested in amateur dramatics, and in 1951 formed a group from the Youth Club"
         " and Choir members of St. Bartholomew’s Church. They called themselves the “Barts Players” and also put on"
         " productions in local halls. Their first show was a musical, “Rob of the Forest”. In time, some people"

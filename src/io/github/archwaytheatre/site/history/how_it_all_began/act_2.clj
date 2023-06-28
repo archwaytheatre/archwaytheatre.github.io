@@ -8,17 +8,8 @@
      [:div [:h1 "Act 2"]
       [:div
        [:p "Whilst the Horley Central Players were putting down their roots during the 1940s, another Dramatic Group was germinating. Walter Treagus, the verger at St Bartholomew’s parish church, persuaded various members of the Sundays Schools, Choir and Youth Fellowship to form an Operatic and Drama Club."
-        #_[:a
-           {:href
-            "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/stbarts.jpg"}
-           [:img
-            {:class            "alignright size-full wp-image-120",
-             :src
-             "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/stbarts.jpg?resize=300%2C250",
-             :alt              "stbarts",
-             :width            "300",
-             :height           "250",
-             :data-recalc-dims "1"}]]]
+        [:img.floatright {:alt "St. Bartholomew's Church, Horley"
+                          :src "../../images/church.jpeg"}]]
        [:p "They became known as the St Bart’s Players. Their first production – with music – was Rob of the Forest, presented in 1951 at the Empire Hall, off Victoria Road near the Brighton Road."]
        [:p "They were probably unaware that this hall stands adjacent to the site of where the village Pest House was built about 400 years earlier! Following this production, several other plays and another operetta were performed, and in 1952 came their first pantomime, Babes in the Wood, put on at the Constitutional Club Hall."]
        [:p "From this started the tradition of an annual pantomime, which Barts produced until the two companies merged in 1987."]

@@ -10,17 +10,8 @@
       [:div
        [:p "In December 1939, three months after war had been declared, Reg Westcott – a teacher at Horley Central School – founded a new amateur dramatic society as part of the school’s Old Scholars’ Association. They called themselves the Horley Central Players, the name was obvious really."]
        [:p "At first they put on plays in the school hall (properly blacked out. of course) but in March 1942 moved their performances to the original Constitutional Hall. This stood at the time on the site now occupied by the NatWest bank. Here they presented two plays which had previously been produced in the school hall. In subsequent years plays were regularly performed in this Hall and the Central Players gradually built up a good reputation for amateur dramatics."
-        #_[:a
-           {:href
-            "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/young_eliz.jpg"}
-           [:img
-            {:class            "alignright wp-image-117 size-full",
-             :src
-             "https://i0.wp.com/www.archwaytheatre.com/archwaytheatre/wp-content/uploads/2014/08/young_eliz.jpg?resize=300%2C250",
-             :alt              "young_eliz",
-             :width            "300",
-             :height           "250",
-             :data-recalc-dims "1"}]]]
+        [:img.floatleft {:alt "Programme for Young Elizabeth"
+                         :src "../../images/young-eliz-prog.png"}]]
        [:p "In 1949 the players obtained for the first time a base of their own, a room in the Community Association Hall in Cheyne Walk."]
        [:p "This Association was also temporarily using some British Rail property, comprising arches of the viaduct carrying Victoria Road over the railway, which during the war had been used for various Civil Defence purposes."]
        [:p "One day, two of the Horley Central Players’ members – Arthur Clermont and John Dilly – went into one of these arches to watch a table-tennis match. After a while the same, thought occurred to both of them: “we could put on plays here!’."]
