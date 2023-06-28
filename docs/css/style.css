@@ -95,7 +95,25 @@
 }
 
 body {
+    position: relative;
+    min-height: 100vh;
     margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 65px; /* Set roughly the same as the footer's height */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
+    padding: 10px;
 }
 
 html	{
@@ -475,35 +493,6 @@ a.row:hover .glow {
     text-decoration: none;
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
     color: white;
-}
-
-footer {
-    /*position: fixed;*/
-    /*bottom: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    text-align: center;
-    /*z-index: -10;*/
-    background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
-    padding: 10px;
-}
-body {
-    position: relative;
-    min-height: 100vh;
-}
-body::after {
-    content: '';
-    display: block;
-    height: 100px; /* Set same as footer's height */
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /*width: 100%;*/
-    /*height: 50px;*/
 }
 
 a.logo {
