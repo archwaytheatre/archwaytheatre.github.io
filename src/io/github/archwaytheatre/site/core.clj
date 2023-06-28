@@ -15,6 +15,9 @@
                                   (str (name k) ":" v))
                                 m))})
 
+(defn linkify [^String text ^ String year]
+  (string/replace (str text "-" year) #"[^a-zA-Z0-9]+" "-"))
+
 (def creative-commons-by-sa-2.0
   ["CC BY-SA 2.0" "https://creativecommons.org/licenses/by-sa/2.0/"])
 
