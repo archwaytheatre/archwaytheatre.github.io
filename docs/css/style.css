@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 :root {
     --aspect-ratio: 1.4145161;
@@ -84,16 +85,6 @@
     --young-3: #096000;
 }
 
-
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
-/*@import url(http://fonts.googleapis.com/css?family=Atkinson+Hyperlegible);*/
-
-@font-face {
-    font-family: "Atkinson Hyperlegible";
-    src: url(../fonts/AtkinsonHyperlegible-Regular.ttf) format("truetype");
-    /*src: url(../fonts/AtkinsonHyperlegible-Bold.ttf) format("truetype");*/
-}
-
 body {
     position: relative;
     min-height: 100vh;
@@ -117,7 +108,7 @@ footer {
 }
 
 html	{
-    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: large;
     background-color: var(--bg);
     color: var(--fg-light);
