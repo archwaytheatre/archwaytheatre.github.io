@@ -94,7 +94,7 @@ body {
 body::after {
     content: '';
     display: block;
-    height: 65px; /* Set roughly the same as the footer's height */
+    height: 95px; /* Set roughly the same as the footer's height */
 }
 
 footer {
@@ -491,7 +491,11 @@ a.logo {
     /*cursor: pointer;*/
 }
 div.logoholder {
+    padding: 5px;
     display: inline-block;
+}
+div.logoholder:hover {
+    background: radial-gradient(closest-side circle at center, rgba(255,255,255,0.3) 50%, transparent);
 }
 div.logo {
     display: inline-block;
