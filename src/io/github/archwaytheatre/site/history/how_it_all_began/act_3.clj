@@ -9,7 +9,8 @@
       [:div
        [:p "In May 1957, Horley Central Players performed a new play by Jonathan Field, Mrs McGinty’s Washing. The play was produced by Jonathan’s wife, Moira. A revolving stage – based on a railway turntable – was built by members for the play."
         [:img.floatleft {:alt "50th Cake being cut"
-                         :src "../../images/cake-cutting.jpeg"}]]
+                         :title "50th Cake being cut"
+                         :src "../../images/cake-cutting-transformed.jpeg"}]]
        [:p "The revolving stage was again used later that year for Henry IV Part 1, and in the following year for another premiere – Clock-a-jacks."]
        [:p "1960 was, in effect, Horley Central Players’ 21st birthday year, and the local paper said “the year began with a new bright star in the Archway’s firmament when Marjory Wright played Lady Pitts in Daphne Laureola – a part tailored to suit her immaculate style”."]
        [:p "Later that year, David White produced his first play for Horley Central Players. The local paper wrote “… the quality of David White’s production revealed this to be his true metier”. The play was Mother Courage by Bertolt Brecht. Talking to Miles Beauchamp, he said it was intended to use the revolving stage to move Mother Courage’s cart, but after many attempts during rehearsals, this was found to be impossible."]
