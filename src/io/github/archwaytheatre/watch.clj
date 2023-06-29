@@ -23,6 +23,13 @@
          (reset! task new-task)
          (.schedule timer new-task (long timeout)))))))
 
+(defn make-safe [f]
+  (fn [& args]
+    (try
+      (apply f args)
+      (catch Exception e
+        (println "FAILURE:" (ex-message e))))))
+
 (defn local-deploy []
   (let [local-dir (io/file "local")
         deploy-dir (io/file "docs")]
@@ -42,7 +49,7 @@
            (URI. "http://localhost:63342/archwaytheatre.github.io/local/index.html")))
 
 (defn on-change [f & files]
-  (let [g (debounce f 100)]
+  (let [g (debounce (make-safe f) 100)]
     (apply
       dirwatch/watch-dir
       (fn [{:keys [file]}]
