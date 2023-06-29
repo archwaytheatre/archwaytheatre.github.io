@@ -30,7 +30,7 @@
         ["contact.html" "Contact" "How to reach us."]
         ["spaces.html" "Hire a Space" "We have rooms available to hire for your event."]
         ["legal.html" "Legal & Site Info" "Legal and site information."]
-        ["past-index.html" "Past Productions" "Details & photographs of our previous productions."]
+        ["past/index.html" "Past Productions" "Details & photographs of our previous productions."]
         ;["content/behind-the-scenes-home.html" "Behind the Scenes" "How we run the Archway Theatre."]
         ["history/history.html" "A History of The Archway" "How the Archway Theatre came to be."]
 

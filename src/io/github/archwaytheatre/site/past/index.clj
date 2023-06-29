@@ -6,15 +6,15 @@
 
 
 (defn production-page [year month location name page-name prev-page-name next-page-name about]
-  (core/page page-name name
-    [:script {:src "./js/carousel.data.js"}]
-    [:script {:src "./js/carousel.js"}]
+  (core/page (str "past/" page-name) name
+    [:script {:src "../js/carousel.data.js"}]
+    [:script {:src "../js/carousel.js"}]
     (let [links [:div.center
                  (if prev-page-name
                    [:a {:href (str prev-page-name ".html")} "Previous"]
                    [:span.disabled "Previous"])
                  "|"
-                 [:a {:href "past-index.html"} "All productions"]
+                 [:a {:href "index.html"} "All productions"]
                  "|"
                  (if next-page-name
                    [:a {:href (str next-page-name ".html")} "Next"]
@@ -60,7 +60,7 @@
            (production-page year month location name page-name prev next about)
            [:div [:a {:href (str page-name ".html")} name]]))])))
 
-(core/page "past-index" "The Archway Theatre - Past Productions"
+(core/page "past/index" "The Archway Theatre - Past Productions"
   ;[:script {:src "./js/carousel.data.js"}]
   ;[:script {:src "./js/carousel.js"}]
 
