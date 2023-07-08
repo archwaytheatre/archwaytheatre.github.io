@@ -88,7 +88,16 @@
    [:div.center
     [:div.larger "That's all for now! Check back soon for more..."]
     [:br]
-    [:div.larger "...or " [:a {:href "join.html"} "become a member"] " to receive our newsletter."]]
+    [:br]
+    [:div.larger
+     [:a {:href "join.html"} "Become a member"] " to receive our newsletter."]
+    [:br]
+    [:div.larger
+     "Take a look at our " [:a {:href "past/index.html"} "past productions."]]
+    [:br]
+    [:div.larger
+     "Check out our " [:a {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
+    ]
    [:br]
    [:br]
    [:br]
