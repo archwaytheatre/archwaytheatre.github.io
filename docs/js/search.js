@@ -1,7 +1,7 @@
 
+// const thisSite = 'archwaytheatre.github.io';
+const thisSite = 'archwaytheatre.com';
 
-var thisSite = 'archwaytheatre.github.io'
-// var site = 'archwaytheatre.com'
 function updateLink(inputElement, elementId) {
     console.log(inputElement.value);
     document.getElementById(elementId).href =
