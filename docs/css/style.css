@@ -191,6 +191,9 @@ nav div {
 nav div a {
     padding: 15px;
 }
+nav a {
+    text-decoration: none;
+}
 
 div.menuItem {}
 div.menuItem.selected {
