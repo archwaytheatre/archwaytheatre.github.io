@@ -24,7 +24,7 @@
 
 (core/page "contact" "The Archway Theatre"
   [:section.container
-   [:div.content
+   [:div.content.larger
     [:div.center core/social-media-logos]
     [:br]
     [:br]

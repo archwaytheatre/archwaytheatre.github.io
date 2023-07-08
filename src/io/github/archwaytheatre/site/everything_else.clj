@@ -21,7 +21,7 @@
 
   [:script {:src "./js/search.js"}]
   [:section.container
-   [:div.content
+   [:div.content.larger
     [:div
      (link-table
        [["index.html" "What's&nbsp;On?" "A list of shows on now or coming soon to the Archway Theatre."]

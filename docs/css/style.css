@@ -424,14 +424,18 @@ div.trailer {
     /*padding: 10px;*/
     margin: 0;
     color: var(--fg-dark);
+    font-size: larger;
 }
 
 .alignright {
     text-align:right;
 }
 .x {
-    margin-top: 3px;
-    margin-right: 5px;
+    font-size: xx-large;
+    /*margin-top: 3px;*/
+    /*margin-right: 5px;*/
+    margin-top: 0.25em;
+    margin-right: 0.5em;
 }
 
 .popup .controls {
