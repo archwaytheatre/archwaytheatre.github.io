@@ -225,6 +225,8 @@ div.menuItem.topMenu.selected {
     position: absolute;
     top: 100%;
     width: 100%;
+    box-shadow: 0 5px 15px var(--shadow);
+    clip-path: inset(0 -15px -15px -15px);
     /*text-align: center;*/
     background-color: var(--pink-1);
     /*border: 1px solid greenyellow;*/
