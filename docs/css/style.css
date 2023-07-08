@@ -713,9 +713,10 @@ div.carouselimg div {
 }
 
 div.year {
-    /*font-size: 390px;*/
-    font-size: calc(var(--content-width) * 0.435);
+    /* Full content width: font-size: calc(var(--content-width) * 0.435);*/
+    font-size: calc(var(--content-width) * 0.16);
     font-weight: bold;
+    text-align: center;
     color: rgba(255,255,255,0.25);
     margin-bottom: -0.25em;
 }
