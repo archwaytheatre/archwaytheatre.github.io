@@ -32,8 +32,79 @@
 (defn to-end-millis [end]
   (to-start-millis (.plusDays end 1)))
 
+(defn load-event-data []
+  (->> (json/parse-string (slurp "data/whatson.json") keyword)
+       (sort-by :start)
+       (map-indexed vector)))
+
+(defn event-image [{:keys [imageurl ticketurl image-no-stretch]}]
+  [:div.eventimage
+   [:a {:href ticketurl}
+    [:img {:class (core/classes (when image-no-stretch "unstretched"))
+           :src   imageurl}]]])
+
+(defn event-data [{:keys [name location soldout about ticketurl start-time]} start-date end-date]
+  [:div.eventdata
+   [:div.timelabel
+    {:data-start (to-start-millis start-date)
+     :data-end   (to-end-millis end-date)}]
+   [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location " │ " start-time)]
+   [:div.eventdatum.title name]
+   [:div.eventdatum.about about]
+   [:div.eventdatum.action
+    (if soldout
+      [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
+      [:a.button {:href ticketurl} "Buy Tickets"])]])
+
+#_[:div.popup {:id (str "popup-" idx)} ; todo: make popup full screen
+   [:div.alignright.x
+    [:a.short
+     {:href "javascript:hidePopups();"}
+     "✕"]]
+   [:pre.about about]
+   [:div.controls
+    [:a.staticButton
+     {:href "javascript:hidePopups();"}
+     [:div "Back"]]
+    (if soldout
+      [:div.soldout.compact {:title "There are no tickets left."} "Sold Out!"]
+      [:a.button.staticButton
+       {:href    link-href
+        :onclick "event.stopPropagation();"}
+       "Buy Tickets"])]]
+
 (core/page "index" "The Archway Theatre"
   [:div.content
+   [:div.events
+    (for [[idx {:keys [trailer start end] :as event}]
+          (map-indexed vector (json/parse-string (slurp "data/whatson.json") keyword))]
+      ; todo trailer!
+      (let [start-date (LocalDate/parse start)
+            end-date (LocalDate/parse end)]
+        [:div.event.disappearable {:id       (str "event-" idx)
+                                   :data-end (to-end-millis end-date)}
+         (event-image event)
+         (event-data event start-date end-date)]))]
+
+   [:div.center
+    [:div.larger "That's all for now! Check back soon for more..."]
+    [:br]
+    [:br]
+    [:div.larger
+     [:a {:href "join.html"} "Become a member"] " to receive our newsletter."]
+    [:br]
+    [:div.larger
+     "Take a look at our " [:a {:href "past/index.html"} "past productions."]]
+    [:br]
+    [:div.larger
+     "Check out our " [:a {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
+    ]
+   [:br]
+   [:br]
+   [:br]
+
+   [:script {:src "./js/datetime.js"}]]
+  #_[:div.content
    [:div.events.dark {:onload "composeLabels()"}
     (sorted
       (for [[idx {:keys [name location soldout trailer about imageurl image-no-stretch start end]}]
@@ -60,10 +131,10 @@
                [:div.timelabel
                 {:data-start (to-start-millis start-date)
                  :data-end   (to-end-millis end-date)}]
-               [:div.eventdatum location]
+               [:div.eventdatum (str (date-range start-date end-date) " │ " location " │ 7:45pm" )]
                [:div.eventdatum.bold (font-size name) name]
-               [:div.eventdatum (date-range start-date end-date)]
-               [:div.eventdatum [:a {:href (str "javascript:showPopup(\"popup-" idx "\");")} "About"]]
+               [:div.eventdatum ""]
+               [:div.eventdatum [:a {:href (str "javascript:showPopup(\"popup-" idx "\");")} about]]
                [:div.eventdatum.bold
                 (if soldout
                   [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
