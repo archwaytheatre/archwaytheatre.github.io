@@ -112,3 +112,41 @@ update data on front page
 
 
 digital content link somewhere! (What's On? page possibly - 3rd item down?)
+
+
+2023-09-20
+
+limit how big the boxes get on the landing page
+links not underlined, but a different color
+Color
+  bg, fg, highlight + variation
+
+trailer for theatre on front page
+
+sane limits on font size (and everything size - just don't scale it too far!)
+
+inline the about text... smaller font, 
+
+"Main House | dates | times" - all this on one small line at the top, maybe text-transform: uppercase;
+
+menu bar glow at sides of white lines ???
+
+mobile: text goes below the poster
+also: make the text chunk a bit wider than the poster
+also: alternate the sides that the poster is on
+
+title size for plays to be the same for all plays
+
+fancy font on buy tickets buttons?
+
+
+
+
+
+
+
+
+
+
+
+
