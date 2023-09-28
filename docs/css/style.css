@@ -472,7 +472,7 @@ div.trailer {
 .timelabel {
     position: absolute;
     width: var(--about-width);
-    height: 50%;
+    height: calc(var(--poster-height) / 2);
     overflow: hidden;
 }
 .onnow {
