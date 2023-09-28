@@ -11,13 +11,13 @@
     [:script {:src "../js/carousel.js"}]
     (let [links [:div.center
                  (if prev-page-name
-                   [:a {:href (str prev-page-name ".html")} "Previous"]
+                   [:a.simple {:href (str prev-page-name ".html")} "Previous"]
                    [:span.disabled "Previous"])
                  "|"
-                 [:a {:href "index.html"} "All productions"]
+                 [:a.simple {:href "index.html"} "All productions"]
                  "|"
                  (if next-page-name
-                   [:a {:href (str next-page-name ".html")} "Next"]
+                   [:a.simple {:href (str next-page-name ".html")} "Next"]
                    [:span.disabled "Next"])]]
       [:section.container
        [:div.content
@@ -58,7 +58,7 @@
        (for [{:keys [name prev page-name next location trailer about month]} (sort-by :month productions)]
          (do
            (production-page year month location name page-name prev next about)
-           [:div [:a {:href (str page-name ".html")} name]]))])))
+           [:div [:a.simple {:href (str page-name ".html")} name]]))])))
 
 (core/page "past/index" "The Archway Theatre - Past Productions"
   ;[:script {:src "./js/carousel.data.js"}]

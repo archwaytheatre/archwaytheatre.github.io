@@ -28,7 +28,7 @@
       [:li "Sound Rig (chargeable extra – subject to operator availability)"]]
      [:div
       "To make an enquiry about hiring the Studio or Function Room, please email: "
-      [:a.delayedEmail "Space Hire"]]]
+      [:a.simple.delayedEmail "Space Hire"]]]
 
     [:br]
     [:br]
@@ -53,7 +53,7 @@
        [:li "Centrally Heated"]]]
      [:div
       "To make an enquiry about hiring the Studio or Function Room, please email: "
-      [:a.delayedEmail "Space Hire"]]]
+      [:a.simple.delayedEmail "Space Hire"]]]
 
     [:br]
     [:br]]]

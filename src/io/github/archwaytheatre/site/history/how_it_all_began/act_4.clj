@@ -23,5 +23,5 @@
          [:li "1972 The Stoppard Festival"]]]
        [:p "In 1977, to celebrate not only the Silver Jubilee of Queen Elizabeth II but also 25 years underneath the arches, there was a joint production of The Young Elizabeth. If you want to know more about the play, speak to Miles Beauchamp, Nancy Clermont or Margaret Morris as they were all in the cast."]
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "act-5-scene-1.html"} "Act V, Scene I"]]
+       [:p [:a.simple {:href "act-5-scene-1.html"} "Act V, Scene I"]]
        ]]]]])

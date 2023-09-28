@@ -34,8 +34,8 @@
     [:br]
 
     [:div.center.larger
-     [:span [:a {:href "join.html"} "Become a member"]]
+     [:span [:a.simple {:href "join.html"} "Become a member"]]
      "&nbsp;&nbsp;"
-     [:span [:a {:href "contact.html"} "Contact us"]]]]]
+     [:span [:a.simple {:href "contact.html"} "Contact us"]]]]]
 
   )

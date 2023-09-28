@@ -21,5 +21,5 @@
        [:p "They made many more trips over the following 20 years, but for one trip in particular the transport for part of the journey was very different. The Strollers were invited to perform their play Hay Fever on an adjacent island – Coll, by Dr de Vries who lived on – and owned most of – the island. Dr de Vries arranged and paid for the Strollers and their equipment to be transported from Iona to Coll by plane and helicopter. He also arranged for the Strollers to stay overnight with various Coll residents. Afterwards Dr de Vries gave the Strollers a donation with which they purchased the lamps you still see in the theatre’s auditorium and foyer."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "act-4.html"} "Act IV"]]
+       [:p [:a.simple {:href "act-4.html"} "Act IV"]]
        ]]]]])

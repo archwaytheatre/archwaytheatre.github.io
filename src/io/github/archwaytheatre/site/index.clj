@@ -43,18 +43,20 @@
     [:img {:class (core/classes (when image-no-stretch "unstretched"))
            :src   imageurl}]]])
 
+(def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
+
 (defn event-data [{:keys [name location soldout about ticketurl start-time]} start-date end-date]
   [:div.eventdata
-   [:div.timelabel
-    {:data-start (to-start-millis start-date)
-     :data-end   (to-end-millis end-date)}]
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location " │ " start-time)]
    [:div.eventdatum.title name]
    [:div.eventdatum.about about]
    [:div.eventdatum.action
     (if soldout
       [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
-      [:a.button {:href ticketurl} "Buy Tickets"])]])
+      [:a.fancy {:href ticketurl} "Buy Tickets"])]
+   [:div.timelabel
+    {:data-start (to-start-millis start-date)
+     :data-end   (to-end-millis end-date)}]])
 
 #_[:div.popup {:id (str "popup-" idx)} ; todo: make popup full screen
    [:div.alignright.x
@@ -80,24 +82,25 @@
           (map-indexed vector (json/parse-string (slurp "data/whatson.json") keyword))]
       ; todo trailer!
       (let [start-date (LocalDate/parse start)
-            end-date (LocalDate/parse end)]
+            end-date (LocalDate/parse end)
+            event' (update event :ticketurl #(or % fallback-ticket-url))]
         [:div.event.disappearable {:id       (str "event-" idx)
                                    :data-end (to-end-millis end-date)}
-         (event-image event)
-         (event-data event start-date end-date)]))]
+         (event-image event')
+         (event-data event' start-date end-date)]))]
 
    [:div.center
     [:div.larger "That's all for now! Check back soon for more..."]
     [:br]
     [:br]
     [:div.larger
-     [:a {:href "join.html"} "Become a member"] " to receive our newsletter."]
+     [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
     [:br]
     [:div.larger
-     "Take a look at our " [:a {:href "past/index.html"} "past productions."]]
+     "Take a look at our " [:a.simple {:href "past/index.html"} "past productions."]]
     [:br]
     [:div.larger
-     "Check out our " [:a {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
+     "Check out our " [:a.simple {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
     ]
    [:br]
    [:br]

@@ -20,5 +20,5 @@
        [:p "I hope that, over the last few months, I have (with Peter Gwynne’s help) given those of you new to the Theatre an insight into how it all began. We look forward to the future with more plans for our little Theatre in Horley for you our Members who give us such loyal support."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "../../everythingelse.html"} "Back"]]
+       [:p [:a.simple {:href "../../everythingelse.html"} "Back"]]
        ]]]]])

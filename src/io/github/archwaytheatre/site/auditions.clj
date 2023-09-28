@@ -27,7 +27,7 @@
     [:div.getinvolved.volunteer
      "The Archway Theatre is a volunteer run organisation."
      " We rely on the generosity of our members to keep the theatre running."
-     " If you'd like to get involved then " [:a {:href "join.html"} "click here to become a member"] "."]
+     " If you'd like to get involved then " [:a.simple {:href "join.html"} "click here to become a member"] "."]
 
     (re-sort
 
@@ -52,7 +52,7 @@
         [:li "FAY - Born again Christian – Age 20’s to late 40’s"]]
        [:div "If interested, or want to read the script, please let Eddie know.
     Playing dates 6th to 17th June 2023"]
-       [:div.calltoaction "Email: " [:a.delayedEmail "General Enquiries"]]]
+       [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]]
 
       [:div.getinvolved.audition
        [:h1 "Audition: Little Shop of Horrors"]
@@ -86,7 +86,7 @@
         "Excited about every single aspect of this brilliant musical and look forward to seeing you on the 26th March!"]
        [:div "........................So, Go Get It!"]
        [:div "Milly & Robert"]
-       [:div.calltoaction "Email: " [:a.delayedEmail "General Enquiries"]]]
+       [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]]
 
       )]]
 

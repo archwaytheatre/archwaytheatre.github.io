@@ -43,5 +43,5 @@
         " clear that the two companies should combine. After much discussion they did and the Archway Theatre Company"
         " was formed. A long lease was granted in 1988, and the arches were professionally converted to the theatre"
         " you see today."]
-       [:a {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]
+       [:a.simple {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]
        ]]]]])

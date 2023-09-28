@@ -14,7 +14,7 @@
                      :role   "row"}
              [:div.cell.glow {:role "gridcell"
                               :style "font-size:larger;"}
-              (string/replace label " " "&nbsp;")]
+              [:span.simple (string/replace label " " "&nbsp;")]]
              [:div.cell.noglow {:role "gridcell"} description]]))))
 
 (core/page "everythingelse" "The Archway Theatre"
@@ -46,22 +46,24 @@
         ["https://littletheatreguild.org/" "Little Theatre Guild"
          "Find out more about the Little Theatre Guild that we're part of."]])]
 
+    [:br] [:br]]
+
+   [:div
+    [:div
+     [:input.search
+      {:id          "searchterms"
+       :type        "text"
+       :placeholder "Enter your search terms here..."
+       :onchange    "updateLink(this, 'searchbutton');"}]]
+    [:br]
+    [:br]
+    [:br]
+    [:div.center
+     [:a.fancy.search
+      {:id   "searchbutton"
+       :href "#"}
+      "Search"]]
+
     [:br] [:br]
 
-    [:div
-     [:div
-      [:input.search
-       {:id          "searchterms"
-        :type        "text"
-        :placeholder "Enter your search terms here..."
-        :onchange    "updateLink(this, 'searchbutton');"}]]
-     [:br]
-     [:div.center
-      [:a.button.staticButton.search
-       {:id   "searchbutton"
-        :href "#"}
-       "Search"]]
-
-     [:br] [:br]
-
-     ]]])
+    ]])

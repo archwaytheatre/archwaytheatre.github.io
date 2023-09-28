@@ -72,6 +72,7 @@
     --pink-a: #ac0150;
     --new-pink: var(--pink-a); //#B1145C;
     --new-pink-2: #7a003c; //#490827;
+    --new-pink-3: rgba(170,0,80,75%); //#490827;
     --new-light-pink: #c874e5; //#490827;
     --pink-b: #d4739c;
     --blue-a: var(--new-pink); //#00738a;
@@ -157,7 +158,7 @@ footer {
 
 html	{
     font-family: "Open Sans", sans-serif;
-    font-size: large;
+    /*font-size: large;*/
     background-color: var(--bg);
     color: var(--fg-light);
 }
@@ -186,16 +187,70 @@ p {
 }
 
 a {
+    color: var(--fg-light);
     text-decoration: none;
-    color: var(--new-light-pink);
-    /*background: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);*/
-    /*-webkit-background-clip: text;*/
-    /*-webkit-text-fill-color: transparent;*/
+}
+a:hover {
+    color: white;
+    text-shadow: 0 0 calc(0.25 * 1em) white;
+}
+a.simple {
+    color: var(--fg-light);
+    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
+}
+a.simple:hover {
+    background: none;
+}
 
+a.fancy {
+    background: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 0.75em 1em;
 }
-a.short {
-    text-decoration: none;
+a.fancy:hover {
+    box-shadow: 0 5px 25px white;
 }
+
+
+
+a.button {
+    /*font-family: "GoudySansStd", sans-serif;*/
+    padding: calc(0.035 * var(--my-vw));
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--pink-shadow);
+}
+
+a.button.staticButton, .staticButton {
+    padding: 1em;
+}
+a.button:hover {
+    color: white;
+    border-color: white;
+    box-shadow: 0 5px 25px white;
+}
+
+.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%); }
+.button { box-shadow: 0 5px 15px var(--shadow); }
+
+.main .button:hover,
+.studio .button:hover,
+.digital .button:hover,
+.unknown .button:hover {
+    box-shadow: 0 5px 25px white;
+}
+
+.main .button.compact:hover,
+.studio .button.compact:hover,
+.digital .button.compact:hover,
+.unknown .button.compact:hover {
+    box-shadow: 0 5px 25px 5px white;
+}
+
+
+/*a.short {*/
+/*    text-decoration: none;*/
+/*}*/
 
 .topright {
     position: absolute;
@@ -203,14 +258,14 @@ a.short {
     right: 10px;
 }
 
-.dark a {
-    color: var(--fg-dark);
-}
-a:hover {
-    text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
-    text-decoration: none;
-    color: white;
-}
+/*.dark a {*/
+/*    color: var(--fg-dark);*/
+/*}*/
+/*a:hover {*/
+/*    text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*}*/
 
 .prenav {
     background-color: white;
@@ -249,7 +304,7 @@ nav div a {
     padding: 15px;
 }
 nav a {
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 div.menuItem {}
@@ -405,23 +460,26 @@ div.trailer {
 .eventdatum.about {
     font-size: 18px;
     text-align: left;
-    padding: 2em;
+    padding: 0 2em 2em;
+    max-height: 35em;
+    overflow: hidden;
 }
+
 .eventdatum.action {
     font-size: 16px;
 }
 
 .timelabel {
     position: absolute;
-    width: var(--play-halfwidth);
+    width: var(--about-width);
     height: 50%;
     overflow: hidden;
 }
 .onnow {
-    font-size: calc(0.035 * var(--my-vw));
+    font-size: 32px;
     border: 2px solid white;
     background-color: black;
-    transform: translate(38%,70%) rotate(45deg);
+    transform: translateX(50%) translateX(-60px) translateY(32px) rotate(45deg);
 }
 
 .bold {
@@ -437,22 +495,6 @@ div.trailer {
     padding: calc(0.01 * var(--my-vw));
 }
 
-.button {
-    /*font-family: "GoudySansStd", sans-serif;*/
-    padding: calc(0.035 * var(--my-vw));
-    cursor: pointer;
-    box-shadow: 0 5px 15px var(--pink-shadow);
-}
-
-.button.staticButton, .staticButton {
-    padding: 1em;
-}
-.button:hover {
-    color: white;
-    border-color: white;
-    box-shadow: 0 5px 25px white;
-}
-
 .main {--color-1: var(--pink-1);--color-2: var(--pink-2);--color-3: var(--pink-3);--color-4: var(--pink-4);--color-5: var(--pink-5);}
 .studio {--color-1: var(--blue-1);--color-2: var(--blue-2);--color-3: var(--blue-3);--color-4: var(--blue-4);--color-5: var(--blue-5);}
 .digital {--color-1: var(--pear-1);--color-2: var(--pear-2);--color-3: var(--pear-3);--color-4: var(--pear-4);--color-5: var(--pear-5);}
@@ -465,22 +507,6 @@ div.trailer {
 /*.button { background-image: linear-gradient(0deg, var(--new-pink) 0%, var(--new-pink-2) 100%); }*/
 /*.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ab00c4 100%); }*/
 /*.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #3a00c4 100%); }*/
-.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%); }
-.button { box-shadow: 0 5px 15px var(--shadow); }
-
-.main .button:hover,
-.studio .button:hover,
-.digital .button:hover,
-.unknown .button:hover {
-    box-shadow: 0 5px 25px white;
-}
-
-.main .button.compact:hover,
-.studio .button.compact:hover,
-.digital .button.compact:hover,
-.unknown .button.compact:hover {
-    box-shadow: 0 5px 25px 5px white;
-}
 
 .popupContainer {
     position: relative;
@@ -561,13 +587,25 @@ a.row:hover {
     color: var(--fg-light);
 }
 
+
+
 a.row .glow {
+    /* HERE */
+    /*color: var(--fg-light);*/
+    /*background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);*/
     /*text-decoration: underline;*/
 }
 a.row:hover .glow {
-    text-decoration: none;
+    /*text-decoration: none;*/
+}
+span.simple {
+    color: var(--fg-light);
+    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
+}
+a:hover span.simple {
+    background: none;
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
-    color: white;
+    /*color: white;*/
 }
 
 a.logo {
@@ -609,13 +647,13 @@ input.search {
     width: 100%;
 }
 
-a.search {
-    background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%);
-    box-shadow: 0 5px 15px var(--pink-shadow);
-}
-a.search:hover {
-    box-shadow: 0 5px 25px 5px white;
-}
+/*a.search {*/
+/*    background-image: linear-gradient(0deg, var(--pink-5) 0%, var(--pink-2) 100%);*/
+/*    box-shadow: 0 5px 15px var(--pink-shadow);*/
+/*}*/
+/*a.search:hover {*/
+/*    box-shadow: 0 5px 25px 5px white;*/
+/*}*/
 .center {
     text-align: center;
 }
@@ -702,7 +740,12 @@ li.spaced {
     vertical-align: middle;
     text-shadow: 0 0 6px black;
     position: relative;
-    background-image: linear-gradient(160deg, var(--main) 0%, var(--highlight) 20%, var(--main) 40%, var(--lowlight) 100%);
+    --main-1: color-mix(in srgb, var(--main) 30%, black);
+    --lowlight-1: color-mix(in srgb, var(--lowlight) 20%, black);
+    --highlight-1: color-mix(in srgb, var(--highlight) 40%, black);
+    background-image: linear-gradient(160deg, var(--main-1) 0%, var(--highlight-1) 20%, var(--main-1) 40%, var(--lowlight-1) 100%);
+    background-color: rgba(0,0,0,50%);
+    /*opacity: 70%;*/
 }
 
 .joinlevel div {
@@ -721,10 +764,10 @@ li.spaced {
     background-color: var(--main);
 }
 
-a.button.shown {
-    background-image: initial;
-    background-color: rgba(255,255,255,0.25);
-}
+/*a.button.shown {*/
+/*    background-image: initial;*/
+/*    background-color: rgba(255,255,255,0.25);*/
+/*}*/
 
 div.carousel {
     position: relative;

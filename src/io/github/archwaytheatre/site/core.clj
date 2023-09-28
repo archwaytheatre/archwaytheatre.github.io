@@ -85,7 +85,7 @@
     [:div.logoholder
      [:div.logo
       [:img.logo {:src image}]]]
-    (when label [:div label])]))
+    (when label [:div [:span.simple label]])]))
 
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
 (def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
@@ -122,8 +122,7 @@
              [:div {:class (classes "menuItem" (when (= current-page-filename href) "selected"))}
               [:a {:href href} label]])]])
        [:div {:class (classes "menuItem" "topMenu" (when (= current-page-filename href) "selected"))}
-        [:a (merge {:class (classes "menuButton" (when (= 1 (count label)) "short"))
-                    :href (str relative-path href)})
+        [:a.menuButton {:href (str relative-path href)}
          label]]))])
 
 (def local-dir (io/file "local"))
@@ -166,6 +165,6 @@
            (hiccup.core/html content)
            ;[:br]
            [:footer social-media-logos
-            [:a {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
+            [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
     (println "Wrote" filename)))
 

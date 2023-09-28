@@ -27,7 +27,7 @@
     [:div.getinvolved.volunteer
      "The Archway Theatre is a volunteer run organisation."
      " We rely on the generosity of our members to keep the theatre running."
-     " If you'd like to get involved then " [:a {:href "join.html"} "click here to become a member"] "."]
+     " If you'd like to get involved then " [:a.simple {:href "join.html"} "click here to become a member"] "."]
 
     (re-sort
 
@@ -51,7 +51,7 @@
        [:p "Improv is the perfect skill to develop if you are an actor looking to enhance your skill set, a writer looking for inspiration or anyone looking to unwind after work and gain a better understanding of creative collaboration."]
        [:p "We run improv courses and drop-in workshops which each focus on different types of improvisation and are suitable for different levels of experience. Some take place online, but most are either at The Hawth Theatre in Crawley or here at The Archway Theatre in Horley."]
        [:p "Dingbats is also available for hire to run a workshop for your team, whether that be a team within a business or an improv group looking for an experienced coach."]
-       [:div.calltoaction [:a {:href   "https://www.dingbatsimprov.com/improv-classes"
+       [:div.calltoaction [:a.simple {:href   "https://www.dingbatsimprov.com/improv-classes"
                                :target "_blank"} "Browse classes"]]]
       )
 

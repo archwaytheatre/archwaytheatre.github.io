@@ -28,4 +28,4 @@
       [:li.spaced "No material from this Website may be copied, modified, republished, posted, transmitted, or distributed in"
        " any way, without the prior written permission of The Archway Theatre Company."]
       [:li.spaced "For further information about this site please reach out to us via our "
-       [:a {:href "contact.html"} "contact page"] ". Feedback is always welcome."]]]]])
+       [:a.simple {:href "contact.html"} "contact page"] ". Feedback is always welcome."]]]]])

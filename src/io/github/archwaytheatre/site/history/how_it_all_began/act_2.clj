@@ -26,5 +26,5 @@
        [:p "It is interesting to note that the two people whose vision had led to the Company using the arches, Arthur Clermont and John Dilley, were Stage Director and Designer for this production, which was produced by Jonathan Field. A friendly rivalry developed between the Companies (though a number of people were members of both). Early in 1957 the Horley Central Players invited the Barts Players to put on their plays in the Archway Theatre. Their first production in the Theatre was The Winslow Boy."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "act-3.html"} "Act III"]]
+       [:p [:a.simple {:href "act-3.html"} "Act III"]]
        ]]]]])

@@ -20,5 +20,5 @@
        [:p "This arrangement continued amicably for several years, but the benefits of a single Company with single membership started to be discussed."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "act-5-scene-2.html"} "Act V, Scene II"]]
+       [:p [:a.simple {:href "act-5-scene-2.html"} "Act V, Scene II"]]
        ]]]]])

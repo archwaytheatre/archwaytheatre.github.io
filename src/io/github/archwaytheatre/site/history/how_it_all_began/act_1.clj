@@ -26,5 +26,5 @@
          [:li "The Browning Version by Terence Pattigan (Producer: Clifford Dennis)"]]]
        [:p "I wonder if any of our present membership saw any of these plays? If you did I would be happy to hear from you of your memories of the occasion. John Dilly worked for the BBC and moved to Birmingham."]
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a {:href "act-2.html"} "Act II"]]
+       [:p [:a.simple {:href "act-2.html"} "Act II"]]
        ]]]]])

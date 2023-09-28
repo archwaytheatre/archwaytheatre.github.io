@@ -16,6 +16,6 @@
       [:p "There was only room for 65 seats, and set building was a work of art in miniature. However, care was taken to provide excellent bar and foyer facilities for the audience, the seats came from a top London Theatre with a good rake to provide visibility, and the company strove to develop and maintain a varied, extensive programme of quality productions."]
       [:p "This paid off – a regular membership filled the seats and clamoured for more. In time our success also became our problem – people were disappointed when demand regularly exceeded supply. So we bit the bullet, raised funds, took out a bank loan, leased more land behind the arches, built a new stage area, green room and scenery dock, and refurbished the auditorium to provide 95 seats in 1989."]
       [:p "Then we prayed! All was well, we have continued our output of 10 varied plays a year (each for 10 performances – sometimes more) and maintained an average attendance of over 95%"]]
-     [:p [:a {:href "central-players.html"} "Life Before The Archway"]]
-     [:p [:a {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]]
+     [:p [:a.simple {:href "central-players.html"} "Life Before The Archway"]]
+     [:p [:a.simple {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]]
      ]]])
