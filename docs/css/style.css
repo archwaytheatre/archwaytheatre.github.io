@@ -214,38 +214,38 @@ a.fancy:hover {
 
 
 
-a.button {
+/*a.button {*/
     /*font-family: "GoudySansStd", sans-serif;*/
-    padding: calc(0.035 * var(--my-vw));
-    cursor: pointer;
-    box-shadow: 0 5px 15px var(--pink-shadow);
-}
+    /*padding: calc(0.035 * var(--my-vw));*/
+    /*cursor: pointer;*/
+    /*box-shadow: 0 5px 15px var(--pink-shadow);*/
+/*}*/
 
-a.button.staticButton, .staticButton {
-    padding: 1em;
-}
-a.button:hover {
-    color: white;
-    border-color: white;
-    box-shadow: 0 5px 25px white;
-}
+/*a.button.staticButton, .staticButton {*/
+/*    padding: 1em;*/
+/*}*/
+/*a.button:hover {*/
+/*    color: white;*/
+/*    border-color: white;*/
+/*    box-shadow: 0 5px 25px white;*/
+/*}*/
 
-.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%); }
-.button { box-shadow: 0 5px 15px var(--shadow); }
+/*.button { background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%); }*/
+/*.button { box-shadow: 0 5px 15px var(--shadow); }*/
 
-.main .button:hover,
-.studio .button:hover,
-.digital .button:hover,
-.unknown .button:hover {
-    box-shadow: 0 5px 25px white;
-}
+/*.main .button:hover,*/
+/*.studio .button:hover,*/
+/*.digital .button:hover,*/
+/*.unknown .button:hover {*/
+/*    box-shadow: 0 5px 25px white;*/
+/*}*/
 
-.main .button.compact:hover,
-.studio .button.compact:hover,
-.digital .button.compact:hover,
-.unknown .button.compact:hover {
-    box-shadow: 0 5px 25px 5px white;
-}
+/*.main .button.compact:hover,*/
+/*.studio .button.compact:hover,*/
+/*.digital .button.compact:hover,*/
+/*.unknown .button.compact:hover {*/
+/*    box-shadow: 0 5px 25px 5px white;*/
+/*}*/
 
 
 /*a.short {*/
@@ -425,6 +425,9 @@ div.trailer {
     display: block;
     width: var(--poster-width);
     height: var(--poster-height);
+}
+.eventimage:hover {
+    box-shadow: 0 5px 25px 5px white;
 }
 
 .eventimage img.unstretched {
