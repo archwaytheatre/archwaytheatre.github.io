@@ -120,7 +120,7 @@
           [:div.dropDownMenu
            (for [[label href] submenu]
              [:div {:class (classes "menuItem" (when (= current-page-filename href) "selected"))}
-              [:a {:href href} label]])]])
+              [:a {:href (str relative-path href)} label]])]])
        [:div {:class (classes "menuItem" "topMenu" (when (= current-page-filename href) "selected"))}
         [:a.menuButton {:href (str relative-path href)}
          label]]))])
