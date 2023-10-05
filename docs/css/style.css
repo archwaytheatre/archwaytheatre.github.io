@@ -225,12 +225,15 @@ a.fancy:hover {
     color: var(--bg);
     display: inline-block;
 }
+.prenav img {
+    max-width: 100%;
+}
 
 nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    font-size: x-large;
+    font-size: larger;
     position: sticky;
     top: 0;
     z-index: 10;
