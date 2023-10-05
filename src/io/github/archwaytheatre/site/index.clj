@@ -49,7 +49,7 @@
   [:div.eventdata
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location " │ " start-time)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about about]
+   [:div.eventdatum.about [:div about]]
    [:div.eventdatum.action
     (if soldout
       [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
@@ -58,7 +58,7 @@
     {:data-start (to-start-millis start-date)
      :data-end   (to-end-millis end-date)}]])
 
-#_[:div.popup {:id (str "popup-" idx)} ; todo: make popup full screen
+#_[:div.popup {:id (str "popup-" idx)} ; todo: make popup full screen (or just not have one?)
    [:div.alignright.x
     [:a.short
      {:href "javascript:hidePopups();"}
