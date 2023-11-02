@@ -62,7 +62,7 @@
     --content-halfwidth: min(400px,48vw);
     --golden-content-height: calc(var(--content-width) / var(--golden-ratio));
 
-    --bg2: #333;
+    /*--bg2: #333;*/
     --fg-light: rgb(220,220,220);
     --fg-dark: rgb(220,220,220);
     --shadow: rgba(0, 0, 0, 0.5);
