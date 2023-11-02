@@ -200,7 +200,8 @@ a.simple:hover {
 }
 
 a.fancy {
-    background: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);
+    /*background: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);*/
+    background-color: var(--new-pink);
     cursor: pointer;
     font-size: 1.5em;
     padding: 0.75em 1em;
