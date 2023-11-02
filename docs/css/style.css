@@ -192,11 +192,13 @@ a:hover {
     text-shadow: 0 0 calc(0.25 * 1em) white;
 }
 a.simple {
+    text-shadow: 0 0 calc(0.25 * 1em) white;
     color: var(--fg-light);
-    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
+    /*background: none;*/
 }
 a.simple:hover {
-    background: none;
+    text-shadow: none;
+    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
 }
 
 a.fancy {
@@ -467,6 +469,10 @@ span.simple {
     color: var(--fg-light);
     background: none;
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
+}
+a:hover span.simple {
+    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
+    text-shadow: none;
     /*color: white;*/
 }
 
