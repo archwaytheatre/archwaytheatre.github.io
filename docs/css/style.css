@@ -252,10 +252,12 @@ nav div a {
 }
 
 div.menuItem.selected {
-    background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%)
+    /*background-image: linear-gradient(-60deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);*/
+    background-color: var(--new-pink);
 }
 .dropDownContainer div.menuItem.selected {
-    background-image: linear-gradient(-120deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%)
+    /*background-image: linear-gradient(-120deg, var(--new-pink) 0%, #ba3c9d 70%, #c874e5 100%);*/
+    background-color: var(--new-pink);
 }
 div.menuItem.selected > a {
     text-decoration: none;
@@ -462,9 +464,6 @@ a.row:hover .glow {
 }
 span.simple {
     color: var(--fg-light);
-    background: linear-gradient(to bottom, transparent 0%, var(--new-pink-3) 50%, transparent 100%);
-}
-a:hover span.simple {
     background: none;
     text-shadow: 0 0 calc(0.009 * var(--my-vw)) white;
     /*color: white;*/
