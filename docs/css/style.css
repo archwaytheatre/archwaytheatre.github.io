@@ -12,8 +12,11 @@
     --poster-width: calc(min(var(--max-poster-width), 100vw));
     --poster-height: calc(var(--aspect-ratio) * var(--poster-width));
     --about-width: calc(var(--aspect-ratio) * var(--poster-width));
-    --bg: #101010;
-    --bg2: #333;
+    /*--bg: #101010;*/
+    /*--bg2: #333;*/
+
+    --bg: #174249;
+    --bg2: #27666f;
 }
 
 @media screen and (max-width: 1000px) { /* --poster-width + --about-width + space for scroll-bar */
