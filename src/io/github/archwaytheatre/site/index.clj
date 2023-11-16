@@ -49,7 +49,7 @@
   [:div.eventdata
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location " │ " start-time)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about [:div about]]
+   [:div.eventdatum.about [:div.pre about]]
    [:div.eventdatum.action
     (cond
       soldout [:div.fancy.soldout {:title "There are no tickets left."} "Sold Out!"]
