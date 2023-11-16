@@ -6,6 +6,12 @@ Currently available at:
 
 ## Work in progress
 
+### Dev:
+
+Requires the Clojure 'clj' command line tool.
+
+`clj -X:watch`
+
 ### Essential
 
 #### Plumbing
@@ -116,28 +122,30 @@ digital content link somewhere! (What's On? page possibly - 3rd item down?)
 
 2023-09-20
 
-limit how big the boxes get on the landing page
-links not underlined, but a different color
+DONE: limit how big the boxes get on the landing page
+DONE: links not underlined, but a different color
 Color
   bg, fg, highlight + variation
 
 trailer for theatre on front page
 
-sane limits on font size (and everything size - just don't scale it too far!)
+DONE: sane limits on font size (and everything size - just don't scale it too far!)
 
-inline the about text... smaller font, 
+DONE: inline the about text... smaller font, 
 
-"Main House | dates | times" - all this on one small line at the top, maybe text-transform: uppercase;
+DONE: "Main House | dates | times" - all this on one small line at the top, maybe text-transform: uppercase;
 
-menu bar glow at sides of white lines ???
+PROBABLY NOT: menu bar glow at sides of white lines ???
 
-mobile: text goes below the poster
-also: make the text chunk a bit wider than the poster
-also: alternate the sides that the poster is on
+DONE: mobile: text goes below the poster
+DONE: also: make the text chunk a bit wider than the poster
+DONE: also: alternate the sides that the poster is on
 
-title size for plays to be the same for all plays
+DONE - title size for plays to be the same for all plays
 
-fancy font on buy tickets buttons?
+NO - fancy font on buy tickets buttons?
+
+DONE: re-style buttons
 
 
 

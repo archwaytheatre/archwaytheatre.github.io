@@ -212,6 +212,12 @@ a.fancy:hover {
     box-shadow: 0 5px 25px white;
 }
 
+div.fancy.soldout {
+    cursor: not-allowed;
+    background-color: rgba(255,255,255,0.25);
+    font-size: 1.5em;
+    padding: 0.75em 1em;
+}
 
 .topright {
     position: absolute;
@@ -396,24 +402,22 @@ div.trailer {
     height: calc(var(--poster-height) / 2);
     overflow: hidden;
 }
-.onnow {
+.eventLabel {
     font-size: 24px;
+    transform: translateX(50%) translateX(-42px) translateY(22px) rotate(45deg);
+}
+.onNow {
     border: 2px solid white;
     background-color: black;
-    transform: translateX(50%) translateX(-40px) translateY(20px) rotate(45deg);
+}
+.soldOut {
+    font-weight: bold;
+    border: 2px solid white;
+    background-color: var(--new-pink);
 }
 
 .bold {
     font-weight: bold;
-}
-.soldout {
-    padding: calc(0.035 * var(--my-vw));
-    cursor: not-allowed;
-    box-shadow: 0 5px 15px var(--pink-shadow); /* don't think this is needed */
-    background-color: rgba(255,255,255,0.25);
-}
-.soldout.compact {
-    padding: calc(0.01 * var(--my-vw));
 }
 
 .alignright {

@@ -51,43 +51,36 @@
    [:div.eventdatum.title name]
    [:div.eventdatum.about [:div about]]
    [:div.eventdatum.action
-    (if soldout
-      [:div.soldout {:title "There are no tickets left."} "Sold Out!"]
-      [:a.fancy {:href ticketurl} "Buy Tickets"])]
+    (cond
+      soldout [:div.fancy.soldout {:title "There are no tickets left."} "Sold Out!"]
+      ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
+      :else [:div.fancy.soldout {:title "Tickets are not yet on sale."} "Coming Soon!"])]
    [:div.timelabel
-    {:data-start (to-start-millis start-date)
-     :data-end   (to-end-millis end-date)}]])
+    {:data-start    (to-start-millis start-date)
+     :data-end      (to-end-millis end-date)
+     :data-sold-out (if soldout "true" "false")}]])
 
-#_[:div.popup {:id (str "popup-" idx)} ; todo: make popup full screen (or just not have one?)
-   [:div.alignright.x
-    [:a.short
-     {:href "javascript:hidePopups();"}
-     "✕"]]
-   [:pre.about about]
-   [:div.controls
-    [:a.staticButton
-     {:href "javascript:hidePopups();"}
-     [:div "Back"]]
-    (if soldout
-      [:div.soldout.compact {:title "There are no tickets left."} "Sold Out!"]
-      [:a.button.staticButton
-       {:href    link-href
-        :onclick "event.stopPropagation();"}
-       "Buy Tickets"])]]
+(defn grab-data []
+  (->> (-> (slurp "data/whatson.json")
+           (json/parse-string keyword))
+       (map (fn [event]
+              (-> event
+                  (update :start #(LocalDate/parse %))
+                  (update :end #(LocalDate/parse %)))))
+       (sort-by :start)
+       (map-indexed vector)))
 
 (core/page "index" "The Archway Theatre"
   [:div.content
    [:div.events
-    (for [[idx {:keys [trailer start end] :as event}]
-          (map-indexed vector (json/parse-string (slurp "data/whatson.json") keyword))]
+    (for [[idx {:keys [trailer start end] :as event}] (grab-data)]
       ; todo trailer!
-      (let [start-date (LocalDate/parse start)
-            end-date (LocalDate/parse end)
-            event' (update event :ticketurl #(or % fallback-ticket-url))]
+      (let [event' event ;(update event :ticketurl #(or % fallback-ticket-url))
+            ]
         [:div.event.disappearable {:id       (str "event-" idx)
-                                   :data-end (to-end-millis end-date)}
+                                   :data-end (to-end-millis end)}
          (event-image event')
-         (event-data event' start-date end-date)]))]
+         (event-data event' start end)]))]
 
    [:div.center
     [:div.larger "That's all for now! Check back soon for more..."]
