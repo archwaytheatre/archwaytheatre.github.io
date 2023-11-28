@@ -373,7 +373,7 @@ div.trailer {
     display: flex;
     flex-direction: column;
     width: var(--about-width);
-    height: var(--poster-height);
+    min-height: var(--poster-height);
 }
 .eventdatum {
     position: relative;
