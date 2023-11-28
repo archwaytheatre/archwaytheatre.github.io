@@ -15,8 +15,11 @@
     /*--bg: #101010;*/
     /*--bg2: #333;*/
 
-    --bg: #174249;
-    --bg2: #27666f;
+    /*--bg: #174249;*/
+    /*--bg2: #27666f;*/
+
+    --bg2: #2a8694;
+    --bg: #031f23;
 }
 
 @media screen and (max-width: 1000px) { /* --poster-width + --about-width + space for scroll-bar */
