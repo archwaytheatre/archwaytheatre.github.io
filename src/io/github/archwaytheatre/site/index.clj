@@ -72,6 +72,9 @@
 
 (core/page "index" "The Archway Theatre"
   [:div.content
+   [:div.trailer-container
+    [:div.trailer
+     (core/you-tube "ph-pvXha6z4")]]
    [:div.events
     (for [[idx {:keys [trailer start end] :as event}] (grab-data)]
       ; todo trailer!

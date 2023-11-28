@@ -325,8 +325,14 @@ div.menuItem.topMenu.selected {
     text-align: center;
 }
 
+div.trailer-container {
+    display: flex;
+    justify-content: center;
+}
 div.trailer {
-    height: calc(var(--play-width) * var(--youtube-ar));
+    aspect-ratio: 16/9;
+    margin: 30px 30px 10vh;
+    width: calc(var(--poster-width) + var(--about-width));
 }
 
 .event {
