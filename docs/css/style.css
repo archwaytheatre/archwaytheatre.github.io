@@ -219,11 +219,8 @@ a.fancy:hover {
     box-shadow: 0 5px 25px white;
 }
 
-div.fancy.soldout {
-    cursor: not-allowed;
-    background-color: rgba(255,255,255,0.25);
-    font-size: 1.5em;
-    padding: 0.75em 1em;
+a.fancy.soldout {
+    background-color: color-mix(in srgb, var(--new-pink) 80%, black);
 }
 
 .topright {

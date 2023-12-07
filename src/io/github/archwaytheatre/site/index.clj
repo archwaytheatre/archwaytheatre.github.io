@@ -52,7 +52,7 @@
    [:div.eventdatum.about [:div.pre about]]
    [:div.eventdatum.action
     (cond
-      soldout [:div.fancy.soldout {:title "There are no tickets left."} "Sold Out!"]
+      soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
       ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
       :else [:div.fancy.soldout {:title "Tickets are not yet on sale."} "Coming Soon!"])]
    [:div.timelabel
