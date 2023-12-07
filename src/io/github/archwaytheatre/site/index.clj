@@ -37,11 +37,14 @@
        (sort-by :start)
        (map-indexed vector)))
 
-(defn event-image [{:keys [imageurl ticketurl image-no-stretch]}]
-  [:div.eventimage
-   [:a {:href ticketurl}
-    [:img {:class (core/classes (when image-no-stretch "unstretched"))
-           :src   imageurl}]]])
+(defn event-image [{:keys [id imageurl start ticketurl image-no-stretch]}]
+  (let [year (.getYear start)]
+    [:div.eventimage
+     [:a {:href ticketurl}
+      [:img {:class (core/classes (when image-no-stretch "unstretched"))
+             :src   (or imageurl
+                        (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
+                             "site/" year "/" id "/poster-scaled.png"))}]]]))
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
