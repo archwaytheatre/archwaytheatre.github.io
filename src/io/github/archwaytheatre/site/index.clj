@@ -61,14 +61,18 @@
      :data-sold-out (if soldout "true" "false")}]])
 
 (defn grab-data []
-  (->> (-> (slurp "data/whatson.json")
-           (json/parse-string keyword))
-       (map (fn [event]
-              (-> event
-                  (update :start #(LocalDate/parse %))
-                  (update :end #(LocalDate/parse %)))))
-       (sort-by :start)
-       (map-indexed vector)))
+  (let [today (LocalDate/now)]
+    (->> (-> (slurp "data/whatson.json")
+             (json/parse-string keyword))
+         (map (fn [event]
+                (-> event
+                    (update :start #(LocalDate/parse %))
+                    (update :end #(LocalDate/parse %)))))
+         (sort-by :end)
+         (drop-while #(.isBefore (:end %) today))
+         (sort-by :start)
+         (take 4)
+         (map-indexed vector))))
 
 (core/page "index" "The Archway Theatre"
   [:div.content
