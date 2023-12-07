@@ -134,37 +134,41 @@
     deploy-dir))
 
 (defn page [page-name title & content]
-  (let [filename (str page-name ".html")
-        target-file (io/file parent-dir filename)
-        nesting (+ (count (re-seq #"/" page-name))
-                   (if local? 0 0))
-        relative-path (string/join (repeat nesting "../"))]
-    (io/make-parents target-file)
-    (spit
-      target-file
-      (prettify
-        (hiccup.page/html5
-          [:head
-           [:meta {:charset "utf-8"}]
-           [:title title]
-           [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
-           [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
-           [:script {:src (str relative-path "js/popup.js")}]
-           [:script {:src (str relative-path "js/menudrop.js")}]]
-          [:body
-           [:div.prenav
-            [:div
-             [:a {:href "https://www.archwaytheatre.com/"}
-              [:img {:src (str relative-path "archway_header.png")}]]]
-            [:div "A thriving theatre in the heart of Horley."]]
-           (menu relative-path filename)
-           #_[:div.popupContainer
-            [:div#popup {:onclick "javascript:hidePopups();"}
-             [:div#popupText "Popup"]]]
-           ;[:section.container]
-           (hiccup.core/html content)
-           ;[:br]
-           [:footer social-media-logos
-            [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
-    (println "Wrote" filename)))
+  (try
+    (let [filename (str page-name ".html")
+          target-file (io/file parent-dir filename)
+          nesting (+ (count (re-seq #"/" page-name))
+                     (if local? 0 0))
+          relative-path (string/join (repeat nesting "../"))]
+      (io/make-parents target-file)
+      (spit
+        target-file
+        (prettify
+          (hiccup.page/html5
+            [:head
+             [:meta {:charset "utf-8"}]
+             [:title title]
+             [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
+             [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
+             [:script {:src (str relative-path "js/popup.js")}]
+             [:script {:src (str relative-path "js/menudrop.js")}]]
+            [:body
+             [:div.prenav
+              [:div
+               [:a {:href "https://www.archwaytheatre.com/"}
+                [:img {:src (str relative-path "archway_header.png")}]]]
+              [:div "A thriving theatre in the heart of Horley."]]
+             (menu relative-path filename)
+             #_[:div.popupContainer
+                [:div#popup {:onclick "javascript:hidePopups();"}
+                 [:div#popupText "Popup"]]]
+             ;[:section.container]
+             (hiccup.core/html content)
+             ;[:br]
+             [:footer social-media-logos
+              [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
+      (println "Wrote" filename))
+    (catch Exception e
+      (.printStackTrace e)
+      (throw e))))
 
