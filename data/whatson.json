@@ -122,7 +122,8 @@
     "start-time": "7:45pm",
     "about": "Peter Pan, Limelight Scripts, adapted by Hannah Redfern & Mandi Dunford",
     "imageurl": "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/Pan.jpg",
-    "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/peter-pan/e-rzrrro"
+    "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/peter-pan/e-rzrrro",
+    "soldout": true
   },
   {
     "name": "Much Ado About Nothing",
