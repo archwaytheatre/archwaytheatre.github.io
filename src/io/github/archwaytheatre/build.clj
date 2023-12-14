@@ -11,7 +11,7 @@
                  (->> file slurp string/split-lines first
                       (re-find #"io.github.archwaytheatre.site.[\S]+")
                       symbol))))
-    (or (seq files)
+    (or (seq (remove nil? files))
         (file-seq (io/file "./src/io/github/archwaytheatre/site")))))
 
 (defn require-namespaces [files]
