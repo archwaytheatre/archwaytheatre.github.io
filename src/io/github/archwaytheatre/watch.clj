@@ -30,7 +30,7 @@
       (catch Exception e
         (println "FAILURE:" (ex-message e))))))
 
-(defn local-deploy []
+(defn local-deploy [& _args]
   (let [local-dir (io/file "local")
         deploy-dir (io/file "docs")]
     (when (.exists local-dir)
@@ -54,7 +54,7 @@
       dirwatch/watch-dir
       (fn [{:keys [file]}]
         (when-not (string/ends-with? (str file) "~")
-          (g)))
+          (g file)))
       (map io/file files))))
 
 (defn watch [& _opts]
@@ -63,7 +63,7 @@
   (local-deploy)
   (open)
 
-  (on-change #(build/build) "src" "data")
+  (on-change #(build/build %) "src" "data")
   (on-change #(local-deploy) "docs")
 
   (Thread/sleep (* 7 24 60 60 1000))

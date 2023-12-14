@@ -3,7 +3,7 @@
             [clojure.string :as string]))
 
 
-(defn discover-namespaces []
+(defn discover-namespaces [files]
   (sequence
     (comp (remove #(-> % .getPath (string/includes? "content")))
           (filter #(-> % .getName (string/ends-with? ".clj")))
@@ -11,15 +11,15 @@
                  (->> file slurp string/split-lines first
                       (re-find #"io.github.archwaytheatre.site.[\S]+")
                       symbol))))
-    (file-seq (io/file "./src/io/github/archwaytheatre/site"))))
+    (or (seq files)
+        (file-seq (io/file "./src/io/github/archwaytheatre/site")))))
 
-(defn require-namespaces []
-  (apply require (conj (vec (discover-namespaces)) :reload-all)))
+(defn require-namespaces [files]
+  (apply require (conj (vec (discover-namespaces files)) :reload-all)))
 
-
-(defn build [& _opts]
+(defn build [& files]
   (println "Building...")
   (time
     (do
-      (require-namespaces)
+      (require-namespaces files)
       (println "Built."))))
