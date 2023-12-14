@@ -1,5 +1,7 @@
 (ns io.github.archwaytheatre.site.index
   (:require [cheshire.core :as json]
+            [clojure.java.io :as io]
+            [clojure.string :as str]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.time LocalDate ZoneOffset]
            [java.time.format DateTimeFormatter]))
@@ -48,25 +50,44 @@
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
-(defn event-data [{:keys [name location soldout about ticketurl start-time]} start-date end-date]
+(defn event-data [{:keys [name location soldout about ticketurl]} start-date end-date]
   [:div.eventdata
-   [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location " │ " start-time)]
+   [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
    [:div.eventdatum.about [:div.pre about]]
    [:div.eventdatum.action
     (cond
       soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
       ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
-      :else [:div.fancy.soldout {:title "Tickets are not yet on sale."} "Coming Soon!"])]
+      :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]
    [:div.timelabel
     {:data-start    (to-start-millis start-date)
      :data-end      (to-end-millis end-date)
      :data-sold-out (if soldout "true" "false")}]])
 
+(defn grab-data-from-files []
+  (let [year-dirs (->> (iterate inc 2023)
+                       (map #(io/file "data" (str %)))
+                       (take-while #(.exists %)))]
+
+    (for [year-dir year-dirs
+          play-dir (->> (file-seq year-dir)
+                        (remove #(= year-dir %))
+                        (filter #(.isDirectory %)))]
+      (let [about-data (-> (io/file play-dir "about.json")
+                           (slurp)
+                           (json/parse-string keyword))
+            about-text (-> (io/file play-dir "about.txt")
+                           (slurp)
+                           (str/trim))]
+        (assoc about-data
+          :id (.getName play-dir)
+          :year (.getName year-dir)
+          :about about-text)))))
+
 (defn grab-data []
   (let [today (LocalDate/now)]
-    (->> (-> (slurp "data/whatson.json")
-             (json/parse-string keyword))
+    (->> (grab-data-from-files)
          (map (fn [event]
                 (-> event
                     (update :start #(LocalDate/parse %))
