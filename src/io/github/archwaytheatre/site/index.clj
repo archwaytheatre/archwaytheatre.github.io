@@ -54,7 +54,7 @@
   [:div.eventdata
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about [:div.pre about]]
+   [:div.eventdatum.about [:div [:pre about]]]
    [:div.eventdatum.action
     (cond
       soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]

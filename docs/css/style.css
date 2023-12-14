@@ -441,13 +441,9 @@ div.trailer {
 }
 
 pre {
-    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-family: inherit;
     white-space: pre-wrap;
 }
-.pre {
-    white-space: pre-wrap;
-}
-
 
 .table {
     display: table;
