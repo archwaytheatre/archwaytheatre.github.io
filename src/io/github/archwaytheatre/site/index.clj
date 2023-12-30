@@ -81,7 +81,7 @@
    [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]])
 
 (defn grab-data-from-files []
-  (let [year-dirs (->> (iterate inc 2023)
+  (let [year-dirs (->> (iterate inc 2024)
                        (map #(io/file "data" (str %)))
                        (take-while #(.exists %)))]
 
