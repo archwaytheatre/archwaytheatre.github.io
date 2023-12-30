@@ -214,6 +214,7 @@ a.fancy {
     cursor: pointer;
     font-size: 1.5em;
     padding: 0.75em 1em;
+    margin: 0.25em;
 }
 a.fancy:hover {
     box-shadow: 0 5px 25px white;
@@ -388,7 +389,7 @@ div.trailer {
     flex-grow: 1;
     align-items: center;
     justify-content: center;
-    padding: calc(0.006 * var(--my-vw));
+    padding: 0.1em;
 }
 
 .eventdatum.deets {
@@ -398,17 +399,24 @@ div.trailer {
 .eventdatum.title {
     font-family: "GoudySansStd", sans-serif;
     font-size: 60px;
+    line-height: 100%;
 }
 .eventdatum.about {
     display: inline-block;
     font-size: 18px;
     text-align: left;
-    padding: 0 1em 1em;
+    padding: 0 1em;
     overflow: hidden;
 }
 .eventdatum.about div.fadeable {
     height: 100%;
     mask-image: linear-gradient(to bottom, white 0%, white calc(100% - 5em), transparent calc(100% - 1.5em), transparent 100%);
+}
+.eventdatum.aboutback {
+    text-align: left;
+    display:block;
+    padding-left: 1em;
+    padding-top: 1em;
 }
 
 .eventdatum.action {
@@ -458,6 +466,7 @@ div.trailer {
 }
 
 pre {
+    margin: 0;
     font-family: inherit;
     white-space: pre-wrap;
 }

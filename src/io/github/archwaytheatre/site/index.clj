@@ -73,12 +73,12 @@
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
    [:div.eventdatum.about [:div [:pre about]]]
+   [:div.eventdatum.aboutback [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]]
    [:div.eventdatum.action
     (cond
       soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
       ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
-      :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]
-   [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]])
+      :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]])
 
 (defn grab-data-from-files []
   (let [year-dirs (->> (iterate inc 2024)
