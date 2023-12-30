@@ -64,7 +64,7 @@
   (open)
 
   (on-change #(build/build %) "src" "data")
-  (on-change #(local-deploy) "docs")
+  (on-change #(local-deploy %) "docs")
 
   (Thread/sleep (* 7 24 60 60 1000))
   (println "Got bored and gave up watching. Sorry."))
