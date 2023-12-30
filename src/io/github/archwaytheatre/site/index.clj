@@ -41,7 +41,7 @@
 
 (defn event-image [{:keys [id imageurl start ticketurl image-no-stretch]}]
   (let [year (.getYear start)]
-    [:div.eventimage
+    [:div.eventimage {:id (str "eventimage-" id)}
      [:a {:href ticketurl}
       [:img {:class (core/classes (when image-no-stretch "unstretched"))
              :src   (or imageurl
@@ -50,11 +50,14 @@
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
-(defn event-data [{:keys [name location soldout about ticketurl]} start-date end-date]
-  [:div.eventdata
+(defn event-data [{:keys [id name location soldout about ticketurl]} start-date end-date]
+  [:div.eventdata {:id (str "eventdata-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about [:div [:pre about]]]
+   [:div.eventdatum.about
+    [:div.fadeable {:id (str "overflow-a-" id)}
+     [:pre {:id (str "overflow-b-" id)} about]]
+    [:div.aboutmore {:id (str "aboutmore-" id)} [:a {:href (str "javascript:openAbout('" id "');")} "Read more..."]]]
    [:div.eventdatum.action
     (cond
       soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
@@ -64,6 +67,18 @@
     {:data-start    (to-start-millis start-date)
      :data-end      (to-end-millis end-date)
      :data-sold-out (if soldout "true" "false")}]])
+
+(defn event-about [{:keys [id name location soldout about ticketurl]} start-date end-date]
+  [:div.eventabout {:id (str "eventabout-" id)}
+   [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
+   [:div.eventdatum.title name]
+   [:div.eventdatum.about [:div [:pre about]]]
+   [:div.eventdatum.action
+    (cond
+      soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
+      ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
+      :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]
+   [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]])
 
 (defn grab-data-from-files []
   (let [year-dirs (->> (iterate inc 2023)
@@ -99,40 +114,47 @@
          (map-indexed vector))))
 
 (core/page "index" "The Archway Theatre"
-  [:div.content
-   [:div.trailer-container
-    [:div.trailer
-     (core/you-tube "ph-pvXha6z4")]]
-   [:div.events
-    (for [[idx {:keys [trailer start end] :as event}] (grab-data)]
-      ; todo trailer!
-      (let [event' event ;(update event :ticketurl #(or % fallback-ticket-url))
-            ]
-        [:div.event.disappearable {:id       (str "event-" idx)
-                                   :data-end (to-end-millis end)}
-         (event-image event')
-         (event-data event' start end)]))]
+  (let [data (grab-data)]
+    [:div.content
+     [:div.trailer-container
+      [:div.trailer
+       (core/you-tube "ph-pvXha6z4")]]
+     [:div.events
+      (for [[idx {:keys [trailer start end] :as event}] data]
+        ; todo trailer!
+        (let [event' event ;(update event :ticketurl #(or % fallback-ticket-url))
+              ]
+          [:div.event.disappearable {:id       (str "event-" idx)
+                                     :data-end (to-end-millis end)}
+           (event-image event')
+           (event-data event' start end)
+           (event-about event' start end)]))]
 
-   [:div.center
-    [:div.larger "That's all for now! Check back soon for more..."]
-    [:br]
-    [:br]
-    [:div.larger
-     [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
-    [:br]
-    [:div.larger
-     "Take a look at our " [:a.simple {:href "past/index.html"} "past productions."]]
-    [:br]
-    [:div.larger
-     "Check out our " [:a.simple {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
-    ]
-   [:br]
-   [:br]
-   [:br]
+     [:div.center
+      [:div.larger "That's all for now! Check back soon for more..."]
+      [:br]
+      [:br]
+      [:div.larger
+       [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
+      [:br]
+      [:div.larger
+       "Take a look at our " [:a.simple {:href "past/index.html"} "past productions."]]
+      [:br]
+      [:div.larger
+       "Check out our " [:a.simple {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
+      ]
+     [:br]
+     [:br]
+     [:br]
 
-   [:script {:src "./js/datetime.js"}]]
+     [:script {:src "./js/popup.js"}]
+
+     [:script (str/join ";" (map (fn [{:keys [id]}]
+                                   (str "hideMore('" id "')"))
+                                 (map second data)))]
+     [:script {:src "./js/datetime.js"}]])
   #_[:div.content
-   [:div.events.dark {:onload "composeLabels()"}
+     [:div.events.dark {:onload "composeLabels()"}
     (sorted
       (for [[idx {:keys [name location soldout trailer about imageurl image-no-stretch start end]}]
             (map-indexed vector (json/parse-string (slurp "data/whatson.json") keyword))]
