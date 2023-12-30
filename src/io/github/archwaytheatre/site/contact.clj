@@ -67,6 +67,10 @@
        [:div.center [:div "Young Adults Workshops"] [:a.simple.delayedEmail "Young Adults Workshops"]]
        [:div.center [:div "Youth Workshops"] [:a.simple.delayedEmail "Youth Workshops"]]])]
 
+   [:hr]
+   [:br]
+   [:div.signupform core/email-signup-form]
+
    [:script {:src "./js/delayed.js"}]
 
    ])

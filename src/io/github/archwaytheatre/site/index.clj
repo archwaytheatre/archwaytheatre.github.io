@@ -146,6 +146,7 @@
      [:br]
      [:br]
      [:br]
+     [:div.signupform core/email-signup-form]
 
      [:script {:src "./js/popup.js"}]
 

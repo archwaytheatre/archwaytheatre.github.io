@@ -38,6 +38,60 @@
     :allow "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     :allowfullscreen "true"}])
 
+(def email-signup-form
+  [:div#mc_embed_shell
+   [:link {:href "//cdn-images.mailchimp.com/embedcode/classic-061523.css" :rel "stylesheet" :type "text/css"}]
+   [:style {:type "text/css"} "#mc_embed_signup{width: 600px;}
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */"]
+   [:style {:type "text/css"} "#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
+#mergeRow-gdpr {margin-top: 20px;}
+#mergeRow-gdpr fieldset label {font-weight: normal;}
+#mc-embedded-subscribe-form .mc_fieldset{border:none;min-height: 0px;padding-bottom:0px;}"]
+   [:div#mc_embed_signup
+    [:form#mc-embedded-subscribe-form.validate
+     {:action "https://archwaytheatre.us7.list-manage.com/subscribe/post?u=66a3a3c2457ac9ffd280cf3c3&amp;id=96bd00fc78&amp;v_id=4765&amp;f_id=00ded6e4f0"
+      :method "post"
+      :name "mc-embedded-subscribe-form"
+      :target "_blank"}
+     [:div#mc_embed_signup_scroll [:h2 "Or subscribe to our mailing list:"]
+      [:div.indicates-required [:span.asterisk "*"] "indicates required"]
+      [:div.mc-field-group [:label {:for "mce-EMAIL"} "Email Address" [:span.asterisk "*"]]
+       [:input#mce-EMAIL.required.email {:type "email" :name "EMAIL" :required "" :value ""}]]
+      [:div.mc-field-group [:label {:for "mce-FNAME"} "First Name"]
+       [:input#mce-FNAME.text {:type "text" :name "FNAME" :value ""}]]
+      [:div.mc-field-group [:label {:for "mce-LNAME"} "Last Name"]
+       [:input#mce-LNAME.text {:type "text" :name "LNAME" :value ""}]]
+      [:div.mc-field-group [:label {:for "mce-MMERGE3"} "What area of the Archway interests you? (optional)"]
+       [:select#mce-MMERGE3 {:name "MMERGE3" :class ""}
+        [:option {:value ""}]
+        [:option {:value "Audience Member"} "Audience Member"]
+        [:option {:value "Performing"} "Performing"]
+        [:option {:value "Volunteering"} "Volunteering"]
+        [:option {:value "Archway Theatre Youth Workshop (ages 9-16)"} "Archway Theatre Youth Workshop (ages 9-16)"]]]
+      [:div#mergeRow-gdpr.mergeRow.gdpr-mergeRow.content_gdprBlock.mc-field-group
+       [:div.contentgdpr [:label "Marketing Permissions"]
+        [:p "The Archway Theatre will use the information you provide on this form to keep you informed about productions, news, events, and activities at the The Archway Theatre"]
+        [:fieldset.mc_fieldset.gdprRequired.mc-field-group {:name "interestgroup_field"}
+         [:label.checkbox.subfield {:for "gdpr4141"}
+          [:input#gdpr_4141.gdpr {:type "checkbox" :name "gdpr[4141]" :value "Y"}]
+          [:span "Email"]]]
+        [:p "You can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us, or by contacting us at arch@archwaytheatre.com. We will treat your information with respect. For more information about our privacy practices please visit our website. By clicking below, you agree that we may process your information in accordance with these terms."]]
+       [:div.content_gdprLegal
+        [:p "We use Mailchimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to Mailchimp for processing."
+         [:a {:href "https://mailchimp.com/legal/terms"} "Learn more"] "about Mailchimp's privacy practices."]]]
+      [:div {:hidden ""} [:input {:type "hidden" :name "tags" :value "7748193"}]]
+      [:div#mce-responses.clear
+       [:div#mce-error-response.response {:style "display: none;"}]
+       [:div#mce-success-response.response {:style "display: none;"}]]
+      [:div {:aria-hidden "true" :style "position: absolute; left: -5000px;"}
+       [:input {:type "text" :name "b_66a3a3c2457ac9ffd280cf3c3_96bd00fc78" :tabindex "-1" :value ""}]]
+      [:div.clear [:input#mc-embedded-subscribe.button {:type "submit" :name "subscribe" :value "Subscribe"}]]]]]
+   [:script {:type "text/javascript" :src "//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"}]
+   [:script {:type "text/javascript"} "(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='dropdown';}(jQuery));var $mcj = jQuery.noConflict(true);"]]
+
+  )
+
 (def void?
   #{"area" "base" "br" "col" "command" "embed" "hr" "img" "input"
     "keygen" "link" "meta" "param" "source" "track" "wbr"})

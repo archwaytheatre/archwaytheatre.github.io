@@ -815,3 +815,8 @@ span.disabled {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+div.signupform {
+    display: flex;
+    justify-content: center;
+}
