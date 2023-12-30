@@ -119,6 +119,15 @@
      [:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
+     [:div.center "Coming soon..."]
+     [:br]
+     [:br]
+     [:br]
+     [:br]
+     [:br]
+     [:br]
+     [:br]
+     [:br]
      [:div.events
       (for [[idx {:keys [trailer start end] :as event}] data]
         ; todo trailer!
