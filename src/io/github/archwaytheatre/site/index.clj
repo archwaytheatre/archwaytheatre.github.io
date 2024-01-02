@@ -119,7 +119,7 @@
      [:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
-     [:div.center "Coming Up"]
+     [:div.center.larger "Coming Up"]
      [:br]
      [:br]
      [:br]
