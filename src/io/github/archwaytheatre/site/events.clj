@@ -34,7 +34,7 @@
       [:div.getinvolved.other
        [:h1 "Singing for the Soul"]
        [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
-       [:p "13th March, 27th March, 24th April, 8th May, 22nd May, 5th June"]
+       [:p [:span "No dates currently announced -" [:a.simple {:href "https://www.facebook.com/groups/621824429716899"} "check the Facebook Group"]]]
        [:p "£4 per session (£5 for non members)"]
 
        ; TODO: "Add to Calendar"
