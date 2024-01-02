@@ -1,0 +1,21 @@
+{
+  "events": [{
+    "datetime": "2024-01-15T19:45:00",
+    "location": "in the bar",
+    "description": null
+  }],
+  "characters": [
+    {
+      "name": "Beekeeper",
+      "gender": null,
+      "age": null,
+      "description": null
+    },
+    {
+      "name": "Scientist",
+      "gender": null,
+      "age": null,
+      "description": null
+    }
+  ]
+}
