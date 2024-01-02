@@ -73,7 +73,7 @@
        [:div.contentgdpr [:label "Marketing Permissions"]
         [:p "The Archway Theatre will use the information you provide on this form to keep you informed about productions, news, events, and activities at the The Archway Theatre"]
         [:fieldset.mc_fieldset.gdprRequired.mc-field-group {:name "interestgroup_field"}
-         [:label.checkbox.subfield {:for "gdpr4141"}
+         [:label.checkbox.subfield {:for "gdpr_4141"}
           [:input#gdpr_4141.gdpr {:type "checkbox" :name "gdpr[4141]" :value "Y"}]
           [:span "Email"]]]
         [:p "You can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us, or by contacting us at arch@archwaytheatre.com. We will treat your information with respect. For more information about our privacy practices please visit our website. By clicking below, you agree that we may process your information in accordance with these terms."]]
