@@ -11,11 +11,15 @@
                  (->> file slurp string/split-lines first
                       (re-find #"io.github.archwaytheatre.site.[\S]+")
                       symbol))))
-    (or (seq (remove nil? files))
-        (file-seq (io/file "./src/io/github/archwaytheatre/site")))))
+    (cons
+      (io/file "./src/io/github/archwaytheatre/site/index.clj")
+      (or (seq (remove nil? files))
+          (file-seq (io/file "./src/io/github/archwaytheatre/site"))))))
 
 (defn require-namespaces [files]
-  (apply require (conj (vec (discover-namespaces files)) :reload-all)))
+  (let [nss (vec (discover-namespaces files))]
+    (println nss)
+    (apply require (conj nss :reload-all))))
 
 (defn build [& files]
   (println "Building...")
