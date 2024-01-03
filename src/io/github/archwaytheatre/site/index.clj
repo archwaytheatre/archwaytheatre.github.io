@@ -53,7 +53,7 @@
 (defn event-data [{:keys [id name location soldout about ticketurl]} start-date end-date]
   [:div.eventdata {:id (str "eventdata-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
-   [:div.eventdatum.title name]
+   [:div.eventdatum.archwaytitle name]
    [:div.eventdatum.about
     [:div.fadeable {:id (str "overflow-a-" id)}
      [:pre {:id (str "overflow-b-" id)} about]]
@@ -119,15 +119,9 @@
      [:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
-     [:div.center.larger "Coming Up"]
-     [:br]
-     [:br]
-     [:br]
-     [:br]
-     [:br]
-     [:br]
-     [:br]
-     [:br]
+     [:div.vspace]
+     [:div.center.archwaytitle "Coming Up"]
+     [:div.vspace]
      [:div.events
       (for [[idx {:keys [trailer start end] :as event}] data]
         ; todo trailer!
@@ -139,23 +133,26 @@
            (event-data event' start end)
            (event-about event' start end)]))]
 
-     [:div.center
-      [:div.larger "That's all for now! Check back soon for more..."]
-      [:br]
-      [:br]
-      [:div.larger
-       [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
-      [:br]
-      [:div.larger
-       "Take a look at our " [:a.simple {:href "past/index.html"} "past productions."]]
-      [:br]
-      [:div.larger
-       "Check out our " [:a.simple {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
-      ]
-     [:br]
-     [:br]
-     [:br]
-     [:div.signupform core/email-signup-form]
+     [:section.container
+      [:hr]
+      [:div.vspace]
+      [:div.center
+       [:div.larger "That's all for now! Check back soon for more..."]
+       [:br]
+       [:br]
+       [:div.larger
+        [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
+       [:br]
+       [:div.larger
+        "Take a look at our " [:a.simple {:href "past/index.html"} "past productions."]]
+       [:br]
+       [:div.larger
+        "Check out our " [:a.simple {:href "https://www.ticketsource.co.uk/archwaytheatredigital/"} "digital content."]]
+       ]
+      [:div.vspace]
+      [:hr]
+      [:div.vspace]
+      [:div.signupform core/email-signup-form]]
 
      [:script {:src "./js/popup.js"}]
 

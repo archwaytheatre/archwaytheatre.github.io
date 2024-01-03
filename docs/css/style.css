@@ -185,6 +185,12 @@ h3 {
     margin: 0;
 }
 
+.archwaytitle {
+    font-family: "GoudySansStd", sans-serif;
+    font-size: 60px;
+    line-height: 100%;
+}
+
 p {
     margin-top: 0.7em;
     margin-bottom: 0.7em;
@@ -334,6 +340,11 @@ div.menuItem.topMenu.selected {
     margin-left: calc(50vw - var(--content-halfwidth));
 }
 
+.vspace {
+    padding-top: 6em;
+    padding-bottom: 6em;
+}
+
 .content {
     margin: 2vh 0 1vh;
     padding: 2vh 0 1vh;
@@ -352,7 +363,6 @@ div.trailer-container {
 }
 div.trailer {
     aspect-ratio: 16/9;
-    margin: 30px 30px 10vh;
     width: calc(var(--poster-width) + var(--about-width));
 }
 
@@ -362,7 +372,7 @@ div.trailer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 10vh;
+    margin-bottom: 14em;
 }
 
 .eventimage {
@@ -407,11 +417,7 @@ div.trailer {
     text-transform: uppercase;
     font-size: 19px;
 }
-.eventdatum.title {
-    font-family: "GoudySansStd", sans-serif;
-    font-size: 60px;
-    line-height: 100%;
-}
+
 .eventdatum.about {
     display: inline-block;
     font-size: 18px;
