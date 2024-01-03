@@ -629,9 +629,14 @@ li.spaced {
 }
 
 .audition {
-    background-image: linear-gradient(0deg, var(--blue-4) 0%, var(--blue-1) 100%);
     padding: 10px;
     margin-bottom: 2em;
+}
+.audition:nth-child(even) {
+    background-image: linear-gradient(60deg, var(--bg) 10%, var(--bg2) 75%);
+}
+.audition:nth-child(odd) {
+    background-image: linear-gradient(-60deg, var(--bg) 10%, var(--bg2) 75%);
 }
 
 .other {
