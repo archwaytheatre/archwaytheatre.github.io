@@ -50,6 +50,11 @@
       ;[:a {:href "https://www.embedgooglemap.net"} "google maps on websites"]
       [:style ".gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}"]]]
 
+
+    [:iframe {:src "https://www.google.com/maps/d/embed?mid=1GJinThkolOI8V1FCqJDYCqTyofx22iQ&ehbc=2E312F&noprof=1"
+              :width "640"
+              :height "480"}]
+
     [:br]
     [:div [:b "Directions:"]]
     [:ul
