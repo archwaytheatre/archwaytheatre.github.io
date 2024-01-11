@@ -46,7 +46,7 @@
 (defn index-all-years []
   (let [year->productions (->> (for [[year productions] (json/parse-string (slurp "data/plays.json") keyword)
                                      {:keys [name month] :as production} (reverse (sort-by :start productions))
-                                     :when (not (.isAfter (YearMonth/of (int year) (int (or month 1))) (YearMonth/now)))]
+                                     :when (.isBefore (YearMonth/of (int year) (int (or month 1))) (YearMonth/now))]
                                  (assoc production :year year :page-name (core/linkify name year)))
                                (daisy-chain #(assoc %2 :prev (:page-name %3)
                                                        :next (:page-name %1)))
