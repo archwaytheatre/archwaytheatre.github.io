@@ -143,14 +143,17 @@
 
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
 (def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
+(def logo-ex (partial social-media-logo "X (formerly \"Twitter\")" "/images/logos/X.png"))
 (def logo-fb (partial social-media-logo "Facebook" "/images/logos/Facebook.png"))
 (def logo-yt (partial social-media-logo "YouTube" "/images/logos/YouTube.png"))
+(def logo-tk (partial social-media-logo "TikTok" "/images/logos/TikTok.png"))
 
 (def social-media-logos
   [:div
    (logo-ig "http://instagram.com/archwaytheatre/")
-   (logo-tw "http://twitter.com/ArchwayHorley")
+   (logo-ex "http://twitter.com/ArchwayHorley")
    (logo-fb "https://www.facebook.com/ArchwayTheatre/")
+   (logo-tk "https://www.tiktok.com/@archwaytheatrehor?lang=en")
    (logo-yt "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
 
 (defn menu [relative-path current-page-filename]
