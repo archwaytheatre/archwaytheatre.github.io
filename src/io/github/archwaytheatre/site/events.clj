@@ -34,7 +34,19 @@
       [:div.getinvolved.other
        [:h1 "Singing for the Soul"]
        [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
-       [:p [:span "No dates currently announced -" [:a.simple {:href "https://www.facebook.com/groups/621824429716899"} "check the Facebook Group"]]]
+
+       ;[:p [:span "No dates currently announced -" [:a.simple {:href "https://www.facebook.com/groups/621824429716899"} "check the Facebook Group"]]]
+
+       [:p
+        [:span "Currently announced dates:"]
+        [:ul
+         [:li "4th February"]
+         [:li "19th February"]
+         [:li "~"]
+         [:li "11th March"]
+         [:li "25th March"]]]
+       [:p "Please note that there is a small gap between Feb and March sessions which do not fall fortnightly from one another. "]
+
        [:p "£4 per session (£5 for non members)"]
 
        ; TODO: "Add to Calendar"
