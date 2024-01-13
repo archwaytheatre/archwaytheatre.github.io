@@ -14,7 +14,8 @@ function selectionForNow(items) {
     });
 }
 
-const delay = 3200;
+const debugMode = false;
+const delay = debugMode ? 200 : 3200;
 
 function startTopPhotos() {
 
@@ -43,7 +44,11 @@ function startTopPhotos() {
             topPhotos.appendChild(holder);
             let top = img.offsetHeight * yOffset;
             img.setAttribute('style', 'top: -' + top + 'px');
-            setTimeout(fadeOutImage, 6000);
+            if (debugMode) {
+                console.log(imageDatum[1]);
+            } else {
+                setTimeout(fadeOutImage, 6000);
+            }
         }
         img.onerror = function () {
             setTimeout(fadeOutImage, delay * 2);
@@ -58,9 +63,11 @@ function startTopPhotos() {
 
     fadeInNextImage();
 
-    // document.getElementById('topphotos').onclick = function () {
-    //     fadeOutImage();
-    // }
+    if (debugMode) {
+        document.getElementById('topphotos').onclick = function () {
+            fadeOutImage();
+        }
+    }
 }
 
 startTopPhotos();
