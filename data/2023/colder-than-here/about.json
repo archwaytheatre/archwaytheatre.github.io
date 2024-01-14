@@ -1,0 +1,27 @@
+{
+  "stage-manager" : "Kat Horder",
+  "director" : "Elodie Foray",
+  "name" : "Colder Than Here",
+  "start" : "2023-02-21",
+  "author" : "Laura Wade",
+  "photo-sets" : [ {
+    "photographer" : "Mark Dobson",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.1  ],
+      [ "photo-0002.png", 0.3  ],
+      [ "photo-0003.png", 0.3  ],
+      [ "photo-0004.png", 0.25 ],
+      [ "photo-0005.png", 0.3  ],
+      [ "photo-0006.png", 0.27 ],
+      [ "photo-0007.png", 0.2  ],
+      [ "photo-0008.png", 0.2  ],
+      [ "photo-0009.png", 0.3  ],
+      [ "photo-0010.png", 0.25 ],
+      [ "photo-0011.png", 0.27 ],
+      [ "photo-0012.png", 0.25 ]
+    ]
+  } ],
+  "end" : "2023-03-04",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
+}

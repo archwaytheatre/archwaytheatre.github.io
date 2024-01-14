@@ -1,8 +1,10 @@
 {
-  "name": "Peter Pan",
-  "location": "Main House",
+  "name" : "Peter Pan",
+  "location" : "Main House",
   "start": "2024-01-12",
   "end": "2024-01-27",
   "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/peter-pan/e-rzrrro",
-  "soldout": true
+  "soldout": true,
+  "director" : "Mandi Dunford & Hannah Redfern",
+  "company" : "Archway Theatre"
 }

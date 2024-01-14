@@ -1,5 +1,8 @@
 {
   "name": "Much Ado About Nothing",
+  "author" : null,
+  "director" : "Elodie Foray",
+  "company" : "Archway Theatre",
   "location": "Main House",
   "start": "2024-02-19",
   "end": "2024-03-02",

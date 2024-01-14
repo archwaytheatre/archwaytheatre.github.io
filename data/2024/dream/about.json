@@ -2,5 +2,7 @@
   "name" : "A Midsummer Night's Dream",
   "location" : "Wakehurst Place",
   "start" : "2024-06-15",
-  "end" : "2024-06-30"
+  "end" : "2024-06-30",
+  "director" : "Gary Andrews",
+  "company" : "Archway Theatre"
 }

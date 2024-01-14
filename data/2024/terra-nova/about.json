@@ -2,5 +2,8 @@
   "name" : "Terra Nova",
   "location" : "Main House",
   "start" : "2024-10-29",
-  "end" : "2024-11-09"
+  "end" : "2024-11-09",
+  "author" : null,
+  "director" : "Rebecca Warnett",
+  "company" : "Archway Theatre"
 }

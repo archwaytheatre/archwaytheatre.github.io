@@ -1,0 +1,34 @@
+{
+  "director" : "Felicity Westmacott",
+  "name" : "Saucy Jack and the Space Vixens",
+  "start" : "2023-10-31",
+  "author" : "Charlotte Mann and Michael Fidler, Music by Jonathan Croose and Robin Forrest",
+  "photo-sets" : [
+    {
+      "photographer" : "Mark Dobson",
+      "photo-offsets" : [
+        [ "photo-0001.png", 0.25 ],
+        [ "photo-0002.png", 0.2 ],
+        [ "photo-0003.png", 0.25 ],
+        [ "photo-0004.png", 0.6 ],
+        [ "photo-0005.png", 0.15 ],
+        [ "photo-0006.png", 0.15 ],
+        [ "photo-0007.png", 0.25 ],
+        [ "photo-0008.png", 0.3 ],
+        [ "photo-0009.png", 0.25 ],
+        [ "photo-0010.png", 0.15 ],
+        [ "photo-0011.png", 0.16 ],
+        [ "photo-0012.png", 0.3 ],
+        [ "photo-0013.png", 0.25 ],
+        [ "photo-0014.png", 0.15 ],
+        [ "photo-0015.png", 0.35 ],
+        [ "photo-0016.png", 0.25 ],
+        [ "photo-0017.png", 0.22 ],
+        [ "photo-0018.png", 0.3 ]
+      ]
+    }
+  ],
+  "end" : "2023-11-11",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
+}
