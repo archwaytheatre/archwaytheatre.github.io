@@ -2,6 +2,7 @@
   (:require
     [clojure.java.io :as io]
     [clojure.string :as str]
+    [io.github.archwaytheatre.data.core :as data]
     [io.github.archwaytheatre.data.plays :as plays]
     [io.github.archwaytheatre.site.core :as core]))
 
@@ -43,3 +44,30 @@
 
 (build-top-photo-data 3)
 (build-about-photo-data 3)
+
+
+(when core/local?
+  (core/page "testpage" "Test Page"
+    (let [year "2023"
+          prod-code "little-shop-of-horrors"
+          production (plays/load-production-data year prod-code)
+          photos (plays/get-photos-for production)]
+      [:div.center
+       [:script
+        "function c(e, u) {
+          let line = e.clientY - e.target.getBoundingClientRect().top;
+          let height = e.target.getBoundingClientRect().height;
+          let prop = Math.round((line / height) * 100) / 100
+          console.log('[\"' + u + '\", ' + prop + '],');
+        }"]
+       (for [{:keys [image-url eyeline-offset]} photos]
+         [:div {:style "position: relative;"}
+          [:div {:style (str "position: absolute; "
+                             "border-top: 1px solid blue; "
+                             "width: 100vw;"
+                             "top: " (* eyeline-offset 100) "%;")}
+           ""]
+          [:img {:src     (str data/asset-url-prefix image-url)
+                 :onClick (str "c(arguments[0], '" image-url "');")}]]
+
+         )])))
