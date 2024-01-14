@@ -18,6 +18,17 @@
                   :production-name production-name})
       (println about-json-file "does not exist!"))))
 
+(defn mutate-text-file [target-file transform]
+  (let [file (io/file target-file)]
+    (->> (slurp file)
+         (transform)
+         (spit target-file))))
+
+(defn even-prettier-ify [text]
+  (-> text
+      (str/replace "[ [" "[\n      [")
+      (str/replace "], [" "],\n      [")))
+
 (defn save-production-data [m]
   (let [{:keys [production-year production-name]} (meta m)
         prod-code (data/codify production-name)
@@ -26,6 +37,7 @@
       (throw (ex-info "No meta data!!!" {})))
     (io/make-parents about-json-file)
     (spit about-json-file (json/generate-string m {:pretty true}))
+    (mutate-text-file about-json-file even-prettier-ify)
     m))
 
 (defn create-production
