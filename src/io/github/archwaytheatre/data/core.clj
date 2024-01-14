@@ -9,6 +9,7 @@
 (defn codify [production-name]
   (-> production-name
       (str/replace #".jpg$" "")
+      (str/replace #"1984" "nineteen-eighty-four")
       (str/replace #"\s" "-")
       (str/replace #"[^a-zA-Z-]" "")
       str/lower-case))
