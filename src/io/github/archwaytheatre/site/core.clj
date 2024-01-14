@@ -208,15 +208,16 @@
              [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
              [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
              [:script {:src (str relative-path "js/popup.js")}]
-             [:script {:src (str relative-path "js/topphotos.data.js")}]
-             [:script {:src (str relative-path "js/topphotos.js") :defer true}]
+             ;[:script {:src (str relative-path "js/topphotos.data.js")}]
+             [:script {:src (str relative-path "js/top-photo-data.js")}]
+             [:script {:src (str relative-path "js/photos.js") :defer true}]
              [:script {:src (str relative-path "js/menudrop.js")}]]
             [:body
              [:div.prenav
               [:div
                [:a {:href "https://www.archwaytheatre.com/"}
                 [:img {:src (str relative-path "archway_header.png")}]]]
-              [:div#topphotos]
+              [:a {:href "about.html"} [:div#topphotos]]
               [:div.motto "A thriving theatre in the heart of Horley."]]
              (menu relative-path filename)
              #_[:div.popupContainer

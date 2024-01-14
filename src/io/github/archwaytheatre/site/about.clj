@@ -2,8 +2,9 @@
   (:require [io.github.archwaytheatre.site.core :as core]))
 
 (core/page "about" "The Archway Theatre"
-  [:script {:src "./js/carousel.data.js"}]
-  [:script {:src "./js/carousel.js"}]
+  ;[:script {:src "./js/carousel.data.js"}]
+  [:script {:src "./js/about-photo-data.js"}]
+
   [:section.container
    [:div.content
 
@@ -30,8 +31,11 @@
 
     [:br]
 
-    [:div#carousel1.carousel.labelled]
-    [:script {:type "text/javascript"} "startCarousel('carousel1',recentImages,true);"]
+    ;[:div#carousel1.carousel.labelled]
+
+    [:div#photoCarousel]
+
+    ;[:script {:type "text/javascript"} "startCarousel('carousel1',recentImages,true);"]
 
     [:p [:a.simple {:href "past/index.html"} "See our past productions"]]
     [:p [:a.simple {:href "join.html"} "Become a member"]]

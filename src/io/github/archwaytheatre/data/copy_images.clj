@@ -101,16 +101,18 @@
         prod-code (data/codify production-name)
         about-json (or (plays/load-production-data production-year production-name)
                        (plays/create-production production-year production-name))
+        next-number-offset (inc (count (mapcat :photo-offsets (:photo-sets about-json))))
         photos (->> (io/file photo-directory)
                     (file-seq)
                     (filter #(.isFile %))
-                    (map-indexed #(vector (inc %1) %2)))
-        about-json' (assoc about-json :photos {:count        (count photos)
-                                               :photographer photographer})]
+                    (map-indexed (fn [idx file]
+                                   [file (format "photo-%04d.png" (+ idx next-number-offset)) 0.25])))
+        about-json' (update about-json :photo-sets conj {:photographer  photographer
+                                                         :photo-offsets (map rest photos)})]
     (println prod-code)
 
-    (doseq [[idx file] photos]
-      (let [target-file (io/file local-dir (str production-year) prod-code (format "photo-%04d.png" idx))]
+    (doseq [[file filename _eye-line-offset] photos]
+      (let [target-file (io/file local-dir (str production-year) prod-code filename)]
         (println (str target-file " <- " file))
         (rescale-image file target-file photo-dimensions)))
 
