@@ -73,12 +73,24 @@
         max-sf (min width-sf height-sf)]
     [(* width max-sf) (* height max-sf)]))
 
-(defn sync-to-s3 [local-site-dir]
-  (let [r (sh/sh "aws"
-                 "--profile" "deploy"
-                 "s3" "sync" (.getAbsolutePath local-site-dir) "s3://archwaytheatre/site")]
+(defn run-proc [args]
+  ;(println args)
+  (let [r (apply sh/sh args)]
     (println (:exit r))
     (println (:out r))))
+
+(defn sync-to-s3 [local-site-dir]
+  (let [args ["aws"
+              "--profile" "deploy"
+              "s3" "sync" (.getAbsolutePath local-site-dir) data/s3-dir]]
+    (run-proc args)))
+
+(defn copy-to-s3 [local-site-dir file]
+  (let [relative-path (str (.relativize (.toPath local-site-dir) (.toPath (io/file file))))
+        args ["aws"
+              "--profile" "deploy"
+              "s3" "cp" (.getAbsolutePath file) (str data/s3-dir "/" relative-path)]]
+    (run-proc args)))
 
 (defn upload-poster [production-name production-year poster-file]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
@@ -94,7 +106,8 @@
 
     (rescale-image local-file local-scaled-file poster-dimensions)
 
-    (sync-to-s3 local-dir)))
+    (copy-to-s3 local-dir local-file)
+    (copy-to-s3 local-dir local-scaled-file)))
 
 (defn upload-photos [production-name production-year photo-directory photographer]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
@@ -114,8 +127,7 @@
     (doseq [[file filename _eye-line-offset] photos]
       (let [target-file (io/file local-dir (str production-year) prod-code filename)]
         (println (str target-file " <- " file))
-        (rescale-image file target-file photo-dimensions)))
-
-    (sync-to-s3 local-dir)
+        (rescale-image file target-file photo-dimensions)
+        (copy-to-s3 local-dir target-file)))
 
     (plays/save-production-data about-json')))

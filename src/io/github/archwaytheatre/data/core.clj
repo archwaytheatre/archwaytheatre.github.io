@@ -5,6 +5,8 @@
 
 
 (def data-dir (io/file "data"))
+(def s3-dir "s3://archwaytheatre/site")
+(def asset-url-prefix "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/")
 
 (defn codify [production-name]
   (-> production-name
