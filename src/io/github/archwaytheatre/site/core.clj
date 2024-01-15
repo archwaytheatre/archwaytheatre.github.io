@@ -142,7 +142,7 @@
     (when label [:div [:span.simple label]])]))
 
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
-(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
+;(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
 (def logo-ex (partial social-media-logo "X (formerly \"Twitter\")" "/images/logos/X.png"))
 (def logo-fb (partial social-media-logo "Facebook" "/images/logos/Facebook.png"))
 (def logo-yt (partial social-media-logo "YouTube" "/images/logos/YouTube.png"))
@@ -208,7 +208,6 @@
              [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
              [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
              [:script {:src (str relative-path "js/popup.js")}]
-             ;[:script {:src (str relative-path "js/topphotos.data.js")}]
              [:script {:src (str relative-path "js/top-photo-data.js")}]
              [:script {:src (str relative-path "js/photos.js") :defer true}]
              [:script {:src (str relative-path "js/menudrop.js")}]]
@@ -220,16 +219,10 @@
               [:a {:href "about.html"} [:div#topphotos]]
               [:div.motto "A thriving theatre in the heart of Horley."]]
              (menu relative-path filename)
-             #_[:div.popupContainer
-                [:div#popup {:onclick "javascript:hidePopups();"}
-                 [:div#popupText "Popup"]]]
-             ;[:section.container]
              (hiccup.core/html content)
-             ;[:br]
              [:footer social-media-logos
               [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
       (println "Wrote" filename))
     (catch Exception e
       (.printStackTrace e)
       (throw e))))
-

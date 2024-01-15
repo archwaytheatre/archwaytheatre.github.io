@@ -1,15 +1,3 @@
-function showPopup(elementId) {
-    hidePopups();
-    document.getElementById(elementId).style.display = 'flex';
-}
-function hidePopups() {
-    var popups = document.getElementsByClassName("popup");
-    for (var i = 0; i < popups.length; i++) {
-        popups.item(i).style.display = 'none';
-    }
-}
-
-// hide 'more...' on load
 
 function hideMore(id) {
     if (document.getElementById('overflow-a-' + id).offsetHeight > document.getElementById('overflow-b-' + id).offsetHeight) {

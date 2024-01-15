@@ -2,27 +2,6 @@
   (:require
     [io.github.archwaytheatre.site.core :as core]))
 
-
-(defn member-table' [rows]
-  (reduce
-    (fn [table [cost id label benefits conditions]]
-      (with-meta
-        (conj table
-              [:div.row {:role "row"}
-               [:div {:class (core/classes "cell center joinlevel" id)
-                      :role "gridcell"}
-                [:div.larger label]
-                [:div cost]]
-               [:div.cell {:role "gridcell"}
-                (when conditions
-                  [:div conditions])
-                (when-let [last-label (:last-label (meta table))]
-                  [:b (str "All " last-label " benefits, plus:")])
-                (into [:ul] (map #(vector :li %) benefits))]])
-        {:last-label label}))
-    [:div.table {:role "grid"}]
-    rows))
-
 (defn member-table [rows]
   (loop [[row & more-rows] rows
          result [:div]
