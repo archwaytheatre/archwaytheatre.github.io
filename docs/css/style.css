@@ -712,6 +712,58 @@ li.spaced {
     background-color: var(--main);
 }
 
+.member-price.bronze {--main: var(--bronze-1);--highlight: var(--bronze-2);--lowlight: var(--bronze-3);}
+.member-price.silver {--main: var(--silver-1);--highlight: var(--silver-2);--lowlight: var(--silver-3);}
+.member-price.gold {--main: var(--gold-1);--highlight: var(--gold-2);--lowlight: var(--gold-3);}
+.member-price.junior {--main: var(--junior-1);--highlight: var(--junior-2);--lowlight: var(--junior-3);}
+.member-price.young {--main: var(--young-1);--highlight: var(--young-2);--lowlight: var(--young-3);}
+
+
+.member-row {
+    /*border: 1px solid white;*/
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-image: linear-gradient(to left, var(--bg2) -100%, var(--bg) 100%);
+}
+.member-price {
+    /*flex-grow: 1;*/
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    vertical-align: middle;
+    text-shadow: 0 0 6px black;
+
+    /*border-style: outset;*/
+    border: 2px outset var(--main);
+    border-radius: 4px;
+
+    --darkness: 30%;
+    --main-1: color-mix(in srgb, var(--main), black var(--darkness));
+    --lowlight-1: color-mix(in srgb, color-mix(in srgb, var(--lowlight) 20%, var(--main)), black var(--darkness));
+    --highlight-1: color-mix(in srgb, color-mix(in srgb, var(--highlight) 40%, var(--main)), black var(--darkness));
+    background-image: linear-gradient(160deg, var(--main-1) 0%, var(--highlight-1) 20%, var(--main-1) 40%, var(--lowlight-1) 100%);
+    /*background-color: color-mix(in srgb, var(--main) 50%, black);*/
+    /*background-color: white;*/
+}
+.member-price div {
+    text-align: center;
+}
+.member-benefits {
+    width: 85%;
+    padding: 0 2em;
+    /*flex-grow: 2;*/
+}
+
+.member-benefits p {
+    font-size: larger;
+}
+
 /*a.button.shown {*/
 /*    background-image: initial;*/
 /*    background-color: rgba(255,255,255,0.25);*/
