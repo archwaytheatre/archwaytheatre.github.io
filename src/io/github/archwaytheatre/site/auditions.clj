@@ -5,8 +5,9 @@
     [clojure.string :as string]
     [io.github.archwaytheatre.site.core :as core]
     [cheshire.core :as json])
-  (:import [java.time LocalDateTime]
-           [java.time.format DateTimeFormatter]))
+  (:import
+    [java.time Instant LocalDateTime ZoneId]
+    [java.time.format DateTimeFormatter]))
 
 
 (defn interleave-all [coll1 coll2]
@@ -37,9 +38,13 @@
                 about-file (io/file play-dir "about.json")]
           :when (and (.exists audition-file)
                      (.exists audition-json)
-                     (.exists about-file))]
+                     (.exists about-file))
+          :let [audition-data (json/parse-string (slurp audition-json) keyword)]
+          :when (seq (filter (fn [event]
+                               (.isAfter (.plusHours (LocalDateTime/parse (:datetime event)) 3)
+                                         (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
+                             (:events audition-data)))]
       (let [about (json/parse-string (slurp about-file) keyword)
-            audition-data (json/parse-string (slurp audition-json) keyword)
             audition-text (slurp audition-file)]
         (merge (select-keys about [:name :author :director :start])
                audition-data
