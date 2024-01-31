@@ -1,0 +1,111 @@
+{
+  "events": [{
+    "datetime": "2024-03-10T18:00:00",
+    "location": "in the bar",
+    "description": null
+  }],
+  "characters": [
+    {
+      "name": "Theseus",
+      "gender": "male",
+      "age": "40+",
+      "description": "Duke of Athens"
+    },
+    {
+      "name": "Egeus",
+      "gender": "male",
+      "age": "40+",
+      "description": "father of Hermia (blended with: Philostrate-Master of the Revels)"
+    },
+    {
+      "name": "Lysander",
+      "gender": "male",
+      "age": "20s",
+      "description": "in love with Hermia"
+    },
+    {
+      "name": "Demetrius",
+      "gender": "male",
+      "age": "20s",
+      "description": "suitor to Hermia"
+    },
+    {
+      "name": "Francis Flute",
+      "gender": "male",
+      "age": "late teens/20s",
+      "description": "a bellows-mender (Quince's nephew)"
+    },
+    {
+      "name": "Oberon",
+      "gender": "male",
+      "age": "30+",
+      "description": "King of the Fairies"
+    },
+    {
+      "name": "Hippolyta",
+      "gender": "female",
+      "age": "40+",
+      "description": "Queen of the Amazons"
+    },
+    {
+      "name": "Hermia",
+      "gender": "female",
+      "age": "late teens/20s",
+      "description": "daughter of Egeus"
+    },
+    {
+      "name": "Helena",
+      "gender": "female",
+      "age": "late teens/20s",
+      "description": "in love with Demetrius"
+    },
+    {
+      "name": "Titania",
+      "gender": "female",
+      "age": "40+",
+      "description": "Queen of the Fairies"
+    },
+    {
+      "name": "Quince",
+      "age": "30+",
+      "description": "an amateur director"
+    },
+    {
+      "name": "Bottom",
+      "age": "30+",
+      "description": "a weaver"
+    },
+    {
+      "name": "Snout",
+      "description": "a grocer"
+    },
+    {
+      "name": "Snug",
+      "description": "a laundress"
+    },
+    {
+      "name": "Starveling",
+      "description": "a tailor"
+    },
+    {
+      "name": "Robin 'Puck' Goodfellow",
+      "description": "a mischievous sprite (fit)"
+    },
+    {
+      "name": "Peaseblossom",
+      "description": "(shares 1 st fairy lines)"
+    },
+    {
+      "name": "Cobweb",
+      "description": "(shares 1 st fairy lines)"
+    },
+    {
+      "name": "Moth",
+      "description": "(shares 1 st fairy lines)"
+    },
+    {
+      "name": "Mustardseed",
+      "description": "(shares 1 st fairy lines)"
+    }
+  ]
+}
