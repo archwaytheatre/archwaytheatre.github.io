@@ -110,7 +110,8 @@
          (sort-by :end)
          (drop-while #(.isBefore (:end %) today))
          (sort-by :start)
-         (take 4)
+         (filter :ticketurl)
+         (take 6)
          (map-indexed vector))))
 
 (core/page "index" "The Archway Theatre"
