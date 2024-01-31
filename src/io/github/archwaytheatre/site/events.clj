@@ -24,14 +24,14 @@
   [:section.container
    [:div.content
 
-    [:div.getinvolved.volunteer
+    [:div.volunteer
      "The Archway Theatre is a volunteer run organisation."
      " We rely on the generosity of our members to keep the theatre running."
      " If you'd like to get involved then " [:a.simple {:href "join.html"} "click here to become a member"] "."]
 
     [:div
 
-     [:div.getinvolved.other
+     [:div.other
       [:h1 "Archway Karaoke"]
       [:p "Archway Studio Theatre"]
       [:p "Sat 17 Feb 2024, 5:00PM - 9:00PM"]
@@ -40,7 +40,7 @@
       [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-kdbdqe"
                                      :target "_blank"} "Buy tickets"]]]
 
-     [:div.getinvolved.other
+     [:div.other
       [:h1 "Singing for the Soul"]
       [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
 
@@ -64,7 +64,7 @@
 
       ]
 
-     [:div.getinvolved.other
+     [:div.other
       [:h1 "Dingbats Improv Classes"]
       [:p "Learn how to improvise in a friendly and supportive environment."]
       [:p "Our classes are where we have the most fun. You don’t have to be an actor or a comedian to attend – just a genuine human being who can listen and laugh."]
