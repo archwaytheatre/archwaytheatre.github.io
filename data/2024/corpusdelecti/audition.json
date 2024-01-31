@@ -1,0 +1,63 @@
+{
+  "events": [{
+    "datetime": "2024-02-26T19:45:00",
+    "location": "in the main bar",
+    "description": null
+  }],
+  "characters": [
+    {
+      "name": "John Haigh",
+      "gender": "male",
+      "age": "25-45",
+      "description": "Nicely spoken Yorkshire accent This part will be quite demanding. On Stage almost all the time, switching clothes, going from scene to scene constantly."
+    },
+    {
+      "name": "Barbara Stevens",
+      "gender": "female",
+      "age": "20-40s",
+      "description": "No accent. Haigh's girlfriend from Crawley."
+    },
+    {
+      "name": "Beatrice Hamer",
+      "gender": "female",
+      "age": "19-30s",
+      "description": "Haigh's wife has a light Yorkshire accent."
+    },
+    {
+      "name": "John Haigh Senior",
+      "gender": "male",
+      "age": "50-65",
+      "description": "John Haigh's Father. Yorkshire accent; a Plymouth Brethren minister."
+    },
+    {
+      "name": "Mrs Haigh",
+      "gender": "female",
+      "age": "50s-70s",
+      "description": "John Haigh's mother. Yorkshire accent."
+    },
+    {
+      "name": "William McSwann",
+      "gender": "male",
+      "age": "25-40s",
+      "description": "employer of John Haigh. A London Businessman."
+    },
+    {
+      "name": "D.I. Mahon",
+      "gender": "male",
+      "age": "45-55",
+      "description": "Detective Inspector, London"
+    },
+    {
+      "name": "D.I. Webb",
+      "gender": "male",
+      "age": "40s-55",
+      "description": "Detective Inspector, London"
+    },
+    {
+      "name": "W.P.C. Lambourne",
+      "gender": "female",
+      "age": "18-30s",
+      "description": "Woman Police Constable"
+    }
+  ]
+}

@@ -47,12 +47,19 @@
       (let [about (json/parse-string (slurp about-file) keyword)
             audition-text (slurp audition-file)]
         (merge (select-keys about [:name :author :director :start])
-               audition-data
+               (update audition-data :events (fn [events]
+                                               (sort-by :datetime
+                                                        (map
+                                                          (fn [event]
+                                                            (update event :datetime #(LocalDateTime/parse %)))
+                                                          events))))
                {:id       (.getName play-dir)
                 :year     (.getName year-dir)
                 :audition audition-text})))))
 
 (def datetime-format (DateTimeFormatter/ofPattern "h:mma EEEE, dd MMMM YYYY"))
+
+; TODO: check for email addresses in the audition text!!! blow up if there are any!!!
 
 (core/page "auditions" "The Archway Theatre"
   [:section.container
@@ -77,7 +84,7 @@
            (into [:div]
                  (map (fn [{:keys [datetime location description]}]
                         [:div
-                         (->> [(.format (LocalDateTime/parse datetime) datetime-format)
+                         (->> [(.format datetime datetime-format)
                                location
                                description]
                               (remove nil?)
@@ -99,7 +106,7 @@
                       characters))
            [:br]
            [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
-        (sort-by (juxt :start :id) data))
+        (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
       [:div
        [:div "There are currently no audition notices. Check back another time."]])]]
 
