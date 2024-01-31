@@ -384,11 +384,12 @@ div.trailer {
     flex-direction: column;
     overflow: hidden;
     justify-content: center;
+    background-color: black;
 }
 .eventimage img {
     display: block;
     width: var(--poster-width);
-    height: var(--poster-height);
+    /*height: var(--poster-height);*/
 }
 .eventimage:hover {
     box-shadow: 0 5px 25px 5px white;
