@@ -32,6 +32,15 @@
     (re-sort
 
       [:div.getinvolved.other
+       [:h1 "Archway Karaoke"]
+       [:p "Archway Studio Theatre"]
+       [:p "Sat 17 Feb 2024, 5:00PM - 9:00PM"]
+       [:p "All children under 16 must be accompanied by an adult."]
+
+       [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-kdbdqe"
+                                      :target "_blank"} "Buy tickets"]]]
+
+      [:div.getinvolved.other
        [:h1 "Singing for the Soul"]
        [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
 
