@@ -34,7 +34,7 @@
      [:div.other
       [:h1 "Archway Karaoke"]
       [:p "Archway Studio Theatre"]
-      [:p "Sat 17 Feb 2024, 5:00PM - 9:00PM"]
+      [:p "Sat 17 Feb 2024, 7:30PM - 10:30PM"]
       [:p "All children under 16 must be accompanied by an adult."]
 
       [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-kdbdqe"
