@@ -4,7 +4,7 @@
             [clojure.string :as str]
             [io.github.archwaytheatre.data.core :as data]
             [io.github.archwaytheatre.data.plays :as plays])
-  (:import [java.awt Image]
+  (:import [java.awt Color Image]
            [java.awt.image BufferedImage]
            [java.net URL]
            [javax.imageio IIOImage ImageIO ImageWriteParam ImageWriter]))
@@ -54,16 +54,60 @@
     (io/make-parents output-file)
     (ImageIO/write output-image "png" (io/file output-file))))
 
+(def ideal-poster-width 400)
+(def ideal-poster-height 566)
+
+(defn rescale-image-2 [input-file output-file dimension-fn]
+  (let [input-image (ImageIO/read (io/file input-file))
+        [w h] [(.getWidth input-image) (.getHeight input-image)]
+        [w' h'] (dimension-fn [w h])
+        scaled-image (.getScaledInstance input-image w' h' Image/SCALE_SMOOTH)
+        output-image (BufferedImage. ideal-poster-width ideal-poster-height BufferedImage/TYPE_INT_ARGB)
+        output-graphics (.getGraphics output-image)
+        y-mismatch (int (/ (- ideal-poster-height h') 2))
+        ]
+
+    (.setColor output-graphics Color/GREEN)
+    (.fillRect output-graphics 0 0 ideal-poster-width ideal-poster-height)
+    ;(.drawImage output-graphics scaled-image 0 (int (/ (- ideal-poster-height h') 2)) nil)
+    (.drawImage output-graphics scaled-image
+                0 0 ideal-poster-width (inc y-mismatch)
+                0 y-mismatch w' 0
+                nil)
+    (.drawImage output-graphics scaled-image
+                0 (- ideal-poster-height (inc y-mismatch)) ideal-poster-width ideal-poster-height
+                0 h' w' (- h' y-mismatch)
+                nil)
+    (.drawImage output-graphics scaled-image
+                0 0 ideal-poster-width ideal-poster-height
+                0 (- y-mismatch) w' (+ h' y-mismatch)
+                nil)
+    (doseq [y (range 0 (inc y-mismatch))]
+      (let [p (/ y y-mismatch)
+            q 120
+            color (Color. 0 0 0 (min 255 (int (+ (- 255 q) (* p q)))))]
+        (.setColor output-graphics color)
+        (.drawLine output-graphics 0 (- y-mismatch y) ideal-poster-width (- y-mismatch y))
+        (.drawLine output-graphics 0 (+ (- ideal-poster-height y-mismatch) y) ideal-poster-width (+ (- ideal-poster-height y-mismatch) y))
+        ))
+    (.dispose output-graphics)
+
+    (io/make-parents output-file)
+    (ImageIO/write output-image "png" (io/file output-file))))
+
 (defn close-to? [x y epsilon]
   (< (abs (- x y)) epsilon))
 
 (defn poster-dimensions [[width height]]
-  (let [ideal-width 400
-        ideal-height 566]
-    (cond
-      (close-to? (/ width height) 1.0 0.1) [ideal-width ideal-width] ; is it meant to be square?
-      (close-to? (/ width height) (/ ideal-width ideal-height) 0.1) [ideal-width ideal-height] ; is it about right?
-      :else [ideal-width (* ideal-width (/ height width))])))
+  (cond
+    (close-to? (/ width height) 1.0 0.1) ; is it meant to be square?
+    [ideal-poster-width ideal-poster-width]
+
+    (close-to? (/ width height) (/ ideal-poster-width ideal-poster-height) 0.1) ; is it about right?
+    [ideal-poster-width ideal-poster-height]
+
+    :else
+    [ideal-poster-width (* ideal-poster-width (/ height width))]))
 
 (defn photo-dimensions [[width height]]
   (let [max-width 1024
@@ -104,10 +148,13 @@
       (download-image poster-file local-file)
       (copy-to-png poster-file local-file))
 
-    (rescale-image local-file local-scaled-file poster-dimensions)
+    ;(rescale-image local-file local-scaled-file poster-dimensions)
+    (rescale-image-2 local-file local-scaled-file poster-dimensions)
 
     (copy-to-s3 local-dir local-file)
-    (copy-to-s3 local-dir local-scaled-file)))
+    (copy-to-s3 local-dir local-scaled-file)
+
+    ))
 
 (defn upload-photos [production-name production-year photo-directory photographer]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
