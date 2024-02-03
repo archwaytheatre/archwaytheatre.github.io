@@ -138,8 +138,8 @@
       [:hr]
       [:div.vspace]
       [:div.center
-       [:div.larger "That's all for now! Check back soon for more..."]
-       [:br]
+       [:div.larger
+        "Check out our " [:a.simple {:href "events.html"} "events page"] " to see what else is going on."]
        [:br]
        [:div.larger
         [:a.simple {:href "join.html"} "Become a member"] " to receive our newsletter."]
