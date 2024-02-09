@@ -66,6 +66,7 @@
    [:div.timelabel
     {:data-start    (to-start-millis start-date)
      :data-end      (to-end-millis end-date)
+     :data-one-day  (if (= start-date end-date) "true" "false")
      :data-sold-out (if soldout "true" "false")}]])
 
 (defn event-about [{:keys [id name location soldout about ticketurl]} start-date end-date]

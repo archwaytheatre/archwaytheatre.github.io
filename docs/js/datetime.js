@@ -9,13 +9,14 @@ function composeLabels() {
         const start = timelabel.getAttribute('data-start');
         const end = timelabel.getAttribute('data-end');
         const soldOut = timelabel.getAttribute('data-sold-out');
+        const oneDay = timelabel.getAttribute('data-one-day');
         let extraLabel = '';
         let labelClass = '';
         if (soldOut === 'true') {
             extraLabel = 'Sold Out!';
             labelClass = 'soldOut';
         } else if (start < now && now < end) {
-            extraLabel = 'On Now!';
+            extraLabel = oneDay === 'true' ? 'Tonight!' : 'On Now!';
             labelClass = 'onNow';
         }
         if (extraLabel) {

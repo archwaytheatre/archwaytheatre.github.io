@@ -142,6 +142,9 @@
         local-file (io/file local-dir (str production-year) prod-code "poster-full.png")
         local-scaled-file (io/file local-dir (str production-year) prod-code "poster-scaled.png")]
 
+    (when-not (plays/load-production-data production-year production-name)
+      (throw (ex-info "Please create the data first." {:prod-code prod-code})))
+
     (println prod-code)
 
     (if (and (string? poster-file) (str/starts-with? poster-file "http"))
@@ -160,6 +163,7 @@
   (let [local-dir (io/file "local-only" "s3-sync" "site")
         prod-code (data/codify production-name)
         about-json (or (plays/load-production-data production-year production-name)
+                       (throw (ex-info "Please create the data first." {:prod-code prod-code}))
                        (plays/create-production production-year production-name))
         next-number-offset (inc (count (mapcat :photo-offsets (:photo-sets about-json))))
         photos (->> (io/file photo-directory)
