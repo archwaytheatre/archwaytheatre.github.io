@@ -227,3 +227,23 @@
     (catch Exception e
       (.printStackTrace e)
       (throw e))))
+
+(defn redirect [page-name canonical-url]
+  (try
+    (let [filename (str page-name ".html")
+          target-file (io/file parent-dir filename)]
+      (io/make-parents target-file)
+      (spit
+        target-file
+        (prettify
+          (hiccup.page/html5
+            [:head
+             [:meta {:charset "utf-8"}]
+             [:title (str "Redirecting to " canonical-url)]
+             [:meta {:http-equiv "refresh" :content (str "0; URL=" canonical-url)}]
+             [:link {:rel "canonical" :href canonical-url}]]
+            [:body])))
+      (println "Wrote" filename))
+    (catch Exception e
+      (.printStackTrace e)
+      (throw e))))
