@@ -118,6 +118,14 @@
 (core/page "index" "The Archway Theatre"
   (let [data (grab-data)]
     [:div.content
+
+     [:script {:async "true"
+               :src "https://www.googletagmanager.com/gtag/js?id=G-L92R8E0DYG"}]
+     [:script "window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L92R8E0DYG');"]
+
      [:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]

@@ -211,14 +211,6 @@
              [:script {:src (str relative-path "js/top-photo-data.js")}]
              [:script {:src (str relative-path "js/photos.js") :defer true}]
              [:script {:src (str relative-path "js/menudrop.js")}]
-
-             [:script {:async "true"
-                       :src "https://www.googletagmanager.com/gtag/js?id=G-L92R8E0DYG"}]
-             [:script "window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-L92R8E0DYG');"]
-
              ]
             [:body
              [:div.prenav
