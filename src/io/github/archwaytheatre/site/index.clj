@@ -126,9 +126,21 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"]
 
-     [:div.trailer-container
+     #_[:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
+
+     [:div.trailer-container
+      [:div.trailer
+       [:video {:controls "controls"
+                ;:width "800"
+                ;:height "600"
+                :width "100%"
+                :height "100%"
+                :name "Video Name"}
+        [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/much-ado/trailer.mov"}]]]]
+
+
      [:div.vspace]
      [:div.center.archwaytitle "Coming Up"]
      [:div.vspace]
