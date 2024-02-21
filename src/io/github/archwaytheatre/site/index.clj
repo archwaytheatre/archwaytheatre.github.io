@@ -2,6 +2,7 @@
   (:require [cheshire.core :as json]
             [clojure.java.io :as io]
             [clojure.string :as str]
+            [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.time LocalDate ZoneOffset]
            [java.time.format DateTimeFormatter]))
@@ -50,13 +51,13 @@
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
-(defn event-data [{:keys [id name location soldout about ticketurl]} start-date end-date]
+(defn event-data [{:keys [id name location soldout about-text ticketurl]} start-date end-date]
   [:div.eventdata {:id (str "eventdata-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.archwaytitle name]
    [:div.eventdatum.about
     [:div.fadeable {:id (str "overflow-a-" id)}
-     [:pre {:id (str "overflow-b-" id)} about]]
+     [:pre {:id (str "overflow-b-" id)} about-text]]
     [:div.aboutmore {:id (str "aboutmore-" id)} [:a {:href (str "javascript:openAbout('" id "');")} "Read more..."]]]
    [:div.eventdatum.action
     (cond
@@ -82,38 +83,20 @@
       :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]])
 
 (defn grab-data-from-files []
-  (let [year-dirs (->> (iterate inc 2024)
-                       (map #(io/file "data" (str %)))
-                       (take-while #(.exists %)))]
-
-    (for [year-dir year-dirs
-          play-dir (->> (file-seq year-dir)
-                        (remove #(= year-dir %))
-                        (filter #(.isDirectory %)))]
-      (let [about-data (-> (io/file play-dir "about.json")
-                           (slurp)
-                           (json/parse-string keyword))
-            about-text (-> (io/file play-dir "about.txt")
-                           (slurp)
-                           (str/trim))]
-        (assoc about-data
-          :id (.getName play-dir)
-          :year (.getName year-dir)
-          :about about-text)))))
+  (->> (iterate inc 2024)
+       (map plays/get-productions-for)
+       (take-while seq)
+       (mapcat identity)))
 
 (defn grab-data []
-  (let [today (LocalDate/now)]
-    (->> (grab-data-from-files)
-         (map (fn [event]
-                (-> event
-                    (update :start #(LocalDate/parse %))
-                    (update :end #(LocalDate/parse %)))))
-         (sort-by :end)
-         (drop-while #(.isBefore (:end %) today))
-         (sort-by :start)
-         (filter :ticketurl)
-         (take 6)
-         (map-indexed vector))))
+  (->> (grab-data-from-files)
+       (remove plays/is-past?)
+       (filter :ticketurl)
+       (sort-by :start)
+       (take 6)
+       (map (fn [production]
+              (assoc production :id (:production-code (meta production)))))
+       (map-indexed vector)))
 
 (core/page "index" "The Archway Theatre"
   (let [data (grab-data)]

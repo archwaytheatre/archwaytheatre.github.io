@@ -52,12 +52,6 @@
         :when b]
     (f a b c)))
 
-(defn parse-partial-date [date-str]
-  (case (count date-str)
-    4 (Year/parse date-str)
-    7 (YearMonth/parse date-str)
-    10 (LocalDate/parse date-str)))
-
 (defn month-from [date-str]
   (try
     (.getMonthValue (YearMonth/parse date-str))
@@ -70,14 +64,10 @@
 
 (defn index-all-years []
   (let [year->productions (->> (for [year (map #(.getValue ^Year %) (reverse plays/year-seq))
-                                     {:keys [name start] :as production} (->> (plays/get-productions-for year)
-                                                                              (sort-by :start)
-                                                                              (reverse))
-                                     :let [month (month-from start)]
-                                     :when (or (< (int year) (.getValue (Year/now)))
-                                               (and month
-                                                    (-> (YearMonth/of (int year) (int month))
-                                                        (.isBefore (YearMonth/now)))))]
+                                     {:keys [name] :as production} (->> (plays/get-productions-for year)
+                                                                        (sort-by (comp plays/complete-date :start))
+                                                                        (reverse))
+                                     :when (plays/is-past? production)]
                                  (assoc production
                                    :year year
                                    :photos (plays/get-photos-for production)
