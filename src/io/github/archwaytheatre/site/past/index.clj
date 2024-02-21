@@ -67,7 +67,8 @@
                                      {:keys [name] :as production} (->> (plays/get-productions-for year)
                                                                         (sort-by (comp plays/complete-date :start))
                                                                         (reverse))
-                                     :when (plays/is-past? production)]
+                                     :when (plays/is-past? production)
+                                     :when (not (:external production))]
                                  (assoc production
                                    :year year
                                    :photos (plays/get-photos-for production)
