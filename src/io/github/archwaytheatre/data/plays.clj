@@ -3,7 +3,7 @@
             [clojure.java.io :as io]
             [clojure.string :as str]
             [io.github.archwaytheatre.data.core :as data])
-  (:import [java.time LocalDate Year YearMonth]))
+  (:import [java.time LocalDate Year YearMonth LocalDateTime Instant ZoneId]))
 
 
 (def main-house "Main House")
@@ -93,6 +93,33 @@
                  :production-name short-name
                  :production-code (data/codify short-name)}))))
 
+(defn get-audition-data [production]
+  (let [{:keys [production-year production-code]} (meta production)
+        play-dir (prod-dir production-year production-code)
+        audition-file (io/file play-dir "audition.txt")
+        audition-json (io/file play-dir "audition.json")
+        about-file (io/file play-dir "about.json")]
+    (when (and (.exists audition-file)
+               (.exists audition-json)
+               (.exists about-file))
+      (let [audition-data (json/parse-string (slurp audition-json) keyword)]
+        (when (seq (filter (fn [event]
+                             (.isAfter (.plusHours (LocalDateTime/parse (:datetime event)) 3)
+                                       (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
+                           (:events audition-data)))
+          (let [about (json/parse-string (slurp about-file) keyword)
+                audition-text (slurp audition-file)]
+            (merge (select-keys about [:name :author :director :start])
+                   (update audition-data :events (fn [events]
+                                                   (sort-by :datetime
+                                                            (map
+                                                              (fn [event]
+                                                                (update event :datetime #(LocalDateTime/parse %)))
+                                                              events))))
+                   {:id       (.getName play-dir)
+                    :year     production-year
+                    :audition audition-text})))))))
+
 (def year-seq
   (let [first-year (Year/of 1940)
         latest-year (.plusYears (Year/now) 1)]
@@ -104,6 +131,10 @@
   (let [year-dir (io/file data/event-dir (decade (str year)) (str year))]
     (remove nil? (for [production (vec (.list year-dir))]
                    (load-production-data (str year) production)))))
+
+(defn get-all-future-productions []
+  (let [years (take 3 (iterate #(.plusYears % 1) (Year/now)))]
+    (remove is-past? (sort-by :start (apply concat (map get-productions-for years))))))
 
 (def has-photos? :photo-sets)
 

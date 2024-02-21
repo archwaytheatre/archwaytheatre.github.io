@@ -3,6 +3,7 @@
     [clojure.java.io :as io]
     [clojure.string :as str]
     [clojure.string :as string]
+    [io.github.archwaytheatre.data.plays :as plays]
     [io.github.archwaytheatre.site.core :as core]
     [cheshire.core :as json])
   (:import
@@ -26,36 +27,7 @@
     #_(interleave-all volunteering everything-else)))
 
 (defn grab-data-from-files []
-  (let [year-dirs (->> (iterate inc 2024)
-                       (map #(io/file "data" (str %)))
-                       (take-while #(.exists %)))]
-    (for [year-dir year-dirs
-          play-dir (->> (file-seq year-dir)
-                        (remove #(= year-dir %))
-                        (filter #(.isDirectory %)))
-          :let [audition-file (io/file play-dir "audition.txt")
-                audition-json (io/file play-dir "audition.json")
-                about-file (io/file play-dir "about.json")]
-          :when (and (.exists audition-file)
-                     (.exists audition-json)
-                     (.exists about-file))
-          :let [audition-data (json/parse-string (slurp audition-json) keyword)]
-          :when (seq (filter (fn [event]
-                               (.isAfter (.plusHours (LocalDateTime/parse (:datetime event)) 3)
-                                         (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
-                             (:events audition-data)))]
-      (let [about (json/parse-string (slurp about-file) keyword)
-            audition-text (slurp audition-file)]
-        (merge (select-keys about [:name :author :director :start])
-               (update audition-data :events (fn [events]
-                                               (sort-by :datetime
-                                                        (map
-                                                          (fn [event]
-                                                            (update event :datetime #(LocalDateTime/parse %)))
-                                                          events))))
-               {:id       (.getName play-dir)
-                :year     (.getName year-dir)
-                :audition audition-text})))))
+  (remove nil? (map plays/get-audition-data (plays/get-all-future-productions))))
 
 (def datetime-format (DateTimeFormatter/ofPattern "h:mma EEEE, dd MMMM YYYY"))
 
