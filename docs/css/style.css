@@ -359,6 +359,14 @@ div.menuItem.topMenu.selected {
     text-align: center;
 }
 
+.laterevents {
+    width: calc(var(--poster-width) + var(--about-width));
+}
+.latereventimage {
+    width: var(--poster-width);
+    margin: 1em;
+}
+
 div.trailer-container {
     display: flex;
     justify-content: center;

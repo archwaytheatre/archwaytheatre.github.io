@@ -91,15 +91,16 @@
 (defn grab-data []
   (->> (grab-data-from-files)
        (remove plays/is-past?)
-       (filter :ticketurl)
-       (sort-by :start)
-       (take 6)
        (map (fn [production]
-              (assoc production :id (:production-code (meta production)))))
-       (map-indexed vector)))
+              (assoc production :id (:production-code (meta production))
+                                :year (:production-year (meta production)))))))
 
 (core/page "index" "The Archway Theatre"
-  (let [data (grab-data)]
+  (let [data (grab-data)
+        coming-soon-or-on-now (take 6 (sort-by :start (filter :ticketurl data)))
+        soon? (set (map :id coming-soon-or-on-now))
+        coming-later (sort-by :start (remove #(-> % :id soon?) data))]
+
     [:div.content
 
      [:script {:async "true"
@@ -128,15 +129,27 @@
      [:div.center.archwaytitle [:span.larger "Coming Up"]] ; todo: js to hoist 'On Now' productions above 'coming up'
      [:div.vspace]
      [:div.events
-      (for [[idx {:keys [trailer start end] :as event}] data]
+      (for [{:keys [trailer start end] :as event} coming-soon-or-on-now]
         ; todo trailer!
         (let [event' event ;(update event :ticketurl #(or % fallback-ticket-url))
               ]
-          [:div.event.disappearable {:id       (str "event-" idx)
-                                     :data-end (to-end-millis end)}
+          [:div.event.disappearable {:data-end (to-end-millis end)}
            (event-image event')
            (event-data event' start end)
-           (event-about event' start end)]))]
+           (event-about event' start end)]))
+
+
+      [:div.center.archwaytitle [:span.larger "Coming Later..."]]
+      [:div.vspace]
+
+      [:div.laterevents
+       (for [{:keys [id year]} coming-later
+             :let [url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
+                            "site/" year "/" id "/poster-scaled.png")]
+             :when (try (slurp url) (catch Exception e nil))]
+         [:img.latereventimage {:src url}])]]
+
+     [:div.vspace]
 
      [:section.container
       [:hr]
