@@ -125,7 +125,7 @@
 
 
      [:div.vspace]
-     [:div.center.archwaytitle "Coming Up"]
+     [:div.center.archwaytitle [:span.larger "Coming Up"]] ; todo: js to hoist 'On Now' productions above 'coming up'
      [:div.vspace]
      [:div.events
       (for [[idx {:keys [trailer start end] :as event}] data]
