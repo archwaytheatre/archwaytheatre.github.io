@@ -70,11 +70,11 @@
      :data-one-day  (if (= start-date end-date) "true" "false")
      :data-sold-out (if soldout "true" "false")}]])
 
-(defn event-about [{:keys [id name location soldout about ticketurl]} start-date end-date]
+(defn event-about [{:keys [id name location soldout about-text ticketurl]} start-date end-date]
   [:div.eventabout {:id (str "eventabout-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about [:div [:pre about]]]
+   [:div.eventdatum.about [:div [:pre about-text]]]
    [:div.eventdatum.aboutback [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]]
    [:div.eventdatum.action
     (cond
