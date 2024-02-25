@@ -40,14 +40,13 @@
        (sort-by :start)
        (map-indexed vector)))
 
-(defn event-image [{:keys [id imageurl start ticketurl image-no-stretch]}]
-  (let [year (.getYear start)]
-    [:div.eventimage {:id (str "eventimage-" id)}
-     [:a {:href ticketurl}
-      [:img {:class (core/classes (when image-no-stretch "unstretched"))
-             :src   (or imageurl
-                        (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                             "site/" year "/" id "/poster-scaled.png"))}]]]))
+(defn event-image [{:keys [id imageurl start ticketurl image-no-stretch year]}]
+  [:div.eventimage {:id (str "eventimage-" id)}
+   [:a {:href ticketurl}
+    [:img {:class (core/classes (when image-no-stretch "unstretched"))
+           :src   (or imageurl
+                      (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
+                           "site/" year "/" id "/poster-scaled.png"))}]]])
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
@@ -57,6 +56,7 @@
    [:div.eventdatum.archwaytitle name]
    [:div.eventdatum.about
     [:div.fadeable {:id (str "overflow-a-" id)}
+     ; todo: grab the director and author from the about.json, don't duplicate in the about text.
      [:pre {:id (str "overflow-b-" id)} about-text]]
     [:div.aboutmore {:id (str "aboutmore-" id)} [:a {:href (str "javascript:openAbout('" id "');")} "Read more..."]]]
    [:div.eventdatum.action
@@ -81,6 +81,17 @@
       soldout [:a.fancy.soldout {:href ticketurl :title "This production is sold out."} "Join Waiting List"]
       ticketurl [:a.fancy {:href ticketurl} "Buy Tickets"]
       :else [:a.fancy.comingsoon {:title "Tickets are not yet on sale."} "Coming Soon!"])]])
+
+(defn event-trailer [{:keys [name start id trailer year]}]
+  (when (and start id trailer)
+    (let [trailer-url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov")]
+      [:div.trailer-container
+       [:div.trailer
+        [:video {:controls "controls"
+                 :width    "100%"
+                 :height   "100%"
+                 :name     name}
+         [:source {:src trailer-url}]]]])))
 
 (defn grab-data-from-files []
   (->> (iterate inc 2024)
@@ -123,6 +134,7 @@
                 :height "100%"
                 :name "Video Name"}
         [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/much-ado/trailer.mov"}]]]]
+     ; todo: (event-trailer event') for most imminent event with a trailer, else archway promo video
 
 
      [:div.vspace]
