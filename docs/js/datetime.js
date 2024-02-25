@@ -34,7 +34,6 @@ function hidePastEvents() {
         let disappearable = disappearables.item(i);
         let end = disappearable.getAttribute('data-end');
         if (end < now) {
-            console.log("Removing " + disappearable.id + " as it has passed.");
             disappearable.parentNode.removeChild(disappearable);
         }
     }
