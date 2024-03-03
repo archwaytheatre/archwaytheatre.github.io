@@ -121,11 +121,11 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"]
 
-     #_[:div.trailer-container
+     [:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
 
-     [:div.trailer-container
+     #_[:div.trailer-container
       [:div.trailer
        [:video {:controls "controls"
                 ;:width "800"
