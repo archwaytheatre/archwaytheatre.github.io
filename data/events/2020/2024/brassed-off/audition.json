@@ -1,0 +1,19 @@
+{
+  "events": [{
+    "datetime": "2024-03-19T19:30:00",
+    "location": "in the Function Room",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Danny", "gender": "male", "age": "60s", "description": "ex-miner with silicosis, he is the veteran conductor of Grimley Brass Band. He is single minded and seemingly oblivious to the fate of the mine."},
+    {"name": "Phil", "gender": "male", "age": "30 to early 40s", "description": "Danny's son, a miner, trombone player and part time clown who is struggling for money. He is confused, sad and emasculated."},
+    {"name": "Shane", "gender": "male", "age": "15 to 18", "description": "the son of Phil and Sandra through whom the story is told. Cheeky, energetic."},
+    {"name": "Jim", "gender": "male", "age": "40s to 60", "description": "Plays the euphonium. An older miner and a hard leader."},
+    {"name": "Harry", "gender": "male", "age": "30 to 50", "description": "Plays the EFlat Bass (Tuba). He's a miner and Jim's inseparable friend in pit and band"},
+    {"name": "Andy", "gender": "male", "age": "Early to late 20s", "description": "A miner and tenor horn player. The love interest."},
+    {"name": "Sandra", "gender": "female", "age": "30 to early 40s", "description": "Phil's wife and mother of 3. She is desperate and resentful."},
+    {"name": "Vera", "gender": "female", "age": "40 to 60", "description": "Jim's wife, kind but slightly materialistic."},
+    {"name": "Rita", "gender": "female", "age": "30 to 50", "description": "Harry's wife. Strong, determined and an activist but has become distant from her husband."},
+    {"name": "Gloria", "gender": "female", "age": "Early to late 20s", "description": "Fugelhorn Player. Newly returned to Grimley, she is sparky, self assured and principled."}
+  ]
+}
