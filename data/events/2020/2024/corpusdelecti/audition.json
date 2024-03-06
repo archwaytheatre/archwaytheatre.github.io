@@ -1,9 +1,16 @@
 {
-  "events": [{
-    "datetime": "2024-02-26T19:45:00",
-    "location": "in the main bar",
-    "description": null
-  }],
+  "events": [
+    {
+      "datetime": "2024-02-26T19:45:00",
+      "location": "in the main bar",
+      "description": null
+    },
+    {
+      "datetime": "2024-03-18T19:45:00",
+      "location": "in the main bar",
+      "description": null
+    }
+  ],
   "characters": [
     {
       "name": "John Haigh",

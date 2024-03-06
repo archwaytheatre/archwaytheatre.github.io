@@ -53,15 +53,16 @@
            [:div (str "directed by " director)]
            [:br]
            [:h3 "Auditions: "]
-           (into [:div]
-                 (map (fn [{:keys [datetime location description]}]
-                        [:div
-                         (->> [(.format datetime datetime-format)
-                               location
-                               description]
-                              (remove nil?)
-                              (str/join " "))])
-                      events))
+           (->> events
+                (filter #(-> % :datetime (.isAfter (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London")))))
+                (map (fn [{:keys [datetime location description]}]
+                       [:div
+                        (->> [(.format datetime datetime-format)
+                              location
+                              description]
+                             (remove nil?)
+                             (str/join " "))]))
+                (into [:div]))
            [:br]
            [:h3 "About the Production:"]
            [:div [:pre (str/replace audition "\n" "\n\n")]]
