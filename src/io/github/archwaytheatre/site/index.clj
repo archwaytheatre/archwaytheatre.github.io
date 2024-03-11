@@ -108,7 +108,7 @@
 
 (core/page "index" "The Archway Theatre"
   (let [data (grab-data)
-        coming-soon-or-on-now (take 6 (sort-by :start (filter :ticketurl data)))
+        coming-soon-or-on-now (take 8 (sort-by :start (filter :ticketurl data)))
         soon? (set (map :id coming-soon-or-on-now))
         coming-later (sort-by :start (remove #(-> % :id soon?) data))]
 
