@@ -28,6 +28,7 @@
         ["getinvolved.html" "Get&nbsp;Involved!" "Notices about upcoming opportunities at your local theatre."]
         ["findus.html" "Find&nbsp;Us" "How to find our theatre if you're planning a visit."]
         ["contact.html" "Contact" "How to reach us."]
+        ["youth.html" "Youth Provision" "Youth and Young Adults Workshops"]
         ["spaces.html" "Hire a Space" "We have rooms available to hire for your event."]
         ["legal.html" "Legal & Site Info" "Legal and site information."]
         ["past/index.html" "Past Productions" "Details & photographs of our previous productions."]
