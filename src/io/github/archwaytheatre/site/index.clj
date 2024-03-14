@@ -4,7 +4,8 @@
             [clojure.string :as str]
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
-  (:import [java.time LocalDate ZoneOffset]
+  (:import [java.net HttpURLConnection URL]
+           [java.time LocalDate ZoneOffset]
            [java.time.format DateTimeFormatter]))
 
 
@@ -108,12 +109,22 @@
        (take-while seq)
        (mapcat identity)))
 
+(defn get-trailer-url [id year]
+  (let [url (URL. (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov"))
+        huc ^HttpURLConnection (.openConnection url)]
+    (.setRequestMethod huc "HEAD")
+    (when (= 200 (.getResponseCode huc))
+      url)))
+
 (defn grab-data []
   (->> (grab-data-from-files)
        (remove plays/is-past?)
        (map (fn [production]
-              (assoc production :id (:production-code (meta production))
-                                :year (:production-year (meta production)))))))
+              (let [id (:production-code (meta production))
+                    year (:production-year (meta production))]
+                (assoc production :id id
+                                  :year year
+                                  :trailer-url (get-trailer-url id year)))))))
 
 (core/page "index" "The Archway Theatre"
   (let [data (grab-data)
@@ -130,38 +141,32 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"]
 
-     #_[:div.trailer-container
-      [:div.trailer
-       (core/you-tube "ph-pvXha6z4")]]
-
-     [:div.trailer-container
-      [:div.trailer
-       [:video {:controls "controls"
-                ;:width "800"
-                ;:height "600"
-                :width "100%"
-                :height "100%"
-                :name "Video Name"}
-        [:source {:src
-                  ;"https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/much-ado/trailer.mov"
-
-                  "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/home-im-darling/trailer.mov"}]]]]
-     ; todo: (event-trailer event') for most imminent event with a trailer, else archway promo video
-
+     (let [fallback-video "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Promo23.mov"
+           next-prod-with-trailer (first (filter :trailer-url coming-soon-or-on-now))
+           next-trailer (:trailer-url next-prod-with-trailer)
+           video-url (or next-trailer fallback-video)
+           video-name (or (some->> (:name next-prod-with-trailer)
+                                   (str "Trailer for "))
+                          "Archway Promotional Video")]
+       ; todo: link on the related event for this trailer (can just be to an anchor on this part of the page)
+       [:div.trailer-container
+        [:div.trailer
+         [:video {:controls "controls"
+                  :width    "100%"
+                  :height   "100%"
+                  :name     video-name}
+          [:source {:src video-url}]]]])
 
      [:div.vspace]
      [:div.center.archwaytitle [:span.larger "Coming Up"]] ; todo: js to hoist 'On Now' productions above 'coming up'
      [:div.vspace]
      [:div.events
-      (for [{:keys [trailer start end] :as event} coming-soon-or-on-now]
-        ; todo trailer!
-        (let [event' event ;(update event :ticketurl #(or % fallback-ticket-url))
-              ]
+      (for [{:keys [start end] :as event} coming-soon-or-on-now]
+        (let [event' event]
           [:div.event.disappearable {:data-end (to-end-millis end)}
            (event-image event')
            (event-data event' start end)
            (event-about event' start end)]))
-
 
       [:div.center.archwaytitle [:span.larger "Coming Later..."]]
       [:div.vspace]
