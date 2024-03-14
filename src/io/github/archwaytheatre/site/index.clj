@@ -50,13 +50,20 @@
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
-(defn event-data [{:keys [id name location soldout about-text ticketurl]} start-date end-date]
+(defn author-line [{:keys [author director]}]
+  (let [line (str/join ", " (remove nil? [(when author (str "by " author))
+                                           (when director (str "directed by " director))]))]
+    (if (str/blank? line)
+      nil
+      [:div.center line [:br][:br]])))
+
+(defn event-data [{:keys [id name location soldout about-text ticketurl] :as production} start-date end-date]
   [:div.eventdata {:id (str "eventdata-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.archwaytitle name]
    [:div.eventdatum.about
+    (author-line production)
     [:div.fadeable {:id (str "overflow-a-" id)}
-     ; todo: grab the director and author from the about.json, don't duplicate in the about text.
      [:pre {:id (str "overflow-b-" id)} about-text]]
     [:div.aboutmore {:id (str "aboutmore-" id)} [:a {:href (str "javascript:openAbout('" id "');")} "Read more..."]]]
    [:div.eventdatum.action
@@ -70,11 +77,13 @@
      :data-one-day  (if (= start-date end-date) "true" "false")
      :data-sold-out (if soldout "true" "false")}]])
 
-(defn event-about [{:keys [id name location soldout about-text ticketurl]} start-date end-date]
+(defn event-about [{:keys [id name location soldout about-text ticketurl] :as production} start-date end-date]
   [:div.eventabout {:id (str "eventabout-" id)}
    [:div.eventdatum.deets (str (date-range start-date end-date) " │ " location)]
    [:div.eventdatum.title name]
-   [:div.eventdatum.about [:div [:pre about-text]]]
+   [:div.eventdatum.about
+    (author-line production)
+    [:div [:pre about-text]]]
    [:div.eventdatum.aboutback [:a {:href (str "javascript:closeAbout('" id "');")} "Back"]]
    [:div.eventdatum.action
     (cond
