@@ -236,6 +236,10 @@ a.fancy.comingsoon:hover {
     cursor: not-allowed;
 }
 
+.imglink:hover {
+    box-shadow: 0 5px 25px white;
+}
+
 .prenav {
     position: relative;
     background-color: white;

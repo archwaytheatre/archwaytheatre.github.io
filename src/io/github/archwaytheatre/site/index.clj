@@ -167,11 +167,13 @@
       [:div.vspace]
 
       [:div.laterevents
-       (for [{:keys [id year]} coming-later
+       (for [{:keys [id year ticketurl]} coming-later
              :let [url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
                             "site/" year "/" id "/poster-scaled.png")]
              :when (try (slurp url) (catch Exception e nil))]
-         [:img.latereventimage {:src url}])]]
+         (if ticketurl
+           [:a {:href ticketurl} [:img.latereventimage.imglink {:src url}]]
+           [:img.latereventimage {:src url}]))]]
 
      [:div.vspace]
 
