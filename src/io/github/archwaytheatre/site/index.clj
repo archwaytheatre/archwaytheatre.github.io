@@ -130,11 +130,11 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"]
 
-     [:div.trailer-container
+     #_[:div.trailer-container
       [:div.trailer
        (core/you-tube "ph-pvXha6z4")]]
 
-     #_[:div.trailer-container
+     [:div.trailer-container
       [:div.trailer
        [:video {:controls "controls"
                 ;:width "800"
@@ -142,7 +142,10 @@
                 :width "100%"
                 :height "100%"
                 :name "Video Name"}
-        [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/much-ado/trailer.mov"}]]]]
+        [:source {:src
+                  ;"https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/much-ado/trailer.mov"
+
+                  "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/home-im-darling/trailer.mov"}]]]]
      ; todo: (event-trailer event') for most imminent event with a trailer, else archway promo video
 
 
