@@ -40,17 +40,19 @@
     (.dispose image-writer)
     (.close ios)))
 
-(defn rescale-image [input-file output-file dimension-fn]
-  (let [input-image (ImageIO/read (io/file input-file))
-        [w h] [(.getWidth input-image) (.getHeight input-image)]
+(defn resize-image [input-image dimension-fn]
+  (let [[w h] [(.getWidth input-image) (.getHeight input-image)]
         [w' h'] (dimension-fn [w h])
         scaled-image (.getScaledInstance input-image w' h' Image/SCALE_SMOOTH)
         output-image (BufferedImage. w' h' BufferedImage/TYPE_INT_ARGB)
         output-graphics (.getGraphics output-image)]
-
     (.drawImage output-graphics scaled-image 0 0 nil)
     (.dispose output-graphics)
+    output-image))
 
+(defn rescale-image [input-file output-file dimension-fn]
+  (let [input-image (ImageIO/read (io/file input-file))
+        output-image (resize-image input-image dimension-fn)]
     (io/make-parents output-file)
     (ImageIO/write output-image "png" (io/file output-file))))
 
@@ -82,14 +84,15 @@
                 0 0 ideal-poster-width ideal-poster-height
                 0 (- y-mismatch) w' (+ h' y-mismatch)
                 nil)
-    (doseq [y (range 0 (inc y-mismatch))]
-      (let [p (/ y y-mismatch)
-            q 120
-            color (Color. 0 0 0 (min 255 (int (+ (- 255 q) (* p q)))))]
-        (.setColor output-graphics color)
-        (.drawLine output-graphics 0 (- y-mismatch y) ideal-poster-width (- y-mismatch y))
-        (.drawLine output-graphics 0 (+ (- ideal-poster-height y-mismatch) y) ideal-poster-width (+ (- ideal-poster-height y-mismatch) y))
-        ))
+    (when (pos? y-mismatch)
+      (doseq [y (range 0 (inc y-mismatch))]
+        (let [p (/ y y-mismatch)
+              q 120
+              color (Color. 0 0 0 (min 255 (int (+ (- 255 q) (* p q)))))]
+          (.setColor output-graphics color)
+          (.drawLine output-graphics 0 (- y-mismatch y) ideal-poster-width (- y-mismatch y))
+          (.drawLine output-graphics 0 (+ (- ideal-poster-height y-mismatch) y) ideal-poster-width (+ (- ideal-poster-height y-mismatch) y))
+          )))
     (.dispose output-graphics)
 
     (io/make-parents output-file)
@@ -158,6 +161,13 @@
     (copy-to-s3 local-dir local-scaled-file)
 
     ))
+
+(defn upload-trailer [production-name production-year local-file-name]
+  (let [local-dir (io/file "local-only" "s3-sync" "site")
+        prod-code (data/codify production-name)
+        local-file (io/file local-dir (str production-year) prod-code "trailer.mov")]
+    (io/copy (io/file local-file-name) local-file)
+    (copy-to-s3 local-dir local-file)))
 
 (defn upload-photos [production-name production-year photo-directory photographer]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
