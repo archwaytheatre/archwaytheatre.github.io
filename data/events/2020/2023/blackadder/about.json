@@ -1,10 +1,34 @@
 {
-  "name" : "Blackadder II",
-  "author" : "Richard Curtis and Ben Elton",
   "director" : "Geoff Dartnell",
+  "name" : "Blackadder II",
   "start" : "2023-12-05",
   "imageurl" : "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Blackadder.png",
+  "author" : "Richard Curtis and Ben Elton",
   "soldout" : true,
+  "photo-sets" : [ {
+    "photographer" : "Gary Andrews",
+    "photo-offsets" : [
+      ["photo-0001.png", 0.18],
+      ["photo-0002.png", 0.39],
+      ["photo-0003.png", 0.21],
+      ["photo-0004.png", 0.32],
+      ["photo-0005.png", 0.21],
+      ["photo-0006.png", 0.27],
+      ["photo-0007.png", 0.25],
+      ["photo-0008.png", 0.2],
+      ["photo-0009.png", 0.48],
+      ["photo-0010.png", 0.34],
+      ["photo-0012.png", 0.5],
+      ["photo-0013.png", 0.18],
+      ["photo-0014.png", 0.2],
+      ["photo-0015.png", 0.33],
+      ["photo-0016.png", 0.25],
+      ["photo-0017.png", 0.35],
+      ["photo-0018.png", 0.46],
+      ["photo-0019.png", 0.51],
+      ["photo-0020.png", 0.28],
+      ["photo-0021.png", 0.43]]
+  } ],
   "end" : "2023-12-16",
   "location" : "Main House"
 }
