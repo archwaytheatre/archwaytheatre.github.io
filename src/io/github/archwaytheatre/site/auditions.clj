@@ -27,11 +27,22 @@
     #_(interleave-all volunteering everything-else)))
 
 (defn grab-data-from-files []
-  (remove nil? (map plays/get-audition-data (plays/get-all-future-productions))))
+  (remove nil? (map plays/get-audition-data (plays/get-all-future-productions)))
+  ; todo: first filter out the past events, and then sort auditions by the soonest future event
+  ;; todo bonus: do this dynamically in js!!!
 
-(def datetime-format (DateTimeFormatter/ofPattern "h:mma EEEE, dd MMMM YYYY"))
+  )
+
+(def datetime-format (DateTimeFormatter/ofPattern "h:mma'END_TIME' EEEE, dd MMMM YYYY"))
+(def end-time-format (DateTimeFormatter/ofPattern "' – 'h:mma','"))
 
 ; TODO: check for email addresses in the audition text!!! blow up if there are any!!!
+
+(defn add-end-time [datetime-string end-time]
+  (str/replace datetime-string
+               "END_TIME"
+               (when end-time
+                 (.format end-time end-time-format))))
 
 (core/page "auditions" "The Archway Theatre"
   [:section.container
@@ -49,15 +60,15 @@
         (fn [{:keys [author director audition events characters] :as data}]
           [:div.getinvolved.audition
            [:h1 (:name data)]
-           [:div (str "by " author)]
+           (when author [:div (str "by " author)])
            [:div (str "directed by " director)]
            [:br]
            [:h3 "Auditions: "]
            (->> events
                 (filter #(-> % :datetime (.isAfter (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London")))))
-                (map (fn [{:keys [datetime location description]}]
+                (map (fn [{:keys [datetime end-time location description]}]
                        [:div
-                        (->> [(.format datetime datetime-format)
+                        (->> [(add-end-time (.format datetime datetime-format) end-time)
                               location
                               description]
                              (remove nil?)
@@ -65,19 +76,21 @@
                 (into [:div]))
            [:br]
            [:h3 "About the Production:"]
-           [:div [:pre (str/replace audition "\n" "\n\n")]]
+           [:div [:pre audition]]
            [:br]
-           [:h3 "Characters:"]
-           (into [:ul]
-                 (map (fn [{:keys [age gender description] :as character}]
-                        (println character)
-                        [:li (str (:name character) " - "
-                                  (or age "any age")
-                                  ", "
-                                  (or gender "any gender")
-                                  (when description (str ", " description)))])
-                      characters))
-           [:br]
+           (when (seq characters)
+             [:div
+              [:h3 "Characters:"]
+              (into [:ul]
+                    (map (fn [{:keys [age gender description] :as character}]
+                           (println character)
+                           [:li (str (:name character) " - "
+                                     (or age "any age")
+                                     ", "
+                                     (or gender "any gender")
+                                     (when description (str ", " description)))])
+                         characters))
+              [:br]])
            [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
         (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
       [:div

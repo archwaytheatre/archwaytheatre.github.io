@@ -3,7 +3,7 @@
             [clojure.java.io :as io]
             [clojure.string :as str]
             [io.github.archwaytheatre.data.core :as data])
-  (:import [java.time LocalDate Year YearMonth LocalDateTime Instant ZoneId]))
+  (:import [java.time Duration LocalDate Year YearMonth LocalDateTime Instant ZoneId]))
 
 
 (def main-house "Main House")
@@ -93,6 +93,12 @@
                  :production-name short-name
                  :production-code (data/codify short-name)}))))
 
+(defn- parse-dates [{:keys [datetime duration] :as event}]
+  (let [start (LocalDateTime/parse datetime)
+        end (some->> duration Duration/parse .toSeconds (.plusSeconds start))]
+    (assoc event :datetime start
+                 :end-time end)))
+
 (defn get-audition-data [production]
   (let [{:keys [production-year production-code]} (meta production)
         play-dir (prod-dir production-year production-code)
@@ -110,12 +116,7 @@
           (let [about (json/parse-string (slurp about-file) keyword)
                 audition-text (slurp audition-file)]
             (merge (select-keys about [:name :author :director :start])
-                   (update audition-data :events (fn [events]
-                                                   (sort-by :datetime
-                                                            (map
-                                                              (fn [event]
-                                                                (update event :datetime #(LocalDateTime/parse %)))
-                                                              events))))
+                   (update audition-data :events #(sort-by :datetime (map parse-dates %)))
                    {:id       (.getName play-dir)
                     :year     production-year
                     :audition audition-text})))))))

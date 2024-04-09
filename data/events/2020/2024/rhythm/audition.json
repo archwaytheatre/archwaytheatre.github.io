@@ -1,0 +1,14 @@
+{
+  "events": [{
+    "datetime": "2024-05-20T18:00:00",
+    "duration": "PT2H30M",
+    "location": "in the Function Room",
+    "description": "for 15 and under (Must be existing members of the youth workshop)"
+  }, {
+    "datetime": "2024-05-20T19:30:00",
+    "duration": "PT2H30M",
+    "location": "in the Function Room",
+    "description": "for 16 and over"
+  }],
+  "characters": null
+}
