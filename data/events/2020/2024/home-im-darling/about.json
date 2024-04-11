@@ -1,9 +1,35 @@
 {
+  "director" : "Bryony Lock",
   "name" : "Home, I'm Darling",
-  "location" : "Main House",
-  "author": "Laura Wade",
-  "director": "Bryony Lock",
   "start" : "2024-03-26",
+  "author" : "Laura Wade",
+  "photo-sets" : [ {
+    "photographer" : "Bryony Lock",
+    "photo-offsets" : [
+      ["photo-0001.png",0.35],
+      ["photo-0002.png",0.24],
+      ["photo-0003.png",0.32],
+      ["photo-0004.png",0.35],
+      ["photo-0005.png",0.21],
+      ["photo-0006.png",0.24],
+      ["photo-0007.png",0.32],
+      ["photo-0008.png",0.42],
+      ["photo-0009.png",0.26],
+      ["photo-0010.png",0.23],
+      ["photo-0011.png",0.39],
+      ["photo-0012.png",0.3],
+      ["photo-0013.png",0.28],
+      ["photo-0014.png",0.3],
+      ["photo-0015.png",0.22],
+      ["photo-0016.png",0.31],
+      ["photo-0017.png",0.28],
+      ["photo-0018.png",0.15],
+      ["photo-0019.png",0.45],
+      ["photo-0020.png",0.19],
+      ["photo-0021.png",0.23]
+    ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/home-im-darling/e-vmrgqd",
   "end" : "2024-04-06",
-  "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/home-im-darling/e-vmrgqd"
+  "location" : "Main House"
 }

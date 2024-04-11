@@ -6,7 +6,7 @@
     [io.github.archwaytheatre.data.plays :as plays]
     [io.github.archwaytheatre.site.core :as core]))
 
-(defn js-quote [x] (str \' x \'))
+(defn js-quote [x] (str \' (str/replace x "'" "\\'") \'))
 
 (defn js-photo-def [def-name photos & field-fns]
   (let [photo-data-lines (for [photo photos]
@@ -48,26 +48,36 @@
 
 (when core/local?
   (core/page "testpage" "Test Page"
-    (let [year "2023"
-          prod-code "little-shop-of-horrors"
+    (let [year "2024"
+          prod-code "home-im-darling"
           production (plays/load-production-data year prod-code)
           photos (plays/get-photos-for production)]
       [:div.center
        [:script
-        "function c(e, u) {
+        "
+        var data = new Map();
+        function style(prop) {
+         return \"position:absolute;border-top:1px solid blue;width:100vw;top:\" + (prop * 100) + \"%;\";
+        }
+        function c(e, u, m) {
           let line = e.clientY - e.target.getBoundingClientRect().top;
           let height = e.target.getBoundingClientRect().height;
-          let prop = Math.round((line / height) * 100) / 100
-          console.log('[\"' + u + '\", ' + prop + '],');
+          let prop = Math.round((line / height) * 100) / 100;
+          document.getElementById(m).style = style(prop);
+          data.set(u, prop);
+          console.log(JSON.stringify([...data]));
         }"]
-       (for [{:keys [image-url eyeline-offset]} photos]
+       (for [{:keys [image-url eyeline-offset]} photos
+             :let [marker-id (str (gensym "marker-"))
+                   js-url (subs image-url (inc (str/last-index-of image-url "/")))]]
          [:div {:style "position: relative;"}
-          [:div {:style (str "position: absolute; "
+          [:div {:id    marker-id
+                 :style (str "position: absolute; "
                              "border-top: 1px solid blue; "
                              "width: 100vw;"
                              "top: " (* eyeline-offset 100) "%;")}
            ""]
           [:img {:src     (str data/asset-url-prefix image-url)
-                 :onClick (str "c(arguments[0], '" image-url "');")}]]
+                 :onClick (str "c(arguments[0], '" js-url "', '" marker-id "');")}]]
 
          )])))
