@@ -1,10 +1,35 @@
 {
-  "name": "Much Ado About Nothing",
-  "author" : "William Shakespeare",
   "director" : "Elodie Foray",
-  "company" : "Archway Theatre",
-  "location": "Main House",
-  "start": "2024-02-20",
-  "end": "2024-03-02",
-  "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/much-ado-about-nothing/e-yxzrxa"
+  "name" : "Much Ado About Nothing",
+  "start" : "2024-02-20",
+  "author" : "William Shakespeare",
+  "photo-sets" : [ {
+    "photographer" : "Noelle Vaughn",
+    "photo-offsets" : [
+      ["photo-0001.png",0.51],
+      ["photo-0002.png",0.22],
+      ["photo-0003.png",0.44],
+      ["photo-0004.png",0.3],
+      ["photo-0005.png",0.28],
+      ["photo-0006.png",0.52],
+      ["photo-0007.png",0.23],
+      ["photo-0008.png",0.38],
+      ["photo-0009.png",0.33],
+      ["photo-0010.png",0.4],
+      ["photo-0011.png",0.3],
+      ["photo-0012.png",0.28],
+      ["photo-0013.png",0.34],
+      ["photo-0014.png",0.21],
+      ["photo-0015.png",0.29],
+      ["photo-0016.png",0.27],
+      ["photo-0017.png",0.25],
+      ["photo-0018.png",0.71],
+      ["photo-0019.png",0.27],
+      ["photo-0020.png",0.55]
+    ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/much-ado-about-nothing/e-yxzrxa",
+  "end" : "2024-03-02",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }
