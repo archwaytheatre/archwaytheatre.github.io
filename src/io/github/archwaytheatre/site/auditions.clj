@@ -44,6 +44,20 @@
                (when end-time
                  (.format end-time end-time-format))))
 
+(defn last-relevant-time [events]
+  (let [lrt (reduce (fn [lrt {:keys [datetime end-time]}]
+                      (let [time (or end-time (.plusHours datetime 3))]
+                        (if (-> time (.isAfter lrt))
+                          time
+                          lrt)))
+                    (LocalDateTime/now)
+                    events)]
+    (-> lrt
+        (.atZone (ZoneId/of "Europe/London"))
+        (.toInstant)
+        (.toEpochMilli)
+        str)))
+
 (core/page "auditions" "The Archway Theatre"
   [:section.container
    [:div.content
@@ -58,7 +72,7 @@
     (if-let [data (seq (grab-data-from-files))]
       (map
         (fn [{:keys [author director audition events characters] :as data}]
-          [:div.getinvolved.audition
+          [:div.getinvolved.audition.disappearable {:data-end (last-relevant-time events)}
            [:h1 (:name data)]
            (when author [:div (str "by " author)])
            [:div (str "directed by " director)]
@@ -94,7 +108,8 @@
            [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
         (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
       [:div
-       [:div "There are currently no audition notices. Check back another time."]])]]
+       [:div "There are currently no audition notices. Check back another time."]])]
+   [:script {:src "./js/datetime.js"}]]
 
   [:script {:src "./js/delayed.js"}]
   )
