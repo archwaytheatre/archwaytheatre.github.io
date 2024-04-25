@@ -74,7 +74,8 @@
       [:div.calltoaction [:a.simple {:href   "https://www.dingbatsimprov.com/improv-classes"
                                      :target "_blank"} "Browse classes"]]]]
 
-    ]]
+    ]
+   [:script {:src "./js/datetime.js"}]]
 
   [:script {:src "./js/delayed.js"}]
   )
