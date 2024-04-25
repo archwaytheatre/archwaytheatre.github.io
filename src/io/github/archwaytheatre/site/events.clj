@@ -2,7 +2,8 @@
   (:require
     [clojure.string :as string]
     [io.github.archwaytheatre.site.core :as core]
-    [cheshire.core :as json]))
+    [cheshire.core :as json])
+  (:import [java.time LocalDateTime ZoneId]))
 
 
 (defn interleave-all [coll1 coll2]
@@ -20,6 +21,13 @@
     (concat audition other volunteering)
     #_(interleave-all volunteering everything-else)))
 
+(defn data-end-for [local-date-time-str]
+  (-> (LocalDateTime/parse local-date-time-str)
+      (.atZone (ZoneId/of "Europe/London"))
+      (.toInstant)
+      (.toEpochMilli)
+      str))
+
 (core/page "events" "The Archway Theatre"
   [:section.container
    [:div.content
@@ -31,7 +39,7 @@
 
     [:div
 
-     [:div.other
+     [:div.other.disappearable {:data-end (data-end-for "2024-03-25T23:59:59")}
       [:h1 "Singing for the Soul"]
       [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
 
