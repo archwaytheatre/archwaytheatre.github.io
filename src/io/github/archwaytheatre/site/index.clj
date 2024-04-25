@@ -141,25 +141,32 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"]
 
-     (let [fallback-video "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Promo23.mov"
-           next-prod-with-trailer (first (filter :trailer-url coming-soon-or-on-now))
-           next-trailer (:trailer-url next-prod-with-trailer)
-           video-url (or next-trailer fallback-video)
-           video-name (or (some->> (:name next-prod-with-trailer)
-                                   (str "Trailer for "))
-                          "Archway Promotional Video")]
-       ; todo: link on the related event for this trailer (can just be to an anchor on this part of the page)
-       [:div.trailer-container
-        [:div.trailer
-         [:video {:controls "controls"
-                  :width    "100%"
-                  :height   "100%"
-                  :name     video-name}
-          [:source {:src video-url}]]]])
+
+     [:div.trailer-container
+      [:div.trailer
+       [:video {:controls "controls"
+                :width    "100%"
+                :height   "100%"
+                :name     "Archway Promotional Video"}
+        [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Promo23.mov"}]]]]
 
      [:div.vspace]
-     [:div.center.archwaytitle [:span.larger "Coming Up"]] ; todo: js to hoist 'On Now' productions above 'coming up'
+     [:div.center.archwaytitle [:span.larger "What's On?"]]
      [:div.vspace]
+
+     (when-let [{:keys [trailer-url] :as next-prod-with-trailer} (first (filter :trailer-url coming-soon-or-on-now))]
+       [:div
+        [:div.trailer-container
+         [:div.trailer
+          [:video {:controls "controls"
+                   :width    "100%"
+                   :height   "100%"
+                   :name     (str "Trailer for " (or (:name next-prod-with-trailer)
+                                                     "our upcoming production"))}
+           [:source {:src trailer-url}]]]]
+        (when (not= (:name next-prod-with-trailer) (:name (first coming-soon-or-on-now)))
+          [:div.vspace])])
+
      [:div.events
       (for [{:keys [start end] :as event} coming-soon-or-on-now]
         (let [event' event]

@@ -374,6 +374,7 @@ div.menuItem.topMenu.selected {
 div.trailer-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 1.5em;
 }
 div.trailer {
     aspect-ratio: 16/9;
