@@ -41,8 +41,9 @@
 (defn add-end-time [datetime-string end-time]
   (str/replace datetime-string
                "END_TIME"
-               (when end-time
-                 (.format end-time end-time-format))))
+               (if end-time
+                 (.format end-time end-time-format)
+                 "")))
 
 (defn last-relevant-time [events]
   (let [lrt (reduce (fn [lrt {:keys [datetime end-time]}]
@@ -57,6 +58,14 @@
         (.toInstant)
         (.toEpochMilli)
         str)))
+
+(defn describe-character [{:keys [age gender description] :as character}]
+  (str (:name character) " - "
+       (str/join ", "
+         (remove nil?
+                 [(when (contains? character :age) (or age "any age"))
+                  (when (contains? character :gender) (or gender "any gender"))
+                  description]))))
 
 (core/page "auditions" "The Archway Theatre"
   [:section.container
@@ -94,16 +103,17 @@
            [:br]
            (when (seq characters)
              [:div
-              [:h3 "Characters:"]
+              [:h3 "Roles:"]
               (into [:ul]
-                    (map (fn [{:keys [age gender description] :as character}]
+                    (map (fn [character]
                            (println character)
-                           [:li (str (:name character) " - "
-                                     (or age "any age")
-                                     ", "
-                                     (or gender "any gender")
-                                     (when description (str ", " description)))])
+                           (if (vector? character)
+                             [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
+                              (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
+                                         (map describe-character character))]
+                             [:li (describe-character character)]))
                          characters))
+              [:span "Ages are a rough guide."]
               [:br]])
            [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
         (sort-by (juxt #(-> % :events first :datetime) :start :id) data))

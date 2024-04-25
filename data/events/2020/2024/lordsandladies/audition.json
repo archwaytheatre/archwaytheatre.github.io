@@ -1,0 +1,60 @@
+{
+  "events": [{
+    "datetime": "2024-06-03T19:45:00",
+    "location": "in the bar",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Granny Weatherwax", "description": "PRE-CAST from Wyrd Sisters: Dodie Browne"},
+    {"name": "Nanny Ogg", "description": "PRE-CAST from Wyrd Sisters: Tulin Udul"},
+    {"name": "Magrat", "description": "PRE-CAST from Wyrd Sisters: Bryony Lock"},
+    {"name": "Verence", "description": "PRE-CAST from Wyrd Sisters: Mike Fenn"},
+    [
+      {"name": "Archancellor Ridcully", "gender": "male", "age": "60-ish", "description": "a wizard"},
+      {"name": "Carter", "gender": "male", "age": "60-ish", "description": "a Rude mechanical"}],
+    [
+      {"name": "Ponder Stibbons", "gender": "male", "age": "40+", "description": "a wizard"},
+      {"name": "Weaver", "gender": "male", "age": "40+", "description": "a Rude mechanical"}
+    ],
+    {"name": "Shawn Ogg", "gender": "male", "age": "20s", "description": "a guard & Nanny Ogg’s son"},
+    {"name": "Jason Ogg", "gender": "male", "age": "20s/30s", "description": "a Rude mechanical & Nanny’s son"},
+    [
+      {"name": "Baker", "gender": "male", "age": null, "description": "a Rude mechanical"},
+      {"name": "Mr Brooks", "gender": "male", "age": null},
+      {"name": "Elf King", "gender": "male", "age": null}
+    ],
+    {"name": "Elf Queen", "gender": "female", "age": "40+"},
+    [
+      {"name": "Young Esme", "gender": "female", "age": "teens"},
+      {"name": "Millie", "gender": "female", "age": "teens"}
+    ],
+    [
+      {"name": "Diamanda", "gender": "female", "age": "teens"},
+      {"name": "Golfinga", "gender": "female", "age": "teens", "description": "an elf"}
+    ],
+    [
+      {"name": "Perdita", "gender": "female", "age": "teens"},
+      {"name": "Elreg", "gender": "female", "age": "teens", "description": "an elf"}
+    ],
+    [
+      {"name": "Amanita", "gender": "female", "age": "teens"},
+      {"name": "Moth", "gender": "female", "age": "teens", "description": "an elf"}
+    ],
+    [
+      {"name": "Muscara", "gender": "female", "age": "teens"},
+      {"name": "Ludolad", "gender": "female", "age": "teens", "description": "an elf"}
+    ],
+
+    {"name": "Narrator", "gender": null, "age": null},
+    [
+      {"name": "Carpenter", "gender": null, "age": null, "description": "a Rude mechanical"},
+      {"name": "Librarian", "gender": null, "age": null, "description": "an Orang Utan – physical role"}
+    ],
+    [
+      {"name": "Lankin", "gender": null, "age": null, "description": "an elf"},
+      {"name": "Tinker", "gender": null, "age": null, "description": "a Rude mechanical"}
+    ],
+    {"name": "Tailor", "gender": null, "age": null, "description": "a Rude mechanical"},
+    {"name": "Thatcher", "gender": null, "age": null, "description": "a Rude mechanical"}
+  ]
+}
