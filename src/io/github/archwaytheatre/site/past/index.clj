@@ -53,8 +53,14 @@
            [:img {:src     (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" image-url)
                   :loading "lazy"}]
            [:div.static-photo-credit
-            [:span (str "Photo by " photographer ". Used with permission.")]]])
+            (if (= "Archway Archive" photographer)
+              [:span (str "Photo from the Archway Archive*")]
+              [:span (str "Photo by " photographer ". Used with permission.")])]])
 
+        (when (some #(= "Archway Archive" %) (map :photographer photos))
+          [:div
+           [:div.center "* If you know how took these pictures then please " [:a.simple {:href "../contact.html"} "get in touch."]]
+           [:br]])
         [:br]
         links]])))
 
@@ -95,9 +101,13 @@
          (let [blurb-bits [(str (indefinite-articlize (or young-adults-youth company "Archway Theatre")) " production.")
                            (when author (str "Written by " author "."))
                            (when director (str "Directed by " director "."))]
-               blurb (str/join " " (filter some? blurb-bits))]
+               blurb (str/join " " (filter some? blurb-bits))
+               has-photos? (seq photos)]
            (production-page year month location name page-name prev next blurb about-text photos)
-           [:div [:a.simple {:href (str page-name ".html")} name]]))])))
+           [:div
+            (if has-photos?
+              [:a.simple {:href (str page-name ".html")} name]
+              [:i [:a.simple {:href (str page-name ".html")} name]])]))])))
 
 (core/page "past/index" "The Archway Theatre - Past Productions"
   ;[:script {:src "./js/carousel.data.js"}]

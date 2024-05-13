@@ -79,17 +79,24 @@ function startTopPhotos() {
 
 // startTopPhotos();
 
-function makeCredit(imageDatum) {
+function makeCredit(photographer) {
+    if (photographer == 'Archway Archive') {
+        return ['Photo from the Archway Archive.', ''];
+    } else {
+        return ['Photo by ' + photographer + '.', 'Used with Permission.'];
+    }
+}
+
+function makeCaption(imageDatum) {
 
     let firstText;
     let secondText;
 
     if (imageDatum.length === 2) {
-        firstText = 'Photo by  ' + imageDatum[1] + '.';
-        secondText = 'Used with Permission.';
+        [firstText, secondText] = makeCredit(imageDatum[1]);
     } else {
         firstText = '"' + imageDatum[3] + '" (' + imageDatum[2] + ')';
-        secondText = 'Photo by  ' + imageDatum[1] + '. Used with Permission.';
+        secondText = makeCredit(imageDatum[1]).join(' ');
     }
 
     let firstLine = document.createElement('div');
@@ -133,7 +140,7 @@ function startCarousel() {
             newBack.style.backgroundImage="url("+ src +")";
 
             newCredit.classList.add('photo-credit');
-            newCredit.appendChild(makeCredit(imageDatum));
+            newCredit.appendChild(makeCaption(imageDatum));
 
             newElement.classList.add('photo-swap');
             newElement.classList.add("carouselnew");
