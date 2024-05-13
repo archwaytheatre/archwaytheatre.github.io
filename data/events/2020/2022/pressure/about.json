@@ -1,10 +1,25 @@
 {
-  "name" : "Pressure",
-  "location" : "Main House",
-  "start" : "2022-09",
-  "end" : "2022-09",
-  "author" : null,
-  "director" : "Eddie Redfern",
   "stage-manager" : "Dodie Browne",
+  "director" : "Eddie Redfern",
+  "name" : "Pressure",
+  "start" : "2022-09",
+  "author" : null,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.238 ],
+      [ "photo-0002.png", 0.409 ],
+      [ "photo-0003.png", 0.239 ],
+      [ "photo-0004.png", 0.395 ],
+      [ "photo-0005.png", 0.374 ],
+      [ "photo-0006.png", 0.288 ],
+      [ "photo-0007.png", 0.227 ],
+      [ "photo-0008.png", 0.484 ],
+      [ "photo-0009.png", 0.226 ],
+      [ "photo-0010.png", 0.191 ],
+      [ "photo-0011.png", 0.226 ] ]
+  } ],
+  "end" : "2022-09",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }
