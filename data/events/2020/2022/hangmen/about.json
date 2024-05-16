@@ -1,10 +1,32 @@
 {
-  "name" : "Hangmen",
-  "location" : "Main House",
-  "start" : "2022-05",
-  "end" : "2022-05",
-  "author" : null,
-  "director" : "Mandi Dunford",
   "stage-manager" : "Stephanie Fane-Bailey",
+  "director" : "Mandi Dunford",
+  "name" : "Hangmen",
+  "start" : "2022-05",
+  "author" : null,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.43 ],
+      [ "photo-0002.png", 0.186 ],
+      [ "photo-0003.png", 0.295 ],
+      [ "photo-0004.png", 0.217 ],
+      [ "photo-0005.png", 0.415 ],
+      [ "photo-0006.png", 0.352 ],
+      [ "photo-0007.png", 0.525 ],
+      [ "photo-0008.png", 0.22 ],
+      [ "photo-0009.png", 0.294 ],
+      [ "photo-0010.png", 0.363 ],
+      [ "photo-0011.png", 0.165 ],
+      [ "photo-0012.png", 0.306 ],
+      [ "photo-0013.png", 0.322 ],
+      [ "photo-0014.png", 0.186 ],
+      [ "photo-0015.png", 0.386 ],
+      [ "photo-0016.png", 0.204 ],
+      [ "photo-0017.png", 0.373 ],
+      [ "photo-0018.png", 0.314 ] ]
+  } ],
+  "end" : "2022-05",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

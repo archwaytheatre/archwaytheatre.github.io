@@ -1,10 +1,38 @@
 {
-  "name" : "Constellations",
-  "location" : "Main House",
-  "start" : "2024-04-30",
-  "end" : "2024-05-11",
-  "author": "Nick Payne",
   "director" : "Amanda Dunford",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-zqpyrr"
+  "name" : "Constellations",
+  "start" : "2024-04-30",
+  "author" : "Nick Payne",
+  "photo-sets" : [ {
+    "photographer" : "Eddie Redfern",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.409 ],
+      [ "photo-0002.png", 0.181 ],
+      [ "photo-0003.png", 0.266 ],
+      [ "photo-0004.png", 0.229 ],
+      [ "photo-0005.png", 0.298 ],
+      [ "photo-0006.png", 0.328 ],
+      [ "photo-0007.png", 0.352 ],
+      [ "photo-0008.png", 0.325 ],
+      [ "photo-0009.png", 0.369 ],
+      [ "photo-0010.png", 0.203 ],
+      [ "photo-0011.png", 0.573 ],
+      [ "photo-0012.png", 0.201 ],
+      [ "photo-0013.png", 0.223 ],
+      [ "photo-0014.png", 0.316 ],
+      [ "photo-0015.png", 0.243 ],
+      [ "photo-0016.png", 0.178 ],
+      [ "photo-0017.png", 0.186 ],
+      [ "photo-0018.png", 0.318 ],
+      [ "photo-0019.png", 0.482 ],
+      [ "photo-0020.png", 0.205 ] ]
+  }, {
+    "photographer" : "Hannah Redfern",
+    "photo-offsets" : [
+      [ "photo-0021.png", 0.31 ] ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-zqpyrr",
+  "end" : "2024-05-11",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }

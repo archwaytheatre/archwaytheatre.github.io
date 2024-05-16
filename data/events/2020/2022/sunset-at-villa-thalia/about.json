@@ -1,10 +1,25 @@
 {
-  "name" : "Sunset at Villa Thalia",
-  "location" : "Main House",
-  "start" : "2022-06",
-  "end" : "2022-06",
-  "author" : null,
-  "director" : "Michael Beach",
   "stage-manager" : "Geoff Dartnell",
+  "director" : "Michael Beach",
+  "name" : "Sunset at Villa Thalia",
+  "start" : "2022-06",
+  "author" : null,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.436 ],
+      [ "photo-0002.png", 0.414 ],
+      [ "photo-0003.png", 0.263 ],
+      [ "photo-0004.png", 0.52 ],
+      [ "photo-0005.png", 0.25 ],
+      [ "photo-0006.png", 0.264 ],
+      [ "photo-0007.png", 0.519 ],
+      [ "photo-0008.png", 0.313 ],
+      [ "photo-0009.png", 0.19 ],
+      [ "photo-0010.png", 0.639 ],
+      [ "photo-0011.png", 0.227 ] ]
+  } ],
+  "end" : "2022-06",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

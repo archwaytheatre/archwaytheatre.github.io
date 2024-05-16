@@ -1,10 +1,30 @@
 {
-  "name" : "Oliver",
-  "location" : "Main House",
-  "start" : "2022-07",
-  "end" : "2022-07",
-  "author" : null,
-  "director" : "Laura Day",
   "stage-manager" : "Liz White",
+  "director" : "Laura Day",
+  "name" : "Oliver",
+  "start" : "2022-07",
+  "author" : null,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.694 ],
+      [ "photo-0002.png", 0.213 ],
+      [ "photo-0003.png", 0.336 ],
+      [ "photo-0004.png", 0.624 ],
+      [ "photo-0005.png", 0.589 ],
+      [ "photo-0006.png", 0.383 ],
+      [ "photo-0007.png", 0.359 ],
+      [ "photo-0008.png", 0.281 ],
+      [ "photo-0009.png", 0.364 ],
+      [ "photo-0010.png", 0.42 ],
+      [ "photo-0011.png", 0.309 ],
+      [ "photo-0012.png", 0.367 ],
+      [ "photo-0013.png", 0.505 ],
+      [ "photo-0014.png", 0.202 ],
+      [ "photo-0015.png", 0.322 ],
+      [ "photo-0016.png", 0.377 ] ]
+  } ],
+  "end" : "2022-07",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

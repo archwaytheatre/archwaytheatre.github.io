@@ -1,10 +1,28 @@
 {
-  "name" : "As You Like it",
-  "location" : "Main House",
-  "start" : "2022-02",
-  "end" : "2022-02",
-  "author" : null,
-  "director" : "Gary Andrews ",
   "stage-manager" : "Dodie Browne",
+  "director" : "Gary Andrews",
+  "name" : "As You Like it",
+  "start" : "2022-02",
+  "author" : null,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.143 ],
+      [ "photo-0002.png", 0.223 ],
+      [ "photo-0003.png", 0.279 ],
+      [ "photo-0004.png", 0.292 ],
+      [ "photo-0005.png", 0.257 ],
+      [ "photo-0006.png", 0.222 ],
+      [ "photo-0007.png", 0.23 ],
+      [ "photo-0008.png", 0.182 ],
+      [ "photo-0009.png", 0.545 ],
+      [ "photo-0010.png", 0.272 ],
+      [ "photo-0011.png", 0.636 ],
+      [ "photo-0012.png", 0.221 ],
+      [ "photo-0013.png", 0.181 ],
+      [ "photo-0014.png", 0.099 ] ]
+  } ],
+  "end" : "2022-02",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }
