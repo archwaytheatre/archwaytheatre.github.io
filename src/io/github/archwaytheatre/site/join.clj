@@ -45,10 +45,11 @@
 
     [:br]
     [:br]
-    [:div.center.main.vp2 [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                                                          :target "_blank"} "I want to join!"]]
+    [:div.center.main.vp2
+     [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
+                :target "_blank"} "I want to join!"]
+     [:a.fancy {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Existing member login"]]
     [:br]
-    [:div.center [:a.simple.larger {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Member login"]]
     [:br]
 
     [:br]
@@ -68,10 +69,12 @@
 
     [:br]
     [:br]
-    [:div.center.main.vp2 [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                                                          :target "_blank"} "I want to join!"]]
+    [:div.center.main.vp2
+     [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
+                :target "_blank"} "I want to join!"]
+     [:a.fancy {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Existing member login"]]
+
     [:br]
-    [:div.center [:a.simple.larger {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Member login"]]
     [:br]
 
     ]])
