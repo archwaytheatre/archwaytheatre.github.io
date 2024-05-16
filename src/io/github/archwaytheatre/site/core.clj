@@ -125,7 +125,8 @@
    ["Get Involved!" nil {:id      "get-involved"
                          :submenu [["Volunteer" "getinvolved.html"]
                                    ["Audition" "auditions.html"]
-                                   ["Events" "events.html"]]}]
+                                   ["Events" "events.html"]
+                                   ["Youngsters" "youth.html"]]}]
    ["Members" "join.html"]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
