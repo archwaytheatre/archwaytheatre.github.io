@@ -126,6 +126,7 @@
                          :submenu [["Volunteer" "getinvolved.html"]
                                    ["Audition" "auditions.html"]
                                    ["Events" "events.html"]]}]
+   ["Members" "join.html"]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
    ["About" "about.html"]
