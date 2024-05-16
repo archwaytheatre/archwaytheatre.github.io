@@ -1,10 +1,11 @@
 (ns io.github.archwaytheatre.data.copy-images
-  (:require [clojure.java.io :as io]
+  (:require [cheshire.core :as json]
+            [clojure.java.io :as io]
             [clojure.java.shell :as sh]
             [clojure.string :as str]
             [io.github.archwaytheatre.data.core :as data]
             [io.github.archwaytheatre.data.plays :as plays])
-  (:import [java.awt Color Image]
+  (:import [java.awt BasicStroke Color Image]
            [java.awt.image BufferedImage]
            [java.net URL]
            [javax.imageio IIOImage ImageIO ImageWriteParam ImageWriter]))
@@ -69,7 +70,7 @@
         y-mismatch (int (/ (- ideal-poster-height h') 2))
         ]
 
-    (.setColor output-graphics Color/GREEN)
+    (.setColor output-graphics Color/BLACK)
     (.fillRect output-graphics 0 0 ideal-poster-width ideal-poster-height)
     ;(.drawImage output-graphics scaled-image 0 (int (/ (- ideal-poster-height h') 2)) nil)
     (.drawImage output-graphics scaled-image
@@ -121,10 +122,11 @@
     [(* width max-sf) (* height max-sf)]))
 
 (defn run-proc [args]
-  ;(println args)
   (let [r (apply sh/sh args)]
-    (println (:exit r))
-    (println (:out r))))
+    (when-not (zero? (:exit r))
+      (throw (ex-info "process failed" {:proc args
+                                        :result r})))
+    (println (str/replace (:out r) #"(?m)^.*\r" ""))))
 
 (defn sync-to-s3 [local-site-dir]
   (let [args ["aws"
@@ -183,7 +185,7 @@
                                    [file (format "photo-%04d.png" (+ idx next-number-offset)) 0.25])))
         about-json' (update about-json :photo-sets conj {:photographer  photographer
                                                          :photo-offsets (map rest photos)})]
-    (println prod-code)
+    (println prod-code ": rescaling and uploading photos...")
 
     (doseq [[file filename _eye-line-offset] photos]
       (let [target-file (io/file local-dir (str production-year) prod-code filename)]
@@ -192,3 +194,86 @@
         (copy-to-s3 local-dir target-file)))
 
     (plays/save-production-data about-json')))
+
+(defn- detect-faces [s3-key] ; https://docs.aws.amazon.com/rekognition/latest/dg/faces-detect-images.html
+  (let [{:keys [exit out err]}
+        (sh/sh "aws"
+               "--profile" "deploy"
+               "--region" "eu-west-2"
+               "rekognition" "detect-faces"
+               "--image" (str "{\"S3Object\":{\"Bucket\":\"archwaytheatre\",\"Name\":\"" s3-key "\"}}")
+               "--attributes" "ALL")]
+    (when-not (zero? exit)
+      (println err)
+      (println out)
+      (throw (ex-info "oh no!" {})))
+    (json/parse-string out keyword)))
+
+(defn face-value [{:keys [Confidence BoundingBox MouthOpen Emotions Pose Quality]}]
+  (let [bad #(- 1 %)
+        good-if-true #(if % 1 0.5)
+        scale /
+        values [Confidence
+                (scale (:Sharpness Quality) 100)
+                (:Width BoundingBox)
+                (:Height BoundingBox)
+                (good-if-true (:Value MouthOpen))
+                (good-if-true (-> Emotions first :Type (not= "CALM")))
+                (bad (scale (abs (:Pitch Pose)) 180))
+                (bad (scale (abs (:Yaw Pose)) 180))]]
+    (apply * values)))
+
+(defn- pick-best-face [face-data]
+  (apply max-key face-value (:FaceDetails face-data)))
+
+(defn- eye-line [{:keys [Landmarks] :as _face-datum}]
+  (let [{ly :Y} (first (filter #(-> % :Type (= "eyeLeft")) Landmarks))
+        {ry :Y} (first (filter #(-> % :Type (= "eyeRight")) Landmarks))
+        average-eye-height (/ (+ ly ry) 2)]
+    (-> average-eye-height (* 1000) int (/ 1000.0))))
+
+(defn debug-face [{:keys [Landmarks BoundingBox] :as face-datum} s3-key]
+  (let [{lx :X ly :Y} (first (filter #(-> % :Type (= "eyeLeft")) Landmarks))
+        {rx :X ry :Y} (first (filter #(-> % :Type (= "eyeRight")) Landmarks))
+        {:keys [Left Top Height Width]} BoundingBox
+
+        input-image (ImageIO/read (io/input-stream (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/" s3-key)))
+        [w h] [(.getWidth input-image) (.getHeight input-image)]
+        output-image (BufferedImage. w h BufferedImage/TYPE_INT_ARGB)
+        output-graphics (.getGraphics output-image)
+        ]
+    (println lx ly rx ry Left Top Height Width)
+    (.drawImage output-graphics input-image 0 0 nil)
+    (.setStroke output-graphics (BasicStroke. 3))
+    (.setColor output-graphics Color/MAGENTA)
+    (.drawRect output-graphics (* Left w) (* Top h) (* Width w) (* Height h))
+    (.setColor output-graphics Color/GREEN)
+    (.drawLine output-graphics (* lx w) (* ly h) (* rx w) (* ry h))
+    (.dispose output-graphics)
+    (ImageIO/write output-image "png" (io/file "test.png"))
+    )
+  )
+
+(defn mapdate
+  [coll f & args]
+  (mapv #(apply f % args) coll))
+
+(defn add-eye-line [prod-code production-year [photo-key photo-offset]]
+  (let [s3-key (str "site/" production-year "/" prod-code "/" photo-key)]
+    [photo-key (eye-line (pick-best-face (detect-faces s3-key)))]))
+
+(defn find-eye-lines [production-name production-year]
+  (let [prod-code (data/codify production-name)
+        _ (println prod-code ": finding eye lines...")
+        about-json (or (plays/load-production-data production-year production-name)
+                       (throw (ex-info "Please create the data first." {:prod-code prod-code}))
+                       (plays/create-production production-year production-name))
+        about-json' (update about-json :photo-sets
+                            mapdate
+                            update :photo-offsets
+                            mapdate (partial add-eye-line prod-code production-year))]
+    (plays/save-production-data about-json')))
+
+(defn ingest-photos [production-name production-year photo-directory photographer]
+  (upload-photos production-name production-year photo-directory photographer)
+  (find-eye-lines production-name production-year))
