@@ -1,0 +1,19 @@
+{
+  "events": [{
+    "datetime": "2024-06-03T19:45:00",
+    "location": "in the bar",
+    "description": null
+  }],
+  "characters": [
+    {"play": "Schrödinger's Boys", "name": "Nathan", "gender": null, "age": "teens-20s", "description": null},
+    {"play": "Schrödinger's Boys", "name": "Rose", "gender": null, "age": "teens-20s", "description": "his sister"},
+    {"play": "Schrödinger's Boys", "name": "Freddie", "gender": null, "age": "late teens-20s", "description": "his best mate"},
+    {"play": "Schrödinger's Boys", "name": "Martin", "gender": null, "age": "late 30s-60s", "description": "his father"},
+    {"play": "Schrödinger's Boys", "name": "Jen", "gender": null, "age": "late 30s-60s", "description": "his mother"},
+    {"play": "It Takes Time", "name": "Jess", "gender": null, "age": "mid-late teens", "description": null},
+    {"play": "It Takes Time", "name": "Bex", "gender": null, "age": "late teens-20s", "description": "her sister"},
+    {"play": "It Takes Time", "name": "Ethan", "gender": null, "age": "late teens-20s", "description": "her brother"},
+    {"play": "It Takes Time", "name": "Cathy", "gender": null, "age": "late 30s-60s", "description": "her mother"},
+    {"play": "It Takes Time", "name": "Michael", "gender": null, "age": "late 30s-60s", "description": "her father"}
+  ]
+}

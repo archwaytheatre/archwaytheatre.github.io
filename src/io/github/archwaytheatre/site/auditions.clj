@@ -101,20 +101,37 @@
            [:h3 "About the Production:"]
            [:div [:pre audition]]
            [:br]
-           (when (seq characters)
-             [:div
-              [:h3 "Roles:"]
-              (into [:ul]
-                    (map (fn [character]
-                           (println character)
-                           (if (vector? character)
-                             [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
-                              (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
-                                         (map describe-character character))]
-                             [:li (describe-character character)]))
-                         characters))
-              [:span "Ages are a rough guide."]
-              [:br]])
+           (when-let [play->characters (some->> (seq characters) (group-by :play))]
+             (if (= 1 (count play->characters))
+               [:div
+                [:h3 "Roles:"]
+                (into [:ul]
+                      (map (fn [character]
+                             (if (vector? character)
+                               [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
+                                (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
+                                           (map describe-character character))]
+                               [:li (describe-character character)]))
+                           characters))
+                [:span "Ages are a rough guide."]
+                [:br]]
+               [:div
+                [:h3 "Roles:"]
+                (into [:div]
+                      (map (fn [[play characters]]
+                             [:div
+                              [:h4 play]
+                              (into [:ul]
+                                    (map (fn [character]
+                                           (if (vector? character)
+                                             [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
+                                              (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
+                                                         (map describe-character character))]
+                                             [:li (describe-character character)]))
+                                         characters))])
+                           play->characters))
+                [:span "Ages are a rough guide."]
+                [:br]]))
            [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
         (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
       [:div
