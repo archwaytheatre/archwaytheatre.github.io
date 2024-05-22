@@ -1,0 +1,14 @@
+{
+  "events": [{
+    "datetime": "2024-06-24T19:45:00",
+    "location": "in the bar",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Reg", "age": "40s, 50s", "description": "East End Gangster, Londoner"},
+    {"name": "Ruben", "age": "20s, 30s", "description": "Cinema Usher, not very bright, Geordie"},
+    {"name": "Beck", "age": "20s, 30s", "description": "Projectionist, small-time shoplifter, Geordie"},
+    {"name": "Moon", "age": "20s, 30s", "description": "Projectionist, know-all, coward, Geordie"},
+    {"name": "Benny", "age": "40s, 50s", "description": "Jewish cinema owner, nearly bankrupt, Geordie"}
+  ]
+}
