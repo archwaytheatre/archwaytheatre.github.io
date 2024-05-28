@@ -109,22 +109,26 @@
        (take-while seq)
        (mapcat identity)))
 
-(defn get-trailer-url [id year]
-  (let [url (URL. (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov"))
-        huc ^HttpURLConnection (.openConnection url)]
-    (.setRequestMethod huc "HEAD")
-    (when (= 200 (.getResponseCode huc))
-      url)))
+(defn get-trailer-url [id year trailer?]
+  (let [trailer-url-str (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov")]
+    (if trailer?
+      trailer-url-str
+      (let [url (URL. trailer-url-str)
+            huc ^HttpURLConnection (.openConnection url)]
+        (.setRequestMethod huc "HEAD")
+        (when (= 200 (.getResponseCode huc))
+          url)))))
 
 (defn grab-data []
   (->> (grab-data-from-files)
        (remove plays/is-past?)
        (map (fn [production]
               (let [id (:production-code (meta production))
-                    year (:production-year (meta production))]
+                    year (:production-year (meta production))
+                    trailer? (:trailer production)]
                 (assoc production :id id
                                   :year year
-                                  :trailer-url (get-trailer-url id year)))))))
+                                  :trailer-url (get-trailer-url id year trailer?)))))))
 
 (core/page "index" "The Archway Theatre"
   (let [data (grab-data)
@@ -154,26 +158,26 @@
      [:div.center.archwaytitle [:span.larger "What's On?"]]
      [:div.vspace]
 
-     (when-let [{:keys [trailer-url] :as next-prod-with-trailer} (first (filter :trailer-url coming-soon-or-on-now))]
-       [:div
-        [:div.trailer-container
-         [:div.trailer
-          [:video {:controls "controls"
-                   :width    "100%"
-                   :height   "100%"
-                   :name     (str "Trailer for " (or (:name next-prod-with-trailer)
-                                                     "our upcoming production"))}
-           [:source {:src trailer-url}]]]]
-        (when (not= (:name next-prod-with-trailer) (:name (first coming-soon-or-on-now)))
-          [:div.vspace])])
-
-     [:div.events
-      (for [{:keys [start end] :as event} coming-soon-or-on-now]
+     [:div
+      (for [[idx {:keys [start end trailer-url] :as event}] (map-indexed vector coming-soon-or-on-now)]
         (let [event' event]
-          [:div.event.disappearable {:data-end (to-end-millis end)}
-           (event-image event')
-           (event-data event' start end)
-           (event-about event' start end)]))
+          [:div.events
+           (if trailer-url
+             [:div.trailer-container
+              [:div.trailer
+               [:video {:controls "controls"
+                        :width    "100%"
+                        :height   "100%"
+                        :name     (str "Trailer for " (or (:name event) "our upcoming production"))}
+                [:source {:src trailer-url}]]]]
+             [:div ])
+           (when (even? idx)
+             ; this is a horrible hack to make the event be odd/even
+             [:div ])
+           [:div.event.disappearable {:data-end (to-end-millis end)}
+            (event-image event')
+            (event-data event' start end)
+            (event-about event' start end)]]))
 
       [:div.center.archwaytitle [:span.larger "Coming Later..."]]
       [:div.vspace]

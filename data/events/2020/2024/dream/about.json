@@ -1,10 +1,11 @@
 {
-  "name" : "A Midsummer Night's Dream",
-  "location" : "Wakehurst Place",
-  "start" : "2024-06-15",
-  "end" : "2024-06-30",
+  "trailer" : true,
   "director" : "Gary Andrews",
-  "author": "William Shakespeare",
-  "company" : "Archway Theatre",
-  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/a-midsummer-nights-dream/e-qpreqe"
+  "name" : "A Midsummer Night's Dream",
+  "start" : "2024-06-15",
+  "author" : "William Shakespeare",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/a-midsummer-nights-dream/e-qpreqe",
+  "end" : "2024-06-30",
+  "location" : "Wakehurst Place",
+  "company" : "Archway Theatre"
 }
