@@ -1,5 +1,6 @@
 (ns io.github.archwaytheatre.site.core
   (:require [clojure.java.io :as io]
+            [clojure.string :as str]
             [hiccup.page :as hiccup.page]
             [hiccup.core :as hiccup.core]
             [clojure.string :as string])
@@ -294,7 +295,6 @@
              (hiccup.core/html content)
              [:footer social-media-logos
               [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
-      (println "Wrote" filename))
       (when-not (str/starts-with? filename "past/")
         (println "Wrote" (str target-file))))
     (catch Exception e
