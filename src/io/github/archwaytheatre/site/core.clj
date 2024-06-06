@@ -133,6 +133,19 @@
    ["About" "about.html"]
    ["☰" "everythingelse.html"]])
 
+(def menu-list-2
+  [["What's On?" "whatson.html"]
+   ["Get Involved!" nil {:id      "get-involved"
+                         :submenu [["Volunteer" "getinvolved.html"]
+                                   ["Audition" "auditions.html"]
+                                   ["Events" "events.html"]
+                                   ["Youngsters" "youth.html"]]}]
+   ["Members" "join.html"]
+   ["Find Us" "findus.html"]
+   ["Contact" "contact.html"]
+   ["About" "about.html"]
+   ["☰" "everythingelse.html"]])
+
 (defn social-media-logo
   ([title image url]
    (social-media-logo title image url nil))
@@ -143,12 +156,26 @@
       [:img.logo {:src image}]]]
     (when label [:div [:span.simple label]])]))
 
+(defn social-media-logo-2 [title image url]
+  [:a.footer__logo-link {:title title :href url :target "_blank"}
+   [:div.footer__logo-holder
+    [:div.footer__logo-wrapper
+     [:img.footer__logo-image {:src image}]]]])
+
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
 ;(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
 (def logo-ex (partial social-media-logo "X (formerly \"Twitter\")" "/images/logos/X.png"))
 (def logo-fb (partial social-media-logo "Facebook" "/images/logos/Facebook.png"))
 (def logo-yt (partial social-media-logo "YouTube" "/images/logos/YouTube.png"))
 (def logo-tk (partial social-media-logo "TikTok" "/images/logos/TikTok.png"))
+
+(def logo-ig-2 (partial social-media-logo-2 "Instagram" "/images/logos/Instagram.svg"))
+;(def logo-tw-2 (partial social-media-logo-2 "Twitter" "/images/logos/Twitter.png"))
+(def logo-ex-2 (partial social-media-logo-2 "X (formerly \"Twitter\")" "/images/logos/X.png"))
+(def logo-fb-2 (partial social-media-logo-2 "Facebook" "/images/logos/Facebook.png"))
+(def logo-yt-2 (partial social-media-logo-2 "YouTube" "/images/logos/YouTube.png"))
+(def logo-tk-2 (partial social-media-logo-2 "TikTok" "/images/logos/TikTok.png"))
+
 
 (def social-media-logos
   [:div
@@ -157,6 +184,14 @@
    (logo-fb "https://www.facebook.com/ArchwayTheatre/")
    (logo-tk "https://www.tiktok.com/@archwaytheatrehor?lang=en")
    (logo-yt "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
+
+(def social-media-logos-2
+  [:div
+   (logo-ig-2 "http://instagram.com/archwaytheatre/")
+   (logo-ex-2 "http://twitter.com/ArchwayHorley")
+   (logo-fb-2 "https://www.facebook.com/ArchwayTheatre/")
+   (logo-tk-2 "https://www.tiktok.com/@archwaytheatrehor?lang=en")
+   (logo-yt-2 "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
 
 (defn menu [relative-path current-page-filename]
   [:nav.dark
@@ -182,6 +217,40 @@
               [:a {:href (str relative-path href)} label]])]])
        [:div {:class (classes "menuItem" "topMenu" (when (= current-page-filename href) "selected"))}
         [:a.menuButton {:href (str relative-path href)}
+         label]]))])
+
+(defn menu-2 [relative-path current-page-filename]
+  [:nav.menu
+   (for [[label href dropdown] menu-list-2]
+     (if dropdown
+       (let [{:keys [id submenu]} dropdown
+             hrefs (set (map second submenu))]
+         [:div.menu__drop-down-holder {:id id
+                                       ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                       :onmouseleave  (str "dropDownUnhover('" id "');")
+                                       :class (classes "menu__item"
+                                                       ;"menu__drop-down-dropped" ; todo: remove
+                                                       "menu__item_top-level"
+                                                       (when (hrefs current-page-filename)
+                                                         "menu__item_selected"))
+                                       }
+          [:a.menu__button.menu__drop-down-button {:role    "button"
+                                      :href    "#0"
+                                      ;:onclick (str "dropDownTap('" id "');")
+                                      :onmouseover (str "dropDownHover('" id "');")
+                                      }
+           label]
+          [:div.menu__drop-down-menu
+           (for [[label href] submenu]
+             [:div {:class (classes "menu__item"
+                                    (when (= current-page-filename href)
+                                      "menu__item_selected"))}
+              [:a.menu__button {:href (str relative-path href)} label]])]])
+       [:div {:class (classes "menu__item"
+                              "menu__item_top-level"
+                              (when (= current-page-filename href)
+                                "menu__item_selected"))}
+        [:a.menu__button {:href (str relative-path href)}
          label]]))])
 
 (def local-dir (io/file "local"))
@@ -226,6 +295,48 @@
              [:footer social-media-logos
               [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
       (println "Wrote" filename))
+      (when-not (str/starts-with? filename "past/")
+        (println "Wrote" (str target-file))))
+    (catch Exception e
+      (.printStackTrace e)
+      (throw e))))
+
+(defn page-2 [page-name title & content]
+  (try
+    (let [filename (str page-name ".html")
+          target-file (io/file parent-dir filename)
+          nesting (+ (count (re-seq #"/" page-name))
+                     (if local? 0 0))
+          relative-path (string/join (repeat nesting "../"))]
+      (io/make-parents target-file)
+      (spit
+        target-file
+        (prettify
+          (hiccup.page/html5
+            [:head
+             [:meta {:charset "utf-8"}]
+             [:title title]
+             [:link {:rel "stylesheet" :href (str relative-path "css/bem.css")}]
+             [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
+             [:script {:src (str relative-path "js/popup.js")}]
+             [:script {:src (str relative-path "js/top-photo-data.js")}]
+             [:script {:src (str relative-path "js/photos.js") :defer true}]
+             [:script {:src (str relative-path "js/menudrop.js")}]
+             ]
+            [:body
+             [:div.prenav
+              [:div
+               [:a {:href "https://www.archwaytheatre.com/"}
+                [:img.prenav__logo {:src (str relative-path "archway_header.png")}]]]
+              [:a {:href "about.html"} [:div#topphotos]]
+              [:div.prenav__motto "A thriving theatre in the heart of Horley."]]
+             (menu-2 relative-path filename)
+             (hiccup.core/html content)
+             [:div.footer-ghost]
+             [:footer social-media-logos-2
+              [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
+      (when-not (str/starts-with? filename "past/")
+        (println "Wrote:" (str target-file))))
     (catch Exception e
       (.printStackTrace e)
       (throw e))))
@@ -245,7 +356,8 @@
              [:meta {:http-equiv "refresh" :content (str "0; URL=" canonical-url)}]
              [:link {:rel "canonical" :href canonical-url}]]
             [:body])))
-      (println "Wrote" filename))
+      (when-not (str/starts-with? filename "past/")
+        (println "Wrote" filename)))
     (catch Exception e
       (.printStackTrace e)
       (throw e))))
