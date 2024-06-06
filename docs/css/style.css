@@ -364,7 +364,9 @@ div.menuItem.topMenu.selected {
 }
 
 .laterevents {
-    width: calc(var(--poster-width) + var(--about-width));
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 .latereventimage {
     width: var(--poster-width);
