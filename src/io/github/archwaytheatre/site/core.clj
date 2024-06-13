@@ -159,9 +159,8 @@
 
 (defn social-media-logo-2 [title image url]
   [:a.footer__logo-link {:title title :href url :target "_blank"}
-   [:div.footer__logo-holder
-    [:div.footer__logo-wrapper
-     [:img.footer__logo-image {:src image}]]]])
+   [:div.footer__logo-wrapper
+    [:img.footer__logo-image {:src image}]]])
 
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
 ;(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
@@ -187,8 +186,7 @@
    (logo-yt "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
 
 (def social-media-logos-2
-  [:div
-   (logo-ig-2 "http://instagram.com/archwaytheatre/")
+  [(logo-ig-2 "http://instagram.com/archwaytheatre/")
    (logo-ex-2 "http://twitter.com/ArchwayHorley")
    (logo-fb-2 "https://www.facebook.com/ArchwayTheatre/")
    (logo-tk-2 "https://www.tiktok.com/@archwaytheatrehor?lang=en")
@@ -316,6 +314,7 @@
             [:head
              [:meta {:charset "utf-8"}]
              [:title title]
+             [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
              [:link {:rel "stylesheet" :href (str relative-path "css/bem.css")}]
              [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
              [:script {:src (str relative-path "js/popup.js")}]
@@ -329,11 +328,12 @@
                [:a {:href "https://www.archwaytheatre.com/"}
                 [:img.prenav__logo {:src (str relative-path "archway_header.png")}]]]
               [:a {:href "about.html"} [:div#topphotos]]
-              [:div.prenav__motto "A thriving theatre in the heart of Horley."]]
+              [:div#motto.prenav__motto "A thriving theatre in the heart of Horley."]]
              (menu-2 relative-path filename)
              (hiccup.core/html content)
              [:div.footer-ghost]
-             [:footer social-media-logos-2
+             [:footer
+              (into [:div.footer__logos] social-media-logos-2)
               [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
       (when-not (str/starts-with? filename "past/")
         (println "Wrote:" (str target-file))))

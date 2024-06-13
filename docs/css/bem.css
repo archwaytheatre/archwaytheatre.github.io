@@ -17,7 +17,7 @@
     --pink-a: #ac0150;
     --fg-light: rgb(220,220,220);
     /* https://matthewjamestaylor.com/responsive-font-size#:~:text=The%20consensus%20is%20mobile%20font,large%20devices%20is%2018px%20%2D%2020px. */
-    font-size: 22px;
+    font-size: 16px;
 
     /*--scrollbar-width: calc(100vw - 100%);*/
     /*--aspect-ratio: 1.4145161;*/
@@ -114,12 +114,13 @@ a.normal {
     background-color: white;
     padding: 10px;
     display: flex;
+    column-gap: 5px;
     justify-content: space-between;
     align-items: flex-end;
     overflow: hidden;
 }
 .prenav__logo {
-    max-width: 100%;
+    max-width: 50vw;
 }
 .prenav__motto {
     color: var(--bg);
@@ -141,47 +142,68 @@ a.normal {
 }
 #topphotos div img {
     position: relative;
+    max-width: 100%;
+}
+
+.fadein {
+    animation: fadein 3s;
+}
+.fadeout {
+    animation: fadeout 3s;
+    opacity: 0;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 
 
 
-
-/*.footer__holder {*/
-/*    position: relative;*/
-/*}*/
 footer {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    text-align: center;
+    /*text-align: center;*/
     background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
-    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100vw;
+}
+.footer__logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 30rem;
 }
 .footer__logo-link {
     text-decoration: none;
 }
-.footer__logo-holder {
-    padding: 0.25rem;
-    display: inline-block;
-}
-.footer__logo-holder:hover {
-    background: radial-gradient(closest-side circle at center, rgba(255,255,255,0.3) 50%, transparent);
-}
 .footer__logo-wrapper {
-    display: inline-block;
-    margin-left: 0.8rem;
-    margin-right: 0.8rem;
+    padding: 0.75rem;
     width: 3rem;
     height: 2rem;
     overflow: hidden;
+    text-align: center;
+}
+.footer__logo-wrapper:hover {
+    background: radial-gradient(closest-side circle at center, rgba(255,255,255,0.5) 60%, transparent);
 }
 .footer__logo-image {
     height: 2rem;
 }
 .footer-ghost {
-    height: 5.1rem;
-    /*background-color: white;*/
+    height: 5.5rem;
+    /*background-color: white; */
 }
 
 .menu {
@@ -315,6 +337,8 @@ footer {
 }
 .event-overview__details {
     padding: 0.1rem;
+    width: 100%;
+    text-align: center;
 }
 .event-overview__title {
     text-align: center;

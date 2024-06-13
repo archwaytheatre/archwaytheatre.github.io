@@ -25,7 +25,8 @@ function setTagLine(text) {
 
 function startTopPhotos() {
 
-    let topPhotos =  document.getElementById('topphotos');
+    let topPhotos= document.getElementById('topphotos');
+    let motto = document.getElementById('motto');
     let imageData = selectionForNow(topPhotoData);
     let imageIdx = 0;
 
@@ -41,6 +42,11 @@ function startTopPhotos() {
         let photographer = imageDatum[2];
         let src = 'https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/' + imageDatum[1];
         // console.log('fadeInNextImage:  ->  ' + yOffset + "  " + src );
+
+        if (motto) {
+            motto.classList.remove('fadein');
+            motto.classList.add('fadeout');
+        }
 
         let holder = document.createElement('div');
         let img = new Image ();
@@ -65,6 +71,10 @@ function startTopPhotos() {
 
     fadeOutImage = function () {
         topPhotos.firstElementChild.classList.add("fadeout");
+        if (motto) {
+            motto.classList.remove('fadeout');
+            motto.classList.add('fadein');
+        }
         setTimeout(fadeInNextImage, delay);
     }
 
