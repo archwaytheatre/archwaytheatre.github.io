@@ -134,7 +134,12 @@
   (let [data (grab-data)
         coming-soon-or-on-now (take 8 (sort-by :start (filter :ticketurl data)))
         soon? (set (map :id coming-soon-or-on-now))
-        coming-later (sort-by :start (remove #(-> % :id soon?) data))]
+        coming-later (->> data
+                          (remove #(-> % :id soon?))
+                          (map #(assoc % :posterurl (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
+                                                          "site/" (:year %) "/" (:id %) "/poster-scaled.png")))
+                          (filter #(try (slurp (:posterurl %)) (catch Exception _ false)))
+                          (sort-by :start))]
 
     [:div.content
 
@@ -179,19 +184,15 @@
             (event-data event' start end)
             (event-about event' start end)]]))
 
-      [:div.center.archwaytitle [:span.larger "Coming Later..."]]
-      [:div.vspace]
-
-      [:div.laterevents
-       (for [{:keys [id year ticketurl]} coming-later
-             :let [url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                            "site/" year "/" id "/poster-scaled.png")]
-             :when (try (slurp url) (catch Exception e nil))]
-         (if ticketurl
-           [:a {:href ticketurl} [:img.latereventimage.imglink {:src url}]]
-           [:img.latereventimage {:src url}]))]]
-
-     [:div.vspace]
+      (when (seq coming-later) [:div.center.archwaytitle [:span.larger "Coming Later..."]])
+      (when (seq coming-later) [:div.vspace])
+      (when (seq coming-later)
+        [:div.laterevents
+         (for [{:keys [ticketurl posterurl]} coming-later]
+           (if ticketurl
+             [:a {:href ticketurl} [:img.latereventimage.imglink {:src posterurl}]]
+             [:img.latereventimage {:src posterurl}]))])]
+     (when (seq coming-later) [:div.vspace])
 
      [:section.container
       [:hr]
