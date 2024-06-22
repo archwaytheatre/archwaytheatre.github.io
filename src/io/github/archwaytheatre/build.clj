@@ -24,6 +24,9 @@
 (defn build [& files]
   (println "Building...")
   (time
-    (do
+    (try
       (require-namespaces files)
-      (println "Built."))))
+      (println "Built.")
+      (catch Exception e
+        (.printStackTrace e)
+        (throw e)))))
