@@ -64,6 +64,15 @@
       ]
 
      [:div.other
+      [:h1 "Archway Karaoke"]
+      [:p "Archway Studio Theatre"]
+      [:p "Fri 12 July 2024, 7:30PM - 10:30PM"]
+      [:p "All children under 16 must be accompanied by an adult."]
+
+      [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-mbdlpd"
+                                     :target "_blank"} "Buy tickets"]]]
+
+     [:div.other
       [:h1 "Dingbats Improv Classes"]
       [:p "Learn how to improvise in a friendly and supportive environment."]
       [:p "Our classes are where we have the most fun. You don’t have to be an actor or a comedian to attend – just a genuine human being who can listen and laugh."]
