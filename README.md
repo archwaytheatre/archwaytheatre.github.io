@@ -12,6 +12,20 @@ Requires the Clojure 'clj' command line tool.
 
 `clj -X:watch`
 
+Remote debugging can be achieved. Currently, the setup I've used is:
+Android device:
+  enable USB debugging under 'Developer Options'
+  plug in USB cable
+  under connection popup options select 'PTP'
+Desktop:
+  chrome://inspect/#devices
+    tick discover USB devices, and enable port forwarding for whatever port IntelliJ wants to use 
+    (currently '63342 -> localhost:63342')
+  IntelliJ
+    open an output file from the 'local' directory in the browser by right-clicking in IntelliJ, grab the magic URL
+  chrome://inspect/#devices
+    navigate to magic url ('inspect' should open a connected browser window)
+
 ### Essential
 
 #### Plumbing
@@ -146,15 +160,3 @@ DONE - title size for plays to be the same for all plays
 NO - fancy font on buy tickets buttons?
 
 DONE: re-style buttons
-
-
-
-
-
-
-
-
-
-
-
-
