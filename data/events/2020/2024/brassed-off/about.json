@@ -1,10 +1,11 @@
 {
-  "name" : "Brassed Off",
-  "location" : "Main House",
-  "start" : "2024-07-16",
-  "end" : "2024-07-27",
-  "author" : "Paul Allen, from the screenplay by Mark Herman",
+  "trailer" : true,
   "director" : "Greg Field",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-orlajx"
+  "name" : "Brassed Off",
+  "start" : "2024-07-16",
+  "author" : "Paul Allen, from the screenplay by Mark Herman",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-orlajx",
+  "end" : "2024-07-27",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }
