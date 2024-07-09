@@ -63,7 +63,7 @@
 
       ]
 
-     [:div.other
+     #_[:div.other
       [:h1 "Archway Karaoke"]
       [:p "Archway Studio Theatre"]
       [:p "Fri 12 July 2024, 7:30PM - 10:30PM"]
