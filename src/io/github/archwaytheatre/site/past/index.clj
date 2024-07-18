@@ -50,7 +50,7 @@
         [:br]
         (for [{:keys [image-url photographer]} photos]
           [:div.static-photo-container
-           [:img {:src     (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" image-url)
+           [:img {:src     (str data/asset-url-prefix image-url)
                   :loading "lazy"}]
            [:div.static-photo-credit
             (if (= "Archway Archive" photographer)

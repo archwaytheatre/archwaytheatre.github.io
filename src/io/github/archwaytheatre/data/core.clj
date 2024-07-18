@@ -7,7 +7,8 @@
 (def data-dir (io/file "data"))
 (def event-dir (io/file data-dir "events"))
 (def s3-dir "s3://archwaytheatre/site")
-(def asset-url-prefix "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/")
+(def _asset-url-prefix "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/")
+(def asset-url-prefix "https://d35974u23x7pxe.cloudfront.net/")
 
 (defn codify [production-name]
   (-> production-name

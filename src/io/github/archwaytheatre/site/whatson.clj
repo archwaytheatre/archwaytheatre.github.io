@@ -1,5 +1,6 @@
 (ns io.github.archwaytheatre.site.whatson
   (:require [clojure.string :as str]
+            [io.github.archwaytheatre.data.core :as data]
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.net HttpURLConnection URL]
@@ -13,7 +14,7 @@
        (mapcat identity)))
 
 (defn get-trailer-url [id year trailer?]
-  (let [trailer-url-str (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov")]
+  (let [trailer-url-str (str data/asset-url-prefix year "/" id "/trailer.mov")]
     (if trailer?
       trailer-url-str
       (let [url (URL. trailer-url-str)
@@ -60,7 +61,7 @@
                                        :width    "100%"
                                        :height   "100%"
                                        :name     "Archway Promotional Video"}
-                [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Promo23.mov"}]]])
+                [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]])
         (conj [:div.vertical-spacer])
         (conj [:h1 "What's On?"])
         (conj [:div.vertical-spacer])
@@ -69,8 +70,7 @@
                 [:div.event-holder
                  [:div.event-overview.event-focus {:id (str "event-overview-" id)}
                   [:a {:href ticketurl}
-                   [:img.event-overview__poster {:src (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                                                           "site/" year "/" id "/poster-scaled.png")}]]
+                   [:img.event-overview__poster {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]]
                   [:div.event-overview__about
                    [:div.event-overview__details (str (date-range start end) " │ " location)]
                    [:div.event-overview__title [:h2 name]]
@@ -109,8 +109,7 @@
         (conj [:div.vertical-spacer])
         (conj [:div.later-events
                (for [{:keys [id year ticketurl]} coming-later
-                     :let [url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                                    "site/" year "/" id "/poster-scaled.png")]
+                     :let [url (str data/asset-url-prefix year "/" id "/poster-scaled.png")]
                      :when (try (slurp url) (catch Exception _ nil))]
                  (if (< (rand) 0.5) ;ticketurl
                    [:a {:href ticketurl} [:img.later-events__image {:src url}]]

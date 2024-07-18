@@ -40,7 +40,7 @@ function startTopPhotos() {
         imageIdx%=imageData.length;
         let yOffset = imageDatum[0];
         let photographer = imageDatum[2];
-        let src = 'https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/' + imageDatum[1];
+        let src = 'https://d35974u23x7pxe.cloudfront.net/' + imageDatum[1];
         // console.log('fadeInNextImage:  ->  ' + yOffset + "  " + src );
 
         if (motto) {
@@ -139,7 +139,7 @@ function startCarousel() {
     let nextImage = function () {
         let imageDatum = imageData[imageIdx++];
         imageIdx%=imageData.length;
-        let src = 'https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/' + imageDatum[0];
+        let src = 'https://d35974u23x7pxe.cloudfront.net/' + imageDatum[0];
         var img = new Image ();
         img.onload = function () {
             let newElement = document.createElement('div');

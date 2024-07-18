@@ -2,6 +2,7 @@
   (:require [cheshire.core :as json]
             [clojure.java.io :as io]
             [clojure.string :as str]
+            [io.github.archwaytheatre.data.core :as data]
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.net HttpURLConnection URL]
@@ -46,8 +47,7 @@
    [:a {:href ticketurl}
     [:img {:class (core/classes (when image-no-stretch "unstretched"))
            :src   (or imageurl
-                      (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                           "site/" year "/" id "/poster-scaled.png"))}]]])
+                      (str data/asset-url-prefix year "/" id "/poster-scaled.png"))}]]])
 
 (def fallback-ticket-url "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre")
 
@@ -94,7 +94,7 @@
 
 (defn event-trailer [{:keys [name start id trailer year]}]
   (when (and start id trailer)
-    (let [trailer-url (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov")]
+    (let [trailer-url (str data/asset-url-prefix year "/" id "/trailer.mov")]
       [:div.trailer-container
        [:div.trailer
         [:video {:controls "controls"
@@ -110,7 +110,7 @@
        (mapcat identity)))
 
 (defn get-trailer-url [id year trailer?]
-  (let [trailer-url-str (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/" year "/" id "/trailer.mov")]
+  (let [trailer-url-str (str data/asset-url-prefix year "/" id "/trailer.mov")]
     (if trailer?
       trailer-url-str
       (let [url (URL. trailer-url-str)
@@ -136,8 +136,8 @@
         soon? (set (map :id coming-soon-or-on-now))
         coming-later (->> data
                           (remove #(-> % :id soon?))
-                          (map #(assoc % :posterurl (str "https://archwaytheatre.s3.eu-west-2.amazonaws.com/"
-                                                          "site/" (:year %) "/" (:id %) "/poster-scaled.png")))
+                          (map #(assoc % :posterurl (str data/asset-url-prefix
+                                                         (:year %) "/" (:id %) "/poster-scaled.png")))
                           (filter #(try (slurp (:posterurl %)) (catch Exception _ false)))
                           (sort-by :start))]
 
@@ -157,7 +157,7 @@
                 :width    "100%"
                 :height   "100%"
                 :name     "Archway Promotional Video"}
-        [:source {:src "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2023/Promo23.mov"}]]]]
+        [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]]]
 
      [:div.vspace]
      [:div.center.archwaytitle [:span.larger "What's On?"]]
