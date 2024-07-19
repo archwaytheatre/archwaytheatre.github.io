@@ -1,10 +1,11 @@
 {
-  "name" : "Rhythm of Life",
-  "location" : "Main House",
-  "start" : "2024-08-20",
-  "end" : "2024-08-31",
-  "author" : null,
+  "trailer" : true,
   "director" : "Hannah Redfern & Laura Day",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-jgpxvg"
+  "name" : "Rhythm of Life",
+  "start" : "2024-08-20",
+  "author" : null,
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-jgpxvg",
+  "end" : "2024-08-31",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }

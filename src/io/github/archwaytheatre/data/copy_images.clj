@@ -167,9 +167,13 @@
 (defn upload-trailer [production-name production-year local-file-name]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
         prod-code (data/codify production-name)
-        local-file (io/file local-dir (str production-year) prod-code "trailer.mov")]
+        about-json (or (plays/load-production-data production-year production-name)
+                       (throw (ex-info "Please create the data first." {:prod-code prod-code})))
+        local-file (io/file local-dir (str production-year) prod-code "trailer.mov")
+        new-about-json (assoc about-json :trailer true)]
     (io/copy (io/file local-file-name) local-file)
-    (copy-to-s3 local-dir local-file)))
+    (copy-to-s3 local-dir local-file)
+    (plays/save-production-data new-about-json)))
 
 (defn upload-photos [production-name production-year photo-directory photographer]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
