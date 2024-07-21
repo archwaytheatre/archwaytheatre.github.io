@@ -1,0 +1,12 @@
+{
+  "events": [{
+    "datetime": "2024-07-28T19:45:00",
+    "location": "in the Function Room",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Andrew", "gender": "male", "age": "30-mid 40s", "description": "American or English, believes he can change the world for the better."},
+    {"name": "A Woman", "gender": "female", "age": "30+", "description": "Nationality irrelevant, a Spy, fixer, or is she?"},
+    {"name": "A Man", "gender": "male", "age": "30+", "description": "Nationality irrelevant, a Spy, fixer, or is he?"}
+  ]
+}
