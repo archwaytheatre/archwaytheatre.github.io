@@ -1,10 +1,28 @@
 {
-  "name" : "Di and Viv and Rose",
-  "location" : "Main House",
-  "start" : "2024-06-04",
-  "end" : "2024-06-15",
   "director" : "Joy Matthews",
-  "author": "Amelia Bullmore",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-kgklvx"
+  "name" : "Di and Viv and Rose",
+  "start" : "2024-06-04",
+  "author" : "Amelia Bullmore",
+  "photo-sets" : [ {
+    "photographer" : "Bryony Lock",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.279 ],
+      [ "photo-0002.png", 0.258 ],
+      [ "photo-0003.png", 0.317 ],
+      [ "photo-0004.png", 0.234 ],
+      [ "photo-0005.png", 0.52 ],
+      [ "photo-0006.png", 0.289 ],
+      [ "photo-0007.png", 0.365 ],
+      [ "photo-0008.png", 0.319 ],
+      [ "photo-0009.png", 0.135 ],
+      [ "photo-0010.png", 0.271 ],
+      [ "photo-0011.png", 0.304 ],
+      [ "photo-0012.png", 0.223 ],
+      [ "photo-0013.png", 0.175 ],
+      [ "photo-0014.png", 0.417 ] ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-kgklvx",
+  "end" : "2024-06-15",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }
