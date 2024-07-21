@@ -85,7 +85,8 @@
                                                                         (sort-by (comp plays/complete-date :start))
                                                                         (reverse))
                                      :when (plays/is-past? production)
-                                     :when (not (:external production))]
+                                     :when (not (:external production))
+                                     :when (not (:cancelled production))]
                                  (assoc production
                                    :year year
                                    :photos (plays/get-photos-for production)

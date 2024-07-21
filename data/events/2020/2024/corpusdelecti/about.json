@@ -6,5 +6,6 @@
   "end" : "2024-06-01",
   "author": "Robert Comolli",
   "director" : "Robert Comolli",
-  "company" : "Archway Theatre"
+  "company" : "Archway Theatre",
+  "cancelled": true
 }
