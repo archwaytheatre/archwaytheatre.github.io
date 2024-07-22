@@ -1,0 +1,16 @@
+{
+  "events": [{
+    "datetime": "2024-07-29T19:45:00",
+    "location": "in the Bar",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Robert Falcon Scott", "gender": "male", "age": "35-55", "description": "Leader of the expedition, Strong, determined, hides his insecurities and doubts, can be distant and socially inept. A demanding & emotional leading role."},
+    {"name": "Roald Amundsen", "gender": "male", "age": "35-55", "description": "Confident, imposing leader of the successful Norwegian Expedition. Amundsen’s presence in the play is via hallucinations by Captain Scott - challenging him, as both his nemesis and his confessor. Subtle Norwegian/Scandinavian accent (but not essential)."},
+    {"name": "Kathleen Bruce Scott", "gender": "female", "age": "25-40", "description": "Scott’s Wife. - Strong, powerful, passionate figure in her own right. Kathleen may not fully understand Robert’s passions, but she respects them. Robert is haunted by the memory of Kathleen throughout the play."},
+    {"name": "Lawrence “Titus” Oates", "gender": "male", "age": "25-40", "description": "The only former soldier on the team. Oates disagrees with Scott on many aspects of his leadership and expedition logistics. Strong, reliable, self-sacrificing."},
+    {"name": "Edward Wilson", "gender": "male", "age": "30-50", "description": "A qualified physician, calming, artistic, and passionate, he is Scott’s best friend and the glue that holds the group together. His dedication to others is paramount."},
+    {"name": "Henry “Birdie” Bowers", "gender": "male", "age": "25-40", "description": "The youngest of the group but also the one with a sense of humour and joy. Dependable, unselfish."},
+    {"name": "Petty Officer Edgar “Taff” Evans", "gender": "male", "age": "30-50", "description": "Quiet, pensive, and hiding a terrible secret. Physically a bigger man, but the first to fall. Powerful onstage death scene. Welsh accent (but not essential)."}
+  ]
+}

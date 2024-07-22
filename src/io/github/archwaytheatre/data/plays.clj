@@ -130,8 +130,10 @@
 
 (defn get-productions-for [year]
   (let [year-dir (io/file data/event-dir (decade (str year)) (str year))]
-    (remove nil? (for [production (vec (.list year-dir))]
-                   (load-production-data (str year) production)))))
+    (->> (for [production (vec (.list year-dir))]
+           (load-production-data (str year) production))
+         (remove nil?)
+         (remove :cancelled))))
 
 (defn get-all-future-productions []
   (let [years (take 3 (iterate #(.plusYears % 1) (Year/now)))]
