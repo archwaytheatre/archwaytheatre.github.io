@@ -114,15 +114,16 @@
                    (keyPressed [_ key-event]
                      (let [value (.getKeyCode key-event)]
                        (case value
-                         87 (beep (swap! !data assoc-in [k1 :include?] true))
-                         84 (beep (swap! !data is-better-than k1 k2))
-                         67 (beep (swap! !data assoc-in [k1 :exclude?] true))
-                         70 (beep (swap! !data assoc-in [k2 :include?] true))
-                         78 (beep (swap! !data is-better-than k2 k1))
-                         76 (beep (swap! !data assoc-in [k2 :exclude?] true))
+                         87 (beep (println "definitely include the image on the left") (swap! !data assoc-in [k1 :include?] true)) ; W
+                         84 (beep (println "prefer the image on the left") (swap! !data is-better-than k1 k2))         ; T
+                         67 (beep (println "definitely exclude the image on the left") (swap! !data assoc-in [k1 :exclude?] true)) ; C
+                         70 (beep (println "definitely include the image on the right") (swap! !data assoc-in [k2 :include?] true)) ; F
+                         78 (beep (println "prefer the image on the right") (swap! !data is-better-than k2 k1))         ; N
+                         76 (beep (println "definitely exclude the image on the right") (swap! !data assoc-in [k2 :exclude?] true)) ; L
                          :noop)))
                    (keyReleased [_ key-event]
-                     (when (#{32 10} (.getKeyCode key-event))
+                     (when (#{32 10} (.getKeyCode key-event)) ; Space, Enter
+                       (println "next!")
                        (deliver result :done!))))]
     (try
       (.setImage image-icon-A img-A)
@@ -155,6 +156,13 @@
                               (drop-while #(.exists %))
                               (first))]
     (println (str "Choosing " target " out of " (count data) " photos..."))
+    (println "W - definitely include the image on the left")
+    (println "T - prefer the image on the left")
+    (println "C - definitely exclude the image on the left")
+    (println "F - definitely include the image on the right")
+    (println "N - prefer the image on the right")
+    (println "L - definitely exclude the image on the right")
+    (println "Space / Enter - Advance to next image.")
     ;(pprint/pprint (all-rankings @!data))
     (if (.mkdir output-directory)
       (do
@@ -170,6 +178,16 @@
 
 (comment
 
+  ; TODO: rescale all images upfront and load into memory?
+  ; TODO: progress indicator?
+  ; TODO: rejected images?
+  ; TODO: automate!!!
+  ;         rate the interesting-ness of the faces
+  ;           size, emotional extremity, focus
+  ;           color distribution in individual picture, and of the set
+  ;         recognize the people and ensure 1 of each actor?
+
   (go! "/home/rachel/Downloads/Peter Pan 2024" 20)
+  (go! "/home/rachel/Downloads/Photos Wakehurst Midsummer-20240721T122250Z-001/Photos Wakehurst Midsummer" 20)
 
   )
