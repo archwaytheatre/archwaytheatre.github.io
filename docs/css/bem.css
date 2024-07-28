@@ -222,6 +222,8 @@ footer {
 
 .menu__item {
     display: flex;
+    text-wrap: nowrap;
+    justify-content: center;
 }
 .menu__item_selected {
     background-color: var(--pink-a);
@@ -249,10 +251,11 @@ footer {
 .menu__drop-down-menu {
     display: none;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     position: absolute;
     top: 100%;
-    width: 100%;
+    right: 0;
+    min-width: 100%;
     box-shadow: 0 5px 15px var(--shadow);
     clip-path: inset(0 -15px -15px -15px);
     background-color: var(--bg2);

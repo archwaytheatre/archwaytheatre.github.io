@@ -145,7 +145,24 @@
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
    ["About" "about.html"]
-   ["☰" "everythingelse.html"]])
+   ;["☰" "everythingelse.html"]
+   ["☰" nil {:id      "hamburger"
+             :submenu [["Box Office" "https://www.ticketsource.co.uk/archwaytheatre/"]
+                       ["Past Productions" "past/index.html"]
+                       ["What's On?" "whatson.html"]
+                       ["Volunteer" "getinvolved.html"]
+                       ["Audition" "auditions.html"]
+                       ["Events" "events.html"]
+                       ["Youngsters" "youth.html"]
+                       ["Members" "join.html"]
+                       ["Find Us" "findus.html"]
+                       ["Contact" "contact.html"]
+                       ["Little Theatre Guild" "https://littletheatreguild.org/"]
+                       ["A History of The Archway" "history/history.html"]
+                       ["Hire a Space" "spaces.html"]
+                       ["About" "about.html"]
+                       ["Legal & Site Info" "legal.html"]]}]
+   ])
 
 (defn social-media-logo
   ([title image url]
