@@ -214,14 +214,29 @@ footer {
 
 .menu {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     position: sticky;
     top: 0;
     z-index: 10;
     background-color: var(--bg2);
     box-shadow: 0 5px 15px var(--shadow);
+}
+
+.menu__main {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: visible;
+    max-width: calc(100vw - 4em);
+}
+.menu__hamburger {
+    background-image: linear-gradient(90deg, transparent 0%, var(--bg2) 50%);
+}
+.menu__hamburger .menu__button {
+    text-align: right;
+    min-width: 2.5em;
 }
 
 .menu__item_top-level {}

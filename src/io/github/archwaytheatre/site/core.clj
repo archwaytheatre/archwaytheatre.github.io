@@ -136,32 +136,32 @@
 
 (def menu-list-2
   [["What's On?" "whatson.html"]
-   ["Get Involved!" nil {:id      "get-involved"
-                         :submenu [["Volunteer" "getinvolved.html"]
-                                   ["Audition" "auditions.html"]
-                                   ["Events" "events.html"]
-                                   ["Youngsters" "youth.html"]]}]
+   ["Get Involved!" :highlight-selected {:id      "get-involved"
+                                         :submenu [["Volunteer" "getinvolved.html"]
+                                                   ["Audition" "auditions.html"]
+                                                   ["Events" "events.html"]
+                                                   ["Youngsters" "youth.html"]]}]
    ["Members" "join.html"]
    ["Find Us" "findus.html"]
    ["Contact" "contact.html"]
    ["About" "about.html"]
    ;["☰" "everythingelse.html"]
-   ["☰" nil {:id      "hamburger"
-             :submenu [["Box Office" "https://www.ticketsource.co.uk/archwaytheatre/"]
-                       ["Past Productions" "past/index.html"]
-                       ["What's On?" "whatson.html"]
-                       ["Volunteer" "getinvolved.html"]
-                       ["Audition" "auditions.html"]
-                       ["Events" "events.html"]
-                       ["Youngsters" "youth.html"]
-                       ["Members" "join.html"]
-                       ["Find Us" "findus.html"]
-                       ["Contact" "contact.html"]
-                       ["Little Theatre Guild" "https://littletheatreguild.org/"]
-                       ["A History of The Archway" "history/history.html"]
-                       ["Hire a Space" "spaces.html"]
-                       ["About" "about.html"]
-                       ["Legal & Site Info" "legal.html"]]}]
+   ["☰" false {:id      "hamburger"
+               :submenu [["Box Office" "https://www.ticketsource.co.uk/archwaytheatre/"]
+                         ["Past Productions" "past/index.html"]
+                         ["What's On?" "whatson.html"]
+                         ["Volunteer" "getinvolved.html"]
+                         ["Audition" "auditions.html"]
+                         ["Events" "events.html"]
+                         ["Youngsters" "youth.html"]
+                         ["Members" "join.html"]
+                         ["Find Us" "findus.html"]
+                         ["Contact" "contact.html"]
+                         ["Little Theatre Guild" "https://littletheatreguild.org/"]
+                         ["A History of The Archway" "history/history.html"]
+                         ["Hire a Space" "spaces.html"]
+                         ["About" "about.html"]
+                         ["Legal & Site Info" "legal.html"]]}]
    ])
 
 (defn social-media-logo
@@ -235,40 +235,47 @@
         [:a.menuButton {:href (str relative-path href)}
          label]]))])
 
+(defn menu-item-2 [relative-path current-page-filename [label href dropdown]]
+  (if dropdown
+    (let [{:keys [id submenu]} dropdown
+          hrefs (set (map second submenu))]
+      [:div.menu__drop-down-holder {:id id
+                                    ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                    :onmouseleave  (str "dropDownUnhover('" id "');")
+                                    :class (classes "menu__item"
+                                                    ;"menu__drop-down-dropped" ; todo: remove
+                                                    "menu__item_top-level"
+                                                    (when (and (hrefs current-page-filename)
+                                                               href)
+                                                      "menu__item_selected"))
+                                    }
+       [:a.menu__button.menu__drop-down-button {:role    "button"
+                                                :href    "#0"
+                                                ;:onclick (str "dropDownTap('" id "');")
+                                                :ontouchstart (str "dropDownTap('" id "');")
+                                                :onmouseover (str "dropDownHover('" id "');")
+                                                }
+        label]
+       [:div.menu__drop-down-menu
+        (for [[label href] submenu]
+          [:div {:class (classes "menu__item"
+                                 (when (= current-page-filename href)
+                                   "menu__item_selected"))}
+           [:a.menu__button {:href (str relative-path href)} label]])]])
+    [:div {:class (classes "menu__item"
+                           "menu__item_top-level"
+                           (when (= current-page-filename href)
+                             "menu__item_selected"))}
+     [:a.menu__button {:href (str relative-path href)}
+      label]]))
+
 (defn menu-2 [relative-path current-page-filename]
   [:nav.menu
-   (for [[label href dropdown] menu-list-2]
-     (if dropdown
-       (let [{:keys [id submenu]} dropdown
-             hrefs (set (map second submenu))]
-         [:div.menu__drop-down-holder {:id id
-                                       ;:onmouseout  (str "dropDownUnhover('" id "');")
-                                       :onmouseleave  (str "dropDownUnhover('" id "');")
-                                       :class (classes "menu__item"
-                                                       ;"menu__drop-down-dropped" ; todo: remove
-                                                       "menu__item_top-level"
-                                                       (when (hrefs current-page-filename)
-                                                         "menu__item_selected"))
-                                       }
-          [:a.menu__button.menu__drop-down-button {:role    "button"
-                                      :href    "#0"
-                                      ;:onclick (str "dropDownTap('" id "');")
-                                      :ontouchstart (str "dropDownTap('" id "');")
-                                      :onmouseover (str "dropDownHover('" id "');")
-                                      }
-           label]
-          [:div.menu__drop-down-menu
-           (for [[label href] submenu]
-             [:div {:class (classes "menu__item"
-                                    (when (= current-page-filename href)
-                                      "menu__item_selected"))}
-              [:a.menu__button {:href (str relative-path href)} label]])]])
-       [:div {:class (classes "menu__item"
-                              "menu__item_top-level"
-                              (when (= current-page-filename href)
-                                "menu__item_selected"))}
-        [:a.menu__button {:href (str relative-path href)}
-         label]]))])
+   [:div.menu__main
+    (for [menu-item-config (butlast menu-list-2)]
+      (menu-item-2 relative-path current-page-filename menu-item-config))]
+   [:div.menu__hamburger
+    (menu-item-2 relative-path current-page-filename (last menu-list-2))]])
 
 (def local-dir (io/file "local"))
 (def deploy-dir (io/file "docs"))
