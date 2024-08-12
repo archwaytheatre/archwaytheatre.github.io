@@ -253,6 +253,7 @@
           [:a.menu__button.menu__drop-down-button {:role    "button"
                                       :href    "#0"
                                       ;:onclick (str "dropDownTap('" id "');")
+                                      :ontouchstart (str "dropDownTap('" id "');")
                                       :onmouseover (str "dropDownHover('" id "');")
                                       }
            label]
