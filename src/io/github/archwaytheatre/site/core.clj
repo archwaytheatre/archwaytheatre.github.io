@@ -270,12 +270,13 @@
       label]]))
 
 (defn menu-2 [relative-path current-page-filename]
-  [:nav.menu
-   [:div.menu__main
-    (for [menu-item-config (butlast menu-list-2)]
-      (menu-item-2 relative-path current-page-filename menu-item-config))]
-   [:div.menu__hamburger
-    (menu-item-2 relative-path current-page-filename (last menu-list-2))]])
+  [:nav.menu__sticker
+   [:div.menu
+    [:div.menu__main
+     (for [menu-item-config (butlast menu-list-2)]
+       (menu-item-2 relative-path current-page-filename menu-item-config))]
+    [:div.menu__hamburger
+     (menu-item-2 relative-path current-page-filename (last menu-list-2))]]])
 
 (def local-dir (io/file "local"))
 (def deploy-dir (io/file "docs"))

@@ -212,29 +212,48 @@ footer {
     /*background-color: white; */
 }
 
-.menu {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    font-size: 1.0rem;
+.menu__sticker {
     position: sticky;
     top: 0;
     z-index: 10;
     background-color: var(--bg2);
     box-shadow: 0 5px 15px var(--shadow);
+    text-align: center;
 }
+
+.menu {
+    display: inline-block;
+    position: relative;
+    /*max-width: 100%;*/
+    /*display: flex;*/
+    /*flex-wrap: nowrap;*/
+    /*justify-content: center;*/
+    font-size: 1.0rem;
+    max-width: calc(100% - 0em);
+    /*overflow-x: hidden;*/
+    /*overflow-y: hidden;*/
+}
+
+/* scrollbar width : calc(100vw - 100%);calc(100vw - 100%) */
 
 .menu__main {
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow: visible;
-    max-width: calc(100vw - 4em);
+    padding-right: 4em;
+    /*max-width: calc(100vw - 4em);*/
 }
 .menu__hamburger {
+    position: absolute;
+    right: 0;
+    padding-right: 1em;
+    top: 0;
+    /* TODO: https://stackoverflow.com/questions/15057478/is-there-a-css-only-way-to-completely-hide-elements-that-partially-overflow */
     background-image: linear-gradient(90deg, transparent 0%, var(--bg2) 50%);
 }
 .menu__hamburger .menu__button {
+    min-width: 2.5em;
     text-align: right;
     min-width: 2.5em;
 }
