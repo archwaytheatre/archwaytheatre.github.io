@@ -1,10 +1,11 @@
 {
-  "name" : "Wild",
-  "location" : "Main House",
-  "start" : "2024-09-24",
-  "end" : "2024-10-05",
-  "author" : "Mike Bartlett",
+  "trailer" : true,
   "director" : "Eddie Redfern",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/wild/e-ebvoze"
+  "name" : "Wild",
+  "start" : "2024-09-24",
+  "author" : "Mike Bartlett",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/wild/e-ebvoze",
+  "end" : "2024-10-05",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }
