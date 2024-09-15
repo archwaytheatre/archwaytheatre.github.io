@@ -13,8 +13,9 @@
                       symbol))))
     (cons
       (io/file "./src/io/github/archwaytheatre/site/index.clj")
-      (or (seq (remove nil? files))
-          (file-seq (io/file "./src/io/github/archwaytheatre/site"))))))
+      (cons (io/file "./src/io/github/archwaytheatre/site/whatson.clj")
+            (or (seq (remove nil? files))
+                (file-seq (io/file "./src/io/github/archwaytheatre/site")))))))
 
 (defn require-namespaces [files]
   (let [nss (vec (discover-namespaces files))]
