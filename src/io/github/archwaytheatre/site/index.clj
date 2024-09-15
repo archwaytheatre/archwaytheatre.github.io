@@ -153,11 +153,15 @@
 
      [:div.trailer-container
       [:div.trailer
-       [:video {:controls "controls"
-                :width    "100%"
-                :height   "100%"
-                :name     "Archway Promotional Video"}
-        [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]]]
+       [:video#promo-video {:controls "controls"
+                            :width    "100%"
+                            :height   "100%"
+                            :name     "Archway Promotional Video"}
+        [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]
+       [:div#trailer-cover
+        [:div#trailer-cover-text "Welcome!"
+         [:div#trailer-cover-subtext "Click to play video."]]
+        [:div#trailer-cover-play]]]]
 
      [:div.vspace]
      [:div.center.archwaytitle [:span.larger "What's On?"]]
@@ -216,6 +220,7 @@
       [:div.signupform core/email-signup-form]]
 
      [:script {:src "./js/popup.js"}]
+     [:script {:src "./js/video.js"}]
 
      [:script (str/join ";" (map (fn [{:keys [id]}]
                                    (str "hideMore('" id "')"))
