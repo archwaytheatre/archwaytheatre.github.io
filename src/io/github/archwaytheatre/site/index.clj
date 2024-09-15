@@ -166,7 +166,7 @@
      [:div
       (for [[idx {:keys [start end trailer-url] :as event}] (map-indexed vector coming-soon-or-on-now)]
         (let [event' event]
-          [:div.events
+          [:div.events.disappearable {:data-end (to-end-millis end)}
            (if trailer-url
              [:div.trailer-container
               [:div.trailer
@@ -179,7 +179,7 @@
            (when (even? idx)
              ; this is a horrible hack to make the event be odd/even
              [:div ])
-           [:div.event.disappearable {:data-end (to-end-millis end)}
+           [:div.event
             (event-image event')
             (event-data event' start end)
             (event-about event' start end)]]))
