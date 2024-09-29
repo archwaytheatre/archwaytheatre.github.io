@@ -1,11 +1,35 @@
 {
-  "name" : "The Amazing Maurice and his Educated Rodents",
-  "location" : "The Studio",
-  "start" : "2024-06-20",
-  "end" : "2024-06-22",
-  "author" : "Matthew Holmes, based on the Terry Pratchett story",
   "director" : "Jacquie Redfern",
-  "company" : "Archway Theatre",
+  "name" : "The Amazing Maurice and his Educated Rodents",
+  "start" : "2024-06-20",
+  "author" : "Matthew Holmes, based on the Terry Pratchett story",
+  "photo-sets" : [ {
+    "photographer" : "Eddie Redfern",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.299 ],
+      [ "photo-0002.png", 0.924 ],
+      [ "photo-0003.png", 0.228 ],
+      [ "photo-0004.png", 0.268 ],
+      [ "photo-0005.png", 0.331 ],
+      [ "photo-0006.png", 0.665 ],
+      [ "photo-0007.png", 0.256 ],
+      [ "photo-0008.png", 0.459 ],
+      [ "photo-0009.png", 0.22 ],
+      [ "photo-0010.png", 0.287 ],
+      [ "photo-0011.png", 0.415 ],
+      [ "photo-0012.png", 0.344 ],
+      [ "photo-0013.png", 0.305 ],
+      [ "photo-0014.png", 0.338 ],
+      [ "photo-0015.png", 0.192 ],
+      [ "photo-0016.png", 0.233 ],
+      [ "photo-0017.png", 0.376 ],
+      [ "photo-0018.png", 0.507 ],
+      [ "photo-0019.png", 0.276 ],
+      [ "photo-0020.png", 0.333 ] ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-ldkqva",
+  "end" : "2024-06-22",
+  "location" : "The Studio",
   "young-adults-youth" : "Youth Workshop",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-ldkqva"
+  "company" : "Archway Theatre"
 }
