@@ -1,10 +1,25 @@
 {
-  "name" : "Alive & Living",
-  "location" : "The Studio",
-  "start" : "2024-08-08",
-  "end" : "2024-08-10",
-  "author" : "Abigail Field & Jenna Simmonds-Wood",
   "director" : "Abigail Field & Jenna Simmonds-Wood",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/alive-or-living/e-degrxv"
+  "name" : "Alive & Living",
+  "start" : "2024-08-08",
+  "author" : "Abigail Field & Jenna Simmonds-Wood",
+  "photo-sets" : [ {
+    "photographer" : "Maya Donegan",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.202 ],
+      [ "photo-0002.png", 0.288 ],
+      [ "photo-0003.png", 0.229 ],
+      [ "photo-0004.png", 0.529 ],
+      [ "photo-0005.png", 0.328 ],
+      [ "photo-0006.png", 0.235 ],
+      [ "photo-0007.png", 0.5 ],
+      [ "photo-0008.png", 0.299 ],
+      [ "photo-0009.png", 0.229 ],
+      [ "photo-0010.png", 0.365 ],
+      [ "photo-0011.png", 0.244 ] ]
+  }],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/alive-or-living/e-degrxv",
+  "end" : "2024-08-10",
+  "location" : "The Studio",
+  "company" : "Archway Theatre"
 }
