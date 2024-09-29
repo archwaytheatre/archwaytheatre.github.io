@@ -392,6 +392,7 @@ div#trailer-cover {
     right:0;
     background-image: url("../images/Arch-welcome-cover.png");
     background-size: cover;
+    cursor: pointer;
 }
 div#trailer-cover-text {
     position: absolute;
