@@ -381,7 +381,7 @@ div.trailer-container {
 div.trailer {
     position: relative;
     aspect-ratio: 16/9;
-    max-width: calc(var(--poster-width) + var(--about-width));
+    width: calc(var(--poster-width) + var(--about-width));
 }
 div#trailer-cover {
     display: none;
