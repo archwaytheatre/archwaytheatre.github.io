@@ -61,7 +61,8 @@
 
 body, html{
     width: 100vw;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
+    /*overflow-y: scroll;*/
     /*padding: 0.8em 0;*/
 }
 
