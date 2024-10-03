@@ -190,7 +190,7 @@
 ;(def logo-tw-2 (partial social-media-logo-2 "Twitter" "/images/logos/Twitter.png"))
 (def logo-ex-2 (partial social-media-logo-2 "X (formerly \"Twitter\")" "/images/logos/X.png"))
 (def logo-fb-2 (partial social-media-logo-2 "Facebook" "/images/logos/Facebook.png"))
-(def logo-yt-2 (partial social-media-logo-2 "YouTube" "/images/logos/YouTube.png"))
+(def logo-yt-2 (partial social-media-logo-2 "YouTube" "/images/logos/Youtube_logo.png"))
 (def logo-tk-2 (partial social-media-logo-2 "TikTok" "/images/logos/TikTok.png"))
 
 
