@@ -1,10 +1,34 @@
 {
+  "trailer" : true,
   "director" : "Gary Andrews",
   "name" : "Terry Pratchett’s ‘Lords and Ladies’",
   "start" : "2024-09-10",
-  "end" : "2024-09-14",
   "author" : "Terry Pratchett, adapted by Stephen Briggs",
-  "location" : "Studio Theatre",
-  "trailer" : true,
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/lords-and-ladies/e-lbgrpm"
+  "photo-sets" : [ {
+    "photographer" : "Maya Donegan",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.323 ],
+      [ "photo-0002.png", 0.293 ],
+      [ "photo-0003.png", 0.268 ],
+      [ "photo-0004.png", 0.424 ],
+      [ "photo-0005.png", 0.223 ],
+      [ "photo-0006.png", 0.509 ],
+      [ "photo-0007.png", 0.292 ],
+      [ "photo-0008.png", 0.382 ],
+      [ "photo-0009.png", 0.367 ],
+      [ "photo-0010.png", 0.313 ],
+      [ "photo-0011.png", 0.325 ],
+      [ "photo-0012.png", 0.65 ],
+      [ "photo-0013.png", 0.284 ],
+      [ "photo-0014.png", 0.314 ],
+      [ "photo-0015.png", 0.5 ],
+      [ "photo-0016.png", 0.408 ],
+      [ "photo-0017.png", 0.355 ],
+      [ "photo-0018.png", 0.262 ],
+      [ "photo-0019.png", 0.304 ],
+      [ "photo-0020.png", 0.289 ] ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/lords-and-ladies/e-lbgrpm",
+  "end" : "2024-09-14",
+  "location" : "Studio Theatre"
 }
