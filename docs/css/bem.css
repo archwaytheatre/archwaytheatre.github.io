@@ -307,7 +307,6 @@ footer {
     display: flex;
 }
 
-
 .content {
     display: flex;
     flex-direction: column;
@@ -315,6 +314,7 @@ footer {
     row-gap: 3rem;
     padding-top: 3rem;
     padding-bottom: 3rem;
+    overflow-x: hidden;
 }
 
 .vertical-spacer {
