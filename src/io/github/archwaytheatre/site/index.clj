@@ -158,7 +158,7 @@
                             :height   "100%"
                             :name     "Archway Promotional Video"}
         [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]
-       [:div#trailer-cover
+       [:div#trailer__cover ; naming for forwards compatibility
         [:div#trailer-cover-text "Welcome!"
          [:div#trailer-cover-subtext "Click to play video."]]
         [:div#trailer-cover-play]]]]

@@ -1,7 +1,7 @@
 
 function setup() {
 
-    let el = document.getElementById('trailer-cover');
+    let el = document.getElementById('trailer__cover');
 
     el.style.display = 'inherit';
     el.onclick = function () {

@@ -383,7 +383,7 @@ div.trailer {
     aspect-ratio: 16/9;
     width: calc(var(--poster-width) + var(--about-width));
 }
-div#trailer-cover {
+div#trailer__cover {
     display: none;
     position: absolute;
     top:0;

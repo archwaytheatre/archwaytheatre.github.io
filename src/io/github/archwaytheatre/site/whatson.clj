@@ -57,11 +57,17 @@
     (-> [:div.content]
         (conj [:div])
         (conj [:div.trailer__holder
-               [:video.trailer__video {:controls "controls"
-                                       :width    "100%"
-                                       :height   "100%"
-                                       :name     "Archway Promotional Video"}
-                [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]])
+               [:div.trailer__wrapper
+                [:video#promo-video {:controls "controls"
+                                     :width    "100%"
+                                     :height   "100%"
+                                     :name     "Archway Promotional Video"}
+                 [:source {:src (str data/asset-url-prefix "2023/Promo23.mov")}]]
+                [:div#trailer__cover
+                 [:div#trailer__cover-text "Welcome!"
+                  [:div#trailer__cover-subtext "Click to play video."]]
+                 [:div#trailer__cover-play]]]])
+
         (conj [:div.vertical-spacer])
         (conj [:h1 "What's On?"])
         (conj [:div.vertical-spacer])
