@@ -256,7 +256,6 @@ footer {
 .menu__hamburger .menu__button {
     min-width: 2.5em;
     text-align: right;
-    min-width: 2.5em;
 }
 
 .menu__item_top-level {}
@@ -323,11 +322,52 @@ footer {
 
 
 .trailer__holder {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
 }
-.trailer__video {
+.trailer__wrapper {
+    position: relative;
     aspect-ratio: 16/9;
-    max-width: var(--block-max-width);
+    width: var(--block-max-width);
+    max-width: 100vw;
 }
+#trailer__cover {
+    display: none;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-image: url("../images/Arch-welcome-cover.png");
+    background-size: cover;
+    cursor: pointer;
+}
+#trailer__cover-text {
+    position: absolute;
+    top: 60%;
+    left: 10%;
+    font-size: min(100px, 10vw);
+    font-family: "GoudySansStd", sans-serif;
+    font-weight: bold;
+    color: var(--fg-light);
+    text-shadow: 2px 2px #000000;
+}
+#trailer__cover-subtext {
+    font-size: min(30px, 3vw);
+}
+#trailer__cover-play {
+    width: 0;
+    height: 0;
+    border-top: 35px solid transparent;
+    border-bottom: 35px solid transparent;
+    border-left: 60px solid white;
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+}
+
+
 
 .event-holder {
     /*width: 100%;*/

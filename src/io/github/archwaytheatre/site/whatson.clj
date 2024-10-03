@@ -135,6 +135,8 @@
                [:div.whatson-misc__signup-form core/email-signup-form]])
 
 
-        (conj [:script {:src "./js/whatson.js"}]))
+        (conj [:script {:src "./js/whatson.js"}])
+        (conj [:script {:src "./js/video.js"}])
+        )
 
     ))
