@@ -1,0 +1,22 @@
+{
+  "events": [{
+    "datetime": "2024-11-10T18:00:00",
+    "description": null
+  }],
+  "characters": [
+    {"name": "John Worthing", "gender": "male", "age": "late 20s/early 30s", "description": "a respectable young man" },
+    {"name": "Algernon Moncrieff", "gender": "male", "age": "late 20s/early 30s", "description":"a more bohemian young man"},
+    {"name": "Lady Bracknell", "gender": "female", "age": "early 40s", "description":"his aunt"},
+    {"name": "Hon Gwendolen Fairfax", "gender": "female", "age": "early 20s", "description":"her daughter"},
+    {"name": "Cecily Cardew", "gender": "female", "age": "late teens", "description":"Mr Worthing’s ward"},
+    {"name": "Miss Prism", "gender": "female", "age": "40+", "description":"a governess"},
+    {"name": "Rev Canon Chasuble", "gender": "male", "age": "40+", "description":null},
+    [
+      {"name": "Merriman", "gender": "male", "age": "40+", "description":"an elderly butler"},
+      {"name": "Lane", "gender": "male", "age": "40+", "description":"an ex military manservant"}
+    ]
+  ]
+}
+
+
+

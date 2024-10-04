@@ -30,7 +30,6 @@
   (remove nil? (map plays/get-audition-data (plays/get-all-future-productions)))
   ; todo: first filter out the past events, and then sort auditions by the soonest future event
   ;; todo bonus: do this dynamically in js!!!
-
   )
 
 (def datetime-format (DateTimeFormatter/ofPattern "h:mma'END_TIME' EEEE, dd MMMM YYYY"))
@@ -78,6 +77,7 @@
 
     [:h1 "Audition Notices"]
 
+
     (if-let [data (seq (grab-data-from-files))]
       (map
         (fn [{:keys [author director audition events characters] :as data}]
@@ -95,7 +95,7 @@
                               location
                               description]
                              (remove nil?)
-                             (str/join " "))]))
+                             (str/join ", "))]))
                 (into [:div]))
            [:br]
            [:h3 "About the Production:"]
