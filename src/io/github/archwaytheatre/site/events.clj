@@ -63,6 +63,11 @@
 
       ]
 
+     [:img {:src   "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/openday.png"
+            :style "max-width: 100%"}]
+     [:br]
+     [:br]
+
      [:div.other
       [:h1 "Archway Karaoke"]
 
