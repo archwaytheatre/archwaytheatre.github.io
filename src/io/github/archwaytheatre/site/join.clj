@@ -22,7 +22,12 @@
 (core/page "join" "The Archway Theatre"
   [:section.container
    [:div.content
-    [:h1.center "Become a Member of The Archway Theatre"]
+    [:h1.center "Join The Archway Theatre Company"]
+    [:br]
+    [:br]
+    [:div.center
+     [:a.fancy {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Renew membership / login"]]
+    [:br]
     [:br]
     [:div
      (member-table
@@ -47,8 +52,7 @@
     [:br]
     [:div.center.main.vp2
      [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                :target "_blank"} "I want to join!"]
-     [:a.fancy {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Existing member login"]]
+                :target "_blank"} "I want to join!"]]
     [:br]
     [:br]
 
@@ -71,8 +75,7 @@
     [:br]
     [:div.center.main.vp2
      [:a.fancy {:href   "https://membermojo.co.uk/archwaytheatre/joinus"
-                :target "_blank"} "I want to join!"]
-     [:a.fancy {:href "https://membermojo.co.uk/archwaytheatre/signin"} "Existing member login"]]
+                :target "_blank"} "I want to join!"]]
 
     [:br]
     [:br]
