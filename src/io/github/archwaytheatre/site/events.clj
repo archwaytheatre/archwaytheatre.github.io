@@ -63,13 +63,16 @@
 
       ]
 
-     #_[:div.other
+     [:div.other
       [:h1 "Archway Karaoke"]
-      [:p "Archway Studio Theatre"]
-      [:p "Fri 12 July 2024, 7:30PM - 10:30PM"]
-      [:p "All children under 16 must be accompanied by an adult."]
 
-      [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-mbdlpd"
+      [:p "Karaoke is back!"]
+      [:p "Do your warm-ups, choose your songs and prepare yourself for the Archway’s Karaoke with DJ Thom. This time there is a separate event for the children – 4:30 pm to 7 pm – where are extremely talented younger members can show themselves off and sing to their hearts content."]
+      [:p "Tickets are £5 for the children and there must be an accompanying adult (who does not have to pay but must be present)."]
+      [:p "From 7:30 pm the evening we will be set for Adults (15+). Tickets are £5 for everyone attending in the evening and all under 16s must have an accompanying adult with them."]
+      [:p "Tickets must be bought in advance and will not be available on the door."]
+
+      [:div.calltoaction [:a.simple {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-vkjxzj"
                                      :target "_blank"} "Buy tickets"]]]
 
      [:div.other
