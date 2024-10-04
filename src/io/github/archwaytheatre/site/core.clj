@@ -278,6 +278,77 @@
     [:div.menu__hamburger
      (menu-item-2 relative-path current-page-filename (last menu-list-2))]]])
 
+(defn menu-item-3
+  ([href label relative-path current-href]
+   (menu-item-3 href label relative-path current-href nil))
+  ([href label relative-path current-href extra-class]
+   [:div {:class (classes "menu__item"
+                          extra-class
+                          (when (= current-href href)
+                            "menu__item_selected"))}
+    [:a.menu__button {:href (str relative-path href)}
+     label]]))
+
+(defn top-level-menu-item [label href relative-path current-href]
+  (menu-item-3 href label relative-path current-href "menu__item_top-level"))
+
+(defn dropped-menu-item [label href relative-path current-href]
+  (menu-item-3 href label relative-path current-href))
+
+(defn menu-dropdown [label id current-href hrefs & menu-items]
+  (let []
+    [:div.menu__drop-down-holder {:id           id
+                                  ;:onmouseout  (str "dropDownUnhover('" id "');")
+                                  :onmouseleave (str "dropDownUnhover('" id "');")
+                                  :class        (classes "menu__item"
+                                                         ;"menu__drop-down-dropped" ; todo: remove
+                                                         "menu__item_top-level"
+                                                         (when (hrefs current-href)
+                                                           "menu__item_selected"))
+                                  }
+     [:a.menu__button.menu__drop-down-button {:role         "button"
+                                              :href         "#0"
+                                              ;:onclick (str "dropDownTap('" id "');")
+                                              :ontouchstart (str "dropDownTap('" id "');")
+                                              :onmouseover  (str "dropDownHover('" id "');")
+                                              }
+      label]
+     (into [:div.menu__drop-down-menu] menu-items)]))
+
+(defn menu-3 [relative-path current-href]
+  [:nav.menu__sticker
+   [:div.menu
+    [:div.menu__main
+     (top-level-menu-item "What's On?" "whatson.html" relative-path current-href)
+     (menu-dropdown "Get Involved!" "get-involved"
+       current-href #{"getinvolved.html" "auditions.html" "events.html" "youth.html"}
+       (dropped-menu-item "Volunteer" "getinvolved.html" relative-path current-href)
+       (dropped-menu-item "Audition" "auditions.html" relative-path current-href)
+       (dropped-menu-item "Events" "events.html" relative-path current-href)
+       (dropped-menu-item "Youngsters" "youth.html" relative-path current-href))
+     [:div.menu__underlay
+      (top-level-menu-item "Members" "join.html" relative-path current-href)
+      (top-level-menu-item "Find Us" "findus.html" relative-path current-href)
+      (top-level-menu-item "Contact" "contact.html" relative-path current-href)
+      (top-level-menu-item "About" "about.html" relative-path current-href)]]
+    [:div.menu__hamburger
+     (menu-dropdown "☰" "hamburger" current-href #{}
+       (dropped-menu-item "Box Office" "https://www.ticketsource.co.uk/archwaytheatre/" relative-path current-href)
+       (dropped-menu-item "Past Productions" "past/index.html" relative-path current-href)
+       (dropped-menu-item "What's On?" "whatson.html" relative-path current-href)
+       (dropped-menu-item "Volunteer" "getinvolved.html" relative-path current-href)
+       (dropped-menu-item "Audition" "auditions.html" relative-path current-href)
+       (dropped-menu-item "Events" "events.html" relative-path current-href)
+       (dropped-menu-item "Youngsters" "youth.html" relative-path current-href)
+       (dropped-menu-item "Members" "join.html" relative-path current-href)
+       (dropped-menu-item "Find Us" "findus.html" relative-path current-href)
+       (dropped-menu-item "Contact" "contact.html" relative-path current-href)
+       (dropped-menu-item "Little Theatre Guild" "https://littletheatreguild.org/" relative-path current-href)
+       (dropped-menu-item "A History of The Archway" "history/history.html" relative-path current-href)
+       (dropped-menu-item "Hire a Space" "spaces.html" relative-path current-href)
+       (dropped-menu-item "About" "about.html" relative-path current-href)
+       (dropped-menu-item "Legal & Site Info" "legal.html" relative-path current-href))]]])
+
 (def local-dir (io/file "local"))
 (def deploy-dir (io/file "docs"))
 (def local? (.exists local-dir))
@@ -355,7 +426,7 @@
                 [:img.prenav__logo {:src (str relative-path "archway_header.png")}]]]
               [:a {:href "about.html"} [:div#topphotos]]
               [:div#motto.prenav__motto "A thriving theatre in the heart of Horley."]]
-             (menu-2 relative-path filename)
+             (menu-3 relative-path filename)
              (hiccup.core/html content)
              [:div.footer-ghost]
              [:footer

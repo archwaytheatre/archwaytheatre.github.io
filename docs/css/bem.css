@@ -239,13 +239,20 @@ footer {
 
 .menu__main {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: nowrap;*/
     justify-content: flex-start;
-    overflow: hidden;
+    /*overflow-x: hidden;*/
+    /*overflow-y: visible;*/
     height: calc(1lh + 16px);
     padding-right: 2em;
     margin-right: 1em;
     /*max-width: calc(100vw - 4em);*/
+}
+.menu__underlay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 .menu__hamburger {
     position: absolute;
@@ -321,7 +328,6 @@ footer {
     padding-top: 1em;
     padding-bottom: 1em;
 }
-
 
 .trailer__holder {
     display: flex;
