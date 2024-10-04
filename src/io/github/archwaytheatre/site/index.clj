@@ -163,6 +163,10 @@
          [:div#trailer-cover-subtext "Click to play video."]]
         [:div#trailer-cover-play]]]]
 
+     [:div.center [:a {:href "events.html"
+                       :style "font-size: 2em;"}
+                   "Open Day Saturday 23rd November"]]
+
      [:div.vspace]
      [:div.center.archwaytitle [:span.larger "What's On?"]]
      [:div.vspace]
