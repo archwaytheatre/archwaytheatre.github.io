@@ -388,6 +388,7 @@ footer {
     flex-direction: row;
     /*height: var(--poster-height);*/
     background-color: green;
+    position: relative;
 }
 
 .event-holder:nth-child(odd) .event-overview {
@@ -407,6 +408,33 @@ footer {
 .event-holder:nth-child(even) .event-trailer,
 .event-holder:nth-child(even) .event-about {
     background-image: linear-gradient(-60deg, var(--bg) 10%, var(--bg2) 75%);
+}
+
+.event-overview__banner-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    clip-path: margin-box;
+    margin: 0 0 10em 10em;
+}
+.event-overview__banner {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    transform: translateX(50%) translateX(-42px) translateY(22px) rotate(45deg);
+    width: 10em;
+    border: 2px solid white;
+}
+.event-overview__banner[data-sold-out=false] {
+    background-color: black;
+}
+.event-overview__banner[data-sold-out=true] {
+    font-weight: bold;
+    background-color: var(--pink-a);
 }
 
 .event-overview__poster {

@@ -26,6 +26,24 @@ function composeLabels() {
             timelabel.appendChild(onNow);
         }
     }
+
+    var banners = document.getElementsByClassName('event-overview__banner');
+    console.log('adding banners...' + banners.length);
+    for (let i = 0; i < banners.length; i++) {
+        const banner = banners.item(i);
+        const start = banner.getAttribute('data-start');
+        const end = banner.getAttribute('data-end');
+        const soldOut = banner.getAttribute('data-sold-out');
+        const oneDay = banner.getAttribute('data-one-day');
+        if (soldOut === 'true') {
+            banner.textContent = 'Sold Out!';
+            banner.style.display = 'block';
+        } else if (start < now && now < end) {
+            banner.textContent = oneDay === 'true' ? 'Tonight!' : 'On Now!';
+            banner.style.display = 'block';
+        }
+    }
+
 }
 
 function hidePastEvents() {

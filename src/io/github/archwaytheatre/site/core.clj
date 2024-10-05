@@ -418,6 +418,7 @@
              [:script {:src (str relative-path "js/top-photo-data.js")}]
              [:script {:src (str relative-path "js/photos.js") :defer true}]
              [:script {:src (str relative-path "js/menudrop.js")}]
+             [:script {:src (str relative-path "js/datetime.js") :defer true}]
              ]
             [:body
              [:div.prenav
