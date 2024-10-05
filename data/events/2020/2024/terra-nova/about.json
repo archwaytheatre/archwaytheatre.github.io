@@ -1,10 +1,11 @@
 {
-  "name" : "Terra Nova",
-  "location" : "Main House",
-  "start" : "2024-10-29",
-  "end" : "2024-11-09",
-  "author" : "Ted Tally",
+  "trailer" : true,
   "director" : "Rebecca Warnett",
-  "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-vmgdpl"
+  "name" : "Terra Nova",
+  "start" : "2024-10-29",
+  "author" : "Ted Tally",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-vmgdpl",
+  "end" : "2024-11-09",
+  "location" : "Main House",
+  "company" : "Archway Theatre"
 }
