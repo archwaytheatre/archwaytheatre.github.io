@@ -4,6 +4,7 @@
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.net HttpURLConnection URL]
+           [java.time ZoneOffset]
            [java.time.format DateTimeFormatter]))
 
 
@@ -46,6 +47,12 @@
                                      (when director (str "directed by " director))]))]
     (str/join ", " bits)))
 
+(defn to-start-millis [start]
+  (* (.toEpochSecond (.atOffset (.atStartOfDay start) ZoneOffset/UTC)) 1000))
+
+(defn to-end-millis [end]
+  (to-start-millis (.plusDays end 1)))
+
 (core/page-2
   "whatson" "What's On?"
 
@@ -71,10 +78,17 @@
         (conj [:div.vertical-spacer])
         (conj [:h1 "What's On?"])
         (conj [:div.vertical-spacer])
-        (into (for [{:keys [start end location name about-text ticketurl trailer-url year id author director] :as event}
+        (into (for [{:keys [start end location name about-text ticketurl trailer-url year id author director soldout]}
                     coming-soon-or-on-now]
                 [:div.event-holder
                  [:div.event-overview.event-focus {:id (str "event-overview-" id)}
+                  [:div.event-overview__banner-wrapper
+                   [:div.event-overview__banner
+                    {:data-start    (to-start-millis start)
+                     :data-end      (to-end-millis end)
+                     :data-one-day  (if (= start end) "true" "false")
+                     :data-sold-out (if soldout "true" "false")}]]
+
                   [:a {:href ticketurl}
                    [:img.event-overview__poster {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]]
                   [:div.event-overview__about
