@@ -68,7 +68,7 @@
      [:br]
      [:br]
 
-     [:div.other
+     #_[:div.other
       [:h1 "Archway Karaoke"]
 
       [:p "Karaoke is back!"]
