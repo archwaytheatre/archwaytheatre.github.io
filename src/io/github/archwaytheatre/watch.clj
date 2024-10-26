@@ -40,7 +40,7 @@
                                                    (str local-dir)))]
           (when (and (.isFile source-file)
                      (not (string/ends-with? (str source-file) ".html")))
-            (println (str source-file " -> " target-file))
+            ;(println (str source-file " -> " target-file))
             (io/make-parents target-file)
             (io/copy source-file target-file)))))))
 
