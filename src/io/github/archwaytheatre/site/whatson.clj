@@ -55,11 +55,22 @@
 
 (core/page-2
   "whatson" "What's On?"
+  ; todo: check *all* links in normal text (so not menu buttons, maybe others?) on website are underlined.
+
+  ; todo: https://stackoverflow.com/questions/37824744/on-mobile-font-size-is-different-depending-on-the-number-of-paragraphs
 
   (let [data (grab-data)
         coming-soon-or-on-now (take 4 (sort-by :start (filter :ticketurl data)))
         soon? (set (map :id coming-soon-or-on-now))
-        coming-later (sort-by :start (remove #(-> % :id soon?) data))]
+        coming-later (->> data
+                          (remove #(-> % :id soon?))
+                          (map #(assoc % :poster-url
+                                         (str data/asset-url-prefix (:year %) "/" (:id %) "/poster-scaled.png")))
+                          ; TODO: HEAD request instead of slurp!
+                          (filter #(try (slurp (:url %)) (catch Exception _ nil)))
+                          (sort-by :start))]
+
+    (println "coming-later" coming-later)
 
     (-> [:div.content]
         (conj [:div])
@@ -92,11 +103,13 @@
                   [:a {:href ticketurl}
                    [:img.event-overview__poster {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]]
                   [:div.event-overview__about
+                   ; todo: add some flex-grow to the css for these maybe?
+                   ; todo: remove the 'More...' button when it's not needed?
                    [:div.event-overview__details (str (date-range start end) " │ " location)]
                    [:div.event-overview__title [:h2 name]]
                    (some-> (author-line author director)
                            (vector :div.event-overview__author))
-                   [:div.event-overview__text [:pre about-text]]
+                   [:div.event-overview__text [:pre about-text] [:br]]
                    [:div.event-overview__buttons
                     [:a.whisper-to-action {:href (str "javascript:about('" id "')")} "More…"]
                     (when trailer-url [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")} "Trailer"])
@@ -125,15 +138,15 @@
                    [:a.call-to-action {:href ticketurl} "Buy Tickets"]]
                   ]]))
         (conj [:div.vertical-spacer])
-        (conj [:h1 "Coming Later..."])
-        (conj [:div.vertical-spacer])
-        (conj [:div.later-events
-               (for [{:keys [id year ticketurl]} coming-later
-                     :let [url (str data/asset-url-prefix year "/" id "/poster-scaled.png")]
-                     :when (try (slurp url) (catch Exception _ nil))]
-                 (if (< (rand) 0.5) ;ticketurl
-                   [:a {:href ticketurl} [:img.later-events__image {:src url}]]
-                   [:img.later-events__image {:src url}]))])
+        (cond->
+          (seq coming-later)
+          (into [[:h1 "Coming Later..."]
+                 [:div.vertical-spacer]
+                 [:div.later-events
+                  (for [{:keys [ticketurl poster-url]} coming-later]
+                    (if ticketurl
+                      [:a {:href ticketurl} [:img.later-events__image {:src poster-url}]]
+                      [:img.later-events__image {:src poster-url}]))]]))
 
         (conj [:div.whatson-misc
                [:hr]
