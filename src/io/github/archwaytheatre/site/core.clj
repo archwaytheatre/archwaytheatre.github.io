@@ -42,7 +42,7 @@
 (def email-signup-form
   [:div#mc_embed_shell
    [:link {:href "//cdn-images.mailchimp.com/embedcode/classic-061523.css" :rel "stylesheet" :type "text/css"}]
-   [:style {:type "text/css"} "#mc_embed_signup{width: 600px;}
+   [:style {:type "text/css"} "#mc_embed_signup{max-width: 600px;}
         /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
            We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */"]
    [:style {:type "text/css"} "#mc-embedded-subscribe-form input[type=checkbox]{display: inline; width: auto;margin-right: 10px;}
