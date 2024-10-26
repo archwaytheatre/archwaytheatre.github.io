@@ -239,21 +239,21 @@
   (if dropdown
     (let [{:keys [id submenu]} dropdown
           hrefs (set (map second submenu))]
-      [:div.menu__drop-down-holder {:id id
+      [:div.menu__drop-down-holder {:id           id
                                     ;:onmouseout  (str "dropDownUnhover('" id "');")
-                                    :onmouseleave  (str "dropDownUnhover('" id "');")
-                                    :class (classes "menu__item"
-                                                    ;"menu__drop-down-dropped" ; todo: remove
-                                                    "menu__item_top-level"
-                                                    (when (and (hrefs current-page-filename)
-                                                               href)
-                                                      "menu__item_selected"))
+                                    :onmouseleave (str "dropDownUnhover('" id "');")
+                                    :class        (classes "menu__item"
+                                                           ;"menu__drop-down-dropped" ; todo: remove
+                                                           "menu__item_top-level"
+                                                           (when (and (hrefs current-page-filename)
+                                                                      href)
+                                                             "menu__item_selected"))
                                     }
-       [:a.menu__button.menu__drop-down-button {:role    "button"
-                                                :href    "#0"
+       [:a.menu__button.menu__drop-down-button {:role         "button"
+                                                :href         "#0"
                                                 ;:onclick (str "dropDownTap('" id "');")
                                                 :ontouchstart (str "dropDownTap('" id "');")
-                                                :onmouseover (str "dropDownHover('" id "');")
+                                                :onmouseover  (str "dropDownHover('" id "');")
                                                 }
         label]
        [:div.menu__drop-down-menu
