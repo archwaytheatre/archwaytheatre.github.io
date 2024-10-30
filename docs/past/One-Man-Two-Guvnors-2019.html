@@ -5,7 +5,8 @@
     <title>
       One Man Two Guvnors
     </title>
-    <link href="../css/style.css" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="../css/bem.css" rel="stylesheet">
     <link href="../favicon.png" rel="icon" type="image/png">
     <script src="../js/popup.js">
     </script>
@@ -15,11 +16,13 @@
     </script>
     <script src="../js/menudrop.js">
     </script>
+    <script defer src="../js/datetime.js">
+    </script>
   </head>
   <body>
     <div class="prenav">
       <div>
-        <a href="https://www.archwaytheatre.com/">          <img src="../archway_header.png">
+        <a href="https://www.archwaytheatre.com/">          <img class="prenav__logo" src="../archway_header.png">
 </a>
         
       </div>
@@ -27,56 +30,150 @@
         </div>
 </a>
       
-      <div class="motto">
+      <div class="prenav__motto" id="motto">
         A thriving theatre in the heart of Horley.
       </div>
     </div>
-    <nav class="dark">
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../index.html">What's On?</a>
-        
-      </div>
-      <div class="dropDownContainer menuItem topMenu" id="get-involved" onmouseleave="dropDownUnhover(&apos;get-involved&apos;);">
-        <a class="dropDownButton" href="#0" onmouseover="dropDownHover(&apos;get-involved&apos;);" role="button">Get Involved!</a>
-        
-        <div class="dropDownMenu">
-          <div class="menuItem">
-            <a href="../getinvolved.html">Volunteer</a>
+    <nav class="menu__sticker">
+      <div class="menu">
+        <div class="menu__main">
+          <a class="menu__button" href="../index.html">            <div class="menu__item menu__item_top-level">
+              What's On?
+            </div>
+</a>
+          
+          <div class="menu__drop-down-holder menu__item menu__item_top-level" id="get-involved" onmouseleave="dropDownUnhover(&apos;get-involved&apos;);">
+            <a class="menu__button menu__drop-down-button" href="#0" onmouseover="dropDownHover(&apos;get-involved&apos;);" ontouchstart="dropDownTap(&apos;get-involved&apos;);" role="button">Get Involved!</a>
             
+            <div class="menu__drop-down-menu">
+              <a class="menu__button" href="../getinvolved.html">                <div class="menu__item">
+                  Volunteer
+                </div>
+</a>
+              
+              <a class="menu__button" href="../auditions.html">                <div class="menu__item">
+                  Audition
+                </div>
+</a>
+              
+              <a class="menu__button" href="../events.html">                <div class="menu__item">
+                  Events
+                </div>
+</a>
+              
+              <a class="menu__button" href="../youth.html">                <div class="menu__item">
+                  Youngsters
+                </div>
+</a>
+              
+            </div>
           </div>
-          <div class="menuItem">
-            <a href="../auditions.html">Audition</a>
+          <div class="menu__underlay">
+            <a class="menu__button" href="../join.html">              <div class="menu__item menu__item_top-level">
+                Members
+              </div>
+</a>
             
-          </div>
-          <div class="menuItem">
-            <a href="../events.html">Events</a>
+            <a class="menu__button" href="../findus.html">              <div class="menu__item menu__item_top-level">
+                Find Us
+              </div>
+</a>
             
-          </div>
-          <div class="menuItem">
-            <a href="../youth.html">Youngsters</a>
+            <a class="menu__button" href="../contact.html">              <div class="menu__item menu__item_top-level">
+                Contact
+              </div>
+</a>
+            
+            <a class="menu__button" href="../about.html">              <div class="menu__item menu__item_top-level">
+                About
+              </div>
+</a>
             
           </div>
         </div>
-      </div>
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../join.html">Members</a>
-        
-      </div>
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../findus.html">Find Us</a>
-        
-      </div>
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../contact.html">Contact</a>
-        
-      </div>
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../about.html">About</a>
-        
-      </div>
-      <div class="menuItem topMenu">
-        <a class="menuButton" href="../everythingelse.html">☰</a>
-        
+        <div class="menu__hamburger">
+          <div class="menu__drop-down-holder menu__item menu__item_top-level" id="hamburger" onmouseleave="dropDownUnhover(&apos;hamburger&apos;);">
+            <a class="menu__button menu__drop-down-button" href="#0" onmouseover="dropDownHover(&apos;hamburger&apos;);" ontouchstart="dropDownTap(&apos;hamburger&apos;);" role="button">☰</a>
+            
+            <div class="menu__drop-down-menu">
+              <a class="menu__button" href="../https://www.ticketsource.co.uk/archwaytheatre/">                <div class="menu__item">
+                  Box Office
+                </div>
+</a>
+              
+              <a class="menu__button" href="../past/index.html">                <div class="menu__item">
+                  Past Productions
+                </div>
+</a>
+              
+              <a class="menu__button" href="../whatson.html">                <div class="menu__item">
+                  What's On?
+                </div>
+</a>
+              
+              <a class="menu__button" href="../getinvolved.html">                <div class="menu__item">
+                  Volunteer
+                </div>
+</a>
+              
+              <a class="menu__button" href="../auditions.html">                <div class="menu__item">
+                  Audition
+                </div>
+</a>
+              
+              <a class="menu__button" href="../events.html">                <div class="menu__item">
+                  Events
+                </div>
+</a>
+              
+              <a class="menu__button" href="../youth.html">                <div class="menu__item">
+                  Youngsters
+                </div>
+</a>
+              
+              <a class="menu__button" href="../join.html">                <div class="menu__item">
+                  Members
+                </div>
+</a>
+              
+              <a class="menu__button" href="../findus.html">                <div class="menu__item">
+                  Find Us
+                </div>
+</a>
+              
+              <a class="menu__button" href="../contact.html">                <div class="menu__item">
+                  Contact
+                </div>
+</a>
+              
+              <a class="menu__button" href="../https://littletheatreguild.org/">                <div class="menu__item">
+                  Little Theatre Guild
+                </div>
+</a>
+              
+              <a class="menu__button" href="../history/history.html">                <div class="menu__item">
+                  A History of The Archway
+                </div>
+</a>
+              
+              <a class="menu__button" href="../spaces.html">                <div class="menu__item">
+                  Hire a Space
+                </div>
+</a>
+              
+              <a class="menu__button" href="../about.html">                <div class="menu__item">
+                  About
+                </div>
+</a>
+              
+              <a class="menu__button" href="../legal.html">                <div class="menu__item">
+                  Legal & Site Info
+                </div>
+</a>
+              
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
     <script type="text/javascript">
@@ -84,93 +181,97 @@
 
 ];
     </script>
-    <section class="container">
-      <div class="content">
+    <div class="content">
+      <div class="content__item">
         <div class="center">
-          <a class="simple" href="On-Golden-Pond-2019.html">Previous</a>
+          <a class="normal" href="On-Golden-Pond-2019.html">Previous</a>
           |
-          <a class="simple" href="index.html">All productions</a>
+          <a class="normal" href="index.html">All productions</a>
           |
-          <a class="simple" href="Life-and-Beth-2020.html">Next</a>
+          <a class="normal" href="Life-and-Beth-2020.html">Next</a>
           
         </div>
-        <div class="year">
+      </div>
+      <div class="content__item">
+        <div class="past__year">
           2019
         </div>
-        <div class="production">
+      </div>
+      <div class="content__item">
+        <div class="past__month">
+          ☙ December ❧
+        </div>
+      </div>
+      <div class="content__item">
+        <div class="past__production">
           One Man Two Guvnors
         </div>
-        <div class="center">
+      </div>
+      <div class="content__item">
+        <div class="text-align-center">
           <p>
             <pre class="about">An Archway Theatre production. Directed by Bob Comolli.</pre>
             
           </p>
         </div>
-        <div class="center">
+        <div class="text-align-center">
           <p>
             Performed in the Main House.
           </p>
         </div>
+      </div>
+      <div class="content__item">
         <div id="photoCarousel">
         </div>
+      </div>
+      <div class="content__item">
+        <p>
+          <pre class="about"></pre>
+          
+        </p>
+      </div>
+      <div class="content__item">
         <div class="center">
-          <p>
-            <pre class="about"></pre>
-            
-          </p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div class="center">
-          <a class="simple" href="On-Golden-Pond-2019.html">Previous</a>
+          <a class="normal" href="On-Golden-Pond-2019.html">Previous</a>
           |
-          <a class="simple" href="index.html">All productions</a>
+          <a class="normal" href="index.html">All productions</a>
           |
-          <a class="simple" href="Life-and-Beth-2020.html">Next</a>
+          <a class="normal" href="Life-and-Beth-2020.html">Next</a>
           
         </div>
       </div>
-    </section>
+    </div>
+    <div class="footer-ghost">
+    </div>
     <footer>
-      <div>
-        <a class="logo" href="http://instagram.com/archwaytheatre/" target="_blank" title="Instagram">          <div class="logoholder">
-            <div class="logo">
-              <img class="logo" src="/images/logos/Instagram.svg">
-            </div>
+      <div class="footer__logos">
+        <a class="footer__logo-link" href="http://instagram.com/archwaytheatre/" target="_blank" title="Instagram">          <div class="footer__logo-wrapper">
+            <img class="footer__logo-image" src="/images/logos/Instagram.svg">
           </div>
 </a>
         
-        <a class="logo" href="http://twitter.com/ArchwayHorley" target="_blank" title="X (formerly &quot;Twitter&quot;)">          <div class="logoholder">
-            <div class="logo">
-              <img class="logo" src="/images/logos/X.png">
-            </div>
+        <a class="footer__logo-link" href="http://twitter.com/ArchwayHorley" target="_blank" title="X (formerly &quot;Twitter&quot;)">          <div class="footer__logo-wrapper">
+            <img class="footer__logo-image" src="/images/logos/X.png">
           </div>
 </a>
         
-        <a class="logo" href="https://www.facebook.com/ArchwayTheatre/" target="_blank" title="Facebook">          <div class="logoholder">
-            <div class="logo">
-              <img class="logo" src="/images/logos/Facebook.png">
-            </div>
+        <a class="footer__logo-link" href="https://www.facebook.com/ArchwayTheatre/" target="_blank" title="Facebook">          <div class="footer__logo-wrapper">
+            <img class="footer__logo-image" src="/images/logos/Facebook.png">
           </div>
 </a>
         
-        <a class="logo" href="https://www.tiktok.com/@archwaytheatrehor?lang=en" target="_blank" title="TikTok">          <div class="logoholder">
-            <div class="logo">
-              <img class="logo" src="/images/logos/TikTok.png">
-            </div>
+        <a class="footer__logo-link" href="https://www.tiktok.com/@archwaytheatrehor?lang=en" target="_blank" title="TikTok">          <div class="footer__logo-wrapper">
+            <img class="footer__logo-image" src="/images/logos/TikTok.png">
           </div>
 </a>
         
-        <a class="logo" href="https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" target="_blank" title="YouTube">          <div class="logoholder">
-            <div class="logo">
-              <img class="logo" src="/images/logos/YouTube.png">
-            </div>
+        <a class="footer__logo-link" href="https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA" target="_blank" title="YouTube">          <div class="footer__logo-wrapper">
+            <img class="footer__logo-image" src="/images/logos/Youtube_logo.png">
           </div>
 </a>
         
       </div>
-      <a class="simple" href="legal.html">&copy; 1987-2024 The Archway Theatre Company</a>
+      <a class="normal" href="legal.html">&copy; 1987-2024 The Archway Theatre Company</a>
       
     </footer>
   </body>
