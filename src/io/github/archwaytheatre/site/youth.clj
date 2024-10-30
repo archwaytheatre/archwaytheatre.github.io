@@ -2,11 +2,17 @@
   (:require [io.github.archwaytheatre.site.core :as core]))
 
 
-(core/page "youth" "The Archway Theatre"
-  [:section.container
-   [:div.content.larger
+(core/page-2 "youth" "The Archway Theatre"
+  [:div.content
 
-    [:div.getinvolved.audition
+   [:div.content__item
+    [:div.volunteer
+     "The Archway Theatre is a volunteer run organisation."
+     " We rely on the generosity of our members to keep the theatre running."
+     " If you'd like to get involved then " [:a.normal {:href "join.html"} "click here to become a member"] "."]]
+
+   [:div.content__item
+    [:div.audition
      [:h1 "Young Adults Group"]
      [:br]
 
@@ -16,14 +22,12 @@
      [:div "Come and join our Young Adult's Theatre Group and explore all things drama and theatre in a creative, safe and fun space!"]
      [:br]
      [:div "To attend you must fill out "
-      [:a.simple {:href "https://forms.microsoft.com/pages/responsepage.aspx?id=E_9VFcpfrkughlqDJKbNqVtaoTLA5bJBhZl78R9NZw9UNDg4WjhMU1VLVjVRRkpEVUxGNk40Wkk2OC4u"} "the online sign up form."]]
+      [:a.normal {:href "https://forms.microsoft.com/pages/responsepage.aspx?id=E_9VFcpfrkughlqDJKbNqVtaoTLA5bJBhZl78R9NZw9UNDg4WjhMU1VLVjVRRkpEVUxGNk40Wkk2OC4u"} "the online sign up form."]]
      [:br]
-     [:div.calltoaction "For more info, contact " [:a.simple.delayedEmail "Young Adults Workshops"]]]
+     [:div.other__call-to-action "For more info, contact " [:a.normal.delayedEmail "Young Adults Workshops"]]]]
 
-     [:br]
-     [:br]
-
-    [:div.getinvolved.audition
+   [:div.content__item
+    [:div.audition
      [:h1 "Youth Workshops"]
      [:br]
      [:div
@@ -31,10 +35,6 @@
       All aspects of theatre and drama are explored in an inclusive, fun environment.
       A Workshop production is staged in June."]
      [:br]
-     [:div.calltoaction "For more info, contact " [:a.simple.delayedEmail "Youth Workshops"]]]
+     [:div.other__call-to-action "For more info, contact " [:a.normal.delayedEmail "Youth Workshops"]]]]
 
-
-
-    [:script {:src "./js/delayed.js"}]]
-
-   ])
+   [:script {:src "./js/delayed.js"}]])

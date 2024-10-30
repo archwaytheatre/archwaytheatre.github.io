@@ -66,22 +66,23 @@
                   (when (contains? character :gender) (or gender "any gender"))
                   description]))))
 
-(core/page "auditions" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "auditions" "The Archway Theatre"
+  [:div.content
 
-    [:div.getinvolved.volunteer
+   [:div.content__item
+    [:div.volunteer
      "The Archway Theatre is a volunteer run organisation."
      " We rely on the generosity of our members to keep the theatre running."
-     " If you'd like to get involved then " [:a.simple {:href "join.html"} "click here to become a member"] "."]
+     " If you'd like to get involved then " [:a.normal {:href "join.html"} "click here to become a member"] "."]]
 
-    [:h1 "Audition Notices"]
+   [:div.content__item
+    [:h1 "Audition Notices"]]
 
-
-    (if-let [data (seq (grab-data-from-files))]
-      (map
-        (fn [{:keys [author director audition events characters] :as data}]
-          [:div.getinvolved.audition.disappearable {:data-end (last-relevant-time events)}
+   (if-let [data (seq (grab-data-from-files))]
+     (map
+       (fn [{:keys [author director audition events characters] :as data}]
+         [:div.content__item
+          [:div.audition.disappearable {:data-end (last-relevant-time events)}
            [:h1 (:name data)]
            (when author [:div (str "by " author)])
            [:div (str "directed by " director)]
@@ -132,11 +133,9 @@
                            play->characters))
                 [:span "Ages are a rough guide."]
                 [:br]]))
-           [:div.calltoaction "Email: " [:a.simple.delayedEmail "General Enquiries"]]])
-        (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
-      [:div
-       [:div "There are currently no audition notices. Check back another time."]])]
-   [:script {:src "./js/datetime.js"}]]
+           [:div.audition__call-to-action "Email: " [:a.normal.delayedEmail "General Enquiries"]]]])
+       (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
+     [:div.content__item
+      [:div "There are currently no audition notices. Check back another time."]])]
 
-  [:script {:src "./js/delayed.js"}]
-  )
+  [:script {:src "./js/delayed.js"}])

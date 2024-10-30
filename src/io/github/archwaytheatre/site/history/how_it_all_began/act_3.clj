@@ -1,14 +1,14 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-3
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-3" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-3" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div [:h1 "Act 3"]
       [:div
        [:p "In May 1957, Horley Central Players performed a new play by Jonathan Field, Mrs McGinty’s Washing. The play was produced by Jonathan’s wife, Moira. A revolving stage – based on a railway turntable – was built by members for the play."
-        [:img.floatleft {:alt "50th Cake being cut"
+        [:img.float-left {:alt "50th Cake being cut"
                          :title "50th Cake being cut"
                          :src "../../images/cake-cutting-transformed.jpeg"}]]
        [:p "The revolving stage was again used later that year for Henry IV Part 1, and in the following year for another premiere – Clock-a-jacks."]
@@ -21,5 +21,5 @@
        [:p "They made many more trips over the following 20 years, but for one trip in particular the transport for part of the journey was very different. The Strollers were invited to perform their play Hay Fever on an adjacent island – Coll, by Dr de Vries who lived on – and owned most of – the island. Dr de Vries arranged and paid for the Strollers and their equipment to be transported from Iona to Coll by plane and helicopter. He also arranged for the Strollers to stay overnight with various Coll residents. Afterwards Dr de Vries gave the Strollers a donation with which they purchased the lamps you still see in the theatre’s auditorium and foyer."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "act-4.html"} "Act IV"]]
+       [:p [:a.normal {:href "act-4.html"} "Act IV"]]
        ]]]]])

@@ -1,14 +1,14 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-2
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-2" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-2" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div [:h1 "Act 2"]
       [:div
        [:p "Whilst the Horley Central Players were putting down their roots during the 1940s, another Dramatic Group was germinating. Walter Treagus, the verger at St Bartholomew’s parish church, persuaded various members of the Sundays Schools, Choir and Youth Fellowship to form an Operatic and Drama Club."
-        [:img.floatright {:alt "St. Bartholomew's Church, Horley"
+        [:img.float-right {:alt "St. Bartholomew's Church, Horley"
                           :title "St. Bartholomew's Church, Horley"
                           :src "../../images/church-transformed.jpeg"}]]
        [:p "They became known as the St Bart’s Players. Their first production – with music – was Rob of the Forest, presented in 1951 at the Empire Hall, off Victoria Road near the Brighton Road."]
@@ -26,5 +26,5 @@
        [:p "It is interesting to note that the two people whose vision had led to the Company using the arches, Arthur Clermont and John Dilley, were Stage Director and Designer for this production, which was produced by Jonathan Field. A friendly rivalry developed between the Companies (though a number of people were members of both). Early in 1957 the Horley Central Players invited the Barts Players to put on their plays in the Archway Theatre. Their first production in the Theatre was The Winslow Boy."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "act-3.html"} "Act III"]]
+       [:p [:a.normal {:href "act-3.html"} "Act III"]]
        ]]]]])

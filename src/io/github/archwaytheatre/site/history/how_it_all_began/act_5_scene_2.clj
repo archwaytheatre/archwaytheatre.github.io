@@ -1,15 +1,15 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-5-scene-2
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-5-scene-2" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-5-scene-2" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div
       [:h1 "Act 5 Scene 2"]
       [:div
        [:p "When British Rail Property Board and H.C.P. started to negotiate a new lease, the Railway sought a large increase in the rent paid for the arches. It soon became obvious that an enlarged theatre company, which included both H.C.P. and Barts, could better face the prospect and be in a stronger financial position to be offered – and to afford – a lease. The rent required could only be raised if the Theatre capacity could be increased. That meant getting extra land behind the auditorium arch (which the Railway would agree to) and raising the money to pay for the necessary building costs."]
-       [:img.floatright {:alt "50th Cake being cut"
+       [:img.float-right {:alt "50th Cake being cut"
                          :title "50th Cake being cut"
                          :src "../../images/cake-cutting-transformed.jpeg"}]
        [:p "Consequently many meetings and negotiations took place between members of both companies’ management teams, concerning a possible amalgamation. Finally, in October 1986, a meeting in the Theatre for all members of the two companies was held to decide whether or not to amalgamate. A number of members were strongly against the proposal. I for one sat at the meeting very sad at the thought that Barts might no longer exist. However, sentiment could not stand in the way of progress, and there was a real possibility that neither company would survive on its own. Sentiment said to me to vote against the proposal; but after listening to all the discussion conscience said to give it a chance. Conscience won, and I voted with a clear majority for a new set-up."]
@@ -20,5 +20,5 @@
        [:p "I hope that, over the last few months, I have (with Peter Gwynne’s help) given those of you new to the Theatre an insight into how it all began. We look forward to the future with more plans for our little Theatre in Horley for you our Members who give us such loyal support."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "../../everythingelse.html"} "Back"]]
+       [:p [:a.normal {:href "../../about.html"} "Back"]]
        ]]]]])

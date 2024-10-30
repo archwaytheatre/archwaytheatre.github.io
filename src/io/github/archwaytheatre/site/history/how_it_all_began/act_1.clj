@@ -1,17 +1,18 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-1
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-1" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-1" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div
       [:h1 "How it all began"]
+      [:h2 "Act 1"]
       [:div
        [:p "In December 1939, three months after war had been declared, Reg Westcott – a teacher at Horley Central School – founded a new amateur dramatic society as part of the school’s Old Scholars’ Association. They called themselves the Horley Central Players, the name was obvious really."]
        [:p "At first they put on plays in the school hall (properly blacked out. of course) but in March 1942 moved their performances to the original Constitutional Hall. This stood at the time on the site now occupied by the NatWest bank. Here they presented two plays which had previously been produced in the school hall. In subsequent years plays were regularly performed in this Hall and the Central Players gradually built up a good reputation for amateur dramatics."
-        [:img.floatleft {:alt "Programme for Young Elizabeth"
-                         :src "../../images/young-eliz-prog.png"}]]
+        [:img.float-left {:alt "Programme for Young Elizabeth"
+                          :src "../../images/young-eliz-prog.png"}]]
        [:p "In 1949 the players obtained for the first time a base of their own, a room in the Community Association Hall in Cheyne Walk."]
        [:p "This Association was also temporarily using some British Rail property, comprising arches of the viaduct carrying Victoria Road over the railway, which during the war had been used for various Civil Defence purposes."]
        [:p "One day, two of the Horley Central Players’ members – Arthur Clermont and John Dilly – went into one of these arches to watch a table-tennis match. After a while the same, thought occurred to both of them: “we could put on plays here!’."]
@@ -26,5 +27,5 @@
          [:li "The Browning Version by Terence Pattigan (Producer: Clifford Dennis)"]]]
        [:p "I wonder if any of our present membership saw any of these plays? If you did I would be happy to hear from you of your memories of the occasion. John Dilly worked for the BBC and moved to Birmingham."]
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "act-2.html"} "Act II"]]
+       [:p [:a.normal {:href "act-2.html"} "Act II"]]
        ]]]]])

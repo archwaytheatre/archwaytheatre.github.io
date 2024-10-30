@@ -2,9 +2,12 @@
   (:require [io.github.archwaytheatre.site.core :as core]))
 
 
-(core/page "spaces" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "spaces" "The Archway Theatre"
+  [:div.content
+
+   ; todo: images!!!
+
+   [:div.content__item
     [:h1 "Hire a Space"]
     [:div "The Archway Theatre Studio Complex is a thriving “Studio Theatre and Function Room” within the Millennium Arches located under the railway arches at the Archway Theatre in Horley, near Gatwick."]
 
@@ -13,7 +16,7 @@
 
     [:div
      [:h2 "Archway Theatre Studio"]
-     [:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/studio1.jpg"}]
+     ;[:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/studio1.jpg"}]
      [:ul
       [:li "Flexible staging and seating configurations."]
       [:li "Wide programme of productions and events."]
@@ -28,15 +31,16 @@
       [:li "Sound Rig (chargeable extra – subject to operator availability)"]]
      [:div
       "To make an enquiry about hiring the Studio or Function Room, please email: "
-      [:a.simple.delayedEmail "Space Hire"]]]
+      [:a.normal.delayedEmail "Space Hire"]]]]
 
+   [:div.content__item
     [:br]
     [:br]
 
     [:div
      [:h2 "Archway Theatre Function Room"]
-     [:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/function_room_1.jpg"}]
-     [:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/function_room_2.jpg"}]
+     ;[:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/function_room_1.jpg"}]
+     ;[:img {:src "https://i0.wp.com/www.archwaytheatre.com/wp-content/uploads/2014/09/function_room_2.jpg"}]
      [:div
       "The Function Room is available for hire."
       [:ul
@@ -53,7 +57,7 @@
        [:li "Centrally Heated"]]]
      [:div
       "To make an enquiry about hiring the Studio or Function Room, please email: "
-      [:a.simple.delayedEmail "Space Hire"]]]
+      [:a.normal.delayedEmail "Space Hire"]]]
 
     [:br]
     [:br]]]

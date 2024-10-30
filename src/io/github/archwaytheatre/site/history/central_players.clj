@@ -1,15 +1,15 @@
 (ns io.github.archwaytheatre.site.history.central-players
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/central-players" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/central-players" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div
       [:h1 "Life Before The Archway"]
       [:div
        [:p
-        [:img.floatleft {:src "../images/hcp-logo.png"
+        [:img.float-left {:src "../images/hcp-logo.png"
                          :alt "hcp_logo"}]
         "The late Reg Wescott, a teacher at Horley Central School, started a drama class at the evening institute in September 1939. This was attended by some of the pupils and former pupils so that when in the spring of 1940 the class decided to put on a play in the school hall, they did so under the name of “Central Players”."]
        [:p
@@ -27,7 +27,7 @@
         " Centre, but in 1956 our lease was from the railway company (who is still the landlord). The auditorium and"
         " stage occupied what was originally a games arch; it continues to accommodate our audience today."]
        [:p
-        [:img.floatright {:alt "barts_logo"
+        [:img.float-right {:alt "barts_logo"
                          :src "../images/barts-logo.png"}]
         "The late Walter Treagus was interested in amateur dramatics, and in 1951 formed a group from the Youth Club"
         " and Choir members of St. Bartholomew’s Church. They called themselves the “Barts Players” and also put on"
@@ -43,5 +43,5 @@
         " clear that the two companies should combine. After much discussion they did and the Archway Theatre Company"
         " was formed. A long lease was granted in 1988, and the arches were professionally converted to the theatre"
         " you see today."]
-       [:a.simple {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]
+       [:a.normal {:href "how-it-all-began/act-1.html"} "Read more of our history with some lovely stories written by Bette Bunkell"]
        ]]]]])

@@ -1,15 +1,15 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-5-scene-1
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-5-scene-1" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-5-scene-1" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div
       [:h1 "Act 5 Scene 1"]
       [:div
        [:p "In 1979, Horley Central Players Ltd. signed an agreement with British Rail for a 12 year lease on the premises."]
-       [:img.floatleft {:alt "Constitutional Club, 1905"
+       [:img.float-left {:alt "Constitutional Club, 1905"
                         :title "Constitutional Club, 1905"
                         :src "../../images/buildings-transformed.jpeg"}]
        [:p "The rent was £1,450 per annum, subject to an increase every 3 years. Barts Players by this time were firmly established as a fellow Company also performing at the Archway Theatre, each Company performing 5 productions a year “underneath the Arches”."]
@@ -20,5 +20,5 @@
        [:p "This arrangement continued amicably for several years, but the benefits of a single Company with single membership started to be discussed."]
 
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "act-5-scene-2.html"} "Act V, Scene II"]]
+       [:p [:a.normal {:href "act-5-scene-2.html"} "Act V, Scene II"]]
        ]]]]])

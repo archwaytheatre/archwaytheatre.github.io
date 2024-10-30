@@ -123,7 +123,7 @@ function makeCaption(imageDatum) {
 function startCarousel() {
 
     let carousel = document.getElementById('photoCarousel')
-    carousel.classList.add('photo-container');
+    carousel.classList.add('photo__container');
     let imageData = photoData;
     if (imageData.length === 0) {
         carousel.remove();
@@ -146,14 +146,14 @@ function startCarousel() {
             let newBack = document.createElement('div');
             let newCredit = document.createElement('div');
 
-            newBack.classList.add('photo-back');
+            newBack.classList.add('photo__back');
             newBack.style.backgroundImage="url("+ src +")";
 
-            newCredit.classList.add('photo-credit');
+            newCredit.classList.add('photo__credit');
             newCredit.appendChild(makeCaption(imageDatum));
 
-            newElement.classList.add('photo-swap');
-            newElement.classList.add("carouselnew");
+            newElement.classList.add('photo__swap');
+            // newElement.classList.add("photo__new");
             newElement.appendChild(newBack);
             newElement.appendChild(newCredit);
 
@@ -162,7 +162,7 @@ function startCarousel() {
             oldImageElement.remove();
             oldImageElement = currentImageElement;
             currentImageElement = newElement;
-            oldImageElement.classList.add("carouselold");
+            oldImageElement.classList.add("photo__old");
             setTimeout(nextImage, 6000);
         };
         img.onerror = function () {

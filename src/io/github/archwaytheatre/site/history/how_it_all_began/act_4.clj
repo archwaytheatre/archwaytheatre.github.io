@@ -1,15 +1,15 @@
 (ns io.github.archwaytheatre.site.history.how-it-all-began.act-4
   (:require [io.github.archwaytheatre.site.core :as core]))
 
-(core/page "history/how-it-all-began/act-4" "The Archway Theatre"
-  [:section.container
-   [:div.content
+(core/page-2 "history/how-it-all-began/act-4" "The Archway Theatre"
+  [:div.content
+   [:div.content__item
     [:article
      [:div
       [:h1 "Act 4"]
       [:div
        [:p "As mentioned in Act III, Barts Players performed their first play on the Archway stage in 1957. "
-        [:img.floatright {:src "../../images/young-eliz-prog.png"
+        [:img.float-right {:src "../../images/young-eliz-prog.png"
                           :alt "young_eliz_prog"}]]
        [:p "From then on the Archway became their home for staging plays. Their scenery, costumes and props, however, had still to be stored elsewhere including the Church Rooms in Albert Road and Horley Row, and the Bunkell’s house in Russell Crescent. The annual pantomime was still staged at the Constitutional Hall."]
        [:p "When this hall was demolished following Babes In The Wood in 1960 (no connection – demolition had been planned before the panto started!) Barts then moved their annual panto to the Empire Hall."]
@@ -23,5 +23,5 @@
          [:li "1972 The Stoppard Festival"]]]
        [:p "In 1977, to celebrate not only the Silver Jubilee of Queen Elizabeth II but also 25 years underneath the arches, there was a joint production of The Young Elizabeth. If you want to know more about the play, speak to Miles Beauchamp, Nancy Clermont or Margaret Morris as they were all in the cast."]
        [:p [:strong "Written by Bette Bunkell – 2002"]]
-       [:p [:a.simple {:href "act-5-scene-1.html"} "Act V, Scene I"]]
+       [:p [:a.normal {:href "act-5-scene-1.html"} "Act V, Scene I"]]
        ]]]]])

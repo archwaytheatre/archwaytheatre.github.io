@@ -22,11 +22,12 @@
 (def creative-commons-by-sa-2.0
   ["CC BY-SA 2.0" "https://creativecommons.org/licenses/by-sa/2.0/"])
 
-(defn image [src width rights-holder [license-label license-link]]
-  [:div.attributed.image {:style (str "max-width: " width ";")}
-   [:img {:src src}]
+(defn image [src rights-holder [license-label license-link]]
+  [:div.attributed.image.content-max-width
+   [:img.content-max-width {:src src}]
+
    [:div.attribution
-    [:span rights-holder [:a {:href license-link} license-label]]]])
+    [:span rights-holder [:a.normal {:href license-link} license-label]]]])
 
 (defn you-tube [video-id]
   [:iframe.trailer
@@ -174,10 +175,14 @@
       [:img.logo {:src image}]]]
     (when label [:div [:span.simple label]])]))
 
-(defn social-media-logo-2 [title image url]
-  [:a.footer__logo-link {:title title :href url :target "_blank"}
-   [:div.footer__logo-wrapper
-    [:img.footer__logo-image {:src image}]]])
+(defn social-media-logo-2
+  ([title image url]
+   (social-media-logo-2 title image url nil))
+  ([title image url label]
+   [:a.footer__logo-link {:title title :href url :target "_blank"}
+    [:div.footer__logo-wrapper
+     [:img.footer__logo-image {:src image}]]
+    (when label [:div [:span.normal label]])]))
 
 (def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
 ;(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
@@ -258,15 +263,16 @@
         label]
        [:div.menu__drop-down-menu
         (for [[label href] submenu]
-          [:div {:class (classes "menu__item"
-                                 (when (= current-page-filename href)
-                                   "menu__item_selected"))}
-           [:a.menu__button {:href (str relative-path href)} label]])]])
-    [:div {:class (classes "menu__item"
-                           "menu__item_top-level"
-                           (when (= current-page-filename href)
-                             "menu__item_selected"))}
-     [:a.menu__button {:href (str relative-path href)}
+          [:a.menu__button {:href (str relative-path href)}
+           [:div {:class (classes "menu__item"
+                                  (when (= current-page-filename href)
+                                    "menu__item_selected"))}
+            label]])]])
+    [:a.menu__button {:href (str relative-path href)}
+     [:div {:class (classes "menu__item"
+                            "menu__item_top-level"
+                            (when (= current-page-filename href)
+                              "menu__item_selected"))}
       label]]))
 
 (defn menu-2 [relative-path current-page-filename]
@@ -282,11 +288,11 @@
   ([href label relative-path current-href]
    (menu-item-3 href label relative-path current-href nil))
   ([href label relative-path current-href extra-class]
-   [:div {:class (classes "menu__item"
-                          extra-class
-                          (when (= current-href href)
-                            "menu__item_selected"))}
-    [:a.menu__button {:href (str relative-path href)}
+   [:a.menu__button {:href (str relative-path href)}
+    [:div {:class (classes "menu__item"
+                           extra-class
+                           (when (= current-href href)
+                             "menu__item_selected"))}
      label]]))
 
 (defn top-level-menu-item [label href relative-path current-href]
@@ -319,7 +325,7 @@
   [:nav.menu__sticker
    [:div.menu
     [:div.menu__main
-     (top-level-menu-item "What's On?" "whatson.html" relative-path current-href)
+     (top-level-menu-item "What's On?" "index.html" relative-path current-href)
      (menu-dropdown "Get Involved!" "get-involved"
        current-href #{"getinvolved.html" "auditions.html" "events.html" "youth.html"}
        (dropped-menu-item "Volunteer" "getinvolved.html" relative-path current-href)
@@ -432,7 +438,7 @@
              [:div.footer-ghost]
              [:footer
               (into [:div.footer__logos] social-media-logos-2)
-              [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
+              [:a.normal {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
       (when-not (str/starts-with? filename "past/")
         (println "Wrote:" (str target-file))))
     (catch Exception e

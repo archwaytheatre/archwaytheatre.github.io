@@ -10,7 +10,7 @@
 
 
 (defn production-page [year month location name page-name prev-page-name next-page-name blurb about-text photos]
-  (core/page (str "past/" page-name) name
+  (core/page-2 (str "past/" page-name) name
     ;[:script {:src "../js/carousel.data.js"}]
     ;[:script {:src "../js/carousel.js"}]
     [:script {:type "text/javascript"} (photos/js-photo-def "photoData" photos
@@ -24,45 +24,53 @@
     ;[:script {:src "../js/photos.js"}]
     (let [links [:div.center
                  (if prev-page-name
-                   [:a.simple {:href (str prev-page-name ".html")} "Previous"]
-                   [:span.disabled "Previous"])
+                   [:a.normal {:href (str prev-page-name ".html")} "Previous"]
+                   [:span.past__disabled "Previous"])
                  "|"
-                 [:a.simple {:href "index.html"} "All productions"]
+                 [:a.normal {:href "index.html"} "All productions"]
                  "|"
                  (if next-page-name
-                   [:a.simple {:href (str next-page-name ".html")} "Next"]
-                   [:span.disabled "Next"])]]
-      [:section.container
-       [:div.content
-        links
-        [:div.year year]
-        (when month
-          [:div.month (str "☙ " (str/capitalize (Month/of month)) " ❧")])
-        [:div.production name]
-        [:div.center [:p [:pre.about blurb]]]
-        [:div.center [:p (when location (str "Performed in the " location "."))]]
-        [:div#photoCarousel]
-        [:div.center [:p [:pre.about about-text]]]
+                   [:a.normal {:href (str next-page-name ".html")} "Next"]
+                   [:span.past__disabled "Next"])]]
+
+      [:div.content
+
+       [:div.content__item links]
+
+       [:div.content__item [:div.past__year year]]
+
+       (when month [:div.content__item [:div.past__month (str "☙ " (str/capitalize month) " ❧")]])
+
+       [:div.content__item [:div.past__production name]]
+
+       [:div.content__item
+        [:div.text-align-center [:p [:pre.about blurb]]]
+        [:div.text-align-center [:p (when location (str "Performed in the " location "."))]]]
+
+       [:div.content__item [:div#photoCarousel]]
+
+       [:div.content__item [:p [:pre.about about-text]]]
+
         ;[:script {:type "text/javascript"} (str "startCarousel('carousel1',imagesForPlay('" name "'));")]
         ;[:script {:type "text/javascript"} (str "init();")]
 
-        [:br]
-        [:br]
+        ;[:br]
+        ;[:br]
         (for [{:keys [image-url photographer]} photos]
-          [:div.static-photo-container
-           [:img {:src     (str data/asset-url-prefix image-url)
-                  :loading "lazy"}]
-           [:div.static-photo-credit
-            (if (= "Archway Archive" photographer)
-              [:span (str "Photo from the Archway Archive*")]
-              [:span (str "Photo by " photographer ". Used with permission.")])]])
+          [:div.content__item
+           [:div.static-photo__container
+            [:img.static-photo__image {:src     (str data/asset-url-prefix image-url)
+                                       :loading "lazy"}]
+            [:div.static-photo__credit
+             (if (= "Archway Archive" photographer)
+               [:span (str "Photo from the Archway Archive*")]
+               [:span (str "Photo by " photographer ". Used with permission.")])]]])
 
-        (when (some #(= "Archway Archive" %) (map :photographer photos))
-          [:div
-           [:div.center "* If you know how took these pictures then please " [:a.simple {:href "../contact.html"} "get in touch."]]
-           [:br]])
-        [:br]
-        links]])))
+       (when (some #(= "Archway Archive" %) (map :photographer photos))
+         [:div.content__item
+          "* If you know how took these pictures then please " [:a.normal {:href "../contact.html"} "get in touch."]])
+
+       [:div.content__item links]])))
 
 (defn daisy-chain [f c]
   (for [[a b c] (partition-all 3 1 (cons nil c))
@@ -89,16 +97,18 @@
                                      :when (not (:cancelled production))]
                                  (assoc production
                                    :year year
+                                   :month (-> production :start plays/complete-date Month/from)
                                    :photos (plays/get-photos-for production)
                                    :page-name (core/linkify name year)))
                                (daisy-chain #(assoc %2 :prev (:page-name %3)
                                                        :next (:page-name %1)))
                                (group-by :year))]
     (for [[year productions] (sort-by key > year->productions)]
-      [:div.year-index
-       [:div.year-background year]
+      ;[:div.content__item]
+      [:div.past__year-index
+       [:div.past__year-background year]
        (for [{:keys [name prev page-name next location month young-adults-youth
-                     company director author photos about-text]} (sort-by :month productions)]
+                     company director author photos about-text]} (sort-by #(.getValue (:month %)) > productions)]
          (let [blurb-bits [(str (indefinite-articlize (or young-adults-youth company "Archway Theatre")) " production.")
                            (when author (str "Written by " author "."))
                            (when director (str "Directed by " director "."))]
@@ -107,26 +117,22 @@
            (production-page year month location name page-name prev next blurb about-text photos)
            [:div
             (if has-photos?
-              [:a.simple {:href (str page-name ".html")} name]
-              [:i [:a.simple {:href (str page-name ".html")} name]])]))])))
+              [:a.normal {:href (str page-name ".html")} name]
+              [:i [:a.normal {:href (str page-name ".html")} name]])]))])))
 
-(core/page "past/index" "The Archway Theatre - Past Productions"
+(core/page-2 "past/index" "The Archway Theatre - Past Productions"
   ;[:script {:src "./js/carousel.data.js"}]
   ;[:script {:src "./js/carousel.js"}]
 
-  [:section.container
-   [:div.content
+  [:div.content
 
-    [:h1.center "Past Productions"]
-    [:br]
-    [:br]
-    [:br]
-    [:br]
+   [:div.content__item
+    [:h1 "Past Productions"]]
 
-    (index-all-years)
+   (into [:div.content__item]
+         (index-all-years))]
 
+  ;[:div#carousel1.carousel]
+  ;[:script {:type "text/javascript"} "startCarousel('carousel1',recentImages);"]
 
-    ;[:div#carousel1.carousel]
-    ;[:script {:type "text/javascript"} "startCarousel('carousel1',recentImages);"]
-
-    ]])
+  )
