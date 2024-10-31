@@ -288,12 +288,18 @@
   ([href label relative-path current-href]
    (menu-item-3 href label relative-path current-href nil))
   ([href label relative-path current-href extra-class]
-   [:a.menu__button {:href (str relative-path href)}
-    [:div {:class (classes "menu__item"
-                           extra-class
-                           (when (= current-href href)
-                             "menu__item_selected"))}
-     label]]))
+   (let [external? (str/starts-with? href "http")]
+     [:a.menu__button {:href (if external?
+                               href
+                               (str relative-path href))
+                       :target (if external? "_blank" "_self")}
+      [:div {:class  (classes "menu__item"
+                              extra-class
+                              (when (= current-href href)
+                                "menu__item_selected"))}
+       (if external?
+         (str label " ↗")
+         label)]])))
 
 (defn top-level-menu-item [label href relative-path current-href]
   (menu-item-3 href label relative-path current-href "menu__item_top-level"))
