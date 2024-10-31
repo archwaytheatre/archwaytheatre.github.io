@@ -6,5 +6,6 @@
   "end" : "2025-01-25",
   "location" : "Main House",
   "company" : "Archway Theatre",
-  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/snow-white/e-komedd"
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/snow-white/e-komedd",
+  "soldout": true
 }
