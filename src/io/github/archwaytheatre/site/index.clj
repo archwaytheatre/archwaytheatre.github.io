@@ -67,7 +67,8 @@
                                          (str data/asset-url-prefix (:year %) "/" (:id %) "/poster-scaled.png")))
                           ; TODO: HEAD request instead of slurp!
                           (filter #(try (slurp (:poster-url %)) (catch Exception _ nil)))
-                          (sort-by :start))]
+                          (sort-by :start))
+        coming-soon-ids (str/join "," (map #(str \' (:id %) \') coming-soon-or-on-now))]
 
     (-> [:div.content]
 
@@ -78,6 +79,7 @@
   gtag('js', new Date());
   gtag('config', 'G-L92R8E0DYG');"])
 
+        (conj [:script {:src "./js/whatson.js"}])
 
         (conj [:div])
         (conj [:div.trailer__holder
@@ -121,9 +123,12 @@
                    [:div.event-overview__title [:h2 name]]
                    (some-> (author-line author director)
                            (vector :div.event-overview__author))
-                   [:div.event-overview__text [:pre about-text] [:br]]
+                   [:div.event-overview__text.event-overview__text__faded {:id (str "event-overview__text-" id)}
+                    [:pre {:id (str "event-overview__pre-" id)} about-text]
+                    #_[:br]]
                    [:div.event-overview__buttons
-                    [:a.whisper-to-action {:href (str "javascript:about('" id "')")} "More…"]
+                    [:a.whisper-to-action {:id   (str "event-overview__more-" id)
+                                           :href (str "javascript:about('" id "')")} "More…"]
                     (when trailer-url [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")} "Trailer"])
                     [:a.call-to-action {:href ticketurl} "Buy Tickets"]]]]
 
@@ -174,5 +179,6 @@
                [:div.whatson-misc__signup-form core/email-signup-form]])
 
 
-        (conj [:script {:src "./js/whatson.js"}])
-        (conj [:script {:src "./js/video.js"}]))))
+        ;(conj [:script {:src "./js/whatson.js"}])
+        (conj [:script {:src "./js/video.js"}])
+        (conj [:script (str "considerHiding(" coming-soon-ids ");")]))))
