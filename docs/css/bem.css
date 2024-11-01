@@ -399,6 +399,9 @@ footer {
     background-size: cover;
     cursor: pointer;
 }
+#trailer__cover:hover {
+    box-shadow: 0 5px 25px white;
+}
 #trailer__cover-text {
     position: absolute;
     top: 60%;
