@@ -879,3 +879,10 @@ div.past__production {
     text-align: center;
     background-image: linear-gradient(90deg, transparent 0%, black 50%, transparent 100%);
 }
+
+.play-button {
+    display:inline-block;
+    /*padding-bottom: 0.2em;*/
+    position:relative;
+    top: -0.09em;
+}

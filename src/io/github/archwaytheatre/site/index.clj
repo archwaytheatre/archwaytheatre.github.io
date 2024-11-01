@@ -129,7 +129,9 @@
                    [:div.event-overview__buttons
                     [:a.whisper-to-action {:id   (str "event-overview__more-" id)
                                            :href (str "javascript:about('" id "')")} "More…"]
-                    (when trailer-url [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")} "Trailer"])
+                    (when trailer-url
+                      [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")}
+                       "Trailer" [:div.play-button "▶"]])
                     [:a.call-to-action {:href ticketurl} "Buy Tickets"]]]]
 
                  (when trailer-url
