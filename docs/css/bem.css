@@ -492,8 +492,6 @@ footer {
     display: block;
     width: var(--poster-width);
     aspect-ratio: 400/566;
-    /*height: var(--poster-heignameht);*/
-    background-color: yellow;
 }
 .event-overview__poster:hover {
     box-shadow: 0 5px 25px white;
