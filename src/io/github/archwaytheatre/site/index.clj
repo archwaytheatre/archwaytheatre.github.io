@@ -4,11 +4,11 @@
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.net HttpURLConnection URL]
-           [java.time ZoneOffset]
+           [java.time Instant Year ZoneOffset]
            [java.time.format DateTimeFormatter]))
 
 (defn grab-data-from-files []
-  (->> (iterate inc 2024)
+  (->> (iterate inc (dec (.getValue (Year/now))))
        (map plays/get-productions-for)
        (take-while seq)
        (mapcat identity)))
@@ -94,10 +94,8 @@
                   [:div#trailer__cover-subtext "Click to play video."]]
                  [:div#trailer__cover-play]]]])
 
-        (conj [:div.text-align-center
-               [:a.normal {:href "events.html"
-                    ;:style "font-size: 2em;"
-                    }
+        (conj [:div.text-align-center.disappearable {:data-end (.toEpochMilli (Instant/parse "2024-11-23T15:00:00Z"))}
+               [:a.normal {:href "events.html"}
                 [:h3 "Open Day Saturday 23rd November"]]])
 
         (conj [:div.vertical-spacer])
