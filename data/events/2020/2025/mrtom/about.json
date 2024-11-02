@@ -1,9 +1,10 @@
 {
-  "name" : "Goodnight Mr Tom",
-  "author" : "David Wood from the novel of Michelle Magorian",
   "director" : "Jacquie Redfern",
-  "location" : "Main House",
+  "name" : "Goodnight Mr Tom",
   "start" : "2025-12-03",
+  "author" : "David Wood from the novel of Michelle Magorian",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-lqmvbr",
   "end" : "2025-12-13",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

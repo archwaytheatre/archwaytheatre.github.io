@@ -1,9 +1,10 @@
 {
-  "name" : "Nell Gwynn",
-  "author" : "Jessica Swale",
   "director" : "Michael Thonger",
-  "location" : "Main House",
+  "name" : "Nell Gwynn",
   "start" : "2025-09-24",
+  "author" : "Jessica Swale",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-rrkeaz",
   "end" : "2025-10-04",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

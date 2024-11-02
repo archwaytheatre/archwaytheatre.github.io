@@ -1,9 +1,10 @@
 {
-  "name" : "The IT",
-  "author" : "Vivienne Franzmann",
   "director" : "Ella Sowton",
-  "location" : "Main House",
+  "name" : "The IT",
   "start" : "2025-05-27",
+  "author" : "Vivienne Franzmann",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-koxord",
   "end" : "2025-05-31",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }
