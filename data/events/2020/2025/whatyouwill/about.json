@@ -1,9 +1,9 @@
 {
-  "director" : "Jo Ord & Lisa Last",
-  "name" : "What You Will",
-  "author" : "William Shakespeare",
+  "name" : "What You Will (Twelfth Night)",
+  "location" : "Main House",
+  "company" : "Archway Theatre",
   "start" : "2025-03-26",
   "end" : "2025-04-05",
-  "location" : "Main House",
-  "company" : "Archway Theatre"
+  "author" : "William Shakespeare",
+  "director" : "Lisa Last & Jo Ord"
 }
