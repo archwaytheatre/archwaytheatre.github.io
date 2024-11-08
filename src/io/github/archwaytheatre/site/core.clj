@@ -259,15 +259,15 @@
              [:script {:src (str relative-path "js/datetime.js") :defer true}]
              ]
             [:body
-             [:div.prenav
-              [:div
-               [:a {:href "https://www.archwaytheatre.com/"}
-                [:img.prenav__logo {:src (str relative-path "archway_header.png")}]]]
-              [:a {:href "about.html"} [:div#topphotos]]
-              [:div#motto.prenav__motto "A thriving theatre in the heart of Horley."]]
-             (menu-3 relative-path filename)
-             (hiccup.core/html content)
-             [:div.footer-ghost]
+             [:div
+              [:div.prenav
+               [:div
+                [:a {:href "https://www.archwaytheatre.com/"}
+                 [:img.prenav__logo {:src (str relative-path "archway_header.png")}]]]
+               [:a {:href "about.html"} [:div#topphotos]]
+               [:div#motto.prenav__motto "A thriving theatre in the heart of Horley."]]
+              (menu-3 relative-path filename)
+              (hiccup.core/html content)]
              [:footer
               (into [:div.footer__logos] social-media-logos-2)
               [:a.normal {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))

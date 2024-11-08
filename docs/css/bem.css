@@ -96,6 +96,12 @@ body {
     font-family: "Open Sans", sans-serif;
     background-color: var(--bg);
     color: var(--fg-light);
+
+    /* push footer to the bottom */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
 }
 
 h1,h2,h3 {
@@ -205,11 +211,6 @@ hr {
 
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /*text-align: center;*/
     background-image: linear-gradient(90deg, var(--bg) 10%, var(--shadow) 50%, var(--bg) 90%);
     padding-bottom: 0.5rem;
     display: flex;
@@ -241,10 +242,6 @@ footer {
 }
 .footer__logo-image {
     height: 2rem;
-}
-.footer-ghost {
-    height: 5.5rem;
-    /*background-color: white; */
 }
 
 .menu__sticker {
