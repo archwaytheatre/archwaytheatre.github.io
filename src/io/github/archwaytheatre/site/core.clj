@@ -274,7 +274,7 @@
       (when-not (str/starts-with? filename "past/")
         (println "Wrote:" (str target-file))))
     (catch Exception e
-      (.printStackTrace e)
+      (println (str "ERROR in " page-name ":"))
       (throw e))))
 
 (defn redirect [page-name canonical-url]
