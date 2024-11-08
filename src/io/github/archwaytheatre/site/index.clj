@@ -52,6 +52,10 @@
 (defn to-end-millis [end]
   (to-start-millis (.plusDays end 1)))
 
+(defn tickets-available [production]
+  (or (:ticketurl production)
+      (:unticketed production)))
+
 (core/page-2
   "index" "What's On?"
   ; todo: check *all* links in normal text (so not menu buttons, maybe others?) on website are underlined.
@@ -59,7 +63,7 @@
   ; todo: https://stackoverflow.com/questions/37824744/on-mobile-font-size-is-different-depending-on-the-number-of-paragraphs
 
   (let [data (grab-data)
-        coming-soon-or-on-now (take 8 (sort-by :start (filter :ticketurl data)))
+        coming-soon-or-on-now (take 8 (sort-by :start (filter tickets-available data)))
         soon? (set (map :id coming-soon-or-on-now))
         coming-later (->> data
                           (remove #(-> % :id soon?))
@@ -94,16 +98,13 @@
                   [:div#trailer__cover-subtext "Click to play video."]]
                  [:div#trailer__cover-play]]]])
 
-        (conj [:div.text-align-center.disappearable {:data-end (.toEpochMilli (Instant/parse "2024-11-23T15:00:00Z"))}
-               [:a.normal {:href "events.html"}
-                [:h3 "Open Day Saturday 23rd November"]]])
-
         (conj [:div.vertical-spacer])
         (conj [:h1 "What's On?"])
         (conj [:div.vertical-spacer])
-        (into (for [{:keys [start end location name about-text ticketurl trailer-url year id author director soldout]}
+        (into (for [{:keys [start end location about-text ticketurl unticketed trailer-url year id author director soldout]
+                     {:keys [part-1 part-2 part-3]} :name-parts}
                     coming-soon-or-on-now]
-                [:div.event-holder
+                [:div.event-holder.disappearable {:data-end (to-end-millis end)}
                  [:div.event-overview.event-focus {:id (str "event-overview-" id)}
                   [:div.event-overview__banner-wrapper
                    [:div.event-overview__banner
@@ -112,8 +113,11 @@
                      :data-one-day  (if (= start end) "true" "false")
                      :data-sold-out (if soldout "true" "false")}]]
 
-                  [:a {:href ticketurl}
-                   [:img.event-overview__poster {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]]
+                  (if unticketed
+                    [:img {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]
+                    [:a {:href ticketurl}
+                     [:img.event-overview__poster {:src (str data/asset-url-prefix year "/" id "/poster-scaled.png")}]])
+
                   [:div.event-overview__about
                    ; todo: add some flex-grow to the css for these maybe?
                    ; todo: remove the 'More...' button when it's not needed?
@@ -130,7 +134,9 @@
                     (when trailer-url
                       [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")}
                        "Trailer" [:div.play-button "▶"]])
-                    [:a.call-to-action {:href ticketurl} "Buy Tickets"]]]]
+
+                    (when-not unticketed
+                      [:a.call-to-action {:href ticketurl} "Buy Tickets"])]]]
 
                  (when trailer-url
                    [:div.event-trailer {:id (str "event-trailer-" id)}
@@ -142,7 +148,7 @@
                      [:source {:src trailer-url}]]
                     [:div.event-trailer__buttons
                      [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]
-                     [:a.call-to-action {:href ticketurl} "Buy Tickets"]]])
+                     (when-not unticketed [:a.call-to-action {:href ticketurl} "Buy Tickets"])]])
 
                  [:div.event-about {:id (str "event-about-" id)}
                   [:div.event-overview__details (str (date-range start end) " │ " location)]
@@ -152,7 +158,7 @@
                   [:div.event-about__text [:pre about-text]]
                   [:div.event-overview__buttons
                    [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]
-                   [:a.call-to-action {:href ticketurl} "Buy Tickets"]]
+                   (when-not unticketed [:a.call-to-action {:href ticketurl} "Buy Tickets"])]
                   ]]))
         (conj [:div.vertical-spacer])
         (cond->

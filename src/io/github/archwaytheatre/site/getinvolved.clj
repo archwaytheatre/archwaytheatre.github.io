@@ -13,6 +13,10 @@
      " If you'd like to get involved then " [:a.normal {:href "join.html"} "click here to become a member"] "."]]
 
    [:div.content__item
+    [:img {:src   "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/openday.png"
+           :style "max-width: 100%"}]]
+
+   [:div.content__item
     ; todo a picture of some people getting involved?
     [:h1 "Get Involved"]
     [:p "Every production we put on requires many people, both on stage and off, to volunteer their time and their skills to ensure that it runs smoothly. Here is a run-down of the different ways you could contribute to the success of our little theatre:"]]
