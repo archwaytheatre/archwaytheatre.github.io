@@ -1,5 +1,5 @@
 {
-  "name" : "Christmas Concert with Copthorne Silver Band",
+  "name" : [null, "Christmas Concert", "with Copthorne Silver Band"],
   "location" : "Main House",
   "start" : "2024-12-20",
   "end" : "2024-12-20",

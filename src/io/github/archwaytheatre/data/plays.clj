@@ -32,6 +32,19 @@
 (defmethod complete-date YearMonth [x] (.atDay x 1))
 (defmethod complete-date Year [x] (.atDay x 1))
 
+(defn update-name [production]
+  (let [prod-name (:name production)
+        names (cond
+                (string? prod-name) {:name   prod-name
+                                     :name-parts {:part-2 prod-name}}
+                (and (vector? prod-name)
+                     (= 3 (count prod-name))) {:name   (str/join " " (remove nil? prod-name))
+                                               :name-parts {:part-1 (first prod-name)
+                                                            :part-2 (second prod-name)
+                                                            :part-3 (last prod-name)}}
+                :else (throw (ex-info "Don't understand name." {:name prod-name})))]
+    (merge production names)))
+
 (defn load-production-data [production-year production-name]
   (let [prod-code (data/codify production-name)
         play-dir (prod-dir production-year prod-code)
@@ -42,6 +55,7 @@
             about-text (when (.exists about-text-file)
                          (str/trim (slurp (io/file play-dir "about.txt"))))]
         (with-meta (-> about-data
+                       update-name
                        (assoc :about-text about-text)
                        (update :start parse-partial-date)
                        (update :end parse-partial-date))
@@ -78,18 +92,21 @@
     m))
 
 (defn create-production
-  ([year short-name]
-   (create-production year nil short-name nil nil nil nil nil))
+  ([short-name m]
+   (save-production-data
+     (with-meta m
+                {:production-year (str (.getYear (LocalDate/parse (:start m))))
+                 :production-name short-name
+                 :production-code (data/codify short-name)})))
   ([year full-name short-name author director location start end]
    (save-production-data
      (with-meta {:name      full-name
                  :location  location
                  :start     start
                  :end       end
-                 ;:ticketurl ticketurl
                  :author    author
                  :director  director}
-                {:production-year year
+                {:production-year (str year)
                  :production-name short-name
                  :production-code (data/codify short-name)}))))
 
@@ -103,19 +120,16 @@
   (let [{:keys [production-year production-code]} (meta production)
         play-dir (prod-dir production-year production-code)
         audition-file (io/file play-dir "audition.txt")
-        audition-json (io/file play-dir "audition.json")
-        about-file (io/file play-dir "about.json")]
+        audition-json (io/file play-dir "audition.json")]
     (when (and (.exists audition-file)
-               (.exists audition-json)
-               (.exists about-file))
+               (.exists audition-json))
       (let [audition-data (json/parse-string (slurp audition-json) keyword)]
         (when (seq (filter (fn [event]
                              (.isAfter (.plusHours (LocalDateTime/parse (:datetime event)) 3)
                                        (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
                            (:events audition-data)))
-          (let [about (json/parse-string (slurp about-file) keyword)
-                audition-text (slurp audition-file)]
-            (merge (select-keys about [:name :author :director :start])
+          (let [audition-text (slurp audition-file)]
+            (merge (select-keys production [:name :author :director :start])
                    (update audition-data :events #(sort-by :datetime (map parse-dates %)))
                    {:id       (.getName play-dir)
                     :year     production-year

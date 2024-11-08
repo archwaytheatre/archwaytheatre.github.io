@@ -122,7 +122,7 @@
                    ; todo: add some flex-grow to the css for these maybe?
                    ; todo: remove the 'More...' button when it's not needed?
                    [:div.event-overview__details (str (date-range start end) " │ " location)]
-                   [:div.event-overview__title [:h2 name]]
+                   [:div.event-overview__title [:h3 part-1] [:h2 part-2] [:h3 part-3]]
                    (some-> (author-line author director)
                            (vector :div.event-overview__author))
                    [:div.event-overview__text.event-overview__text__faded {:id (str "event-overview__text-" id)}
@@ -152,7 +152,7 @@
 
                  [:div.event-about {:id (str "event-about-" id)}
                   [:div.event-overview__details (str (date-range start end) " │ " location)]
-                  [:div.event-overview__title [:h2 name]]
+                  [:div.event-overview__title [:h3 part-1] [:h2 part-2] [:h3 part-3]]
                   (some-> (author-line author director)
                           (vector :div.event-overview__author))
                   [:div.event-about__text [:pre about-text]]
