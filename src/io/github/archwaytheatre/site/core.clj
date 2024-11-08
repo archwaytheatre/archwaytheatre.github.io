@@ -122,59 +122,6 @@
                new-output))
       output)))
 
-(def menu-list
-  [["What's On?" "index.html"]
-   ["Get Involved!" nil {:id      "get-involved"
-                         :submenu [["Volunteer" "getinvolved.html"]
-                                   ["Audition" "auditions.html"]
-                                   ["Events" "events.html"]
-                                   ["Youngsters" "youth.html"]]}]
-   ["Members" "join.html"]
-   ["Find Us" "findus.html"]
-   ["Contact" "contact.html"]
-   ["About" "about.html"]
-   ["☰" "everythingelse.html"]])
-
-(def menu-list-2
-  [["What's On?" "whatson.html"]
-   ["Get Involved!" :highlight-selected {:id      "get-involved"
-                                         :submenu [["Volunteer" "getinvolved.html"]
-                                                   ["Audition" "auditions.html"]
-                                                   ["Events" "events.html"]
-                                                   ["Youngsters" "youth.html"]]}]
-   ["Members" "join.html"]
-   ["Find Us" "findus.html"]
-   ["Contact" "contact.html"]
-   ["About" "about.html"]
-   ;["☰" "everythingelse.html"]
-   ["☰" false {:id      "hamburger"
-               :submenu [["Box Office" "https://www.ticketsource.co.uk/archwaytheatre/"]
-                         ["Past Productions" "past/index.html"]
-                         ["What's On?" "whatson.html"]
-                         ["Volunteer" "getinvolved.html"]
-                         ["Audition" "auditions.html"]
-                         ["Events" "events.html"]
-                         ["Youngsters" "youth.html"]
-                         ["Members" "join.html"]
-                         ["Find Us" "findus.html"]
-                         ["Contact" "contact.html"]
-                         ["Little Theatre Guild" "https://littletheatreguild.org/"]
-                         ["A History of The Archway" "history/history.html"]
-                         ["Hire a Space" "spaces.html"]
-                         ["About" "about.html"]
-                         ["Legal & Site Info" "legal.html"]]}]
-   ])
-
-(defn social-media-logo
-  ([title image url]
-   (social-media-logo title image url nil))
-  ([title image url label]
-   [:a.logo {:title (or label title) :href url :target "_blank"}
-    [:div.logoholder
-     [:div.logo
-      [:img.logo {:src image}]]]
-    (when label [:div [:span.simple label]])]))
-
 (defn social-media-logo-2
   ([title image url]
    (social-media-logo-2 title image url nil))
@@ -184,13 +131,6 @@
      [:img.footer__logo-image {:src image}]]
     (when label [:div [:span.normal label]])]))
 
-(def logo-ig (partial social-media-logo "Instagram" "/images/logos/Instagram.svg"))
-;(def logo-tw (partial social-media-logo "Twitter" "/images/logos/Twitter.png"))
-(def logo-ex (partial social-media-logo "X (formerly \"Twitter\")" "/images/logos/X.png"))
-(def logo-fb (partial social-media-logo "Facebook" "/images/logos/Facebook.png"))
-(def logo-yt (partial social-media-logo "YouTube" "/images/logos/YouTube.png"))
-(def logo-tk (partial social-media-logo "TikTok" "/images/logos/TikTok.png"))
-
 (def logo-ig-2 (partial social-media-logo-2 "Instagram" "/images/logos/Instagram.svg"))
 ;(def logo-tw-2 (partial social-media-logo-2 "Twitter" "/images/logos/Twitter.png"))
 (def logo-ex-2 (partial social-media-logo-2 "X (formerly \"Twitter\")" "/images/logos/X.png"))
@@ -199,90 +139,12 @@
 (def logo-tk-2 (partial social-media-logo-2 "TikTok" "/images/logos/TikTok.png"))
 
 
-(def social-media-logos
-  [:div
-   (logo-ig "http://instagram.com/archwaytheatre/")
-   (logo-ex "http://twitter.com/ArchwayHorley")
-   (logo-fb "https://www.facebook.com/ArchwayTheatre/")
-   (logo-tk "https://www.tiktok.com/@archwaytheatrehor?lang=en")
-   (logo-yt "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
-
 (def social-media-logos-2
   [(logo-ig-2 "http://instagram.com/archwaytheatre/")
    (logo-ex-2 "http://twitter.com/ArchwayHorley")
    (logo-fb-2 "https://www.facebook.com/ArchwayTheatre/")
    (logo-tk-2 "https://www.tiktok.com/@archwaytheatrehor?lang=en")
    (logo-yt-2 "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
-
-(defn menu [relative-path current-page-filename]
-  [:nav.dark
-   (for [[label href dropdown] menu-list]
-     (if dropdown
-       (let [{:keys [id submenu]} dropdown
-             hrefs (set (map second submenu))]
-         [:div.dropDownContainer {:id id
-                                  ;:onmouseout  (str "dropDownUnhover('" id "');")
-                                  :onmouseleave  (str "dropDownUnhover('" id "');")
-                                  :class (classes "menuItem" "topMenu"
-                                                  (when (hrefs current-page-filename) "selected"))
-                                  }
-          [:a.dropDownButton {:role    "button"
-                              :href    "#0"
-                              ;:onclick (str "dropDownTap('" id "');")
-                              :onmouseover (str "dropDownHover('" id "');")
-                              }
-           label]
-          [:div.dropDownMenu
-           (for [[label href] submenu]
-             [:div {:class (classes "menuItem" (when (= current-page-filename href) "selected"))}
-              [:a {:href (str relative-path href)} label]])]])
-       [:div {:class (classes "menuItem" "topMenu" (when (= current-page-filename href) "selected"))}
-        [:a.menuButton {:href (str relative-path href)}
-         label]]))])
-
-(defn menu-item-2 [relative-path current-page-filename [label href dropdown]]
-  (if dropdown
-    (let [{:keys [id submenu]} dropdown
-          hrefs (set (map second submenu))]
-      [:div.menu__drop-down-holder {:id           id
-                                    ;:onmouseout  (str "dropDownUnhover('" id "');")
-                                    :onmouseleave (str "dropDownUnhover('" id "');")
-                                    :class        (classes "menu__item"
-                                                           ;"menu__drop-down-dropped" ; todo: remove
-                                                           "menu__item_top-level"
-                                                           (when (and (hrefs current-page-filename)
-                                                                      href)
-                                                             "menu__item_selected"))
-                                    }
-       [:a.menu__button.menu__drop-down-button {:role         "button"
-                                                :href         "#0"
-                                                ;:onclick (str "dropDownTap('" id "');")
-                                                :ontouchstart (str "dropDownTap('" id "');")
-                                                :onmouseover  (str "dropDownHover('" id "');")
-                                                }
-        label]
-       [:div.menu__drop-down-menu
-        (for [[label href] submenu]
-          [:a.menu__button {:href (str relative-path href)}
-           [:div {:class (classes "menu__item"
-                                  (when (= current-page-filename href)
-                                    "menu__item_selected"))}
-            label]])]])
-    [:a.menu__button {:href (str relative-path href)}
-     [:div {:class (classes "menu__item"
-                            "menu__item_top-level"
-                            (when (= current-page-filename href)
-                              "menu__item_selected"))}
-      label]]))
-
-(defn menu-2 [relative-path current-page-filename]
-  [:nav.menu__sticker
-   [:div.menu
-    [:div.menu__main
-     (for [menu-item-config (butlast menu-list-2)]
-       (menu-item-2 relative-path current-page-filename menu-item-config))]
-    [:div.menu__hamburger
-     (menu-item-2 relative-path current-page-filename (last menu-list-2))]]])
 
 (defn menu-item-3
   ([href label relative-path current-href]
@@ -369,44 +231,8 @@
     local-dir
     deploy-dir))
 
-(defn page [page-name title & content]
-  (try
-    (let [filename (str page-name ".html")
-          target-file (io/file parent-dir filename)
-          nesting (+ (count (re-seq #"/" page-name))
-                     (if local? 0 0))
-          relative-path (string/join (repeat nesting "../"))]
-      (io/make-parents target-file)
-      (spit
-        target-file
-        (prettify
-          (hiccup.page/html5
-            [:head
-             [:meta {:charset "utf-8"}]
-             [:title title]
-             [:link {:rel "stylesheet" :href (str relative-path "css/style.css")}]
-             [:link {:rel "icon" :type "image/png" :href (str relative-path "favicon.png")}]
-             [:script {:src (str relative-path "js/popup.js")}]
-             [:script {:src (str relative-path "js/top-photo-data.js")}]
-             [:script {:src (str relative-path "js/photos.js") :defer true}]
-             [:script {:src (str relative-path "js/menudrop.js")}]
-             ]
-            [:body
-             [:div.prenav
-              [:div
-               [:a {:href "https://www.archwaytheatre.com/"}
-                [:img {:src (str relative-path "archway_header.png")}]]]
-              [:a {:href "about.html"} [:div#topphotos]]
-              [:div.motto "A thriving theatre in the heart of Horley."]]
-             (menu relative-path filename)
-             (hiccup.core/html content)
-             [:footer social-media-logos
-              [:a.simple {:href "legal.html"} (str "&copy; 1987-" (str (Year/now)) " The Archway Theatre Company")]]])))
-      (when-not (str/starts-with? filename "past/")
-        (println "Wrote" (str target-file))))
-    (catch Exception e
-      (.printStackTrace e)
-      (throw e))))
+(defn page [_page-name _title & _content]
+  (println "This code was removed."))
 
 (defn page-2 [page-name title & content]
   (try
