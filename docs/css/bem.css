@@ -883,3 +883,25 @@ div.past__production {
     position:relative;
     top: -0.09em;
 }
+
+
+.content__item.card:nth-child(even) {
+    background-image: linear-gradient(60deg, var(--bg) 10%, var(--bg2) 75%);
+}
+.content__item.card:nth-child(odd) {
+    background-image: linear-gradient(-60deg, var(--bg) 10%, var(--bg2) 75%);
+}
+.card__header img {
+    background-color: white;
+    width: 100%;
+}
+.card__body {
+    padding: 10px;
+}
+.card__footer {
+    background-color: var(--pink-a);
+    /*margin: 0;*/
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
