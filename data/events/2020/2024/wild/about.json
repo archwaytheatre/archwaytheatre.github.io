@@ -4,6 +4,23 @@
   "name" : "Wild",
   "start" : "2024-09-24",
   "author" : "Mike Bartlett",
+  "photo-sets" : [ {
+    "photographer" : "Eddie Redfern",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.349 ],
+      [ "photo-0002.png", 0.619 ],
+      [ "photo-0003.png", 0.342 ],
+      [ "photo-0004.png", 0.4 ],
+      [ "photo-0005.png", 0.237 ],
+      [ "photo-0006.png", 0.19 ],
+      [ "photo-0007.png", 0.249 ],
+      [ "photo-0008.png", 0.348 ],
+      [ "photo-0009.png", 0.29 ],
+      [ "photo-0010.png", 0.305 ],
+      [ "photo-0011.png", 0.493 ],
+      [ "photo-0012.png", 0.259 ],
+      [ "photo-0013.png", 0.594 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/wild/e-ebvoze",
   "end" : "2024-10-05",
   "location" : "Main House",
