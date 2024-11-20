@@ -60,6 +60,7 @@
           [:div.content__item
            [:div.static-photo__container
             [:img.static-photo__image {:src     (str data/asset-url-prefix image-url)
+                                       :alt     (str "A scene from '" name "' at The Archway Theatre, " year)
                                        :loading "lazy"}]
             [:div.static-photo__credit
              (if (= "Archway Archive" photographer)
