@@ -58,7 +58,8 @@
                        update-name
                        (assoc :about-text about-text)
                        (update :start parse-partial-date)
-                       (update :end parse-partial-date))
+                       (update :end parse-partial-date)
+                       (update :exclusions set))
                    {:production-year production-year
                     :production-name production-name
                     :production-code prod-code}))

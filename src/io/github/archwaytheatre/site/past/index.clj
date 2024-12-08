@@ -94,8 +94,10 @@
                                                                         (sort-by (comp plays/complete-date :start))
                                                                         (reverse))
                                      :when (plays/is-past? production)
-                                     :when (not (:external production))
-                                     :when (not (:cancelled production))]
+                                     :when (not ((:exclusions production) "pastproductions"))
+                                     :when (not (:external production)) ; todo: replace all uses with :exclusions
+                                     :when (not (:cancelled production)) ; todo: replace all uses with :exclusions
+                                     ]
                                  (assoc production
                                    :year year
                                    :month (-> production :start plays/complete-date Month/from)

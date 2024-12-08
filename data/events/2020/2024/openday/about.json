@@ -3,5 +3,6 @@
   "start" : "2024-11-23",
   "unticketed" : true,
   "end" : "2024-11-23",
-  "location": "The Archway Theatre"
+  "location": "The Archway Theatre",
+  "exclusions" : ["ticketurl", "pastproductions"]
 }
