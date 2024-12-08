@@ -38,10 +38,6 @@
      " If you'd like to get involved then " [:a.normal {:href "join.html"} "click here to become a member"] "."]]
 
    [:div.content__item
-    [:img {:src   "https://archwaytheatre.s3.eu-west-2.amazonaws.com/site/2024/openday.png"
-           :style "max-width: 100%"}]]
-
-   [:div.content__item
     [:div.other.disappearable {:data-end (data-end-for "2024-03-25T23:59:59")}
      [:h1 "Singing for the Soul"]
      [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
