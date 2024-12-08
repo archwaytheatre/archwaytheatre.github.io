@@ -3,6 +3,6 @@
   "location" : "The Studio",
   "start" : "2024-12-20",
   "end" : "2024-12-20",
-  "external" : true,
+  "exclusions" : ["pastproductions"],
   "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/the-dingies-2024/e-aeydqr"
 }

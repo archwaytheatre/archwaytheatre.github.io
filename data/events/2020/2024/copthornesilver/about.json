@@ -3,6 +3,6 @@
   "location" : "Main House",
   "start" : "2024-12-20",
   "end" : "2024-12-20",
-  "external" : true,
+  "exclusions" : ["pastproductions"],
   "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/christmas-concert-with-copthorne-silver-band/e-koxjjz"
 }
