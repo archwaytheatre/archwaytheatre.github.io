@@ -130,8 +130,10 @@
                                        (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
                            (:events audition-data)))
           (let [audition-text (slurp audition-file)]
-            (merge (select-keys production [:name :author :director :start])
-                   (update audition-data :events #(sort-by :datetime (map parse-dates %)))
+            (merge (select-keys production [:name :author :director :start :end])
+                   (-> audition-data
+                       (update :events #(sort-by :datetime (map parse-dates %)))
+                       (update :footnotes #(cons "Ages are a rough guide." %)))
                    {:id       (.getName play-dir)
                     :year     production-year
                     :audition audition-text})))))))

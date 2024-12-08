@@ -33,6 +33,7 @@
   )
 
 (def datetime-format (DateTimeFormatter/ofPattern "h:mma'END_TIME' EEEE, dd MMMM YYYY"))
+(def date-format (DateTimeFormatter/ofPattern "EEEE, dd MMMM YYYY"))
 (def end-time-format (DateTimeFormatter/ofPattern "' – 'h:mma','"))
 
 ; TODO: check for email addresses in the audition text!!! blow up if there are any!!!
@@ -66,6 +67,14 @@
                   (when (contains? character :gender) (or gender "any gender"))
                   description]))))
 
+(defn add-footnotes [footnotes]
+  (when (seq footnotes)
+    [:div
+     [:h5 "N.B."]
+     (into [:ul]
+           (for [footnote footnotes]
+             [:li footnote]))]))
+
 (core/page-2 "auditions" "The Archway Theatre"
   [:div.content
 
@@ -80,7 +89,7 @@
 
    (if-let [data (seq (grab-data-from-files))]
      (map
-       (fn [{:keys [author director audition events characters] :as data}]
+       (fn [{:keys [author director audition events characters footnotes start end contact] :as data}]
          [:div.content__item
           [:div.audition.disappearable {:data-end (last-relevant-time events)}
            [:h1 (:name data)]
@@ -99,6 +108,8 @@
                              (str/join ", "))]))
                 (into [:div]))
            [:br]
+           [:div (str "Playing dates: " (.format start date-format) " until " (.format end date-format))]
+           [:br]
            [:h3 "About the Production:"]
            [:div [:pre audition]]
            [:br]
@@ -114,7 +125,7 @@
                                            (map describe-character character))]
                                [:li (describe-character character)]))
                            characters))
-                [:span "Ages are a rough guide."]
+                (add-footnotes footnotes)
                 [:br]]
                [:div
                 [:h3 "Roles:"]
@@ -131,9 +142,15 @@
                                              [:li (describe-character character)]))
                                          characters))])
                            play->characters))
-                [:span "Ages are a rough guide."]
+                (add-footnotes footnotes)
                 [:br]]))
-           [:div.audition__call-to-action "Email: " [:a.normal.delayedEmail "General Enquiries"]]]])
+
+           (let [{:keys [facebook-event]} contact]
+             (cond
+               facebook-event [:div.audition__call-to-action [:a.normal
+                                                              {:href facebook-event}
+                                                              "Respond to the Facebook event"]]
+               :else [:div.audition__call-to-action "Email: " [:a.normal.delayedEmail "General Enquiries"]]))]])
        (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
      [:div.content__item
       [:div "There are currently no audition notices. Check back another time."]])]

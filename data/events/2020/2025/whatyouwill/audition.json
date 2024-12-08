@@ -1,6 +1,40 @@
 {
-  "events": [{
-    "datetime": "2024-12-30T19:45:00",
-    "description": "More details coming soon"
-  }]
+  "events": [
+    {
+      "datetime": "2024-12-30T19:00:00",
+      "location": "in the Bar",
+      "description": "principal musical auditions"
+    },
+    {
+      "datetime": "2024-12-30T19:45:00",
+      "location": "in the Bar",
+      "description": "all other principals and roles"
+    }
+  ],
+  "characters": [
+    {"name" : "Orsino", "age": "20s–50s", "gender" : "male", "description": "Large Role: A Rock star. An egotistical, lovesick (for Olivia), heartthrob who is self-centred and melodramatic. A big, leading character. Preference for musical ability (guitar/vocals) but if you can fake it, you can make it."},
+    {"name" : "Olivia", "age": "20s–50s", "gender" : "female", "description": "Large Role: A supermodel. Beautiful & socially powerful, intelligent & stubborn. She is loved by many but rejects offers of love in pursuit of her own agenda (falls in love with Cesario)."},
+    {"name" : "Viola / Cesario", "age": "18–30s", "gender" : "female", "description": "Large Role: Our protagonist; a charming and likeable, independent woman who has been torn from her (twin) brother and washed up in a new land. She is smart, adaptable, compassionate & practical as well as witty & well humoured. She falls in love with Orsino whilst impersonating as a soundman for him."},
+    {"name" : "Sebastian", "age": "18–30s", "gender" : "male", "description": "Medium-Large Role: Viola’s lost twin brother. Much like his sister in terms of likability & loyal to his friend Antonio/a. Is mistaken for his twin sister’s alter ego ‘Cesario’."},
+    {"name" : "Malvolio", "age": null, "gender" : "male", "description": "Large Role: The puritan. His name literally means ‘ill will’. Olivia’s Chief of Staff. Despised by Olivia’s household for being the self-righteous kill-joy that he is. His distaste for Olivia’s uncle/auntie’s behaviour (drinking and having fun!) results in a cruel and humiliating trick being played on him. This character will likely need to dress in a revealing manner and will fall from grace rather hard."},
+    {"name" : "Feste / The entertainer", "age": null, "gender" : null, "description": "Medium-Large Role. The entertainer. Omniscient; Feste moves between the two households observing and advising via their wit & humour. Subservient to Oliva & Orsino and a source of entertainment. Plays their part in the demise of Malvolio. Preferable music ability (guitar/vocals)."},
+    {"name" : "Toby Belch", "age": "Any (appropriately older than Olivia)", "gender" : null, "description": "Medium-large Role. Olivia’s drunken and raucous uncle/aunt. A socialite enjoying the fruits of Olivia’s fame. They and Andy Aguecheek create mischief with the help of Maria. Larger than life and very naughty."},
+    {"name" : "Maria", "age": null, "gender" : null, "description": "Medium-large Role. Olivia’s hair and make up artist. A gossip but well-liked, clever and daring; they concoct the plan to bring Malvolio down and enjoys bantering with other characters."},
+    {"name" : "Andrew Aguecheek", "age": null, "gender" : null, "description": "Medium-large role. A C-list actor with ideas above their station. They intend to woo Olivia but aren’t the sharpest tool in the box. A buffoon (a rich one) who delights in revelling with Toby & Maria and is rather generous with their purse. A ridiculous character, very fun to play."},
+    {"name" : "Antonio/a", "age": null, "gender" : null, "description": "Medium role. Owner of a night club out of town. Rescues and befriends Sebastian and proves a loyal companion."},
+    {"name" : "Fabian", "age": null, "gender" : null, "description": "Medium role. Olivia’s chauffer. They join in the revenge plot on Malvolio, seemingly just for the hell of it (cos Malvolio annoyed them once)."},
+    [
+      {"name" : "Valentine", "gender" : "female", "age": null},
+      {"name" : "Curio", "gender" : "female", "age": null},
+      {"description": "Small Roles. Roadies of Orsino’s. Orsino is quite convinced they are men. They are not. They are women pretending to be men. These will be fun to play for someone who doesn’t like too many lines but is good with facial expressions."}
+    ],
+    {"name" : "Captain", "age": null, "gender" : null, "description": "Small Role. Captain of the yacht which sinks at the beginning and fellow survivor with Viola. Is knowledgeable of the land and people in it to set the scene in our opening. Handy that."},
+    {"name" : "Chorus", "age": null, "gender" : null, "description": "Anyone who is interested in being part of the production without a speaking role but perhaps you play an instrument/sing/are happy to be whatever we come up with!"}
+  ],
+  "footnotes" : [
+    "Orsino, Olivia, Viola & Sebastian (and possibly other characters) will likely require levels of intimacy. Intimacy direction will be provided to accommodate preferences."
+  ],
+  "contact" : {
+    "facebook-event" : "https://www.facebook.com/events/27641509252162598"
+  }
 }
