@@ -32,6 +32,9 @@
 (defmethod complete-date YearMonth [x] (.atDay x 1))
 (defmethod complete-date Year [x] (.atDay x 1))
 
+(defn included? [production category]
+  (not ((:exclusions production) category)))
+
 (defn update-name [production]
   (let [prod-name (:name production)
         names (cond

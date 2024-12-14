@@ -26,6 +26,7 @@
 (defn grab-data []
   (->> (grab-data-from-files)
        (remove plays/is-past?)
+       (filter #(plays/included? % "whatson"))
        (map (fn [production]
               (let [id (:production-code (meta production))
                     year (:production-year (meta production))
