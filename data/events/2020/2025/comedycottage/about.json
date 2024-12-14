@@ -3,6 +3,6 @@
   "location" : "Main House",
   "start" : "2025-01-31",
   "end" : "2025-01-31",
-  "exclusions" : ["pastproductions", "whatson"],
+  "exclusions" : ["pastproductions"],
   "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/comedy-cottage/e-oddqor"
 }
