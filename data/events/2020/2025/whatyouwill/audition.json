@@ -2,12 +2,12 @@
   "events": [
     {
       "datetime": "2024-12-30T19:00:00",
-      "location": "in the Bar",
+      "location": "in the Function Room",
       "description": "principal musical auditions"
     },
     {
       "datetime": "2024-12-30T19:45:00",
-      "location": "in the Bar",
+      "location": "in the Function Room",
       "description": "all other principals and roles"
     }
   ],
