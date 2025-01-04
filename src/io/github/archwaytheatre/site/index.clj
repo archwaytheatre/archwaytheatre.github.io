@@ -64,7 +64,7 @@
   ; todo: https://stackoverflow.com/questions/37824744/on-mobile-font-size-is-different-depending-on-the-number-of-paragraphs
 
   (let [data (grab-data)
-        coming-soon-or-on-now (take 8 (sort-by :start (filter tickets-available data)))
+        coming-soon-or-on-now (take 6 (sort-by :start (filter tickets-available data)))
         soon? (set (map :id coming-soon-or-on-now))
         coming-later (->> data
                           (remove #(-> % :id soon?))
