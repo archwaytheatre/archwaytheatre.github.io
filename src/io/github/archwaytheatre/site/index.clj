@@ -75,6 +75,8 @@
                           (sort-by :start))
         coming-soon-ids (str/join "," (map #(str \' (:id %) \') coming-soon-or-on-now))]
 
+    ; todo: check coming-later's when building - will they all have the text, links that they need, etc.?
+
     (-> [:div.content]
 
         (conj [:script {:async "true"

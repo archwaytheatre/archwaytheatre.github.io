@@ -61,17 +61,17 @@
       [:div "Just turn up or"]
       (core/logo-fb-2 "https://www.facebook.com/groups/621824429716899" "Join the Facebook Group")]]]
 
-   #_[:div.other
-      [:h1 "Archway Karaoke"]
+   [:div.content__item
+    [:div.other
+     [:h1 "Archway Karaoke"]
 
-      [:p "Karaoke is back!"]
-      [:p "Do your warm-ups, choose your songs and prepare yourself for the Archway’s Karaoke with DJ Thom. This time there is a separate event for the children – 4:30 pm to 7 pm – where are extremely talented younger members can show themselves off and sing to their hearts content."]
-      [:p "Tickets are £5 for the children and there must be an accompanying adult (who does not have to pay but must be present)."]
-      [:p "From 7:30 pm the evening we will be set for Adults (15+). Tickets are £5 for everyone attending in the evening and all under 16s must have an accompanying adult with them."]
-      [:p "Tickets must be bought in advance and will not be available on the door."]
+     [:p "Karaoke is back!"]
+     [:p "Do your warm-ups, choose your songs and prepare yourself for the Archway’s Karaoke with DJ Thom."]
+     [:p "Children under 16 must be accompanied by an adult."]
+     [:p "Tickets must be bought in advance and will not be available on the door."]
 
-      [:div.calltoaction [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-vkjxzj"
-                                     :target "_blank"} "Buy tickets"]]]
+     [:div.other__call-to-action [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-zvvvka"
+                                             :target "_blank"} "Buy tickets"]]]]
 
    [:div.content__item
     [:div.other
