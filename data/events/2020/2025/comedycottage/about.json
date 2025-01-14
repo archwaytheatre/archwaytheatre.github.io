@@ -4,5 +4,6 @@
   "start" : "2025-01-31",
   "end" : "2025-01-31",
   "exclusions" : ["pastproductions"],
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/comedy-cottage/e-oddqor"
+  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/comedy-cottage/e-oddqor",
+  "soldout": true
 }
