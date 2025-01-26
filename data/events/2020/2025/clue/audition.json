@@ -1,0 +1,26 @@
+{
+  "events": [{
+    "datetime": "2025-01-28T19:45:00",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Wadsworth", "gender": "male", "age": null, "description": "a traditional English butler; the driving force of the play. Formal, quick-witted and very much trying to keep control of the unravelling proceedings." },
+    {"name": "Yvette", "gender": "female", "age": "20s-30s", "description":"the maid; loyal to Wadsworth and possible in over her head with this party."},
+    {"name": "Miss Scarlet", "gender": "female", "age": null, "description":"a madam; a dry, sardonic businesswoman whose business is about finding out about yours."},
+    {"name": "Mrs Peacock", "gender": "female", "age": "30s+", "description":"the politician's wife; batty, neurotic and quick to hysteria."},
+    {"name": "Mrs White", "gender": "female", "age": "30s+", "description":"the frequent widow; surrounded by tragedy but how much of it did she cause?"},
+    {"name": "Colonel Mustard", "gender": "male", "age": "30s+", "description":"the military man; a puffy, pompous, dense blowhard who - if bullets were knowledge - would be down to his last shot."},
+    {"name": "Professor Plum", "gender": "male", "age": "30s+", "description":"the academic; somewhat arrogant and easily impressed with himself but why is he no longer working in medicine?"},
+    {"name": "Mr Green", "gender": "male", "age": null, "description":"the bureaucrat; timid, accident-prone and very anxious - what is his secret?"},
+    [
+      {"description": "Ensemble (most only in one scene so doubling up most likely and being able to play dead is a bonus!)"},
+      {"name": "The Cook", "gender": "female", "age": "30s+", "description":"gruff with a threatening presence"},
+      {"name": "Mr Boddy", "gender": "male", "age": "30s+", "description":"the mysterious host"},
+      {"name": "The Motorist", "gender": "male", "age": "30s+", "description":"what a time to break down!"},
+      {"name": "Singing Telegram Girl", "gender": "female", "age": "20s-30s", "description":"here to lighten the mood"},
+      {"name": "An Unexpected Cop", "gender": "male", "age": "30s+", "description":"just checking in"},
+      {"name": "Chief of Police", "gender": "male", "age": "30s+", "description":"ready to save the day"},
+      {"name": "Backup Police officers", "gender": null, "age": null, "description":null}
+    ]
+  ]
+}
