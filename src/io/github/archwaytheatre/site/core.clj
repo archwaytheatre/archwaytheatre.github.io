@@ -141,7 +141,7 @@
 
 (def social-media-logos-2
   [(logo-ig-2 "http://instagram.com/archwaytheatre/")
-   (logo-ex-2 "http://twitter.com/ArchwayHorley")
+   ;(logo-ex-2 "http://twitter.com/ArchwayHorley")
    (logo-fb-2 "https://www.facebook.com/ArchwayTheatre/")
    (logo-tk-2 "https://www.tiktok.com/@archwaytheatrehor?lang=en")
    (logo-yt-2 "https://www.youtube.com/channel/UCrbh4hS_gw0hb811tILRdBA")])
