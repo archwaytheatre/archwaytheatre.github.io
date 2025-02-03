@@ -43,7 +43,7 @@
     (str (.format start-date date-format) " - " (.format end-date date-format))))
 
 (defn author-line [author director]
-  (when-let [bits (seq (remove nil? [(when author (str "by " author))
+  (when-let [bits (seq (remove nil? [(when author author)
                                      (when director (str "directed by " director))]))]
     (str/join ", " bits)))
 
@@ -126,8 +126,8 @@
                    ; todo: remove the 'More...' button when it's not needed?
                    [:div.event-overview__details (str (date-range start end) " │ " location)]
                    [:div.event-overview__title [:h3 part-1] [:h2 part-2] [:h3 part-3]]
-                   (some-> (author-line author director)
-                           (vector :div.event-overview__author))
+                   (some->> (author-line author director)
+                            (vector :div.event-overview__author))
                    [:div.event-overview__text.event-overview__text__faded {:id (str "event-overview__text-" id)}
                     [:pre {:id (str "event-overview__pre-" id)} about-text]
                     #_[:br]]
@@ -156,8 +156,8 @@
                  [:div.event-about {:id (str "event-about-" id)}
                   [:div.event-overview__details (str (date-range start end) " │ " location)]
                   [:div.event-overview__title [:h3 part-1] [:h2 part-2] [:h3 part-3]]
-                  (some-> (author-line author director)
-                          (vector :div.event-overview__author))
+                  (some->> (author-line author director)
+                           (vector :div.event-overview__author))
                   [:div.event-about__text [:pre about-text]]
                   [:div.event-overview__buttons
                    [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]

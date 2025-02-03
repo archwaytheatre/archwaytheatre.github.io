@@ -510,11 +510,14 @@ footer {
     text-align: center;
 }
 .event-overview__author {
+    text-align: center;
+    color: var(--silver-1);
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 .event-overview__text {
+    color: white;
     padding-left: 1rem;
     padding-right: 1rem;
     overflow: hidden;
