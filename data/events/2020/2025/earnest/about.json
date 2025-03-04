@@ -4,6 +4,20 @@
   "name" : "The Importance of Being Earnest",
   "start" : "2025-02-19",
   "author" : "by Oscar Wilde",
+  "photo-sets" : [ {
+    "photographer" : "Gary Andrews",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.16 ],
+      [ "photo-0002.png", 0.093 ],
+      [ "photo-0003.png", 0.146 ],
+      [ "photo-0004.png", 0.11 ],
+      [ "photo-0005.png", 0.164 ],
+      [ "photo-0006.png", 0.204 ],
+      [ "photo-0007.png", 0.333 ],
+      [ "photo-0008.png", 0.498 ],
+      [ "photo-0009.png", 0.201 ],
+      [ "photo-0010.png", 0.147 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-obvglg",
   "end" : "2025-03-01",
   "location" : "Main House",
