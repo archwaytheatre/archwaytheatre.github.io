@@ -61,7 +61,7 @@
       [:div "Just turn up or"]
       (core/logo-fb-2 "https://www.facebook.com/groups/621824429716899" "Join the Facebook Group")]]]
 
-   [:div.content__item
+#_   [:div.content__item
     [:div.other
      [:h1 "Archway Karaoke"]
 
