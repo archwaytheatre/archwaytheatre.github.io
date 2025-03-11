@@ -60,15 +60,21 @@
         str)))
 
 (defn parse-links [description]
-  (let [links (map (fn [[_ text url]]
-                     [:a.normal {:href url :target "_blank"} text])
-                   (re-seq #"\[([^\]]*)\]\(([^)]*)\)" description))
-        bits (str/split description #"\[([^\]]*)\]\(([^)]*)\)")]
-    [:span (interleave bits (concat links [""]))]))
+  (when description
+    (let [links (map (fn [[_ text url]]
+                       [:a.normal {:href url :target "_blank"} text])
+                     (re-seq #"\[([^\]]*)\]\(([^)]*)\)" description))
+          bits (str/split description #"\[([^\]]*)\]\(([^)]*)\)")]
+      [:span (interleave bits (concat links [""]))])))
 
 (defn describe-character [{:keys [age gender description] :as character}]
   (into
-    [:span (when (:name character) (str (:name character) " - "))]
+    [:span
+     (str (:name character))
+     (when (or (contains? character :description)
+               (contains? character :age)
+               (contains? character :gender))
+       " - ")]
     (interpose ", " (remove nil? [(when (contains? character :age) (or age "any age"))
                                   (when (contains? character :gender) (or gender "any gender"))
                                   (parse-links description)]))))

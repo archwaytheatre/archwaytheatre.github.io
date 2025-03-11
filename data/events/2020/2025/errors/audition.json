@@ -1,0 +1,35 @@
+{
+  "events": [{
+    "datetime": "2025-03-31T19:30:00",
+    "location": "in the Bar",
+    "description": null
+  }],
+  "characters": [
+    [
+      {"name": "Antipholus of Ephesus"},
+      {"name": "Antipholus of Syracuse"},
+      {"gender": "male", "age": "early 20s", "description": "twin brothers and sons to Aegeon and Aemelia, leading role"}
+    ],
+    [
+      {"name": "Dromio of Ephesus"},
+      {"name": "Dromio of Syracuse"},
+      {"gender": "male", "age": "early 20s", "description": "twin brothers and attendants on the two Antipholuses, leading role"}
+    ],
+    {"name": "Adriana", "gender": "female", "description": "wife to Antipholus of Ephesus, leading role"},
+    {"name": "Luciana", "gender": "female", "description": "her sister, leading role"},
+
+    {"name": "Aegeon", "gender": "male", "age": "40+", "description": "a merchant of Syracuse, only in 2 scenes but with a HUGE speech at the start"},
+    {"name": "Angelo", "gender": null, "age": null, "description": "a goldsmith, in a handful of scenes"},
+    {"name": "A Courtezan", "gender": "female", "age": null, "description": "in a handful of scenes"},
+    {"name": "Officer", "gender": null, "age": null, "description": "a thick cop, in a handful of scenes"},
+
+    {"name": "Second Merchant", "gender": null, "age": null, "description": "to whom Angelo is a debtor, 2 scenes only"},
+    {"name": "Solinus", "gender": null, "age": null, "description": "Duke of Ephesus, 2 scenes only"},
+
+    {"name": "Pinch", "gender": null, "age": null, "description": "a mad scientist type, 1 scene only"},
+    {"name": "Amelia", "gender": "female", "age": "40+", "description": "wife to Aegeon; an abbess, 1 scene only"},
+    {"name": "First Merchant", "gender": null, "age": null, "description": "friend to Antipholus of Syracuse, 1 scene only"},
+    {"name": "Balthazar", "gender": null, "age": null, "description": "a merchant, 1 scene only"},
+    {"name": "Messenger", "gender": null, "age": null, "description": "1 scene only"}
+  ]
+}
