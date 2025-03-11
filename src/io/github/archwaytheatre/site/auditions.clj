@@ -59,13 +59,19 @@
         (.toEpochMilli)
         str)))
 
+(defn parse-links [description]
+  (let [links (map (fn [[_ text url]]
+                     [:a.normal {:href url :target "_blank"} text])
+                   (re-seq #"\[([^\]]*)\]\(([^)]*)\)" description))
+        bits (str/split description #"\[([^\]]*)\]\(([^)]*)\)")]
+    [:span (interleave bits (concat links [""]))]))
+
 (defn describe-character [{:keys [age gender description] :as character}]
-  (str (:name character) " - "
-       (str/join ", "
-         (remove nil?
-                 [(when (contains? character :age) (or age "any age"))
-                  (when (contains? character :gender) (or gender "any gender"))
-                  description]))))
+  (into
+    [:span (when (:name character) (str (:name character) " - "))]
+    (interpose ", " (remove nil? [(when (contains? character :age) (or age "any age"))
+                                  (when (contains? character :gender) (or gender "any gender"))
+                                  (parse-links description)]))))
 
 (defn add-footnotes [footnotes]
   (when (seq footnotes)
@@ -93,7 +99,7 @@
          [:div.content__item
           [:div.audition.disappearable {:data-end (last-relevant-time events)}
            [:h1 (:name data)]
-           (when author [:div (str "by " author)])
+           (when author [:div author])
            [:div (str "directed by " director)]
            [:br]
            [:h3 "Auditions: "]
