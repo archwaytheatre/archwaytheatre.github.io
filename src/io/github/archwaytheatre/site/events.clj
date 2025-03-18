@@ -28,6 +28,9 @@
       (.toEpochMilli)
       str))
 
+(defn detail-block [heading & lines]
+  (into [:p [:h6 heading]] (map #(vector :div %) lines)))
+
 (core/page-2 "events" "The Archway Theatre"
   [:div.content
 
@@ -73,6 +76,28 @@
 
      [:div.other__call-to-action [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-zvvvka"
                                              :target "_blank"} "Buy tickets"]]]]
+
+   [:div.content__item
+    [:div.other.disappearable {:data-end (data-end-for "2025-04-26T23:59:59")}
+     [:h1 "Archway Quiz Night"]
+
+     [:h3 "Saturday 26th April"]
+
+     [:p "Why not join us for a fun Quiz Night, teams of up to 6 people max or just come on your own and join with some others to form a team on the night."]
+     [:p "Tickets are only £3 per person and can be purchased from our normal Box Office."]
+     [:p "We look forward to seeing you."]
+
+     (detail-block "Event Details"
+       "Doors Open at 7:00PM"
+       "Starts at 7:30PM")
+
+     (detail-block "Location"
+       "Archway Studio Theatre, Surrey, RH6 7NQ")
+
+     [:div.other__call-to-action
+      [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/t-xmkpxed"
+                  :target "_blank"}
+       "Buy tickets"]]]]
 
    [:div.content__item
     [:div.other
