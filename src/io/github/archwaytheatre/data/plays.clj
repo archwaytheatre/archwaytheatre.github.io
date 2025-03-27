@@ -55,8 +55,10 @@
     (if (.exists about-json-file)
       (let [about-data (json/parse-string (slurp about-json-file) keyword)
             about-text-file (io/file play-dir "about.txt")
-            about-text (when (.exists about-text-file)
-                         (str/trim (slurp (io/file play-dir "about.txt"))))]
+            about-text (if (.exists about-text-file)
+                         (str/trim (slurp (io/file play-dir "about.txt")))
+                         (when (< 2024 (parse-long production-year))
+                           (println "Missing 'about.txt' for" prod-code)))]
         (with-meta (-> about-data
                        update-name
                        (assoc :about-text about-text)
