@@ -89,7 +89,7 @@
       (throw (ex-info "No meta data!!!" {})))
     (io/make-parents about-json-file)
     (spit about-json-file (json/generate-string (-> m
-                                                    (dissoc :about-text)
+                                                    (dissoc :about-text :name-parts)
                                                     (update :start #(some-> % str))
                                                     (update :end #(some-> % str)))
                                                 {:pretty true}))
