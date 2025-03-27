@@ -57,7 +57,7 @@
             about-text-file (io/file play-dir "about.txt")
             about-text (if (.exists about-text-file)
                          (str/trim (slurp (io/file play-dir "about.txt")))
-                         (when (< 2024 (parse-long production-year))
+                         (when (< 2024 (Long/parseLong production-year))
                            (println "Missing 'about.txt' for" prod-code)))]
         (with-meta (-> about-data
                        update-name
