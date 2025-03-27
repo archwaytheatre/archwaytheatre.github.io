@@ -139,7 +139,17 @@
         args ["aws"
               "--profile" "deploy"
               "s3" "cp" (.getAbsolutePath file) (str data/s3-dir "/" relative-path)]]
-    (run-proc args)))
+    (run-proc args)
+    relative-path))
+
+(defn invalidate-cloud-front-cache [paths]
+  (let [args (apply vector
+                    "aws"
+                    "--profile" "deploy"
+                    "cloudfront" "create-invalidation"
+                    "--distribution-id" "EELFKJ9M1GUA5"
+                    "--paths" (map #(str "/" %) paths))]
+    (util/run-proc args)))
 
 (defn upload-poster [production-name production-year poster-file]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
@@ -150,7 +160,7 @@
     (when-not (plays/load-production-data production-year production-name)
       (throw (ex-info "Please create the data first." {:prod-code prod-code})))
 
-    (println prod-code)
+    (println production-year " / " prod-code)
 
     (if (and (string? poster-file) (str/starts-with? poster-file "http"))
       (download-image poster-file local-file)
@@ -159,10 +169,9 @@
     ;(rescale-image local-file local-scaled-file poster-dimensions)
     (rescale-image-2 local-file local-scaled-file poster-dimensions)
 
-    (copy-to-s3 local-dir local-file)
-    (copy-to-s3 local-dir local-scaled-file)
-
-    ))
+    (let [paths [(copy-to-s3 local-dir local-file)
+                 (copy-to-s3 local-dir local-scaled-file)]]
+      (invalidate-cloud-front-cache paths))))
 
 (defn upload-trailer [production-name production-year local-file-name]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
