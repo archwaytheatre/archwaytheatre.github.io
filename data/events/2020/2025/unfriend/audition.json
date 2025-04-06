@@ -1,0 +1,17 @@
+{
+  "events": [
+    {
+      "datetime": "2025-05-20T19:45:00",
+      "location": "in the Bar"
+    }
+  ],
+  "characters": [
+    {"name" : "Peter", "age": "40-50", "gender" : "male", "description": "Husband"},
+    {"name" : "Debbie", "age": "40-50", "gender" : "female", "description": "Wife"},
+    {"name" : "Elsa", "age": "50+", "gender" : "female", "description": "Lusty, powerful, non-woke, Trump loving American widow"},
+    {"name" : "Alex", "age": "15-17", "gender" : "male", "description": "A grungy teenager"},
+    {"name" : "Rosie", "age": "17-18", "gender" : "female", "description": "A bossy elder sister"},
+    {"name" : "The Neighbour", "age": "60+", "description": "Amiable, relentless and dull"},
+    {"name" : "PC Junkin", "age": "30+", "description": "The local friendly policeman"}
+  ]
+}
