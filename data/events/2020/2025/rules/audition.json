@@ -1,0 +1,21 @@
+{
+  "events": [{
+    "datetime": "2025-07-14T19:30:00",
+    "location": "in the Bar",
+    "description": "Main Audition"
+  },
+  {
+    "datetime": "2025-07-21T19:30:00",
+    "location": "in the Bar",
+    "description": "Callbacks"
+  }],
+  "characters": [
+    {"name": "Matthew", "gender": "male", "age": "mid 30s", "description": "Son of Edith and Francis. Boyfriend of Carrie. Solicitor. Needs to be able to sing confidently without accompaniment (one instance of singing, but it is key to the plot and the character)."},
+    {"name": "Carrie", "gender": "female", "age": "early 30s", "description": "Actor. Girlfriend of Matthew. Attention-seeking, sexually confident and dresses provocatively. Anxious to please and be liked. Her body language and tendency to physically move about a lot are expressive of her inner emotions."},
+    {"name": "Sheena", "gender": "female", "age": "early 40s", "description": "Married to Adam. Mother of Emma. Clearly the emotionally stronger one in the marriage. More ‘grounded’ and confident than Carrie."},
+    {"name": "Adam", "gender": "male", "age": "early 40s", "description": "Son of Edith and Francis. Married to Sheena. Father of Emma. Solicitor. Needs to be able to convincingly affect a variety of comical accents and silly voices. Tendency to sarcasm."},
+    {"name": "Edith", "gender": "female", "age": "60s", "description": "Married to Francis. Mother to Matthew and Adam. She has a bad back which must be evident in playing the role. Concerned about appearances. Idealises her sons."},
+    {"name": "Francis", "gender": "male", "age": "70s", "description": "Married to Edith and father to Matthew and Adam. Confined to wheelchair. Requires convincing portrayal of neurological impairment affecting his posture and speech."},
+    {"name": "Emma", "gender": "female", "age": "14", "description": "Daughter of Adam and Sheena. Appears in one scene, but the character is crucial to the plot. Suffers from Chronic Fatigue Syndrome (CFS) and depression. It should be noted that this character uses one instance of strong language in the script."}
+  ]
+}
