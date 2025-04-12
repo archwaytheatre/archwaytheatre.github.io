@@ -27,7 +27,7 @@
     #_(interleave-all volunteering everything-else)))
 
 (defn grab-data-from-files []
-  (remove nil? (map plays/get-audition-data (plays/get-all-future-productions)))
+  (remove nil? (map plays/get-future-audition-data (plays/get-all-future-productions)))
   ; todo: first filter out the past events, and then sort auditions by the soonest future event
   ;; todo bonus: do this dynamically in js!!!
   )
@@ -46,18 +46,18 @@
                  "")))
 
 (defn last-relevant-time [events]
-  (let [lrt (reduce (fn [lrt {:keys [datetime end-time]}]
-                      (let [time (or end-time (.plusHours datetime 3))]
-                        (if (-> time (.isAfter lrt))
-                          time
-                          lrt)))
-                    (LocalDateTime/now)
+  (let [lrt (reduce (fn [lrt {:keys [estimated-end-time]}]
+                      (if (or (nil? lrt)
+                              (-> estimated-end-time (.isAfter lrt)))
+                        estimated-end-time
+                        lrt))
+                    nil
                     events)]
-    (-> lrt
-        (.atZone (ZoneId/of "Europe/London"))
-        (.toInstant)
-        (.toEpochMilli)
-        str)))
+    (some-> lrt
+            (.atZone (ZoneId/of "Europe/London"))
+            (.toInstant)
+            (.toEpochMilli)
+            str)))
 
 (defn parse-links [description]
   (when description
@@ -70,7 +70,7 @@
 (defn describe-character [{:keys [age gender description] :as character}]
   (into
     [:span
-     (str (:name character))
+     [:b (str (:name character))]
      (when (or (contains? character :description)
                (contains? character :age)
                (contains? character :gender))
@@ -102,67 +102,68 @@
    (if-let [data (seq (grab-data-from-files))]
      (map
        (fn [{:keys [author director audition events characters footnotes start end contact] :as data}]
-         [:div.content__item
-          [:div.audition.disappearable {:data-end (last-relevant-time events)}
-           [:h1 (:name data)]
-           (when author [:div author])
-           [:div (str "directed by " director)]
-           [:br]
-           [:h3 "Auditions: "]
-           (->> events
-                (filter #(-> % :datetime (.isAfter (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London")))))
-                (map (fn [{:keys [datetime end-time location description]}]
-                       [:div
-                        (->> [(add-end-time (.format datetime datetime-format) end-time)
-                              location
-                              description]
-                             (remove nil?)
-                             (str/join ", "))]))
-                (into [:div]))
-           [:br]
-           [:div (str "Playing dates: " (.format start date-format) " until " (.format end date-format))]
-           [:br]
-           [:h3 "About the Production:"]
-           [:div [:pre audition]]
-           [:br]
-           (when-let [play->characters (some->> (seq characters) (group-by :play))]
-             (if (= 1 (count play->characters))
-               [:div
-                [:h3 "Roles:"]
-                (into [:ul]
-                      (map (fn [character]
-                             (if (vector? character)
-                               [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
-                                (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
-                                           (map describe-character character))]
-                               [:li (describe-character character)]))
-                           characters))
-                (add-footnotes footnotes)
-                [:br]]
-               [:div
-                [:h3 "Roles:"]
-                (into [:div]
-                      (map (fn [[play characters]]
-                             [:div
-                              [:h4 play]
-                              (into [:ul]
-                                    (map (fn [character]
-                                           (if (vector? character)
-                                             [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
-                                              (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
-                                                         (map describe-character character))]
-                                             [:li (describe-character character)]))
-                                         characters))])
-                           play->characters))
-                (add-footnotes footnotes)
-                [:br]]))
+         (when-let [lrt (last-relevant-time events)]
+           [:div.content__item
+            [:div.audition.disappearable {:data-end lrt}
+             [:h1 (:name data)]
+             (when author [:div author])
+             [:div (str "directed by " director)]
+             [:br]
+             [:h3 "Auditions: "]
+             (->> events
+                  (filter #(-> % :datetime (.isAfter (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London")))))
+                  (map (fn [{:keys [datetime end-time location description]}]
+                         [:div
+                          (->> [(add-end-time (.format datetime datetime-format) end-time)
+                                location
+                                description]
+                               (remove nil?)
+                               (str/join ", "))]))
+                  (into [:div]))
+             [:br]
+             [:div (str "Playing dates: " (.format start date-format) " until " (.format end date-format))]
+             [:br]
+             [:h3 "About the Production:"]
+             [:div [:pre audition]]
+             [:br]
+             (when-let [play->characters (some->> (seq characters) (group-by :play))]
+               (if (= 1 (count play->characters))
+                 [:div
+                  [:h3 "Roles:"]
+                  (into [:ul]
+                        (map (fn [character]
+                               (if (vector? character)
+                                 [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
+                                  (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
+                                             (map describe-character character))]
+                                 [:li (describe-character character)]))
+                             characters))
+                  (add-footnotes footnotes)
+                  [:br]]
+                 [:div
+                  [:h3 "Roles:"]
+                  (into [:div]
+                        (map (fn [[play characters]]
+                               [:div
+                                [:h4 play]
+                                (into [:ul]
+                                      (map (fn [character]
+                                             (if (vector? character)
+                                               [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
+                                                (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
+                                                           (map describe-character character))]
+                                               [:li (describe-character character)]))
+                                           characters))])
+                             play->characters))
+                  (add-footnotes footnotes)
+                  [:br]]))
 
-           (let [{:keys [facebook-event]} contact]
-             (cond
-               facebook-event [:div.audition__call-to-action [:a.normal
-                                                              {:href facebook-event}
-                                                              "Respond to the Facebook event"]]
-               :else [:div.audition__call-to-action "Email: " [:a.normal.delayedEmail "General Enquiries"]]))]])
+             (let [{:keys [facebook-event]} contact]
+               (cond
+                 facebook-event [:div.audition__call-to-action [:a.normal
+                                                                {:href facebook-event}
+                                                                "Respond to the Facebook event"]]
+                 :else [:div.audition__call-to-action "Email: " [:a.normal.delayedEmail "General Enquiries"]]))]]))
        (sort-by (juxt #(-> % :events first :datetime) :start :id) data))
      [:div.content__item
       [:div "There are currently no audition notices. Check back another time."]])]

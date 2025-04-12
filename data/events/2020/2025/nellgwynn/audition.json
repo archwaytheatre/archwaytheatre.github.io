@@ -1,0 +1,28 @@
+{
+  "events": [{
+    "datetime": "2025-06-23T19:30:00",
+    "location": "in the Bar",
+    "description": null
+  },
+  {
+    "datetime": "2025-06-27T19:30:00",
+    "location": "in the Bar",
+    "description": null
+  }],
+  "characters": [
+    {"name": "Nell Gwynn", "gender": "female", "age": "25-35", "description": "Our heroine. Charisma personified. Born and raised in a Covent Garden slum, her confidence, humour and wit made her the toast of London. One of the country's first female celebrity actors, and eventually a lover of King Charles II. Nell begins the play enamoured with the glamour of the theatre, but her relationship with Charles introduces her to competing lifestyles which she struggles to reconcile. Requires a cockney accent."},
+    {"name": "King Charles II", "gender": "male", "age": "35-45", "description": "The 'Merry Monarch'. The very model of aristocratic charm, but beneath the mask of manners he is fun-loving and filthy-minded. The character begins mostly as a comedic figure, but some hidden depths become apparent later in the story. There is much tension over his romantic life: he takes many mistresses, but Nell is the one he feels he can be most authentic around. Requires a Received Pronunciation accent."},
+    {"name": "Charles Hart", "gender": "male", "age": "35-45", "description": "The leading actor in the King's Company. Bold, but can be unintentionally condescending at times. He 'discovers' Nell and is her first acting tutor, and briefly her lover. He becomes fiercely jealous at her blossoming relationship with the King, and as her fame eclipses his he becomes an embittered shadow of his former self. Eventually he and Nell reconcile as friends."},
+    {"name": "Thomas Killigrew", "gender": "male", "age": "35+", "description": "World-weary manager of the King's Company. He has to deal with the frequent chaos of the theatre, and is a 'straight man' to some of the play's more eccentric characters. A very strong role for those who enjoy dry humour."},
+    {"name": "Nancy", "gender": "female", "age": "35+", "description": "Backstage worker at the King's Company. She becomes Nell's dressmaker and eventually her confidante. A very strong comedic part throughout, particularly towards the end of the play when a lack of female actors at the King's Company forces her to take on roles despite the fact that she hates acting. Cockney accent preferred."},
+    {"name": "Lord Arlington", "gender": "male", "age": "40+", "description": "The power behind the throne. A cunning and ruthless political operator, Arlington manages many royal duties on the King's behalf. A major antagonist throughout, but he is a staunch royalist driven by ideology rather than pure self-interest. Requires a Received Pronunciation accent."},
+    {"name": "Edward Kynaston", "gender": "male", "age": "30-45", "description": "A huge ham with a penchant for melodrama. An archetypal luvvie in the King's Company, he was their dedicated 'female roles actor' and played many of the best parts until women were allowed to perform. He holds a grudge as a result. Essentially a comedic role throughout."},
+    {"name": "Rose Gwynn", "gender": "female", "age": "25+", "description": "Nell's responsible older sister. Frequently the voice of reason. She begins the play wary of the theatre but is drawn into it, making her a target for Nell's political enemies. Requires a cockney accent."},
+    {"name": "John Dryden", "gender": "male", "age": "30+", "description": "Resident playwright at the King's Company. Absent-minded and struggles with writer's block. He finds himself inspired by Nell's involvement in the company. There is a running gag where many of his plays are blatantly ripped off from existing stories."},
+    {"name": "Lady Castlemaine", "gender": "female", "age": "30+", "description": "The King's most prolific mistress. Extremely ambitious. She is an antagonist throughout the play's first half, and whilst she appears completely cynical her last appearance is a note of vulnerability which hints at the real feelings she once had for the King. Requires a Received Pronunciation accent."},
+    {"name": "Ned Spigget", "gender": "male", "age": "18-30", "description": "An anxiety-riddled trainee actor in the King's Company. Enthusiastic and good-natured, he develops his skills over the course of the play, ending up as one of the company's most prominent players."},
+    {"name": "Old Ma Gwynn", "gender": "female", "age": "40+", "description": "Mother to the Gwynns. An embittered brothel-keeper and a bit of a 'character' in her time. She makes a sudden reappearance in Nell's life and is the source of much tension, seeing Nell as someone who has abandoned their roots. Requires a cockney accent. May be doubled with another role."},
+    {"name": "Louise de Kérouaille", "gender": "female", "age": "20+", "description": "Charles' haughty French mistress, and one of Nell's rivals. She is introduced in the play's second half and is a minor antagonist. Requires a French accent. Mostly speaks French. May be doubled with another role."},
+    {"name": "Queen Catherine", "gender": "female", "age": "35+", "description": "Charles II's wife, a Portuguese Catholic who married the King for diplomatic convenience. She hates Charles' philandering but is forced to tolerate it. An early scene shows her trashing the palace and making an emotional appeal to Charles. Requires a Portuguese accent. Mostly speaks Portuguese. May be doubled with another role."}
+  ]
+}

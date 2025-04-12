@@ -3,7 +3,8 @@
             [clojure.java.io :as io]
             [clojure.string :as str]
             [io.github.archwaytheatre.data.core :as data])
-  (:import [java.time Duration LocalDate Year YearMonth LocalDateTime Instant ZoneId]))
+  (:import [com.fasterxml.jackson.core JsonProcessingException]
+           [java.time Duration LocalDate Year YearMonth LocalDateTime Instant ZoneId]))
 
 
 (def main-house "Main House")
@@ -118,9 +119,25 @@
 
 (defn- parse-dates [{:keys [datetime duration] :as event}]
   (let [start (LocalDateTime/parse datetime)
-        end (some->> duration Duration/parse .toSeconds (.plusSeconds start))]
+        end (some->> duration Duration/parse .toSeconds (.plusSeconds start))
+        estimated-end-time (or end
+                               (.plusSeconds start (.toSeconds (Duration/parse "PT2H30M"))))]
     (assoc event :datetime start
-                 :end-time end)))
+                 :end-time end
+                 :estimated-end-time estimated-end-time)))
+
+(defn helparse-json [file]
+  (let [file (io/file file)]
+    (try
+      (json/parse-string (slurp file) keyword)
+      (catch JsonProcessingException jpe
+        (println (ex-message jpe))
+        (println (str "    at " (.getName file)
+                      "(" (.getAbsolutePath file)
+                      ":" (.getLineNr (.getLocation jpe))
+                      ":" (.getColumnNr (.getLocation jpe))
+                      ")"))
+        (throw jpe)))))
 
 (defn get-audition-data [production]
   (let [{:keys [production-year production-code]} (meta production)
@@ -129,19 +146,21 @@
         audition-json (io/file play-dir "audition.json")]
     (when (and (.exists audition-file)
                (.exists audition-json))
-      (let [audition-data (json/parse-string (slurp audition-json) keyword)]
-        (when (seq (filter (fn [event]
-                             (.isAfter (.plusHours (LocalDateTime/parse (:datetime event)) 3)
-                                       (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))))
-                           (:events audition-data)))
-          (let [audition-text (slurp audition-file)]
-            (merge (select-keys production [:name :author :director :start :end])
-                   (-> audition-data
-                       (update :events #(sort-by :datetime (map parse-dates %)))
-                       (update :footnotes #(cons "Ages are a rough guide." %)))
-                   {:id       (.getName play-dir)
-                    :year     production-year
-                    :audition audition-text})))))))
+      (let [audition-data (helparse-json audition-json)]
+        (let [audition-text (slurp audition-file)]
+          (merge (select-keys production [:name :author :director :start :end])
+                 (-> audition-data
+                     (update :events #(sort-by :datetime (map parse-dates %)))
+                     (update :footnotes #(cons "Ages are a rough guide." %)))
+                 {:id       (.getName play-dir)
+                  :year     production-year
+                  :audition audition-text}))))))
+
+(defn get-future-audition-data [production]
+  (let [audition-data (get-audition-data production)
+        now (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London"))]
+    (when (seq (filter #(-> (:estimated-end-time %) (.isAfter now)) (:events audition-data)))
+      audition-data)))
 
 (def year-seq
   (let [first-year (Year/of 1940)
