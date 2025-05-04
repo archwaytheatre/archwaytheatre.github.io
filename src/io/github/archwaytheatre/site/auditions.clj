@@ -29,7 +29,8 @@
 (defn grab-data-from-files []
   (remove nil? (map plays/get-future-audition-data (plays/get-all-future-productions)))
   ; todo: first filter out the past events, and then sort auditions by the soonest future event
-  ;; todo bonus: do this dynamically in js!!!
+  ;; todo bonus: do this dynamically in js!!! or don't?
+  ;; can we re-run the github actions weekly?
   )
 
 (def datetime-format (DateTimeFormatter/ofPattern "h:mma'END_TIME' EEEE, dd MMMM YYYY"))
@@ -79,6 +80,19 @@
                                   (when (contains? character :gender) (or gender "any gender"))
                                   (parse-links description)]))))
 
+(defn prepare-text
+  "Newlines will be omitted, whole blank lines will create new paragraphs, links will be created. Newlines can be added
+  by including '<br>' in the input text."
+  [text]
+  (-> text
+      (str/split #"\n\n")
+      (->> (map (fn [p]
+                  [:p (-> p
+                          (str/replace "\n" "")
+                          (str/split #"<br>")
+                          (->> (map parse-links)
+                               (interpose [:br])))])))))
+
 (defn add-footnotes [footnotes]
   (when (seq footnotes)
     [:div
@@ -124,7 +138,7 @@
              [:div (str "Playing dates: " (.format start date-format) " until " (.format end date-format))]
              [:br]
              [:h3 "About the Production:"]
-             [:div [:pre audition]]
+             [:div (prepare-text audition)]
              [:br]
              (when-let [play->characters (some->> (seq characters) (group-by :play))]
                (if (= 1 (count play->characters))
