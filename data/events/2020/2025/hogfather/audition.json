@@ -1,0 +1,67 @@
+{
+  "events": [
+    {
+      "datetime": "2025-08-04T19:45:00",
+      "location": "in the Bar"
+    }
+  ],
+  "characters": [
+
+    [
+      {"name": "Narrator"},
+      {"name": "Tooth Fairy"},
+      {"gender": "female", "age": "Old"}
+    ],
+    {"name": "Susan", "gender": "female", "age": "20s", "description": "Death's Daughter"},
+    [
+      {"name": "Auditor 3", "description": "Robed figure"},
+      {"name": "Crumley", "description": "Shop owner"},
+      {"gender": "female"}
+    ],
+    [
+      {"name": "Mrs Gaiter", "description": "Posh lady"},
+      {"name": "Chickenwire", "description": "Criminal"},
+      {"gender": "female", "age": "30+"}
+    ],
+    [
+      {"name": "LC Humperding", "description": "Vampire watchperson"},
+      {"name": "Charlie"},
+      {"name": "Violet", "description": "A tooth fairy"},
+      {"gender": "female", "age": "20s"}
+    ],
+    {"name": "Sideney", "description": "Wizard in disguise, playing non-binary/male presenting", "gender":null, "age": "20+"},
+    [
+      {"gender": "male", "age": "40+"},
+      {"name": "Sir Geoffrey", "description": "Posh man"},
+      {"name": "Bilious", "description": "God of hangovers"}
+    ],
+    [
+      {"gender": "male", "age": "40+"},
+      {"name": "Auditor 1", "description": "Robed figure"},
+      {"name": "Ridcully", "description": "Wizard"}
+    ],
+    [
+      {"gender": "male", "age": "30+"},
+      {"name": "Auditor 2", "description": "Robed figure"},
+      {"name": "Stibbons", "description": "Wizard"}
+    ],
+
+    {"name": "Medium Dave", "description": "Criminal", "gender": "male", "age": "25+"},
+    {"name": "Banjo", "description": "Large criminal", "gender": "male", "age": "20+"},
+    [
+      {"gender": "male", "age": "30+", "description": "Short"},
+      {"name": "Cpl Nobbs", "description": "Watchman"},
+      {"name": "Drumknott", "description": "Wizard"},
+      {"name": "Tooth Fairy Guard"}
+    ],
+    [
+      {"gender": "male", "age": "40+"},
+      {"name": "Lord Downey", "description": "Chairman of Assassins Guild"},
+      {"name": "DEATH", "description": "Tall, deep voice"}
+    ],
+    {"name": "Teatime", "description": "an assassin", "age": "25+"},
+
+    {"name": "Twyla", "gender": "female", "description": "Young girl, possibly played by an adult doubling with another role."},
+    {"name": "Gawain", "gender": "male", "description": "Young boy, possibly played by an adult doubling with another role."}
+  ]
+}

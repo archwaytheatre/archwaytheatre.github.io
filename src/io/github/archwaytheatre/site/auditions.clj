@@ -80,6 +80,16 @@
                                   (when (contains? character :gender) (or gender "any gender"))
                                   (parse-links description)]))))
 
+(defn describe-characters [characters]
+  (into [:ul]
+        (map (fn [character]
+               (if (vector? character)
+                 [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;margin:10px 0"}
+                  (interpose [:span.center [:br]]
+                             (map describe-character (sort-by (comp nil? :name) character)))]
+                 [:li (describe-character character)]))
+             characters)))
+
 (defn prepare-text
   "Newlines will be omitted, whole blank lines will create new paragraphs, links will be created. Newlines can be added
   by including '<br>' in the input text."
@@ -115,7 +125,7 @@
 
    (if-let [data (seq (grab-data-from-files))]
      (map
-       (fn [{:keys [author director audition events characters footnotes start end contact] :as data}]
+       (fn [{:keys [author director audition events characters footnotes start end location contact] :as data}]
          (when-let [lrt (last-relevant-time events)]
            [:div.content__item
             [:div.audition.disappearable {:data-end lrt}
@@ -136,6 +146,7 @@
                   (into [:div]))
              [:br]
              [:div (str "Playing dates: " (.format start date-format) " until " (.format end date-format))]
+             [:div (str "Performing in the " location)]
              [:br]
              [:h3 "About the Production:"]
              [:div (prepare-text audition)]
@@ -144,14 +155,7 @@
                (if (= 1 (count play->characters))
                  [:div
                   [:h3 "Roles:"]
-                  (into [:ul]
-                        (map (fn [character]
-                               (if (vector? character)
-                                 [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
-                                  (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
-                                             (map describe-character character))]
-                                 [:li (describe-character character)]))
-                             characters))
+                  (describe-characters characters)
                   (add-footnotes footnotes)
                   [:br]]
                  [:div
@@ -160,14 +164,7 @@
                         (map (fn [[play characters]]
                                [:div
                                 [:h4 play]
-                                (into [:ul]
-                                      (map (fn [character]
-                                             (if (vector? character)
-                                               [:li {:style "border-left:1px solid white;border-radius:0.5em;padding-left:5px;"}
-                                                (interpose [:span.center #_#_[:br] "&nbsp;&nbsp;&nbsp;doubled with" [:br]]
-                                                           (map describe-character character))]
-                                               [:li (describe-character character)]))
-                                           characters))])
+                                (describe-characters characters)])
                              play->characters))
                   (add-footnotes footnotes)
                   [:br]]))
