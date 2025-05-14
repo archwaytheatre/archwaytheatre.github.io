@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "datetime": "2025-06-16T19:45:00",
+      "location": "in the Function Room"
+    }
+  ],
+  "characters": [
+    {"name": "Rosa", "gender": "female", "age": "Early 80's", "description": "Grandmother, widow"},
+    {"name": "Marianne", "gender": "female", "age": "Early 50's", "description": "Mother"},
+    {"name": "Jenna", "gender": "female", "age": "16", "description": "Daughter"},
+    {"name": "Ruby", "gender": "female", "age": "16", "description": "Jenna's friend"},
+    {"name": "Lily", "gender": "female", "age": "60's", "description": "Rosa's friend, widow"},
+    {"name": "Sunita", "gender": "female", "description": "Marianne's husband's work colleague"}
+  ]
+}
