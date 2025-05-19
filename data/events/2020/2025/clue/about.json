@@ -4,6 +4,23 @@
   "name" : "Clue",
   "start" : "2025-04-30",
   "author" : "by Sandy Rustin adapted from the screenplay by Jonathan Lynn, additional material by Hunter Foster and Eric Price",
+  "photo-sets" : [ {
+    "photographer" : "Gary Andrews",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.129 ],
+      [ "photo-0002.png", 0.158 ],
+      [ "photo-0003.png", 0.191 ],
+      [ "photo-0004.png", 0.191 ],
+      [ "photo-0005.png", 0.203 ],
+      [ "photo-0006.png", 0.426 ],
+      [ "photo-0007.png", 0.372 ],
+      [ "photo-0008.png", 0.142 ],
+      [ "photo-0009.png", 0.262 ],
+      [ "photo-0010.png", 0.208 ],
+      [ "photo-0011.png", 0.302 ],
+      [ "photo-0012.png", 0.356 ],
+      [ "photo-0013.png", 0.291 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-gxeqgo",
   "end" : "2025-05-10",
   "location" : "Main House",
