@@ -208,6 +208,7 @@
     [:div.menu__hamburger
      (menu-dropdown "☰" "hamburger" current-href #{}
        (dropped-menu-item "Box Office" "https://www.ticketsource.co.uk/archwaytheatre/" relative-path current-href)
+       (dropped-menu-item "Programmes" "programmes.html" relative-path current-href)
        (dropped-menu-item "Past Productions" "past/index.html" relative-path current-href)
        (dropped-menu-item "What's On?" "whatson.html" relative-path current-href)
        (dropped-menu-item "Volunteer" "getinvolved.html" relative-path current-href)
