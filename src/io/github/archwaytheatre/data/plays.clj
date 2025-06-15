@@ -148,7 +148,7 @@
                (.exists audition-json))
       (let [audition-data (helparse-json audition-json)]
         (let [audition-text (slurp audition-file)]
-          (merge (select-keys production [:name :author :director :start :end])
+          (merge (select-keys production [:name :author :director :start :end :location])
                  (-> audition-data
                      (update :events #(sort-by :datetime (map parse-dates %)))
                      (update :footnotes #(cons "Ages are a rough guide." %)))
