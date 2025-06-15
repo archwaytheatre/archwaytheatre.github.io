@@ -4,7 +4,7 @@
             [io.github.archwaytheatre.data.plays :as plays]
             [io.github.archwaytheatre.site.core :as core])
   (:import [java.net HttpURLConnection URL]
-           [java.time Instant Year ZoneOffset]
+           [java.time LocalDate Year ZoneOffset]
            [java.time.format DateTimeFormatter]))
 
 (defn grab-data-from-files []
@@ -53,7 +53,7 @@
 (defn to-end-millis [end]
   (to-start-millis (.plusDays end 1)))
 
-(defn tickets-available [production]
+(defn tickets-available? [production]
   (or (:ticketurl production)
       (:unticketed production)))
 
@@ -64,7 +64,12 @@
   ; todo: https://stackoverflow.com/questions/37824744/on-mobile-font-size-is-different-depending-on-the-number-of-paragraphs
 
   (let [data (grab-data)
-        coming-soon-or-on-now (take 6 (sort-by :start (filter tickets-available data)))
+        soon (.plusMonths (LocalDate/now) 3) ; 2 months look ahead, plus 1 month buffer of not being updated and re-running.
+        ; todo: make github actions run weekly?
+        coming-soon-or-on-now (->> data
+                                   (filter tickets-available?)
+                                   (sort-by :start)
+                                   (take-while #(-> % :start plays/complete-date (.isBefore soon))))
         soon? (set (map :id coming-soon-or-on-now))
         coming-later (->> data
                           (remove #(-> % :id soon?))
