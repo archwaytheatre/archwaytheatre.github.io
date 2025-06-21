@@ -53,7 +53,9 @@
 (defn to-end-millis [end]
   (to-start-millis (.plusDays end 1)))
 
-(core/page-2
+(core/redirect "whatson" "https://archwaytheatre.co.uk")
+
+#_(core/page-2
   "whatson" "What's On?"
   ; todo: check *all* links in normal text (so not menu buttons, maybe others?) on website are underlined.
 
