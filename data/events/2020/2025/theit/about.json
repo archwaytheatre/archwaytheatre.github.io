@@ -3,7 +3,22 @@
   "director" : "Ella Sowton",
   "name" : "The IT",
   "start" : "2025-05-27",
+  "exclusions" : [ ],
   "author" : "by Vivienne Franzmann",
+  "photo-sets" : [ {
+    "photographer" : "Gary Andrews",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.126 ],
+      [ "photo-0002.png", 0.146 ],
+      [ "photo-0003.png", 0.335 ],
+      [ "photo-0004.png", 0.297 ],
+      [ "photo-0005.png", 0.312 ],
+      [ "photo-0006.png", 0.216 ],
+      [ "photo-0007.png", 0.337 ],
+      [ "photo-0008.png", 0.251 ],
+      [ "photo-0009.png", 0.19 ],
+      [ "photo-0010.png", 0.3 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-koxord",
   "end" : "2025-05-31",
   "location" : "Main House",
