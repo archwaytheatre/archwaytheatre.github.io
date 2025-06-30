@@ -2,9 +2,24 @@
   "director" : "Jacquie Redfern",
   "name" : "Echoes",
   "start" : "2025-06-18",
-  "end" : "2025-06-21",
+  "exclusions" : [ ],
   "author" : "devised by the Archway Youth Workshop",
+  "photo-sets" : [ {
+    "photographer" : "Eddie Redfern",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.353 ],
+      [ "photo-0002.png", 0.293 ],
+      [ "photo-0003.png", 0.288 ],
+      [ "photo-0004.png", 0.247 ],
+      [ "photo-0005.png", 0.433 ],
+      [ "photo-0006.png", 0.604 ],
+      [ "photo-0007.png", 0.116 ],
+      [ "photo-0008.png", 0.342 ],
+      [ "photo-0009.png", 0.246 ],
+      [ "photo-0010.png", 0.63 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/echoes-youth-workshop/e-zvdvjq",
+  "end" : "2025-06-21",
   "location" : "Main House",
   "company" : "Archway Theatre"
 }
