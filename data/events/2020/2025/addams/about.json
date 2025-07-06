@@ -8,5 +8,6 @@
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-xjabrj",
   "end" : "2025-07-26",
   "location" : "Main House",
-  "company" : "Archway Theatre"
+  "company" : "Archway Theatre",
+  "soldout" : true
 }
