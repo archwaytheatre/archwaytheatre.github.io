@@ -36,7 +36,7 @@
 (defn included? [production category]
   (not ((:exclusions production) category)))
 
-(defn update-name [production]
+(defn parse-name [production]
   (let [prod-name (:name production)
         names (cond
                 (string? prod-name) {:name   prod-name
@@ -48,6 +48,12 @@
                                                             :part-3 (last prod-name)}}
                 :else (throw (ex-info "Don't understand name." {:name prod-name})))]
     (merge production names)))
+
+(defn unparse-name [{:keys [name-parts] :as production}]
+  (let [{:keys [part-1 part-2 part-3]} name-parts]
+    (-> production
+        (assoc :name [part-1 part-2 part-3])
+        (dissoc :name-parts))))
 
 (defn load-production-data [production-year production-name]
   (let [prod-code (data/codify production-name)
@@ -61,7 +67,7 @@
                          (when (< 2024 (Long/parseLong production-year))
                            (println "Missing 'about.txt' for" prod-code)))]
         (with-meta (-> about-data
-                       update-name
+                       parse-name
                        (assoc :about-text about-text)
                        (update :start parse-partial-date)
                        (update :end parse-partial-date)
@@ -90,7 +96,8 @@
       (throw (ex-info "No meta data!!!" {})))
     (io/make-parents about-json-file)
     (spit about-json-file (json/generate-string (-> m
-                                                    (dissoc :about-text :name-parts)
+                                                    (unparse-name)
+                                                    (dissoc :about-text)
                                                     (update :start #(some-> % str))
                                                     (update :end #(some-> % str)))
                                                 {:pretty true}))
