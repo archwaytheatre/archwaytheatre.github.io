@@ -235,7 +235,7 @@
 (defn page [_page-name _title & _content]
   (println "This code was removed."))
 
-(defn page-2 [page-name title & content]
+(defn page-2 [page-name title & content] ; todo: paths to watch? added to metadata?
   (try
     (let [filename (str page-name ".html")
           target-file (io/file parent-dir filename)

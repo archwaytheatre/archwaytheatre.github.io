@@ -1,7 +1,7 @@
 {
   "trailer" : true,
   "director" : "Lisa Last & Jo Ord",
-  "name" : "What You Will (Twelfth Night)",
+  "name" :  [null, "What You Will", "(Twelfth Night)"],
   "start" : "2025-03-26",
   "exclusions" : [ ],
   "author" : "by William Shakespeare",
