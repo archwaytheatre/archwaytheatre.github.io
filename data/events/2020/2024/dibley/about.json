@@ -4,8 +4,21 @@
   "start" : "2024-12-03",
   "end" : "2024-12-14",
   "director" : "Debra Cornell",
-  "author": "Ian Gower & Paul Carpenter Adapted from the original TV series by Richard Curtis & Paul Mayhew-Archer with kind permission of Tiger Aspect Productions",
+  "exclusions" : [ ],
+  "author" : "Ian Gower & Paul Carpenter Adapted from the original TV series by Richard Curtis & Paul Mayhew-Archer with kind permission of Tiger Aspect Productions",
+  "photo-sets" : [ {
+    "photographer" : "Thomas Humphrey",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.442 ],
+      [ "photo-0002.png", 0.302 ],
+      [ "photo-0003.png", 0.343 ],
+      [ "photo-0004.png", 0.507 ],
+      [ "photo-0005.png", 0.336 ],
+      [ "photo-0006.png", 0.329 ],
+      [ "photo-0007.png", 0.28 ],
+      [ "photo-0008.png", 0.274 ] ]
+  } ],
   "company" : "Archway Theatre",
-  "ticketurl": "https://www.ticketsource.co.uk/archwaytheatre/e-lgjylo",
-  "soldout": true
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-lgjylo",
+  "soldout" : true
 }
