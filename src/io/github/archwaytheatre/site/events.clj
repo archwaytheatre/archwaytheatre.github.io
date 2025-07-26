@@ -40,7 +40,7 @@
      " We rely on the generosity of our members to keep the theatre running."
      " If you'd like to get involved then " [:a.normal {:href "join.html"} "click here to become a member"] "."]]
 
-   [:div.content__item
+   #_[:div.content__item
     [:div.other.disappearable {:data-end (data-end-for "2024-03-25T23:59:59")}
      [:h1 "Singing for the Soul"]
      [:p "Fortnightly singing, on Monday evenings 8pm - 9:30pm in the Function Room."]
@@ -64,7 +64,7 @@
       [:div "Just turn up or"]
       (core/logo-fb-2 "https://www.facebook.com/groups/621824429716899" "Join the Facebook Group")]]]
 
-#_   [:div.content__item
+   [:div.content__item
     [:div.other
      [:h1 "Archway Karaoke"]
 
@@ -72,12 +72,12 @@
      [:p "Karaoke is back!"]
      [:p "Do your warm-ups, choose your songs and prepare yourself for the Archway’s Karaoke with DJ Thom."]
      [:p "Children under 16 must be accompanied by an adult."]
-     [:p "Tickets must be bought in advance and will not be available on the door."]
+     [:p [:em "Tickets must be bought in advance and will not be available on the door."]]
 
-     [:div.other__call-to-action [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-zvvvka"
+     [:div.other__call-to-action [:a.normal {:href   "https://www.ticketsource.co.uk/archwaytheatre/archway-karaoke/e-gpmgra"
                                              :target "_blank"} "Buy tickets"]]]]
 
-   [:div.content__item
+   #_[:div.content__item
     [:div.other.disappearable {:data-end (data-end-for "2025-04-26T23:59:59")}
      [:h1 "Archway Quiz Night"]
 
