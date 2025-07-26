@@ -4,7 +4,12 @@
     [clojure.string :as str]
     [io.github.archwaytheatre.data.core :as data]
     [io.github.archwaytheatre.data.plays :as plays]
-    [io.github.archwaytheatre.site.core :as core]))
+    [io.github.archwaytheatre.site.core :as core])
+  (:import
+    [java.util ArrayList
+               Collection
+               Collections
+               Random]))
 
 (defn js-quote [x] (str \' (str/replace x "'" "\\'") \'))
 
@@ -28,6 +33,12 @@
                                   (comp js-quote :production-year meta)
                                   (comp js-quote :name)))))
 
+(defn deterministic-shuffle [^Collection coll seed]
+  (let [al (ArrayList. coll)
+        rng (Random. (long seed))]
+    (Collections/shuffle al rng)
+    (seq al)))
+
 (defn build-about-photo-data [production-lookback-count]
   (let [productions-with-photos (->> (reverse plays/year-seq)
                                      (mapcat plays/get-productions-for)
@@ -36,7 +47,8 @@
         photos (mapcat plays/get-photos-for productions-with-photos)
         data-file (io/file core/parent-dir "js" "about-photo-data.js")]
     (io/make-parents data-file)
-    (spit data-file (js-photo-def "photoData" (shuffle photos)
+    (spit data-file (js-photo-def "photoData"
+                                  (deterministic-shuffle photos (hash photos))
                                   (comp js-quote :image-url)
                                   (comp js-quote :photographer)
                                   (comp js-quote :production-year meta)
