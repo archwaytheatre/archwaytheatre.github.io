@@ -68,7 +68,7 @@
     [:div.other
      [:h1 "Archway Karaoke"]
 
-     [:h3 "Saturday 15th February"]
+     [:h3 "Saturday 6th September"]
      [:p "Karaoke is back!"]
      [:p "Do your warm-ups, choose your songs and prepare yourself for the Archway’s Karaoke with DJ Thom."]
      [:p "Children under 16 must be accompanied by an adult."]
