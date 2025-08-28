@@ -6,5 +6,6 @@
   "author" : "by Steven Moffat",
   "director" : "Michael Beach",
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/the-unfriend/e-eydlea",
-  "trailer" : true
+  "trailer" : true,
+  "soldout": true
 }
