@@ -65,3 +65,5 @@ function hideEvents() {
 
 composeLabels();
 hideEvents();
+
+window.onhashchange = hideEvents;
