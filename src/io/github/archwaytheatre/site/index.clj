@@ -94,7 +94,7 @@
         (conj [:script {:src "./js/whatson.js"}])
 
         (conj [:div])
-        (conj [:div.trailer__holder
+        (conj [:div.trailer__holder.disappearable {:data-id "promo"}
                [:div.trailer__wrapper
                 [:video#promo-video {:controls "controls"
                                      :width    "100%"
@@ -106,13 +106,14 @@
                   [:div#trailer__cover-subtext "Click to play video."]]
                  [:div#trailer__cover-play]]]])
 
-        (conj [:div.vertical-spacer])
-        (conj [:h1 "What's On?"])
-        (conj [:div.vertical-spacer])
+        (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
+        (conj [:h1.disappearable {:data-id "title"} "What's On?"])
+        (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
+
         (into (for [{:keys [start end location about-text ticketurl unticketed trailer-url year id author director soldout]
                      {:keys [part-1 part-2 part-3]} :name-parts}
                     coming-soon-or-on-now]
-                [:div.event-holder.disappearable {:data-end (to-end-millis end)}
+                [:div.event-holder.disappearable {:data-end (to-end-millis end) :data-id (str "event-" id)}
                  [:div.event-overview.event-focus {:id (str "event-overview-" id)}
                   [:div.event-overview__banner-wrapper
                    [:div.event-overview__banner
@@ -179,7 +180,7 @@
                       [:a {:href ticketurl} [:img.later-events__image {:src poster-url}]]
                       [:img.later-events__image {:src poster-url}]))]]))
 
-        (conj [:div.whatson-misc
+        (conj [:div.whatson-misc.disappearable {:data-id "misc"}
                [:hr]
                [:div.vertical-spacer]
                [:div.text-align-center
