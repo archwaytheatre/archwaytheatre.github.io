@@ -872,7 +872,6 @@ div.past__production {
     display: block;
 }
 .static-photo__credit {
-    color: var(--grey-b);
     margin-bottom: 1.5em;
     width: var(--content-width);
     height: 1.5em;
