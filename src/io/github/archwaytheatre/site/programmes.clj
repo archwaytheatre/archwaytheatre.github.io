@@ -10,9 +10,10 @@
     [:div.center "Click / Tap to download the digital PDF."]]
 
    [:div.content__item
-    ; Just the one latest / current production goes here:
-    [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/heartburn/HeartburnProgramme.pdf"}
-     "Heartburn Digital Programme"]
+     ; Just the one latest / current production goes here:
+    [:div.current-programme
+     [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/heartburn/HeartburnProgramme.pdf"}
+      "Heartburn Digital Programme"]]
 
     ]
 

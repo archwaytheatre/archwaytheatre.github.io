@@ -907,3 +907,7 @@ div.past__production {
     padding: 10px;
     font-weight: bold;
 }
+
+.current-programme {
+    font-size: larger;
+}
