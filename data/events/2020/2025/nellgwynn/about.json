@@ -1,7 +1,9 @@
 {
+  "trailer" : true,
   "director" : "Michael Thonger",
-  "name" : "Nell Gwynn",
+  "name" : [ null, "Nell Gwynn", null ],
   "start" : "2025-09-24",
+  "exclusions" : [ ],
   "author" : "by Jessica Swale",
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-rrkeaz",
   "end" : "2025-10-04",
