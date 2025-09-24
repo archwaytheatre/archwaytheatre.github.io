@@ -911,3 +911,10 @@ div.past__production {
 .current-programme {
     font-size: larger;
 }
+
+.programme-link__poster {
+    max-width: 100%;
+}
+a:hover .programme-link__poster {
+    box-shadow: 0 5px 25px white;
+}
