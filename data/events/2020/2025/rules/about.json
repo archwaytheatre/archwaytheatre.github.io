@@ -1,7 +1,9 @@
 {
+  "trailer" : true,
   "director" : "Robert Gregory",
-  "name" : "Rules For Living",
+  "name" : [ null, "Rules For Living", null ],
   "start" : "2025-10-29",
+  "exclusions" : [ ],
   "author" : "by Sam Holcraft",
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-jkeadz",
   "end" : "2025-11-08",
