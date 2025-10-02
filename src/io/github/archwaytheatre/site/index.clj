@@ -64,7 +64,7 @@
   ; todo: https://stackoverflow.com/questions/37824744/on-mobile-font-size-is-different-depending-on-the-number-of-paragraphs
 
   (let [data (grab-data)
-        soon (.plusMonths (LocalDate/now) 3) ; 2 months look ahead, plus 1 month buffer of not being updated and re-running.
+        soon (.plusMonths (LocalDate/now) 4) ; 2 months look ahead, plus 1 month buffer of not being updated and re-running.
         ; todo: make github actions run weekly?
         coming-soon-or-on-now (->> data
                                    (filter tickets-available?)
