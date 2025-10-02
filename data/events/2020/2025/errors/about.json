@@ -1,11 +1,31 @@
 {
+  "trailer" : true,
   "director" : "Gary Andrews",
-  "name" : "A Comedy of Errors",
+  "name" : [ null, "A Comedy of Errors", null ],
   "start" : "2025-08-09",
+  "exclusions" : [ ],
   "author" : "by William Shakespeare",
+  "photo-sets" : [ {
+    "photographer" : "Thomas Humphrey",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.25 ],
+      [ "photo-0002.png", 0.25 ],
+      [ "photo-0003.png", 0.25 ],
+      [ "photo-0004.png", 0.25 ],
+      [ "photo-0005.png", 0.25 ],
+      [ "photo-0006.png", 0.25 ],
+      [ "photo-0007.png", 0.25 ],
+      [ "photo-0008.png", 0.25 ],
+      [ "photo-0009.png", 0.25 ],
+      [ "photo-0010.png", 0.25 ],
+      [ "photo-0011.png", 0.25 ],
+      [ "photo-0012.png", 0.25 ],
+      [ "photo-0013.png", 0.25 ],
+      [ "photo-0014.png", 0.25 ],
+      [ "photo-0015.png", 0.25 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/a-comedy-of-errors-walled-garden-tilgate/e-odxjjv",
   "end" : "2025-08-17",
   "location" : "Tilgate Park Walled Garden",
-  "company" : "Archway Theatre",
-  "trailer" : true
+  "company" : "Archway Theatre"
 }
