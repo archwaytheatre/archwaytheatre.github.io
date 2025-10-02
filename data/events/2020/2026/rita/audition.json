@@ -1,0 +1,10 @@
+{
+  "events": [{
+    "datetime": "2025-11-10T19:30:00",
+    "location": " in The Bar"
+  }],
+  "characters": [
+    {"name": "Rita", "gender": "female", "age": "30-40", "description": "very lively, brash and full of life"},
+    {"name": "Frank", "gender": "male", "age": "40-50", "description": "more reserved"}
+  ]
+}
