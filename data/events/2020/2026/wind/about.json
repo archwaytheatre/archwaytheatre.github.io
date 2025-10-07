@@ -1,9 +1,11 @@
 {
-  "name" : [ "Kenneth Grahame's", "The Wind in the Willows", null ],
-  "location" : "Main House",
-  "start" : "2026-08-08",
-  "end" : "2026-08-16",
-  "author" : "adapted by Gary Andrews",
   "director" : "Gary Andrews",
+  "name" : [ "Kenneth Grahame's", "The Wind in the Willows", null ],
+  "start" : "2026-08-08",
+  "exclusions" : [ ],
+  "author" : "adapted by Gary Andrews",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/the-wind-in-the-willows-walled-garden-tilgate/e-ledpge",
+  "end" : "2026-08-16",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

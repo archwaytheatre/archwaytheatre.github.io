@@ -1,9 +1,11 @@
 {
-  "name" : [ null, "The Curious Incident of", "the Dog in the Night-Time" ],
-  "location" : "Main House",
-  "start" : "2026-03-25",
-  "end" : "2026-04-04",
-  "author" : "by Simon Stevens",
   "director" : "Chris Dangerfield",
+  "name" : [ null, "The Curious Incident of", "the Dog in the Night-Time" ],
+  "start" : "2026-03-25",
+  "exclusions" : [ ],
+  "author" : "by Simon Stevens",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/the-curious-incident-of-the-dog-in-the-night-time/e-levagp",
+  "end" : "2026-04-04",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

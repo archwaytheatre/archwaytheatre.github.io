@@ -1,9 +1,11 @@
 {
-  "name" : [ null, "Jack Absolute", "Flies Again" ],
-  "location" : "Main House",
-  "start" : "2026-06-03",
-  "end" : "2026-06-13",
-  "author" : "by Richard Bean & Oliver Chris",
   "director" : "Ali Hannant",
+  "name" : [ null, "Jack Absolute", "Flies Again" ],
+  "start" : "2026-06-03",
+  "exclusions" : [ ],
+  "author" : "by Richard Bean & Oliver Chris",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/jack-absolute-flies-again/e-yjdmxl",
+  "end" : "2026-06-13",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

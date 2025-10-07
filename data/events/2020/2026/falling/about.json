@@ -1,9 +1,11 @@
 {
-  "name" : [ "A History of", "Falling Things", null ],
-  "location" : "Main House",
-  "start" : "2026-04-29",
-  "end" : "2026-05-09",
-  "author" : "by James Graham",
   "director" : "Mandi Dunford",
+  "name" : [ "A History of", "Falling Things", null ],
+  "start" : "2026-04-29",
+  "exclusions" : [ ],
+  "author" : "by James Graham",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/a-history-of-falling-things/e-mqkgmd",
+  "end" : "2026-05-09",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

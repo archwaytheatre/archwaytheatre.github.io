@@ -1,9 +1,11 @@
 {
-  "name" : [ null, "I Do Not", null ],
-  "location" : "Main House",
-  "start" : "2026-07-15",
-  "end" : "2026-07-25",
-  "author" : "by Elodie Foray",
   "director" : "Elodie Foray",
+  "name" : [ null, "I Do Not", null ],
+  "start" : "2026-07-15",
+  "exclusions" : [ ],
+  "author" : "by Elodie Foray",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/i-do-not/e-ryevzr",
+  "end" : "2026-07-25",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }

@@ -1,9 +1,11 @@
 {
-  "name" : [ null, "You Can't Stop the Rhythm", null ],
-  "location" : "Main House",
-  "start" : "2026-10-19",
-  "end" : "2026-10-29",
-  "author" : "devised by Laura Day & Hannah Redfern",
   "director" : "Laura Day & Hannah Redfern",
+  "name" : [ null, "You Can't Stop the Rhythm", null ],
+  "start" : "2026-10-19",
+  "exclusions" : [ ],
+  "author" : "devised by Laura Day & Hannah Redfern",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/you-cant-stop-the-rhythm/e-zezxqk",
+  "end" : "2026-10-29",
+  "location" : "Main House",
   "company" : "Archway Theatre"
 }
