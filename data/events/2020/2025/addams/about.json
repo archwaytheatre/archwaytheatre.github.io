@@ -1,13 +1,31 @@
 {
   "trailer" : true,
   "director" : "Ali Hannant and Maddie Jowett",
-  "name" : "The Addams Family Musical",
+  "name" : [ null, "The Addams Family Musical", null ],
   "start" : "2025-07-16",
   "exclusions" : [ ],
   "author" : "book by Marshall Brickman and Rick Elice, music and lyrics by Andrew Lippa, based on characters created by Charles Addams",
+  "soldout" : true,
+  "photo-sets" : [ {
+    "photographer" : "Archway Archive",
+    "photo-offsets" : [
+      [ "photo-0015.png", 0.221 ],
+      [ "photo-0016.png", 0.368 ],
+      [ "photo-0017.png", 0.315 ],
+      [ "photo-0018.png", 0.3 ],
+      [ "photo-0019.png", 0.35 ],
+      [ "photo-0020.png", 0.459 ],
+      [ "photo-0021.png", 0.289 ],
+      [ "photo-0022.png", 0.387 ],
+      [ "photo-0023.png", 0.333 ],
+      [ "photo-0024.png", 0.34 ],
+      [ "photo-0025.png", 0.193 ],
+      [ "photo-0026.png", 0.173 ],
+      [ "photo-0027.png", 0.232 ],
+      [ "photo-0028.png", 0.3 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-xjabrj",
   "end" : "2025-07-26",
   "location" : "Main House",
-  "company" : "Archway Theatre",
-  "soldout" : true
+  "company" : "Archway Theatre"
 }
