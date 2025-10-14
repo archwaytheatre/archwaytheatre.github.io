@@ -172,13 +172,14 @@
         (conj [:div.vertical-spacer])
         (cond->
           (seq coming-later)
-          (into [[:h1 "Coming Later..."]
-                 [:div.vertical-spacer]
-                 [:div.later-events
-                  (for [{:keys [ticketurl poster-url]} coming-later]
-                    (if ticketurl
-                      [:a {:href ticketurl} [:img.later-events__image {:src poster-url}]]
-                      [:img.later-events__image {:src poster-url}]))]]))
+          (into [[:h1.disappearable {:data-id "cominglater"} "Coming Later..."]
+                 [:div.disappearable {:data-id "cominglater"}
+                  [:div.vertical-spacer]
+                  [:div.later-events
+                   (for [{:keys [ticketurl poster-url]} coming-later]
+                     (if ticketurl
+                       [:a {:href ticketurl} [:img.later-events__image {:src poster-url}]]
+                       [:img.later-events__image {:src poster-url}]))]]]))
 
         (conj [:div.whatson-misc.disappearable {:data-id "misc"}
                [:hr]

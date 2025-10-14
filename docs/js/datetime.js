@@ -57,7 +57,7 @@ function hideEvents() {
         }
         let id = disappearable.getAttribute('data-id');
         console.log('considering: ' + id);
-        if (hash && id !== hash) {
+        if (hash && id !== hash && hash !== '0') {
             disappearable.parentNode.removeChild(disappearable);
         }
     }
