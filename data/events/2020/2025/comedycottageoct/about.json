@@ -5,5 +5,5 @@
   "end" : "2025-10-24",
   "exclusions" : ["pastproductions"],
   "ticketurl": "https://www.ticketsource.co.uk/whats-on/surrey/the-archway-theatre/comedy-cottage/e-bbraea",
-  "soldout": false
+  "soldout": true
 }
