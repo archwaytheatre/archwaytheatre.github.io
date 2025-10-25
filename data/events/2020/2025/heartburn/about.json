@@ -1,9 +1,31 @@
 {
-  "name" : "Heartburn",
-  "location" : "Studio Theatre",
-  "start" : "2025-09-11",
-  "end" : "2025-09-13",
-  "author" : "by Lucy Miles",
   "director" : "Amber Elbishlawi",
-  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/heartburn/e-qddqpg"
+  "name" : [ null, "Heartburn", null ],
+  "start" : "2025-09-11",
+  "exclusions" : [ ],
+  "author" : "by Lucy Miles",
+  "photo-sets" : [ {
+    "photographer" : "Amber Elbishlawi",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.419 ],
+      [ "photo-0002.png", 0.252 ],
+      [ "photo-0003.png", 0.184 ],
+      [ "photo-0004.png", 0.364 ],
+      [ "photo-0005.png", 0.5 ],
+      [ "photo-0006.png", 0.239 ],
+      [ "photo-0007.png", 0.293 ],
+      [ "photo-0008.png", 0.15 ],
+      [ "photo-0009.png", 0.258 ],
+      [ "photo-0010.png", 0.217 ],
+      [ "photo-0011.png", 0.201 ],
+      [ "photo-0012.png", 0.231 ],
+      [ "photo-0013.png", 0.257 ],
+      [ "photo-0014.png", 0.199 ],
+      [ "photo-0015.png", 0.353 ],
+      [ "photo-0016.png", 0.237 ],
+      [ "photo-0017.png", 0.512 ] ]
+  } ],
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/heartburn/e-qddqpg",
+  "end" : "2025-09-13",
+  "location" : "Studio Theatre"
 }
