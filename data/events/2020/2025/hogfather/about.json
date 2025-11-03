@@ -1,9 +1,11 @@
 {
-  "name" : ["Terry Pratchett's", "Hogfather", null],
-  "location" : "Studio Theatre",
-  "start" : "2025-11-18",
-  "end" : "2025-11-22",
-  "author" : "adapted by Stephen Briggs",
+  "trailer" : true,
   "director" : "Gary Andrews",
-  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/hogfather/e-qmbxkd"
+  "name" : [ "Terry Pratchett's", "Hogfather", null ],
+  "start" : "2025-11-18",
+  "exclusions" : [ ],
+  "author" : "adapted by Stephen Briggs",
+  "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/hogfather/e-qmbxkd",
+  "end" : "2025-11-22",
+  "location" : "Studio Theatre"
 }
