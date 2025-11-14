@@ -1,0 +1,61 @@
+{
+  "events": [{
+    "datetime": "2025-12-15T19:30:00",
+    "location": "in The Function Room"
+  }],
+  "characters": [
+    {"name": "Christopher Boone", "gender": "male", "age": "15", "description": "The central character to the play, Christopher knows an incredible amount about mathematics and space. Christopher also finds people confusing and struggles to understand feelings and emotions. During the play, Christopher not only has to solve the case of who killed Wellington, but also a mystery much closer to home. His difficulty understanding social cues, a fixation on certain topics & extraordinary computer-like ability with numbers, strongly suggest Christopher has a form of autism, although it is never diagnosed or mentioned in the script. He is ill-equipped socially, leading him to frequently misunderstand people and so he avoids social interaction. His determination to overcome these challenges to find the truth makes the role so powerful. Prepare to bring your audition to life physically."},
+    {"name": "Siobhan", "gender": "female", "age": "Late 20s-Early 30s", "description": "Siobhan is Christopher’s teacher at school who he undoubtedly trusts. She knows him well and understands how to communicate with him effectively. Siobhan encourages Christopher to write a story that he would want to read,  and in turn becomes almost the engaging narrator of the play, helping to tell Christopher’s story. Siobhan is a large part giving a wonderful opportunity to portray an inspiringly kind woman whilst being at the helm of the play’s narrative throughout."},
+    {"name": "Ed", "gender": "male", "age": "Late 30s-Late 40s", "description": "Christopher’s father. At the beginning of the play, he cares for Christopher alone after the loss of his wife. He is patient and understands Christopher,  however at times he becomes exasperated with him. Ed harbours a secret that risks potentially destroying his and Christopher’s relationship. Whilst patient, caring, hard-  working and determined to see his son succeed, Ed can also be fiery tempered, his volatility shows a very human touch as his temper flares from him being wounded by stressful events which include caring for Christopher by himself. Flawed but not villainous is the key- a layered character for an auditionee to show emotion, tenderness and charisma.  "},
+    {"name": "Judy", "gender": "female", "age": "Late 30s-Late 40s", "description": "Christopher’s mother. She found it a hard task raising him,  often shouting as she did not know how best to support him. As the play progresses, we learn more about Judy. Initially we view her, and Judy's letters show that though she loves Christopher dearly, she was unable to cope with the harsh realities of Christopher's condition. Judy should not be played as a villain for her choices but with sympathy and diligence and some degree of guilt."},
+    [
+      {"gender": "female", "age": "60s-Early 70s", "description": "A part of the Ensemble."},
+      {"name": "Mrs Alexander", "description": "Christopher’s kind, well-intentioned neighbour who recognises Christopher is unable to follow social cues and tries different tactics to engage him. She mistakenly shares a shocking revelation to Christopher, but she is not a gossip; definitely not a one dimensional stereotypical “old lady” role and will be a strong part of the ensemble playing several characters and involved in the physicality and movement of the play."},
+      {"name": "Posh Woman"},
+      {"name": "Voice Six"}
+    ],
+    [
+      {"gender": "female", "age": "40s", "description": "A strong auditionee to become a solid part of the ensemble and to play a multitude of characters including the feisty neighbour Mrs Shears. Again,  must be comfortable with movement and a positive approach to collaborative devising."},
+      {"name": "Mrs Shears"},
+      {"name": "Mrs Gascoyne"},
+      {"name": "Voice One"},
+      {"name": "Woman on Train"},
+      {"name": "Woman on Heath"},
+      {"name": "Shopkeeper"}
+    ],
+    [
+      {"gender": "male", "age": "40s", "description": "A part of the Ensemble."},
+      {"name": "Mr Shears", "description": "As the play progresses, we discover more about Roger Shears and his relationship with Mrs Shears, and his involvement in Christophers life. At times a violent man who cares little for Christopher’s needs and feelings."},
+      {"name": "Duty Sergeant"},
+      {"name": "Voice Two"},
+      {"name": "Mr Wise"},
+      {"name": "Man Behind Counter"},
+      {"name": "Drunk One"}
+    ],
+    [
+      {"gender": "male", "age": "20s-30s", "description": "A part of the Ensemble."},
+      {"name": "Policeman One"},
+      {"name": "Mr Thompson"},
+      {"name": "Voice Three"},
+      {"name": "Drunk Two"},
+      {"name": "Man with Socks"},
+      {"name": "London Policeman"}
+    ],
+    [
+      {"gender": "female", "age": "20s", "description": "A part of the Ensemble."},
+      {"name": "No. 4O"},
+      {"name": "Voice Five"},
+      {"name": "Lady in Street"},
+      {"name": "Information"},
+      {"name": "Punk Girl"}
+    ],
+    [
+      {"gender": "male", "age": "30s-50s", "description": "A part of the Ensemble."},
+      {"name": "Rev. Peters"},
+      {"name": "Uncle Terry"},
+      {"name": "Voice Four"},
+      {"name": "Station Policeman"},
+      {"name": "Station Guard"}
+    ]
+  ]
+}
