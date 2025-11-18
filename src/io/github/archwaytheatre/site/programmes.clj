@@ -10,11 +10,11 @@
 
 (defn programme-link [plays production-name]
   ; todo: should derive path and text from production
-  [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/nellgwynn/NellGwynnProgramme.pdf"}
+  [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/hogfather/Programme.pdf"}
    [:div
-    [:div.text-align-center "Nell Gwynn Digital Programme"]
+    [:div.text-align-center "Hogfather Digital Programme"]
     [:br]
-    [:img.programme-link__poster {:src "https://d35974u23x7pxe.cloudfront.net/2025/nellgwynn/poster-scaled.png"}]]])
+    [:img.programme-link__poster {:src "https://d35974u23x7pxe.cloudfront.net/2025/hogfather/poster-scaled.png"}]]])
 
 
 (core/page-2 "programmes" "Digital Programmes"
@@ -39,6 +39,11 @@
 
      ;; All past productions go here...
      ; todo: should have separate helper function to derive path from production name and create previous links
+     ; todo: ORRRR.... have a page for each production! (the 'past' productions page!)
+
+     [:li [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/nellgwynn/NellGwynnProgramme.pdf"}
+     "Nell Gwynn Digital Programme"]]
+
      [:li [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/heartburn/HeartburnProgramme.pdf"}
      "Heartburn Digital Programme"]]
 
