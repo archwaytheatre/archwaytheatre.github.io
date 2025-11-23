@@ -116,7 +116,9 @@
                 "goodnight"
                 "wonderland"
                 "zimbabwean"
-                "educatingrita"]
+                "educatingrita"
+                "tciotditnt"
+                "ahoft"]
                (map str/lower-case (map (comp :production-code meta) (plays/get-all-future-productions))))))
 
 (defn split-name [text regex offset?]
