@@ -182,7 +182,7 @@
       (str "improvjam" (str/lower-case (subs part-3 0 3)))
 
       (= [nil "Comedy Cottage" nil] [part-1 part-2 part-3])
-      (str "comedycottage" (str/lower-case (subs (str (LocalDate/.getMonth (LocalDate/parse "2025-10-24"))) 0 3)))
+      (str "comedycottage" (str/lower-case (subs (str (LocalDate/.getMonth (LocalDate/parse start-date))) 0 3)))
 
       :else
       (let [word-data (map-indexed (fn [idx [priority word]]
