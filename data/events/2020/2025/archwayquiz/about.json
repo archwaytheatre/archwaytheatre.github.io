@@ -2,7 +2,7 @@
   "director" : null,
   "name" : [ null, "Archway Quiz Night", null ],
   "start" : "2025-11-29",
-  "exclusions" : [ ],
+  "exclusions" : [ "pastproductions"],
   "author" : null,
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/archway-quiz-night/e-pbvrkv",
   "end" : "2025-11-29",
