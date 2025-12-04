@@ -2,6 +2,7 @@
   "director" : "Jacquie Redfern",
   "name" : "Goodnight Mister Tom",
   "start" : "2025-12-03",
+  "timing" : {"duration": "PT2H", "interval": "PT20M"},
   "author" : "by David Wood from the novel of Michelle Magorian",
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-lqmvbr",
   "end" : "2025-12-13",
