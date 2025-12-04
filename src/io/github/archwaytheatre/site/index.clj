@@ -57,6 +57,21 @@
   (or (:ticketurl production)
       (:unticketed production)))
 
+(defn add-timing [about-text {:keys [duration interval]}]
+  (let [hours (some-> duration .toHours)
+        minutes (some-> duration .toMinutesPart)
+        break-text "\n\n"
+        duration-text (when duration
+                        (str "The performance lasts approximately "
+                             hours " hours"
+                             (when (pos? minutes) (str " " minutes " minutes"))))
+        interval-text (when interval
+                        (str " and contains a " (.toMinutes interval) " minute interval"))
+        end-text "."]
+    (if duration
+      (str about-text break-text duration-text interval-text end-text)
+      about-text)))
+
 (core/page-2
   "index" "What's On?"
   ; todo: check *all* links in normal text (so not menu buttons, maybe others?) on website are underlined.
@@ -110,7 +125,7 @@
         (conj [:h1.disappearable {:data-id "title"} "What's On?"])
         (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
 
-        (into (for [{:keys [start end location about-text ticketurl unticketed trailer-url year id author director soldout]
+        (into (for [{:keys [start end location about-text ticketurl unticketed trailer-url year id author director soldout timing]
                      {:keys [part-1 part-2 part-3]} :name-parts}
                     coming-soon-or-on-now]
                 [:div.event-holder.disappearable {:data-end (to-end-millis end) :data-id (str "event-" id)}
@@ -135,7 +150,7 @@
                    (some->> (author-line author director)
                             (vector :div.event-overview__author))
                    [:div.event-overview__text.event-overview__text__faded {:id (str "event-overview__text-" id)}
-                    [:pre {:id (str "event-overview__pre-" id)} about-text]
+                    [:pre {:id (str "event-overview__pre-" id)} (add-timing about-text timing)]
                     #_[:br]]
                    [:div.event-overview__buttons
                     [:a.whisper-to-action {:id   (str "event-overview__more-" id)
@@ -164,7 +179,7 @@
                   [:div.event-overview__title [:a.hidden {:href (str "index.html#event-" id)} [:h3 part-1] [:h2 part-2] [:h3 part-3]]]
                   (some->> (author-line author director)
                            (vector :div.event-overview__author))
-                  [:div.event-about__text [:pre about-text]]
+                  [:div.event-about__text [:pre (add-timing about-text timing)]]
                   [:div.event-overview__buttons
                    [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]
                    (when-not unticketed [:a.call-to-action {:href ticketurl} "Buy Tickets"])]

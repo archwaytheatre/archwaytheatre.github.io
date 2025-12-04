@@ -33,6 +33,12 @@
 (defmethod complete-date YearMonth [x] (.atDay x 1))
 (defmethod complete-date Year [x] (.atDay x 1))
 
+; todo: should have a page for each production, with timings for every performance!
+
+(defn parse-timing [{:keys [duration interval]}]
+  {:duration (some-> duration (Duration/parse))
+   :interval (some-> interval (Duration/parse))})
+
 (defn included? [production category]
   (not ((:exclusions production) category)))
 
@@ -71,6 +77,7 @@
                        (assoc :about-text about-text)
                        (update :start parse-partial-date)
                        (update :end parse-partial-date)
+                       (update :timing parse-timing)
                        (update :exclusions set))
                    {:production-year production-year
                     :production-name production-name
