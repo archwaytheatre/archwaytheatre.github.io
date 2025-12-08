@@ -63,14 +63,14 @@
 
 (defn load-production-data [production-year production-name]
   (let [prod-code (data/codify production-name)
-        play-dir (prod-dir production-year prod-code)
+        play-dir (prod-dir (str production-year) prod-code)
         about-json-file (io/file play-dir "about.json")]
     (if (.exists about-json-file)
       (let [about-data (json/parse-string (slurp about-json-file) keyword)
             about-text-file (io/file play-dir "about.txt")
             about-text (if (.exists about-text-file)
                          (str/trim (slurp (io/file play-dir "about.txt")))
-                         (when (< 2024 (Long/parseLong production-year))
+                         (when (< 2024 (Long/parseLong (str production-year)))
                            (println "Missing 'about.txt' for" prod-code)))]
         (with-meta (-> about-data
                        parse-name
@@ -79,7 +79,7 @@
                        (update :end parse-partial-date)
                        (update :timing parse-timing)
                        (update :exclusions set))
-                   {:production-year production-year
+                   {:production-year (str production-year)
                     :production-name production-name
                     :production-code prod-code}))
       (println about-json-file "does not exist!"))))
@@ -120,13 +120,18 @@
                  :production-name short-name
                  :production-code (data/codify short-name)})))
   ([year full-name short-name author director location start end]
+   (create-production year full-name short-name author director location start end "Archway Theatre"))
+  ([year full-name short-name author director location start end company]
+   ; todo: check start date is in year, check end date is after start (and within 3 weeks of start?)
+   ; todo: check dates parse properly!!!
    (save-production-data
-     (with-meta {:name      full-name
-                 :location  location
-                 :start     start
-                 :end       end
-                 :author    author
-                 :director  director}
+     (with-meta (parse-name {:name     full-name
+                             :location location
+                             :start    start
+                             :end      end
+                             :author   author
+                             :director director
+                             :company  company})
                 {:production-year (str year)
                  :production-name short-name
                  :production-code (data/codify short-name)}))))
