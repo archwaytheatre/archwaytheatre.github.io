@@ -111,15 +111,18 @@
     (remove #(-> % :event-name to-ignore) events)))
 
 (defn get-known-event-codes []
-  (set (concat ["rulesliving"
-                "ahplmata"
-                "goodnight"
-                "wonderland"
-                "zimbabwean"
-                "educatingrita"
-                "tciotditnt"
-                "ahoft"]
-               (map str/lower-case (map (comp :production-code meta) (plays/get-all-future-productions))))))
+  (->> (plays/get-all-future-productions)
+       (map (comp :production-code meta)) (map str/lower-case)
+       (concat ["goodnight3011"
+                "carolscandlelight1712"
+                "csbpcc1412"
+                "thedingies1912"
+                "wonderland0901"
+                "comedycottage3001"
+                "zimbabwean3101"
+                "educatingrita1802"
+                "tciotditnt2503"])
+       (set)))
 
 (defn split-name [text regex offset?]
   (when-let [bits (re-matches regex text)]
@@ -129,6 +132,7 @@
   (if (< (count title) 25)
     [nil title nil]
     (let [clean-title (-> title
+                          (str/replace #"(?i)presents[,:;]" "presents")
                           (str/replace #"[:_-]" " ")
                           (str/replace #"\s+" " "))]
       (println 'clean-title clean-title)
@@ -172,17 +176,19 @@
   (let [part-1s (sanitize part-1)
         part-2s (sanitize part-2)
         part-3s (sanitize part-3)
-        words (str/split (str/join " " [part-1s part-2s part-3s]) #"\s+")]
+        words (str/split (str/join " " [part-1s part-2s part-3s]) #"\s+")
+        local-date (LocalDate/parse start-date)
+        date-suffix (format "%02d%02d" (LocalDate/.getDayOfMonth local-date) (LocalDate/.getMonthValue local-date))]
     ; if more than 5 words
     (cond
       (< 5 (count words))
-      (str/lower-case (str/join (map (comp first wordify-numbers) words)))
+      (str (str/lower-case (str/join (map (comp first wordify-numbers) words))) date-suffix)
 
-      (= [nil "Dingbats Improv Jam"] [part-1 part-2])
-      (str "improvjam" (str/lower-case (subs part-3 0 3)))
+      (= "Dingbats Improv Jam" part-2)
+      (str "improvjam" date-suffix)
 
-      (= [nil "Comedy Cottage" nil] [part-1 part-2 part-3])
-      (str "comedycottage" (str/lower-case (subs (str (LocalDate/.getMonth (LocalDate/parse start-date))) 0 3)))
+      (= "Comedy Cottage" part-2)
+      (str "comedycottage" date-suffix)
 
       :else
       (let [word-data (map-indexed (fn [idx [priority word]]
@@ -208,7 +214,7 @@
                                (str/lower-case)))
             best (first (sort-by (fn [candidate] (abs (- 12 (count candidate)))) short-names))]
         (println word-data)
-        best))))
+        (str best date-suffix)))))
 
 (defonce !templates (volatile! []))
 
@@ -223,7 +229,10 @@
             title-div (select-first d "div[class=\"eventTitle\"]")
             title-text (.text title-div)
             about-div (select-first d "div[class=\"eventText\"]")
-            about-text (or (some-> about-div (.text)) "")
+            about-text (or (some-> about-div
+                                   (.wholeText)
+                                   (str/replace #"^\s+" ""))
+                           "")
             [part-1 part-2 part-3 :as name-parts] (make-name title-text)
             short-code (make-short-code name-parts start-date)
             template {:code       short-code
@@ -266,10 +275,10 @@
 (defn check-for-new-events []
   (let [index-doc (fetch-doc index-page)
         current-events (ingest-from index-doc)
-        known-event-code? (get-known-event-codes)]
+        known-event-codes (get-known-event-codes)]
     (reset-templates!)
     (doseq [event current-events]
-      (create-template-event! event known-event-code?))
+      (create-template-event! event known-event-codes))
     (offer-templates)))
 
 (comment
@@ -280,5 +289,11 @@
 
   (check-for-new-events)
   (use-template! 1)
+  (use-template! 2)
+
+  ; TODO:
+  ; (use-template-for-external! 1)
+  ; (use-template-for-arch-production! 1)
+  ; TODO: add to git!
 
   )
