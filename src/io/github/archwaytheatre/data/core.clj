@@ -18,5 +18,5 @@
       (str/replace #".jpg$" "")
       (str/replace #"1984" "nineteen-eighty-four")
       (str/replace #"\s" "-")
-      (str/replace #"[^a-zA-Z-]" "")
+      (str/replace #"[^a-zA-Z0-9-]" "")
       str/lower-case))
