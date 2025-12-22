@@ -122,18 +122,6 @@
                  [:div#trailer__cover-play]]]])
 
         (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
-        (conj [:div.disappearable.center
-               {:data-id "austen"
-                :style   "background-image: linear-gradient(60deg, AntiqueWhite 10%, LavenderBlush 75%);padding:2em;color:black;"}
-               [:h1 "It's Jane Austen's 250th Birthday this week!"]
-               [:p "Have a free audio drama on us:"]
-               [:a.call-to-action {:href "https://www.youtube.com/watch?v=IHV1BELfxsI"} "Pride & Prejudice: Part I (YouTube)"]
-               [:br]
-               [:br]
-               [:br]
-               [:a.call-to-action {:href "https://www.youtube.com/watch?v=n17M6oZLMKg"} "Pride & Prejudice: Part II (YouTube)"]])
-
-        (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
         (conj [:h1.disappearable {:data-id "title"} "What's On?"])
         (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
 
