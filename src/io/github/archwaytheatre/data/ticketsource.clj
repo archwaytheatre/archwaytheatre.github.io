@@ -121,7 +121,14 @@
                 "comedycottage3001"
                 "zimbabwean3101"
                 "educatingrita1802"
-                "tciotditnt2503"])
+                "tciotditnt2503"
+
+                "ahplmata2003" ; will want to delete and add this again, once the poster is updated (date was wrong)
+
+                "ahoft2904" ; already created under different name
+                "jackflies0306" ; already created under different name
+
+                ])
        (set)))
 
 (defn split-name [text regex offset?]
@@ -178,7 +185,9 @@
         part-3s (sanitize part-3)
         words (str/split (str/join " " [part-1s part-2s part-3s]) #"\s+")
         local-date (LocalDate/parse start-date)
-        date-suffix (format "%02d%02d" (LocalDate/.getDayOfMonth local-date) (LocalDate/.getMonthValue local-date))]
+        date-suffix (if (< 2026 (LocalDate/.getYear local-date)) ; fix date component order for 2027 onwards...
+                      (format "%02d%02d" (LocalDate/.getMonthValue local-date) (LocalDate/.getDayOfMonth local-date))
+                      (format "%02d%02d" (LocalDate/.getDayOfMonth local-date) (LocalDate/.getMonthValue local-date)))]
     ; if more than 5 words
     (cond
       (< 5 (count words))

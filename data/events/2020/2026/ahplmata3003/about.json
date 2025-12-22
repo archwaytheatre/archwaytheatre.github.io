@@ -1,10 +1,10 @@
 {
   "director" : null,
   "name" : [ "Anna Howie presents", "Live music at the Archway", null ],
-  "start" : "2026-03-30",
+  "start" : "2026-03-20",
   "exclusions" : ["pastproductions"],
   "author" : null,
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/anna-howie-presents-live-music-at-the-archway/e-rbvvlb",
-  "end" : "2026-03-30",
+  "end" : "2026-03-20",
   "location" : "Studio Theatre"
 }
