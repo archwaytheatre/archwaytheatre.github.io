@@ -2,7 +2,7 @@
   "director" : null,
   "name" : [ "Copthorne Silver Band Presents", "Christmas Classics", null ],
   "start" : "2025-12-14",
-  "exclusions" : [ ],
+  "exclusions" : ["pastproductions"],
   "author" : null,
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/copthorne-silver-band-presents-christmas-classics/e-xogegb",
   "end" : "2025-12-14",
