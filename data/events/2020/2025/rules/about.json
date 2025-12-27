@@ -5,6 +5,29 @@
   "start" : "2025-10-29",
   "exclusions" : [ ],
   "author" : "by Sam Holcraft",
+  "timing" : {
+    "duration" : null,
+    "interval" : null
+  },
+  "photo-sets" : [ {
+    "photographer" : "Caroline Donald / Robert Gregory",
+    "photo-offsets" : [
+      [ "photo-0001.png", 0.506 ],
+      [ "photo-0002.png", 0.358 ],
+      [ "photo-0003.png", 0.219 ],
+      [ "photo-0004.png", 0.328 ],
+      [ "photo-0005.png", 0.357 ],
+      [ "photo-0006.png", 0.247 ],
+      [ "photo-0007.png", 0.242 ],
+      [ "photo-0008.png", 0.2 ],
+      [ "photo-0009.png", 0.425 ],
+      [ "photo-0010.png", 0.267 ],
+      [ "photo-0011.png", 0.528 ],
+      [ "photo-0012.png", 0.132 ],
+      [ "photo-0013.png", 0.546 ],
+      [ "photo-0014.png", 0.311 ],
+      [ "photo-0015.png", 0.15 ] ]
+  } ],
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/e-jkeadz",
   "end" : "2025-11-08",
   "location" : "Main House",
