@@ -1,9 +1,14 @@
 {
+  "trailer" : true,
   "director" : "Debra Cornell",
   "name" : [ null, "Educating Rita", null ],
   "start" : "2026-02-18",
   "exclusions" : [ ],
   "author" : "Willy Russell",
+  "timing" : {
+    "duration" : null,
+    "interval" : null
+  },
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/educating-rita/e-kjmzmd",
   "end" : "2026-02-28",
   "location" : "Main House",
