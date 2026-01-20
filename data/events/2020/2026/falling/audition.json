@@ -2,5 +2,15 @@
   "events": [{
     "datetime": "2026-01-26T19:30:00"
   }],
-  "characters": []
+  "characters": [
+    {"name": "Robin", "gender": "male", "age": "~20s", "description": "A children's book writer who cannot leave the house due to his fear of things falling from the sky. Robin is prone to panic attacks and has given in to his fear."},
+    {"name": "Jacqui", "gender": "female", "age": "~20s", "description": "A former city worker who has moved back in with her dad and is working from home due to her fear of falling things though really does want to overcome her fear."},
+    {"name": "Lesley", "gender": "female", "description": "Robin's mother"},
+    {"name": "Reece", "gender": "male", "description": "Jaqui's father"},
+    {"name": "Jimmy", "description": "A courier"},
+    {"name": "John", "description": "A therapist"}
+  ],
+  "footnotes": [
+    "There are no specific ages mentioned in the script but Jacqui and Robin are likely in their twenties. Reece and Lesley therefore need to be believable as parents. Jimmy and John can be any age."
+  ]
 }
