@@ -145,6 +145,7 @@
       (println 'clean-title clean-title)
       (or
         (split-name clean-title #"(?i)(Dingbats Improv Jam) (.+)" true)
+        (split-name clean-title #"(?i)(Dingbats Improv Show) (.+)" true)
         (split-name clean-title #"(?i)(.* presents) (.*)" false)
         (split-name clean-title #"(?i)(.*'s) (.*)" false)
         (split-name clean-title #"(?i)(the .* of) (.*)" false)
@@ -292,9 +293,9 @@
 
 (comment
 
-  (def x (fetch-doc index-page))
-  (def xs (ingest-from x))
-  (def f (first xs))
+  ;(def x (fetch-doc index-page))
+  ;(def xs (ingest-from x))
+  ;(def f (first xs))
 
   (check-for-new-events)
   (use-template! 1)
