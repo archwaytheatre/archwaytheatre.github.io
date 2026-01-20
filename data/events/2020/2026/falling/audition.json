@@ -1,6 +1,7 @@
 {
   "events": [{
-    "datetime": "2026-01-26T19:30:00"
+    "datetime": "2026-01-26T19:30:00",
+    "location": "in The Bar"
   }],
   "characters": [
     {"name": "Robin", "gender": "male", "age": "~20s", "description": "A children's book writer who cannot leave the house due to his fear of things falling from the sky. Robin is prone to panic attacks and has given in to his fear."},

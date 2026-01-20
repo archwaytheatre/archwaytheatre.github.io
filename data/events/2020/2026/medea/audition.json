@@ -1,0 +1,17 @@
+{
+  "events": [{
+    "datetime": "2026-02-09T19:30:00",
+    "location": "in The Bar",
+    "description": null
+  }],
+  "characters": [
+    {"name": "MEDEA", "gender": "female", "age": "30-40+", "description": "Princess of Colchis, sorceress, wife of Jason and mother of their children. Intelligent, proud, and passionate; unjustly treated by the man she loves."},
+    {"name": "JASON", "gender": "male", "age": "30-40+", "description": "Heroic captain of the Argo, husband of Medea. Charming, confident and ambitious. A loving father but a cheating husband."},
+    {"name": "PHILODIKE", "gender": "female", "age": "20-40+", "description": "A Corinthian noblewoman, and sympathetic and supportive friend to Medea."},
+    {"name": "NURSE", "gender": "female", "age": "50+", "description": "A slave and long-serving retainer of Medea, who has a familiar and motherly relationship toward her mistress and the children."},
+    {"name": "TUTOR", "age": "25+", "description": "A slave and tutor to Medea’s children."},
+    {"name": "CREON", "gender": "male", "age": "45+", "description": "King of Corinth, Jason’s new father-in-law. A proud and stern ruler."},
+    {"name": "CREUSA", "gender": "female", "age": "~20", "description": "Creon’s daughter, Jason’s new bride. Non-speaking part, appearing in a single scene. An unfortunate victim of Jason’s ambition and Medea’s vengeance."},
+    {"name": "AEGEUS", "gender": "male", "age": "45+", "description": "King of Athens, a kind and understanding friend of Medea."}
+  ]
+}
