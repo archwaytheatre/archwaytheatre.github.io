@@ -39,6 +39,11 @@
   {:duration (some-> duration (Duration/parse))
    :interval (some-> interval (Duration/parse))})
 
+(defn unparse-timing [{:keys [duration interval] :as timing}]
+  (when timing
+    {:duration (some-> duration str)
+     :interval (some-> interval str)}))
+
 (defn included? [production category]
   (not ((:exclusions production) category)))
 
@@ -105,6 +110,7 @@
     (spit about-json-file (json/generate-string (-> m
                                                     (unparse-name)
                                                     (dissoc :about-text)
+                                                    (update :timing unparse-timing)
                                                     (update :start #(some-> % str))
                                                     (update :end #(some-> % str)))
                                                 {:pretty true}))
