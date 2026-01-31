@@ -2,31 +2,6 @@
 const now = Date.now();
 
 function composeLabels() {
-    const timelabels = document.getElementsByClassName('timelabel');
-    console.log('composing labels...' + timelabels.length);
-    for (let i = 0; i < timelabels.length; i++) {
-        const timelabel = timelabels.item(i);
-        const start = timelabel.getAttribute('data-start');
-        const end = timelabel.getAttribute('data-end');
-        const soldOut = timelabel.getAttribute('data-sold-out');
-        const oneDay = timelabel.getAttribute('data-one-day');
-        let extraLabel = '';
-        let labelClass = '';
-        if (soldOut === 'true') {
-            extraLabel = 'Sold Out!';
-            labelClass = 'soldOut';
-        } else if (start < now && now < end) {
-            extraLabel = oneDay === 'true' ? 'Tonight!' : 'On Now!';
-            labelClass = 'onNow';
-        }
-        if (extraLabel) {
-            let onNow = document.createElement("div");
-            onNow.classList.add('eventLabel', labelClass);
-            onNow.appendChild(document.createTextNode(extraLabel));
-            timelabel.appendChild(onNow);
-        }
-    }
-
     const banners = document.getElementsByClassName('event-overview__banner');
     console.log('adding banners...' + banners.length);
     for (let i = 0; i < banners.length; i++) {
@@ -43,7 +18,6 @@ function composeLabels() {
             banner.style.display = 'block';
         }
     }
-
 }
 
 function hideEvents() {
