@@ -39,7 +39,7 @@ function composeLabels() {
             banner.textContent = 'Sold Out!';
             banner.style.display = 'block';
         } else if (start < now && now < end) {
-            banner.textContent = oneDay === 'true' ? 'Tonight!' : 'On Now!';
+            banner.textContent = oneDay === 'true' ? 'Today!' : 'On Now!';
             banner.style.display = 'block';
         }
     }
