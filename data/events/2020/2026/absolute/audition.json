@@ -1,0 +1,23 @@
+{
+  "events": [{
+    "datetime": "2026-03-01T07:30:00",
+    "location": " in The Bar"
+  }],
+  "characters": [
+    {"name": "Pilot Officer Jack Absolute", "gender": "male", "age": "20s/30s", "description": "Section Leader, Blue Section ‘A’ Flight, 634 Hurricane Squadron (“The Flying Badgers”). Son to Sir Anthony Absolute, in love with Lydia Languish. Confident, comic book hero."},
+    {"name": "First Officer Lydia Languish", "gender": "female", "age": "20s/30s", "description": "Aircraft delivery pilot, Air Transport Auxiliary (ATA). Heiress to most of Sussex. Niece and ward of Mrs Malaprop."},
+    {"name": "Mrs Malaprop", "gender": "female", "age": "50s/60s", "description": "Lady of Fontwell Manor. Sometime guardian to Miss Lydia Languish. A lady of great lexicographical dexterity and faultless electrocution. Talks to the audience with a twinkle in her eye."},
+    {"name": "Pilot Officer Roy Faulkland", "gender": "male", "age": "20s/30s", "description": "Hurricane pilot, ‘A’ Flight, 634 Squadron. Fiancé and cousin to Julia Melville, best friend to Jack Absolute. Innocent and soppy!"},
+    {"name": "Julia Melville", "gender": "female", "age": "20s/30s", "description": "Chief Volunteer, Auxiliary Territorial Service (ATS). Driver to Sir Anthony. Fiancée and cousin to Roy Faulkland. Best friend to Lydia Languish. A jolly good sort."},
+    {"name": "Lucy", "gender": "female", "age": "20s-40s", "description": "Lady’s maid to Mrs Malaprop, Smitten with Dudley. A cockney."},
+    {"name": "Major General Sir Anthony Absolute", "gender": "male", "age": "50s/60s", "description": "Lord of most of Devon. Scourge of India. Father to Jack Absolute. Absolute silver fox. No-nonsense army man."},
+    {"name": "Pilot Officer Bob Acres", "gender": "male", "age": "30s/40s", "description": "Hurricane pilot, ‘A’ flight, 634 squadron, Australian. A bit slow off the mark."},
+    {"name": "Pilot Officer Bikram ‘Tony’ Khattri", "gender": "male", "age": "20s-40s", "description": "Hurricane pilot, ‘A’ flight, 634 squadron, Sikh from the Punjab. South Asian / Indian actor required. An educated Oxford graduate who likes to think he’s a poet."},
+    {"name": "Intelligence Officer Brian Coventry", "gender": "male", "age": "40s/50s", "description": "634 squadron, RAF Fontwell. Lovely chap!"},
+    {"name": "Warrant Officer 2 Dudley Scunthorpe", "gender": "male", "age": "30s/40s", "description": "Lead mechanic/fitter to Blue Section, 634 squadron, RAF Fontwell. A Yorkshireman. Smitten with Lucy."},
+    {"name": "Flight Officer Peter Kingsmith", "gender": "male", "age": "20s-40s", "description": "Very small role at end of play, also part of ensemble, Hurricane pilot."},
+    {"name": "Flight Sergeant Stuart Sampson", "gender": null, "age": "20s-40s", "description": "Very small role at end of play, also part of ensemble."},
+    {"grouping": "Extras", "gender": "female", "description": "Possible extras for the potential ensemble in one small section of the play."},
+    {"grouping": "Singers / Musicians", "description": "We might create a little musical theme throughout where live musicians or singers would be featured at moments throughout. Think Andrews Sisters or a 40s Skiff band. Doesn’t have to be the same group for all 10 shows…."}
+  ]
+}

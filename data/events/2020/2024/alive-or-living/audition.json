@@ -5,15 +5,15 @@
     "description": null
   }],
   "characters": [
-    {"play": "Schrödinger's Boys", "name": "Nathan", "age": "teens-20s", "description": null},
-    {"play": "Schrödinger's Boys", "name": "Rose", "age": "teens-20s", "description": "his sister"},
-    {"play": "Schrödinger's Boys", "name": "Freddie", "age": "late teens-20s", "description": "his best mate"},
-    {"play": "Schrödinger's Boys", "name": "Martin", "age": "late 30s-60s", "description": "his father"},
-    {"play": "Schrödinger's Boys", "name": "Jen", "age": "late 30s-60s", "description": "his mother"},
-    {"play": "It Takes Time", "name": "Jess", "age": "mid-late teens", "description": null},
-    {"play": "It Takes Time", "name": "Bex", "age": "late teens-20s", "description": "her sister"},
-    {"play": "It Takes Time", "name": "Ethan", "age": "late teens-20s", "description": "her brother"},
-    {"play": "It Takes Time", "name": "Cathy", "age": "late 30s-60s", "description": "her mother"},
-    {"play": "It Takes Time", "name": "Michael", "age": "late 30s-60s", "description": "her father"}
+    {"grouping": "Schrödinger's Boys", "name": "Nathan", "age": "teens-20s", "description": null},
+    {"grouping": "Schrödinger's Boys", "name": "Rose", "age": "teens-20s", "description": "his sister"},
+    {"grouping": "Schrödinger's Boys", "name": "Freddie", "age": "late teens-20s", "description": "his best mate"},
+    {"grouping": "Schrödinger's Boys", "name": "Martin", "age": "late 30s-60s", "description": "his father"},
+    {"grouping": "Schrödinger's Boys", "name": "Jen", "age": "late 30s-60s", "description": "his mother"},
+    {"grouping": "It Takes Time", "name": "Jess", "age": "mid-late teens", "description": null},
+    {"grouping": "It Takes Time", "name": "Bex", "age": "late teens-20s", "description": "her sister"},
+    {"grouping": "It Takes Time", "name": "Ethan", "age": "late teens-20s", "description": "her brother"},
+    {"grouping": "It Takes Time", "name": "Cathy", "age": "late 30s-60s", "description": "her mother"},
+    {"grouping": "It Takes Time", "name": "Michael", "age": "late 30s-60s", "description": "her father"}
   ]
 }

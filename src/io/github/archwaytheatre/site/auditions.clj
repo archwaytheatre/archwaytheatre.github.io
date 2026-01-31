@@ -72,9 +72,10 @@
   (into
     [:span
      [:b (str (:name character))]
-     (when (or (contains? character :description)
-               (contains? character :age)
-               (contains? character :gender))
+     (when (and (contains? character :name)
+                (or (contains? character :description)
+                    (contains? character :age)
+                    (contains? character :gender)))
        " - ")]
     (interpose ", " (remove nil? [(when (contains? character :age) (or age "any age"))
                                   (when (contains? character :gender) (or gender "any gender"))
@@ -151,8 +152,8 @@
              [:h3 "About the Production:"]
              [:div (prepare-text audition)]
              [:br]
-             (when-let [play->characters (some->> (seq characters) (group-by :play))]
-               (if (= 1 (count play->characters))
+             (when-let [grouping->characters (some->> (seq characters) (group-by :grouping))]
+               (if (= 1 (count grouping->characters))
                  [:div
                   [:h3 "Roles:"]
                   (describe-characters characters)
@@ -161,11 +162,11 @@
                  [:div
                   [:h3 "Roles:"]
                   (into [:div]
-                        (map (fn [[play characters]]
+                        (map (fn [[grouping characters]]
                                [:div
-                                [:h4 play]
+                                [:h4 grouping]
                                 (describe-characters characters)])
-                             play->characters))
+                             grouping->characters))
                   (add-footnotes footnotes)
                   [:br]]))
 
