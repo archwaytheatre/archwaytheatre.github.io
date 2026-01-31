@@ -211,6 +211,7 @@
        (dropped-menu-item "Programmes" "programmes.html" relative-path current-href)
        (dropped-menu-item "Past Productions" "past/index.html" relative-path current-href)
        (dropped-menu-item "What's On?" "whatson.html" relative-path current-href)
+       (dropped-menu-item "Bonus Content" "bonus.html" relative-path current-href)
        (dropped-menu-item "Volunteer" "getinvolved.html" relative-path current-href)
        (dropped-menu-item "Audition" "auditions.html" relative-path current-href)
        (dropped-menu-item "Events" "events.html" relative-path current-href)
