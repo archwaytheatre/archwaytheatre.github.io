@@ -6,8 +6,8 @@
   "exclusions" : [ ],
   "author" : "Willy Russell",
   "timing" : {
-    "duration" : null,
-    "interval" : null
+    "duration" : "PT2H15M",
+    "interval" : "PT20M"
   },
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/educating-rita/e-kjmzmd",
   "end" : "2026-02-28",
