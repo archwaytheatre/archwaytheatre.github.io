@@ -3,11 +3,29 @@
     "datetime": "2026-04-14T19:30:00",
     "location": "in The Function Room"
   }, {
-    "datetime": "2026-04-16T19:30:00",
+    "datetime": "2026-04-19T14:00:00",
     "location": "in The Function Room"
   }],
-  "characters": [],
+  "characters": [
+    {"name": "Maria", "gender": "female", "age": "20s to mid-30s", "description": "the bride. Naïve, excitable, impulsive, and strong willed. To summarise: a handful. Some intimacy involved."},
+    {"name": "Anneli", "gender": "female", "age": "20s to mid-30s", "description": "Maria’s maid of honour. A very tired realist, trying to steer a very excited and then very stressed bride. Some intimacy involved."},
+    {"name": "Terri", "gender": "female", "age": "30s – early 60s", "description": "Laura’s current partner. Eerily unphased by the chaos of the day. Some optional intimacy involved."},
+    {"name": "Laura", "gender": "female", "age": "40s to mid-50s", "description": "Maria’s mum (and Grandma Pat’s daughter). A cool mum, but sometimes blunt and self-centred. Some optional intimacy involved."},
+    {"name": "Janine", "gender": "female", "age": "40s to mid-50s", "description": "Callum’s mum (and Cillian’s ex-wife). A little shallow but means well."},
+    {"name": "Grandma Pat", "gender": "female", "age": "mid-60s to 80s", "description": "Maria’s grandmother. An extremely patient woman with an open mind and dry wit."},
+    {"name": "Stacey", "gender": "female", "age": "late teens – early 20s", "description": "a waitress. Quiet, but smart. Hates her job."},
+
+    {"name": "Darren", "gender": "male", "age": "late teens", "description": "Callum’s younger brother. A classic awkward teenager; antisocial and hates everything and everyone, other than Maria."},
+    {"name": "Callum", "gender": "male", "age": "20s to mid-30s", "description": "the groom. A hopeless romantic but emotionally immature. A nerd at heart. Some intimacy involved."},
+    {"name": "Richard", "gender": "male", "age": "20s to mid-30s", "description": "Callum’s best man. A Golden Retriever of a man; genuinely a good guy. Some intimacy involved."},
+    {"name": "Christopher", "gender": "male", "age": "30s", "description": "Maria’s uncle (and Grandma Pat’s son). Unashamedly camp and proudly gay. A throwback to a classic lovie and doing absolutely nothing to hide it."},
+    {"name": "Cillian", "gender": "male", "age": "40s to mid-50s", "description": "Callum’s dad. Grumpy, petty and quite bitter as a person."},
+
+    {"name": "Carol", "gender": null, "age": null, "description": "the celebrant. Believes wholeheartedly in what they do."}
+  ],
   "footnotes": [
-    "Character details coming soon."
+    "The auditions are open to anyone. This is a story about family, and families come in different shapes and can look wildly different; from varied age gaps between generations, through to adoption. I do not need cast members to share any kind of family resemblance.",
+    "Please also note that part of the play explores LGBTQ+ themes, and the rehearsal room will be a safe space for members of that community. If this doesn’t align with your personal outlook, please consider whether this is the right production for you.",
+    "Rehearsals will be Tuesday and Thursday and then Sundays, with the final week having a fourth, as we build up to opening night. Rehearsals will start the very last week of Dec. I will try and build a rehearsal schedule that doesn’t require everyone at every rehearsal, but I do expect good availability from everyone."
   ]
 }
