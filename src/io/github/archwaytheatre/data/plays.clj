@@ -13,8 +13,12 @@
 (defn decade [year]
   (str (subs year 0 3) "0"))
 
-(defn prod-dir [prod-year prod-code]
-  (io/file data/event-dir (decade prod-year) (str prod-year) prod-code))
+(defn prod-dir
+  ([prod]
+   (let [{:keys [production-year production-code]} (meta prod)]
+     (prod-dir production-year production-code)))
+  ([prod-year prod-code]
+   (io/file data/event-dir (decade prod-year) (str prod-year) prod-code)))
 
 (defn parse-partial-date [date-str]
   (when date-str

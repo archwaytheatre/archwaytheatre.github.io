@@ -1,5 +1,6 @@
 (ns io.github.archwaytheatre.data.ticketsource
   (:require [clojure.java.io :as io]
+            [clojure.java.shell :as sh]
             [clojure.pprint :as pp]
             [clojure.string :as str]
             [io.github.archwaytheatre.data.copy-images :as copy-images]
@@ -280,7 +281,8 @@
   (let [{:keys [code image about-data]} (nth @!templates (dec template-number))
         prod (plays/create-production code about-data)
         {:keys [production-code production-year]} (meta prod)]
-    (copy-images/upload-poster production-code production-year image)))
+    (copy-images/upload-poster production-code production-year image)
+    (sh/sh "git" "add" (str (plays/prod-dir prod)))))
 
 (defn check-for-new-events []
   (let [index-doc (fetch-doc index-page)
