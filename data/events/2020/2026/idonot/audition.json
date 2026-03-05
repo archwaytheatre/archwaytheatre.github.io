@@ -4,7 +4,8 @@
     "location": "in The Function Room"
   }, {
     "datetime": "2026-04-19T14:00:00",
-    "location": "in The Function Room"
+    "location": "in The Function Room",
+    "description": "<br/>You only need to attend one of these auditions."
   }],
   "characters": [
     {"name": "Maria", "gender": "female", "age": "20s to mid-30s", "description": "the bride. Naïve, excitable, impulsive, and strong willed. To summarise: a handful. Some intimacy involved."},
@@ -26,6 +27,8 @@
   "footnotes": [
     "The auditions are open to anyone. This is a story about family, and families come in different shapes and can look wildly different; from varied age gaps between generations, through to adoption. I do not need cast members to share any kind of family resemblance.",
     "Please also note that part of the play explores LGBTQ+ themes, and the rehearsal room will be a safe space for members of that community. If this doesn’t align with your personal outlook, please consider whether this is the right production for you.",
-    "Rehearsals will be Tuesday and Thursday and then Sundays, with the final week having a fourth, as we build up to opening night. Rehearsals will start the very last week of Dec. I will try and build a rehearsal schedule that doesn’t require everyone at every rehearsal, but I do expect good availability from everyone."
+    "Rehearsals will be Tuesday and Thursday and then Sundays, with the final week having a fourth, as we build up to opening night. Rehearsals will start the very last week of Dec. I will try and build a rehearsal schedule that doesn’t require everyone at every rehearsal, but I do expect good availability from everyone.",
+    "A full audition pack can be found in <a class=\"normal\" href=\"https://drive.google.com/drive/folders/186sCATAGfYMPKluoWTShG5BFo7Z_9EDJ?usp=drive_link\">this Google Drive folder.</a>",
+    "Feel free to contact the director, Elodie, at: <a class=\"normal\" href=\"mailto:elodieforay1992+idonot@gmail.com\">elodieforay1992+idonot@gmail.com</a>"
   ]
 }
