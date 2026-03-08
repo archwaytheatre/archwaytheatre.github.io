@@ -1,0 +1,13 @@
+{
+  "events": [{
+    "datetime": "2026-04-27T19:30:00",
+    "location": " in The Bar"
+  }],
+  "characters": [
+    {"name": "Mole", "gender": null, "age": "20s", "description": "Young, innocent"},
+    {"name": "Ratty", "gender": null, "age": "30+", "description": "Fussy, quite \"well to do\""},
+    {"name": "Badger", "gender": null, "age": "40+", "description": "Gruff, country gent"},
+    {"name": "Toad", "gender": null, "age": "20+", "description": "Posh, bombastic. Landed gentry. A ‘big’ character."},
+    {"name": "Ensemble", "gender": null, "age": null, "description": "If not playing one of the 4 main characters, you will be cast in the ensemble. The amount of doubling/trebling etc depends on the size of the cast, but you will be playing a variety of roles both human and ‘animal’, including Otters, weasels, a horse, various woodland creatures, Jailer’s daughter, Barge-woman, various other humans and the God Pan!"}
+  ]
+}
