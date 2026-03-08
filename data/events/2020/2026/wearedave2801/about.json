@@ -2,7 +2,7 @@
   "director" : null,
   "name" : [ null, "We Are Dave", null ],
   "start" : "2026-01-28",
-  "exclusions" : [ ],
+  "exclusions" : ["pastproductions"],
   "author" : null,
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/we-are-dave/e-rbvvgb",
   "end" : "2026-01-28",

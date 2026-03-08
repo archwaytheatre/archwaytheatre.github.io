@@ -2,7 +2,7 @@
   "director" : null,
   "name" : [ null, "Hamilton Sing Along", null ],
   "start" : "2026-03-14",
-  "exclusions" : [ ],
+  "exclusions" : ["pastproductions"],
   "author" : null,
   "timing" : null,
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/hamilton-sing-along/e-vrqlzg",
