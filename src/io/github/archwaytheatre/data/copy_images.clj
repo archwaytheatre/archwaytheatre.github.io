@@ -157,7 +157,7 @@
         local-file (io/file local-dir (str production-year) prod-code "poster-full.png")
         local-scaled-file (io/file local-dir (str production-year) prod-code "poster-scaled.png")]
 
-    (when-not (plays/load-production-data production-year production-name)
+    (when-not (plays/load-production-data (str production-year) production-name)
       (throw (ex-info "Please create the data first." {:prod-code prod-code})))
 
     (println production-year " / " prod-code)
@@ -187,16 +187,16 @@
 (defn upload-photos [production-name production-year photo-directory photographer]
   (let [local-dir (io/file "local-only" "s3-sync" "site")
         prod-code (data/codify production-name)
-        about-json (or (plays/load-production-data production-year production-name)
-                       (throw (ex-info "Please create the data first." {:prod-code prod-code}))
-                       (plays/create-production production-year production-name))
+        about-json (or (plays/load-production-data (str production-year) production-name)
+                       (throw (ex-info "Please create the data first." {:prod-code prod-code})))
         next-number-offset (inc (count (mapcat :photo-offsets (:photo-sets about-json))))
         photos (->> (io/file photo-directory)
                     (file-seq)
                     (filter #(.isFile %))
+                    (sort-by #(.getName %))
                     (map-indexed (fn [idx file]
                                    [file (format "photo-%04d.png" (+ idx next-number-offset)) 0.25])))
-        about-json' (update about-json :photo-sets conj {:photographer  photographer
+        about-json' (update about-json :photo-sets conj {:photographer  (or photographer "Archway Archive")
                                                          :photo-offsets (map rest photos)})]
     (println prod-code ": rescaling and uploading photos...")
 
@@ -279,8 +279,7 @@
   (let [prod-code (data/codify production-name)
         _ (println prod-code ": finding eye lines...")
         about-json (or (plays/load-production-data production-year production-name)
-                       (throw (ex-info "Please create the data first." {:prod-code prod-code}))
-                       (plays/create-production production-year production-name))
+                       (throw (ex-info "Please create the data first." {:prod-code prod-code})))
         about-json' (update about-json :photo-sets
                             mapdate
                             update :photo-offsets
