@@ -24,9 +24,9 @@
     {"name" : "Antonio/a", "age": null, "gender" : null, "description": "Medium role. Owner of a night club out of town. Rescues and befriends Sebastian and proves a loyal companion."},
     {"name" : "Fabian", "age": null, "gender" : null, "description": "Medium role. Olivia’s chauffer. They join in the revenge plot on Malvolio, seemingly just for the hell of it (cos Malvolio annoyed them once)."},
     [
-      {"name" : "Valentine", "gender" : "female", "age": null},
-      {"name" : "Curio", "gender" : "female", "age": null},
-      {"description": "Small Roles. Roadies of Orsino’s. Orsino is quite convinced they are men. They are not. They are women pretending to be men. These will be fun to play for someone who doesn’t like too many lines but is good with facial expressions."}
+      {"name" : "Valentine"},
+      {"name" : "Curio"},
+      {"gender" : "female", "age": null, "description": "Small Roles. Roadies of Orsino’s. Orsino is quite convinced they are men. They are not. They are women pretending to be men. These will be fun to play for someone who doesn’t like too many lines but is good with facial expressions."}
     ],
     {"name" : "Captain", "age": null, "gender" : null, "description": "Small Role. Captain of the yacht which sinks at the beginning and fellow survivor with Viola. Is knowledgeable of the land and people in it to set the scene in our opening. Handy that."},
     {"name" : "Chorus", "age": null, "gender" : null, "description": "Anyone who is interested in being part of the production without a speaking role but perhaps you play an instrument/sing/are happy to be whatever we come up with!"}

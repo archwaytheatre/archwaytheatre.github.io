@@ -12,11 +12,9 @@
     {"name": "Miss Prism", "gender": "female", "age": "40+", "description":"a governess"},
     {"name": "Rev Canon Chasuble", "gender": "male", "age": "40+", "description":null},
     [
-      {"name": "Merriman", "gender": "male", "age": "40+", "description":"an elderly butler"},
-      {"name": "Lane", "gender": "male", "age": "40+", "description":"an ex military manservant"}
+      {"gender": "male", "age": "40+"},
+      {"name": "Merriman", "description":"an elderly butler"},
+      {"name": "Lane", "description":"an ex military manservant"}
     ]
   ]
 }
-
-
-

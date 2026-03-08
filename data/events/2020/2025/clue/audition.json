@@ -12,15 +12,13 @@
     {"name": "Colonel Mustard", "gender": "male", "age": "30s+", "description":"the military man; a puffy, pompous, dense blowhard who - if bullets were knowledge - would be down to his last shot."},
     {"name": "Professor Plum", "gender": "male", "age": "30s+", "description":"the academic; somewhat arrogant and easily impressed with himself but why is he no longer working in medicine?"},
     {"name": "Mr Green", "gender": "male", "age": null, "description":"the bureaucrat; timid, accident-prone and very anxious - what is his secret?"},
-    [
-      {"description": "Ensemble (most only in one scene so doubling up most likely and being able to play dead is a bonus!)"},
-      {"name": "The Cook", "gender": "female", "age": "30s+", "description":"gruff with a threatening presence"},
-      {"name": "Mr Boddy", "gender": "male", "age": "30s+", "description":"the mysterious host"},
-      {"name": "The Motorist", "gender": "male", "age": "30s+", "description":"what a time to break down!"},
-      {"name": "Singing Telegram Girl", "gender": "female", "age": "20s-30s", "description":"here to lighten the mood"},
-      {"name": "An Unexpected Cop", "gender": "male", "age": "30s+", "description":"just checking in"},
-      {"name": "Chief of Police", "gender": "male", "age": "30s+", "description":"ready to save the day"},
-      {"name": "Backup Police officers", "gender": null, "age": null, "description":null}
-    ]
-  ]
+    {"grouping": "Ensemble", "name": "The Cook", "gender": "female", "age": "30s+", "description":"gruff with a threatening presence"},
+    {"grouping": "Ensemble", "name": "Mr Boddy", "gender": "male", "age": "30s+", "description":"the mysterious host"},
+    {"grouping": "Ensemble", "name": "The Motorist", "gender": "male", "age": "30s+", "description":"what a time to break down!"},
+    {"grouping": "Ensemble", "name": "Singing Telegram Girl", "gender": "female", "age": "20s-30s", "description":"here to lighten the mood"},
+    {"grouping": "Ensemble", "name": "An Unexpected Cop", "gender": "male", "age": "30s+", "description":"just checking in"},
+    {"grouping": "Ensemble", "name": "Chief of Police", "gender": "male", "age": "30s+", "description":"ready to save the day"},
+    {"grouping": "Ensemble", "name": "Backup Police officers", "gender": null, "age": null, "description":null}
+  ],
+  "footnotes": ["Ensemble are most only in one scene so doubling up most likely and being able to play dead is a bonus!"]
 }
