@@ -125,9 +125,11 @@
         (conj [:h1.disappearable {:data-id "title"} "What's On?"])
         (conj [:div.vertical-spacer.disappearable {:data-id "spacer"}])
 
-        (into (for [{:keys [start end location about-text ticketurl unticketed trailer-url year id author director soldout timing]
+        (into (for [{:keys [start end location about-text ticketurl unticketed free trailer-url year id author director soldout timing]
                      {:keys [part-1 part-2 part-3]} :name-parts}
-                    coming-soon-or-on-now]
+                    coming-soon-or-on-now
+                    :let [get-tickets (when-not unticketed
+                                        [:a.call-to-action {:href ticketurl} (if free "Free Tickets" "Buy Tickets")])]]
                 [:div.event-holder.disappearable {:data-end (to-end-millis end) :data-id (str "event-" id)}
                  [:div.event-overview.event-focus {:id (str "event-overview-" id)}
                   [:div.event-overview__banner-wrapper
@@ -159,8 +161,7 @@
                       [:a.whisper-to-action {:href (str "javascript:trailer('" id "')")}
                        "Trailer" [:div.play-button "▶"]])
 
-                    (when-not unticketed
-                      [:a.call-to-action {:href ticketurl} "Buy Tickets"])]]]
+                    get-tickets]]]
 
                  (when trailer-url
                    [:div.event-trailer {:id (str "event-trailer-" id)}
@@ -172,7 +173,7 @@
                      [:source {:src trailer-url}]]
                     [:div.event-trailer__buttons
                      [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]
-                     (when-not unticketed [:a.call-to-action {:href ticketurl} "Buy Tickets"])]])
+                     get-tickets]])
 
                  [:div.event-about {:id (str "event-about-" id)}
                   [:div.event-overview__details (str (date-range start end) " │ " location)]
@@ -182,7 +183,7 @@
                   [:div.event-about__text [:pre (add-timing about-text timing)]]
                   [:div.event-overview__buttons
                    [:a.whisper-to-action {:href (str "javascript:poster('" id "')")} "Back"]
-                   (when-not unticketed [:a.call-to-action {:href ticketurl} "Buy Tickets"])]
+                   get-tickets]
                   ]]))
         (conj [:div.vertical-spacer])
         (cond->
