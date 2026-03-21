@@ -244,10 +244,12 @@
                                    (.wholeText)
                                    (str/replace #"^\s+" ""))
                            "")
+            image-div (select-first d "img[class=\"eventBannerMedium\"]")
+            image-src (Element/.attr image-div "src")
             [part-1 part-2 part-3 :as name-parts] (make-name title-text)
             short-code (make-short-code name-parts start-date)
             template {:code       short-code
-                      :image      image-url
+                      :image      image-src
                       :about-data {:name-parts {:part-1 part-1
                                                 :part-2 part-2
                                                 :part-3 part-3}
