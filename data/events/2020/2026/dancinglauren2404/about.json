@@ -7,5 +7,6 @@
   "timing" : null,
   "ticketurl" : "https://www.ticketsource.com/archwaytheatre/line-dancing-with-lauren/e-pdbkmb",
   "end" : "2026-04-24",
-  "location" : "Studio Theatre"
+  "location" : "Studio Theatre",
+  "soldout": true
 }
