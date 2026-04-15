@@ -208,7 +208,7 @@
                [:div.vertical-spacer]
                [:hr]
                [:div.vertical-spacer]
-               [:div.whatson-misc__signup-form core/email-signup-form]])
+               [:div.whatson-misc__signup-form (core/email-signup-form "Or subscribe to our mailing list:")]])
 
 
         ;(conj [:script {:src "./js/whatson.js"}])

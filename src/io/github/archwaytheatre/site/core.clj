@@ -40,7 +40,7 @@
     :allow "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     :allowfullscreen "true"}])
 
-(def email-signup-form
+(defn email-signup-form [title]
   [:div#mc_embed_shell
    [:link {:href "//cdn-images.mailchimp.com/embedcode/classic-061523.css" :rel "stylesheet" :type "text/css"}]
    [:style {:type "text/css"} "#mc_embed_signup{max-width: 600px;}
@@ -56,7 +56,7 @@
       :method "post"
       :name "mc-embedded-subscribe-form"
       :target "_blank"}
-     [:div#mc_embed_signup_scroll [:h2 "Or subscribe to our mailing list:"]
+     [:div#mc_embed_signup_scroll [:h2 title]
       [:div.indicates-required [:span.asterisk "*"] "indicates required"]
       [:div.mc-field-group [:label {:for "mce-EMAIL"} "Email Address" [:span.asterisk "*"]]
        [:input#mce-EMAIL.required.email {:type "email" :name "EMAIL" :required "" :value ""}]]

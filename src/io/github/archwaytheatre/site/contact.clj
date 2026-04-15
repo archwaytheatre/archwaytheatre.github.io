@@ -93,7 +93,7 @@
        [:div.text-align-center [:h5 "Youth Workshops"] [:a.normal.delayedEmail "Youth Workshops"]]])]
 
    [:div.content__item [:hr]]
-   [:div.signupform core/email-signup-form]
+   [:div.signupform (core/email-signup-form "Or subscribe to our mailing list:")]
 
    [:script {:src "./js/delayed.js"}]
 
