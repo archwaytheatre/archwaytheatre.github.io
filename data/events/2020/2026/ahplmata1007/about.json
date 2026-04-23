@@ -2,7 +2,7 @@
   "director" : null,
   "name" : [ "Anna Howie presents", "Live music at the Archway", null ],
   "start" : "2026-07-10",
-  "exclusions" : [ ],
+  "exclusions" : [ "pastproductions" ],
   "author" : null,
   "timing" : null,
   "ticketurl" : "https://www.ticketsource.com/archwaytheatre/anna-howie-presents-live-music-at-the-archway/e-xpmdpb",
