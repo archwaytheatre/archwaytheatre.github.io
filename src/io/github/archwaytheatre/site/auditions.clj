@@ -7,7 +7,7 @@
     [io.github.archwaytheatre.site.core :as core]
     [cheshire.core :as json])
   (:import
-    [java.time Instant LocalDateTime ZoneId]
+    [java.time Instant LocalDate LocalDateTime ZoneId]
     [java.time.format DateTimeFormatter]))
 
 
@@ -136,7 +136,10 @@
              [:br]
              [:h3 "Auditions: "]
              (->> events
-                  (filter #(-> % :datetime (.isAfter (LocalDateTime/ofInstant (Instant/now) (ZoneId/of "Europe/London")))))
+                  (remove #(-> %
+                               :datetime
+                               LocalDateTime/.toLocalDate
+                               (.isBefore (LocalDate/now))))
                   (map (fn [{:keys [datetime end-time location description]}]
                          [:div
                           (->> [(add-end-time (.format datetime datetime-format) end-time)
