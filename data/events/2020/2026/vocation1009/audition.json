@@ -1,0 +1,21 @@
+{
+  "events": [{
+    "datetime": "2026-06-28T14:00:00",
+    "location": " in The Bar",
+    "description": "Main Audition"
+  }, {
+    "datetime": "2026-06-29T19:30:00",
+    "location": " in The Bar",
+    "description": "Callbacks"
+  }],
+  "characters": [
+    {"name": "Delilah (Dr Delilah Savidge)", "gender": "female", "age": "early-mid 40s", "description": "General Practitioner"},
+    {"name": "Nik (Dr Nik Ghai)", "gender": "male", "age": "mid-late 30s", "description": "General Practitioner"},
+    {"name": "Colin (Dr Colin Cohen)", "gender": "male", "age": "mid-late 50s", "description": "General Practitioner"},
+    {"name": "Maggie", "gender": "female", "age": "early-mid 30s-40s", "description": "Practice Receptionist"},
+    {"name": "Justyna", "gender": "female", "age": "mid-late 30s-50s", "description": "Practice Manager"},
+    {"name": "Kiera", "gender": "female", "age": "mid-late 20s", "description": "General Practitioner Trainee"},
+    {"name": "Daniel", "gender": "male", "age": "mid-late 40s-50s", "description": "Practice handyman"},
+    {"name": "Victor Belcher", "gender": "male", "age": "50s-60s", "description": "Patient"}
+  ]
+}
