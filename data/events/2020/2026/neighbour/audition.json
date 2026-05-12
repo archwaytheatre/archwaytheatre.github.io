@@ -1,0 +1,14 @@
+{
+  "events": [{
+    "datetime": "2026-06-22T19:30:00",
+    "location": " in The Bar",
+    "description": "Main Audition"
+  }],
+  "characters": [
+    {"name": "Gareth", "gender": "male/female", "age": "late 20s", "description": ""},
+    {"name": "Caryl", "gender": "female", "age": "mid 50s", "description": ""},
+    {"name": "Merion", "gender": "male", "age": "50s", "description": "Caryl's husband"},
+    {"name": "Max", "gender": "male", "age": "mid 30s", "description": ""},
+    {"name": "Seren", "gender": "female", "age": "early 30s", "description": "Caryl and Merion's daughter"}
+  ]
+}
