@@ -4,6 +4,10 @@
   "start" : "2026-06-03",
   "exclusions" : [ ],
   "author" : "by Richard Bean & Oliver Chris",
+  "timing" : {
+    "duration" : "PT2H20M",
+    "interval" : "PT20M"
+  },
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/jack-absolute-flies-again/e-yjdmxl",
   "end" : "2026-06-13",
   "location" : "Main House",
