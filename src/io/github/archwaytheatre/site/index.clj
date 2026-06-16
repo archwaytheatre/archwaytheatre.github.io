@@ -63,7 +63,7 @@
         break-text "\n\n"
         duration-text (when duration
                         (str "The performance lasts approximately "
-                             hours " hours"
+                             hours (if (= 1 hours) " hour" " hours")
                              (when (pos? minutes) (str " " minutes " minutes"))))
         interval-text (when interval
                         (str " and contains a " (.toMinutes interval) " minute interval"))

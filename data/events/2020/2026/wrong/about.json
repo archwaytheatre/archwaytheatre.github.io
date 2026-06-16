@@ -7,5 +7,9 @@
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/the-wrong-way-round-youth-workshop/e-bbkyde",
   "end" : "2026-06-20",
   "location" : "Main House",
-  "company" : "Archway Theatre"
+  "company" : "Archway Theatre",
+  "timing" : {
+    "duration" : "PT1H40M",
+    "interval" : "PT20M"
+  }
 }
