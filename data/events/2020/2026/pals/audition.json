@@ -1,0 +1,18 @@
+{
+  "events": [{
+    "datetime": "2026-07-20T19:30:00",
+    "location": " in The Bar"
+  }],
+  "characters": [
+    {"name": "May", "gender": "female", "age": "30", "description": null},
+    {"name": "Tom", "gender": "male", "age": "20", "description":  null},
+    {"name": "Eva", "gender": "female", "age": "19", "description":  null},
+    {"name": "Ralph", "gender": "male", "age": "19", "description":  null},
+    {"name": "Sarah", "gender": "female", "age": "20", "description":  null},
+    {"name": "Bertha", "gender": "female", "age": "18", "description":  null},
+    {"name": "Annie", "gender": "female", "age": "35 - 40", "description":  null},
+    {"name": "Arthur", "gender": "male", "age": "35 - 40", "description":  null},
+    {"name": "Reggie", "gender": "male", "age": "16", "description":  null},
+    {"name": "Company Sergeant Major Rivers", "gender": "male", "age": "40 ish", "description":  null}
+  ]
+}

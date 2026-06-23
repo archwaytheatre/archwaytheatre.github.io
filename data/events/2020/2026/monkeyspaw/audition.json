@@ -1,0 +1,11 @@
+{
+  "events": [{
+    "datetime": "2026-07-12T19:00:00",
+    "location": " in The Bar"
+  }],
+  "characters": [
+    {"name": "Storyteller / Narrator", "gender": null, "age": null, "description": null},
+    {"name": "4x Principal roles", "gender": null, "age": null, "description": null},
+    {"name": "3-4x Devising Ensemble roles", "gender": null, "age": null, "description": "with a focus on stories from the theatre’s history – devising experience desirable"}
+  ]
+}
