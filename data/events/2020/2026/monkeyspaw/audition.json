@@ -1,11 +1,14 @@
 {
   "events": [{
     "datetime": "2026-07-12T19:00:00",
-    "location": " in The Bar"
+    "location": "in The Bar"
   }],
   "characters": [
-    {"name": "Storyteller / Narrator", "gender": null, "age": null, "description": null},
-    {"name": "4x Principal roles", "gender": null, "age": null, "description": null},
-    {"name": "3-4x Devising Ensemble roles", "gender": null, "age": null, "description": "with a focus on stories from the theatre’s history – devising experience desirable"}
+    {"grouping": "Principal roles","name": "Mr White", "gender": "male", "age": "50-70", "description": "Curious and impulsive. A warm, affectionate father whose fascination with the unknown leads to devastating consequences."},
+    {"grouping": "Principal roles","name": "Mrs White", "gender": "female", "age": "50-70", "description": "Loving and practical, with strong emotional depth. Her arc moves from warmth to grief and desperation."},
+    {"grouping": "Principal roles","name": "Herbert White", "gender": "male", "age": "20-30", "description": "Playful, light-hearted and witty. His teasing nature contrasts with the darker events that unfold."},
+    {"grouping": "Principal roles","name": "Sergeant-Major Morris", "gender": "male", "age": "40-60", "description": "World-weary and authoritative. Brings a sense of foreboding with stories of his travels and the cursed object."},
+    {"grouping": "Additional roles","name": "Storyteller / Narrator", "gender": null, "age": "18+", "description": "Guides the audience through the story, setting tone and atmosphere. Strong presence and storytelling ability essential."},
+    {"grouping": "Additional roles", "number": "3-4", "name": "3-4x Devising Ensemble", "gender": null, "age": "18+", "description": "These roles will be collaboratively developed, drawing on stories from the history of the theatre.\nPrevious devising or ensemble experience is desirable\nPerformers should be open to physical theatre, improvisation, and collaborative creation\n"}
   ]
 }
