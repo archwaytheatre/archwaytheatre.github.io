@@ -5,6 +5,10 @@
   "start" : "2026-07-15",
   "exclusions" : [ ],
   "author" : "by Elodie Foray",
+  "timing" : {
+    "duration" : "PT2H20M",
+    "interval" : "PT20M"
+  },
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/i-do-not/e-ryevzr",
   "end" : "2026-07-25",
   "location" : "Main House",
