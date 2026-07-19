@@ -1,0 +1,19 @@
+{
+  "events": [{
+    "datetime": "2026-08-03T19:30:00",
+    "location": "in The Function Room"
+  }],
+  "characters": [
+    {"name": "Private Arthur Hamp", "gender": "male", "age": "Early 20s", "description": "A simplistic young soldier from Lancashire, who, under extreme stress, deserts."},
+    {"name": "Lieutenant William Hargreaves", "gender": "male", "age": "20s-40s", "description": "A well-educated officer from Lancashire tasked with the defence of Hamp."},
+    {"name": "Lieutenant Tom Webb", "gender":  "male", "age": "20s-40s", "description":  "Another Lancashire officer with a much more black-and-white view of the affair. Close friend of Hargreaves."},
+    {"name": "Prosecuting Officer Midgley", "gender":  "male", "age": "no specific age", "description":  "Appointed to the prosecution of Hamp, sees Hargreaves’ efforts as a waste of time and resources."},
+
+    {"grouping": "May be doubled", "name": "Padre", "gender": "male", "age": "40+", "description": "The Chaplain of the regiment who gives spiritual advice to both Hamp and Hargreaves and testimony for defence."},
+    {"grouping": "May be doubled", "name": "Court President", "gender": "male", "age": "40+", "description": "Oversees the court-martial of Hamp."},
+    {"grouping": "May be doubled", "name": "Guard Corporal", "gender": "male", "age": "30+", "description": "A sympathetic soldier tasked with Hamp’s care."},
+    {"grouping": "May be doubled", "name": "Guard Private", "gender": "male", "age": "20+", "description": "direct subordinate to Corporal tasked with the same."},
+    {"grouping": "May be doubled", "name": "Medical Officer", "gender": "male", "age": "40+", "description": "An overstressed doctor who previously treated Hamp for ‘Nerves’."}
+  ],
+  "footnotes": []
+}
