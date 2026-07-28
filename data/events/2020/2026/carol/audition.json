@@ -1,0 +1,38 @@
+{
+  "events": [{
+    "datetime": "2026-09-19T19:30:00",
+    "location": " in The Foyer"
+  }],
+  "characters": [
+
+    {"name": "Ebenezer Scrooge", "gender": "male", "age": "adult"},
+    {"gender": "male", "age": "adult", "name": "Fred / Young Ebenezer"},
+    {"name": "Bob Cratchit", "gender": "male", "age": "adult"},
+    {"gender": "male", "age": "adult", "name": "Charity Man 1 / Schoolmaster / Lighthouse Man / Gentleman 1"},
+    {"gender": "male", "age": "adult", "name": "Charity Man 2 / Belle’s Husband / Miner / Sailor / Undertaker"},
+    {"gender": "male", "age": "adult", "name": "Jacob Marley’s Ghost / Miner / Lighthouse Man / Old Joe"},
+    {"gender": "male", "age": "adult", "name": "Fezziwig / Topper / Gentleman 3"},
+    {"gender": "male", "age": "adult", "name": "Dick Wilkins / Man 1 / Poor Man"},
+    {"gender": "male", "age": "adult", "name": "The Young Follower / Man 2 / Gentleman 2"},
+    {"gender": "male", "age": "adult", "name": "Ghost of Christmas Present / Poulterer"},
+
+    {"gender": "female", "age": "adult", "name": "Ghost of Christmas Past / Miner / Ghost of Christmas Yet to Come"},
+    {"gender": "female", "age": "adult", "name": "Phantom / Fanny / Miss Fezziwig / Girl 2"},
+    {"gender": "female", "age": "adult", "name": "Miss Fezziwig / Polly"},
+    {"gender": "female", "age": "adult", "name": "Phantom / Miss Fezziwig / Martha Cratchit"},
+    {"gender": "female", "age": "adult", "name": "Belle / Miner / Poor Woman"},
+    {"gender": "female", "age": "adult", "name": "Mrs Cratchit"},
+    {"gender": "female", "age": "adult", "name": "Girl 1 / Charwoman"},
+    {"gender": "female", "age": "adult", "name": "Mrs Fezziwig / Miner / Mrs Dilber"},
+
+    {"age": "child", "name": "Carol Singer / Young Scrooge / Peter Cratchit"},
+    {"age": "child", "name": "Boy Scrooge / Boy Cratchit / Turkey Boy"},
+    {"age": "child", "name": "Belle’s Child / Tiny Tim / Poor Child"},
+    {"age": "child", "name": "Phantom / Belle’s Child / Miner / Want / Poor Child"},
+    {"age": "child", "name": "Phantom / Belle’s Child / Miner / Ignorance / Poor Child"},
+    {"age": "child", "name": "Phantom / Belinda Cratchit"},
+    {"age": "child", "name": "Phantom / Maid"}
+
+  ]
+}
+
