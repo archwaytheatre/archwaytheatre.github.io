@@ -7,5 +7,6 @@
   "timing" : null,
   "ticketurl" : "https://www.ticketsource.com/archwaytheatre/line-dancing-with-lauren/e-arkplm",
   "end" : "2026-09-19",
-  "location" : "Studio Theatre"
+  "location" : "Studio Theatre",
+  "soldout": true
 }
