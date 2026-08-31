@@ -1,0 +1,35 @@
+{
+  "events": [{
+    "datetime": "2026-09-27T12:00:00",
+    "duration": "PT2H",
+    "location": "in the Function Room",
+    "description": "for junior cast (Must be existing members of the youth workshop)"
+  }, {
+    "datetime": "2026-09-27T14:30:00",
+    "duration": "PT2H30M",
+    "location": "in the Function Room",
+    "description": "for adult cast"
+  }],
+  "characters": [
+    {"grouping": "Main characters", "name": "NURSE HETTY HAIRSPRAY", "description": "The royal nanny (can be played as a dame)"},
+    {"grouping": "Main characters", "name": "WILLY WIDDLE", "description": "A royal lackey"},
+    {"grouping": "Main characters", "name": "RAPUNZEL", "description": "The girl with the magical hair"},
+    {"grouping": "Main characters", "name": "GOTHEL", "description": "An evil witch"},
+    {"grouping": "Main characters", "name": "PRINCE GEORGE", "description": "A dashing young royal"},
+    {"grouping": "Main characters", "name": "KING", "description": "Rapunzel’s father"},
+    {"grouping": "Main characters", "name": "QUEEN", "description": "Rapunzel’s mother"},
+    {"grouping": "Main characters", "name": "BALL", "description": "A comic villain"},
+    {"grouping": "Main characters", "name": "SOCKET", "description": "A comic villain"},
+    {"grouping": "Main characters", "name": "FAIRY WELL", "description": "A good fairy"},
+    {"grouping": "Main characters", "name": "FAIRY GOOD", "description": "A good fairy"},
+    {"grouping": "Main characters", "name": "FAIRY NUFF", "description": "A fairy with attitude,"},
+    {"grouping": "Supporting roles / Chorus", "name": "Mrs Hawkeye", "description": "Head of Neighbourhood Watch"},
+    {"grouping": "Supporting roles / Chorus", "name": "Ruby Robin", "description": "Rapunzel’s friends in the tower"},
+    {"grouping": "Supporting roles / Chorus", "name": "Nelly Nightingale", "description": "Rapunzel’s friends in the tower"},
+    {"grouping": "Supporting roles / Chorus", "name": "Penny Pigeon", "description": "Rapunzel’s friends in the tower"},
+    {"grouping": "Supporting roles / Chorus", "name": "Bonnie Bluebird", "description": "Rapunzel’s friends in the tower"},
+    {"grouping": "Supporting roles / Chorus", "name": "Connie Canary", "description": "Rapunzel’s friends in the tower"},
+    {"grouping": "Supporting roles / Chorus", "name": "Villagers"},
+    {"grouping": "Supporting roles / Chorus", "name": "Dancers"}
+  ]
+}

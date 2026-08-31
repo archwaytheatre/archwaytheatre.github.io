@@ -1,0 +1,16 @@
+{
+  "trailer" : false,
+  "director" : "Laura Day and Mandi Dunford",
+  "name" : [ null, "Rapunzel", null ],
+  "start" : "2027-01-15",
+  "end" : "2027-01-30",
+  "exclusions" : [ ],
+  "author" : null,
+  "timing" : {
+    "duration" : null,
+    "interval" : null
+  },
+  "ticketurl" : null,
+  "location" : "Main House",
+  "company" : "Archway Theatre"
+}
