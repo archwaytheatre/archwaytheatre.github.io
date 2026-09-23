@@ -6,8 +6,8 @@
   "exclusions" : [ ],
   "author" : "by Lucie Lovatt",
   "timing" : {
-    "duration" : null,
-    "interval" : null
+    "duration" : "PT2H20M",
+    "interval" : "PT20M"
   },
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/kill-thy-neighbour/e-joaldl",
   "end" : "2026-10-03",
