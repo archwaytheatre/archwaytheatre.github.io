@@ -7,5 +7,6 @@
   "timing" : null,
   "ticketurl" : "https://www.ticketsource.com/archwaytheatre/telling-tales/e-ljgokx",
   "end" : "2026-11-14",
-  "location" : "Studio Theatre"
+  "location" : "Studio Theatre",
+  "cancelled": true
 }
