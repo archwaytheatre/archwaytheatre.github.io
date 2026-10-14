@@ -1,6 +1,7 @@
 (ns io.github.archwaytheatre.site.programmes
   (:require ;[io.github.archwaytheatre.data.plays :as plays]
-            [io.github.archwaytheatre.site.core :as core]))
+    [io.github.archwaytheatre.data.plays :as plays]
+    [io.github.archwaytheatre.site.core :as core]))
 
 
 ;(defonce plays (plays/get-productions-for ...))
@@ -17,6 +18,19 @@
     [:img.programme-link__poster {:src "https://d35974u23x7pxe.cloudfront.net/2026/vocation1009/poster-scaled.png"}]]])
 
 
+(defn big-link [production-year production-code]
+  (let [prod-name (:name (plays/load-production-data production-year production-code))]
+    [:a.normal {:href (str "https://d35974u23x7pxe.cloudfront.net/2026/" production-code "/Programme.pdf")}
+     [:div
+      [:div.text-align-center (str prod-name " Digital Programme")]
+      [:br]
+      [:img.programme-link__poster {:src (str "https://d35974u23x7pxe.cloudfront.net/2026/" production-code "/poster-scaled.png")}]]]))
+
+(defn small-link [production-year production-code]
+  (let [prod-name (:name (plays/load-production-data production-year production-code))]
+    [:a.normal {:href (str "https://d35974u23x7pxe.cloudfront.net/2025/" production-code "/Programme.pdf")}
+     (str prod-name " Digital Programme")]))
+
 (core/page-2 "programmes" "Digital Programmes"
   [:div.content
 
@@ -29,7 +43,7 @@
      ; Just the one latest / current production goes here:
 
     [:div.current-programme
-     (programme-link "" "")]
+     (big-link 2026 "monkeyspaw")]
 
     ]
 
@@ -40,6 +54,8 @@
      ;; All past productions go here...
      ; todo: should have separate helper function to derive path from production name and create previous links
      ; todo: ORRRR.... have a page for each production! (the 'past' productions page!)
+
+     [:li (small-link 2026 "vocation1009")]
 
      [:li [:a.normal {:href "https://d35974u23x7pxe.cloudfront.net/2025/hogfather/Programme.pdf"}
            "Hogfather Digital Programme"]]
