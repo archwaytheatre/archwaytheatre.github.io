@@ -1,0 +1,27 @@
+{
+  "events": [{
+    "datetime": "2026-12-13T17:00:00",
+    "duration": "PT3H",
+    "location": "in the Function Room"
+  }],
+  "characters": [
+    {"grouping": "Larger roles", "name": "Berenger", "age": "25-40", "description": "The lazy, alienated, and heavy-drinking protagonist who resists conforming. But he is also strong willed and kind, the only character left human at the end of the play. Appears throughout the whole play."},
+    {"grouping": "Larger roles", "name": "Jean", "age": "30-45", "description": "Berenger’s arrogant, rational, and well-dressed friend who eventually transforms into a rhinoceros. Appears in 3 out of 4 scenes. Older than Berenger."},
+
+    {"grouping": "Medium size roles", "name": "Daisy", "age": "18+", "description": "Berenger’s love interest and an office coworker. Appears in 3 out of 4 scenes."},
+    {"grouping": "Medium size roles", "name": "Dudard", "age": "25+", "description": "An intellectual office coworker and rival for Daisy's affection. Appears in 2 scenes."},
+
+    {"grouping": "Office workers (could be doubled)", "name": "Botard", "age": "50+", "description": "A cynical, skeptical senior office worker."},
+    {"grouping": "Office workers (could be doubled)", "name": "Mr. Papillon", "age": "40+", "description": "The office head/boss."},
+    {"grouping": "Office workers (could be doubled)", "name": "Mrs. Bœuf", "description": "A devoted wife who jumps after her transformed husband."},
+
+    {"grouping": "Townspeople (could be doubled)", "name": "The Logician", "description": "A pedantic character who strictly trusts abstract logic."},
+    {"grouping": "Townspeople (could be doubled)", "name": "The old(er) gentleman (or Lady)", "description": "Polite and old fashioned"},
+    {"grouping": "Townspeople (could be doubled)", "name": "Grocer", "description": "Keen to do business"},
+    {"grouping": "Townspeople (could be doubled)", "name": "Grocer’s wife", "description": "A busybody and gossip"},
+    {"grouping": "Townspeople (could be doubled)", "name": "Housewife (and her beloved cat)", "description": "Distraught when her cat is hurt"},
+    {"grouping": "Townspeople (could be doubled)", "name": "Cafe owner", "description": "A tough boss"},
+    {"grouping": "Townspeople (could be doubled)", "name": "Waiter/ress", "description": "A sensible, efficient worker even when all around is madness"},
+    {"grouping": "Townspeople (could be doubled)", "name": "The firefighter", "description": "Non-speaking"}
+  ]
+}
