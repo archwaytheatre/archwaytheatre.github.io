@@ -1,0 +1,16 @@
+{
+  "trailer" : false,
+  "director" : "James Murtagh",
+  "name" : [ null, "Guards! Guards!", null ],
+  "start" : "2027-02-23",
+  "end" : "2027-03-06",
+  "exclusions" : [ ],
+  "author" : null,
+  "timing" : {
+    "duration" : null,
+    "interval" : null
+  },
+  "ticketurl" : null,
+  "location" : "Main House",
+  "company" : "Archway Theatre"
+}
