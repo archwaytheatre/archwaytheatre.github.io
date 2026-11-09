@@ -1,0 +1,10 @@
+{
+  "name" : [ "The", "Full Monty", null ],
+  "location" : "Main House",
+  "start" : "2027-12-07",
+  "end" : "2027-12-18",
+  "author" : "by Simon Beufoy",
+  "director" : "Milly O'Ryan",
+  "company" : "Archway Theatre",
+  "timing" : null
+}

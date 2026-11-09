@@ -6,5 +6,6 @@
   "author": "by John Wilson",
   "end" : "2026-11-28",
   "location" : "The Studio",
-  "company" : "Archway Theatre"
+  "company" : "Archway Theatre",
+  "cancelled" : true
 }
