@@ -1,0 +1,16 @@
+{
+  "events": [{
+    "datetime": "2027-01-31T16:00:00",
+    "duration": "PT4H",
+    "location": "in the Bar (& stage)"
+  }],
+  "characters": [
+    {"name": "Little Voice", "age": "20-25", "gender": "female", "description": "The central lead. Requires vocal versatility, the ability to switch between raw, stuttering shyness and flawless, powerful diva impersonations (Garland, Bassey, etc.) Vulnerable yet quietly strong, she struggles with confidence and the pressures of fame."},
+    {"name": "Mari Hoff", "age": "40-55", "gender": "female", "description": "Leading Role.  LV’s mother. Brassy, loud, desperate, abusive, and constantly drunk, yet possessing a tragic comedic desperation. Mari masks loneliness and insecurity beneath her brash personality."},
+    {"name": "Sadie", "age": "35-60", "gender": "female", "description": "Supporting Role. Mari’s friend and neighbour is quiet, downtrodden, and nervous who absorbs Mari's verbal abuse. Often acting as an observer of the unfolding drama."},
+    {"name": "Ray Say", "age": "40-60", "gender": "male", "description": "Leading Role. The roguish promoter. A fast-talking local talent agent and wheeler-dealer who sees commercial potential in LV’s talent. Charismatic, manipulative and ambitious.  slick car salesman who genuinely believes his own lies in the moment."},
+    {"name": "Billy", "age": "20-30", "gender": "male", "description": "Supporting role - A kind-hearted telephone engineer who develops a gentle connection with LV. Honest, awkward and sincere, he offers warmth and stability amid the chaos."},
+    {"name": "Mr Boo", "age": "40-65", "gender": "male", "description": "Supporting Role. An eccentric comic and endearing nightclub performer. He is warm, humorous and observant."},
+    {"name": "Telephone Engineer", "age": "40-65", "gender": "male", "description": "small role, in the opening scene, possible double with Mr Boo."}
+  ]
+}
