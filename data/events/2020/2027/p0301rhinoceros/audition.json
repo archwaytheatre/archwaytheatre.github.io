@@ -22,6 +22,8 @@
     {"grouping": "Townspeople (could be doubled)", "name": "Housewife (and her beloved cat)", "description": "Distraught when her cat is hurt"},
     {"grouping": "Townspeople (could be doubled)", "name": "Cafe owner", "description": "A tough boss"},
     {"grouping": "Townspeople (could be doubled)", "name": "Waiter/ress", "description": "A sensible, efficient worker even when all around is madness"},
-    {"grouping": "Townspeople (could be doubled)", "name": "The firefighter", "description": "Non-speaking"}
+    {"grouping": "Townspeople (could be doubled)", "name": "The firefighter", "description": "5 lines only"},
+
+    {"grouping": "Rhinoceros Chorus", "name": "Be a Rhinoceros!", "description": "No lines, second half of the play only. Some simple accessible dance (rhythmic movement), stamping and kazoos."}
   ]
 }
