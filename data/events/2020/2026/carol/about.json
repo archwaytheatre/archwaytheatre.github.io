@@ -7,5 +7,6 @@
   "ticketurl" : "https://www.ticketsource.co.uk/archwaytheatre/a-christmas-carol/e-yjdmgx",
   "end" : "2026-12-12",
   "location" : "Main House",
-  "company" : "Archway Theatre"
+  "company" : "Archway Theatre",
+  "soldout" : true
 }
